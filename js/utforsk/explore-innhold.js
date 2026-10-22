@@ -17,7 +17,6 @@ import { guideDeler, guideForStudent } from "../felles/guide-deler.js";
 import { guideDelSynlig } from "../felles/feature-flags.js";
 import { genreFamilyNodes } from "../ui/ui-timeline.js";
 import { wireLinks } from "../ui/ui-helpers.js";
-import { renderSjangerhimmel } from "../sjangre/constellation.js";
 import { buildLinkCtx, injectTeacherRow, onMainGenreClick } from "./explore-context.js";
 import { opts, getState } from "../data/app-state.js";
 import { openMetaOversikt } from "./explore-metaoversikt.js";
@@ -224,9 +223,11 @@ export function openHistorier(genre) {
 // Sjangerhimmelen: konstellasjonskartet rendres på nytt ved hver åpning (samme
 // mønster som kartet), så det alltid speiler gjeldende artistdata. Artist- og
 // sjangerklikk åpner de vanlige modalene OPPÅ himmelen — ← går tilbake hit.
-export function openSjangerhimmel() {
+// Selve tegningen (constellation.js, 26 kB) lastes når himmelen åpnes (v7.14).
+export async function openSjangerhimmel() {
   const modal = document.getElementById("modal-sjangerhimmel");
   if (!modal) return;
+  const { renderSjangerhimmel } = await import("../sjangre/constellation.js");
   renderSjangerhimmel(document.getElementById("sh-body"), getState().artists.filter(isVisible), {
     onArtistClick: opts.onArtistClick,
     onGenreClick: onMainGenreClick,
