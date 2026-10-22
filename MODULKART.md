@@ -180,6 +180,7 @@ Firestore (store.js er den eneste fila som snakker med databasen), den delte dat
 | `artist-cache.js` | ARTIST-CACHE — delt localStorage-lag for artistlista |
 | `artist-normalize.js` | ARTIST-NORMALISERING — ren datalogikk, uten Firebase-avhengigheter |
 | `artist-schema.js` | ARTIST-SKJEMA — én sannhetskilde for artistfeltene |
+| `emulator.js` | EMULATORBRYTEREN — appen mot Firebase-emulatoren i nettlesertestene (v7.13) |
 | `import-format.js` | IMPORT-FORMAT — ren parselogikk for JSON-filene |
 | `shared-data.js` | DELT DATAROT — alle sider abonnerer på de delte samlingene herfra |
 | `shared.js` | DELTE HJELPERE — brukes av alle sider |
