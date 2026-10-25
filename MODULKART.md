@@ -98,6 +98,9 @@ Presentasjonsvisningen på lerretet, kjøreplanene og Visning-vinduet bak presen
 
 | Fil | Hva den gjør |
 |---|---|
+| `gjennomgang-modell.js` | GRUPPENE OG DET SOM ER GÅTT GJENNOM (v7.15), den rene delen |
+| `gjennomgang.js` | GÅTT GJENNOM — oversikten for en gruppe av planer (v7.15) |
+| `lagre-time.js` | LAGRE SOM TIME (v7.15) |
 | `lerret.js` | LERRET PÅ ANNEN SKJERM (v6.50, brukerbestilling 2026-10-07) |
 | `paminnelser.js` | PÅMINNELSER I VISNINGEN (v6.70, brukerbestilling 2026-10-11) |
 | `plan-innsamling.js` | SAMLEØKT — to måter å bygge en kjøreplan mens man bruker appen (v5.27) |
@@ -113,6 +116,8 @@ Presentasjonsvisningen på lerretet, kjøreplanene og Visning-vinduet bak presen
 | `slides.js` | SLIDES — kjøring: abonnement og lagring (v7.06) |
 | `stopp-etikett.js` | STOPP-ETIKETT — menneskelig navn på et kjøreplan-stopp (v5.75) |
 | `visning.js` | VISNING — vinduet bak presentasjonsikonet (v5.41) |
+| `visningskopi-modell.js` | SIKKERHETSKOPI AV VISNINGEN (v7.15), den rene delen |
+| `visningskopi.js` | SIKKERHETSKOPI AV VISNINGEN (v7.15), kjøringen |
 
 ## `js/laerer/` Lærersiden
 
