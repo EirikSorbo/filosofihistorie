@@ -29,6 +29,10 @@ import { INSTRUMENTS } from "../felles/limits.js";
 import { validateArtistsForImport, normalizeImportFile, CONTENT_KEYS, erDelpost } from "../data/import-format.js";
 import { melding, bekreft, sporTekst } from "../ui/ui-modal.js";
 import { sjekkerEndretAvImport, sjekkerUten } from "../data/sjekket-filter.js";
+import { erKopiNokkel } from "../visning/visningskopi-modell.js";
+
+// Notatene uten sikkerhetskopiene av visningene (se exportData).
+const utenKopier = (notater) => Object.fromEntries(Object.entries(notater || {}).filter(([k]) => !erKopiNokkel(k)));
 
 // Feltlister og etiketter kommer fra det delte artist-skjemaet.
 const EXPORT_FIELDS = ARTIST_EXPORT_FIELDS;
@@ -207,7 +211,11 @@ function buildExportData() {
   // Lærerens private notater til kortene (v6.50, egen samling bare læreren
   // leser). Uten dem ville en gjenoppretting mistet alt som er skrevet til
   // timene.
-  if (Object.keys(state.notater || {}).length) out.notater = state.notater;
+  // Sikkerhetskopiene av visningene (visning:<økt>, v7.15) er ikke med: en
+  // gammel eksport importert senere ville ellers spurt om visninger som alt er
+  // lagret eller forkastet (kontrollrunden 2026-10-29).
+  const notater = utenKopier(state.notater);
+  if (Object.keys(notater).length) out.notater = notater;
   return out;
 }
 
@@ -332,7 +340,7 @@ function importParts(data) {
   if (Array.isArray(data.referanser?.kilder) && data.referanser.kilder.length) parts.push(`${data.referanser.kilder.length} frittstående referanser`);
   const planAntall = Object.keys(normaliserPlaner(data.presentasjoner?.planer)).length;
   if (planAntall) parts.push(`${planAntall} kjøreplan(er) (legges til eller erstatter planen med samme id, du får se lista først)`);
-  const notatAntall = Object.keys(data.notater || {}).length;
+  const notatAntall = Object.keys(utenKopier(data.notater)).length;
   if (notatAntall) parts.push(`${notatAntall} private notater (erstatter notatet til samme kort)`);
   if (Array.isArray(data.genealogy?.nodes) && data.genealogy.nodes.length) {
     const rom = Array.isArray(data.genealogy.tidsrom) ? data.genealogy.tidsrom.length : 0;
@@ -585,7 +593,7 @@ async function importExtras({ pages, referanser, teacherChecks, genealogy, prese
     try {
       let n = 0;
       for (const [nokkel, v] of Object.entries(notater)) {
-        if (!nokkel || nokkel.includes("/") || typeof v?.tekst !== "string" || !v.tekst.trim()) continue;
+        if (!nokkel || nokkel.includes("/") || erKopiNokkel(nokkel) || typeof v?.tekst !== "string" || !v.tekst.trim()) continue;
         await lagreNotat(nokkel, v.tekst);
         n++;
       }
