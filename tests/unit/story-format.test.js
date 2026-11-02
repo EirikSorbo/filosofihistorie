@@ -38,8 +38,8 @@ test("pageFor: kilder følger med, og er alltid en liste", () => {
 });
 
 test("STORY_ORDER er appens ene retnings-rekkefølge (reserven før treet er lastet)", () => {
-  // Samme rekkefølge som retningene i skjelettet (tools/pedagogikk-skjelett.js).
-  assert.deepEqual(STORY_ORDER, ["Klassisk dannelse", "Kristen oppdragelse", "Empiri og metode", "Skolen for alle", "Barnet i sentrum", "Erfaring og demokrati", "Læring og utvikling", "Kritikk og frigjøring"]);
+  // Samme rekkefølge som retningene i skjelettet (tools/filosofi-skjelett.js).
+  assert.deepEqual(STORY_ORDER, ["Natur og erfaring", "Fornuft og idé", "Det gode liv", "Tro og fornuft", "Samfunn og makt", "Eksistens og tolkning", "Logikk og analyse", "Andre tradisjoner"]);
   assert.deepEqual(STORY_SKJULT, []);
 });
 

@@ -9,8 +9,8 @@ const tre = skjelettTre();
 
 const teoretiker = (over = {}) => ({
   name: "John Dewey", birthYear: 1859, deathYear: 1952, gender: "mann",
-  metaGenre: "Erfaring og demokrati", instrument: "Etikk",
-  mainGenre: ["Progressivismen"], subGenre: ["Læring gjennom erfaring"],
+  metaGenre: "Natur og erfaring", instrument: "Etikk",
+  mainGenre: ["Pragmatismen"], subGenre: ["Erfaring"],
   influenceStart: 1896, influenceEnd: 1952,
   description: "Amerikansk filosof og pedagog.",
   keyWorks: [{ title: "Democracy and Education", year: 1916 }],
@@ -22,12 +22,12 @@ const gyldig = () => ({
   formatVersion: 1,
   artists: [teoretiker()],
   genreDescriptions: {
-    meta: { "Erfaring og demokrati": { story: { body: "Fortellingen." } } },
-    main: { Progressivismen: { main: { description: "Epokens tekst.", samfunn: "x", skole: "y", activeFrom: 1896, activeTo: 1955 } } },
-    sub: { "Læring gjennom erfaring": { sub: { description: "Prinsippets tekst.",
+    meta: { "Natur og erfaring": { story: { body: "Fortellingen." } } },
+    main: { Pragmatismen: { main: { description: "Epokens tekst.", samfunn: "x", skole: "y", activeFrom: 1896, activeTo: 1955 } } },
+    sub: { "Erfaring": { sub: { description: "Prinsippets tekst.",
       seOgLes: [{ tittel: "Utdrag", kilde: "Dewey (1938)", tekst: "Kort." }, { tittel: "Video", url: "https://www.youtube.com/watch?v=abc" }] } } },
   },
-  edgeDescriptions: { pragmatisme__progressivisme: { description: "Dewey bygde videre." } },
+  edgeDescriptions: { empirismen__pragmatismen: { description: "Dewey bygde videre." } },
   tech: [{ name: "Almueskoleloven av 1860", category: "Institusjon", type: "innovasjon", inventedYear: 1860, description: "Lov." }],
 });
 
@@ -47,7 +47,7 @@ test("en fil uten innhold kjennes ikke igjen", () => {
 test("teoretikere: ukjent epoke, retning og fagbakgrunn, manglende kilder og dobbelt navn", () => {
   const f = (over) => ({ artists: [teoretiker(over)] });
   assert.ok(harFeil(f({ mainGenre: ["Progressivisme"] }), /epoken «Progressivisme» finnes ikke/));
-  assert.ok(harFeil(f({ mainGenre: ["progressivisme"] }), /bruk etiketten, ikke id-en|finnes ikke/));
+  assert.ok(harFeil(f({ mainGenre: ["pragmatismen"] }), /bruk etiketten, ikke id-en|finnes ikke/));
   assert.ok(harFeil(f({ metaGenre: "Blues" }), /retningen «Blues» finnes ikke/));
   assert.ok(harFeil(f({ instrument: "Gitar" }), /disiplinen «Gitar»/));
   assert.ok(harFeil(f({ instrument2: "Vokal" }), /disiplin 2/));
@@ -63,7 +63,7 @@ test("teoretikere: ukjent epoke, retning og fagbakgrunn, manglende kilder og dob
 test("år før Kristus er gyldige, og tekst som årstall er feil", () => {
   const f = (over) => ({ artists: [teoretiker(over)] });
   assert.deepEqual(feilFor(f({ name: "Sokrates", birthYear: -470, deathYear: -399, influenceStart: -430, influenceEnd: -399,
-    metaGenre: "Klassisk dannelse", instrument: "Etikk", mainGenre: ["Gresk paideia"], subGenre: [] })), []);
+    metaGenre: "Fornuft og idé", instrument: "Etikk", mainGenre: ["Platonismen"], subGenre: [] })), []);
   assert.ok(harFeil(f({ birthYear: "1859x" }), /birthYear.*ikke et årstall/));
 });
 
@@ -80,7 +80,7 @@ test("beskrivelser: retning og epoke må finnes i treet, og navn kan ikke ha skr
 
 test("Se og les: utdrag uten kilde, post uten tittel, lenke som ikke er http(s) og for lange utdrag", () => {
   const g = gyldig();
-  g.genreDescriptions.sub["Læring gjennom erfaring"].sub.seOgLes = [
+  g.genreDescriptions.sub["Erfaring"].sub.seOgLes = [
     { tittel: "Uten kilde", tekst: "Sitat." },
     { url: "https://x.no" },
     { tittel: "Dårlig lenke", url: "ftp://x.no" },
@@ -96,16 +96,16 @@ test("Se og les: utdrag uten kilde, post uten tittel, lenke som ikke er http(s) 
 test("påvirkninger må finnes som strek i treet, med id-er", () => {
   const g = gyldig();
   g.edgeDescriptions = {
-    pragmatisme__prosjekt: { description: "x" },       // ingen strek
-    Pragmatismen__Progressivismen: { description: "x" }, // etiketter, ikke id-er
+    empirismen__naturalismen: { description: "x" },       // ingen strek
+    Pragmatismen__Naturalismen: { description: "x" }, // etiketter, ikke id-er
     bare_en: { description: "x" },
   };
   const feil = feilFor(g);
-  assert.ok(feil.some((m) => /pragmatisme__prosjekt.*ingen strek/.test(m)));
-  assert.ok(feil.some((m) => /Pragmatismen__Progressivismen.*ukjent epoke-id/.test(m)));
+  assert.ok(feil.some((m) => /empirismen__naturalismen.*ingen strek/.test(m)));
+  assert.ok(feil.some((m) => /Pragmatismen__Naturalismen.*ukjent epoke-id/.test(m)));
   assert.ok(feil.some((m) => /bare_en.*fra__til/.test(m)));
   // Motreaksjoner (rx) er også streker.
-  assert.deepEqual(feilFor({ ...gyldig(), edgeDescriptions: { herbartianisme__progressivisme: { description: "x" } } }), []);
+  assert.deepEqual(feilFor({ ...gyldig(), edgeDescriptions: { rasjonalismen__empirismen: { description: "x" } } }), []);
 });
 
 test("reformer: kategori, type og årstall", () => {
@@ -122,11 +122,11 @@ test("reformer: kategori, type og årstall", () => {
 test("advarsler: prinsipp uten tekst, manglende samfunn/skole, ordgrenser og ukjent toppnøkkel", () => {
   const g = gyldig();
   delete g.genreDescriptions.sub;
-  g.genreDescriptions.main.Progressivismen.main = { description: "kort" };
+  g.genreDescriptions.main.Pragmatismen.main = { description: "kort" };
   g.podcasts = [];
   const { feil, advarsler } = sjekkInnholdsfil(g, tre);
   assert.deepEqual(feil, []);
-  assert.ok(advarsler.some((m) => /Læring gjennom erfaring.*ingen felles tekst/.test(m)));
+  assert.ok(advarsler.some((m) => /Erfaring.*ingen felles tekst/.test(m)));
   assert.ok(advarsler.some((m) => /mangler «samfunn»/.test(m)));
   assert.ok(advarsler.some((m) => /mangler «skole»/.test(m)));
   assert.ok(advarsler.some((m) => /under \d+/.test(m)));
@@ -137,7 +137,7 @@ test("prinsipper fra tidligere runder gir ikke advarsel", () => {
   const g = gyldig();
   delete g.genreDescriptions.sub;
   const uten = sjekkInnholdsfil(g, tre).advarsler.filter((m) => /ingen felles tekst/.test(m));
-  const med = sjekkInnholdsfil(g, tre, { kjentePrinsipper: ["Læring gjennom erfaring"] }).advarsler.filter((m) => /ingen felles tekst/.test(m));
+  const med = sjekkInnholdsfil(g, tre, { kjentePrinsipper: ["Erfaring"] }).advarsler.filter((m) => /ingen felles tekst/.test(m));
   assert.equal(uten.length, 1);
   assert.equal(med.length, 0);
 });

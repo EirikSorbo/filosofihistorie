@@ -30,7 +30,7 @@ import { metaOversiktKnappHtml } from "../ui/ui-metagruppe.js";
 // egen fordeling ga ujevne spalter; tidsrekkefølgen i treet gir de to og to.
 // En retning som ikke står her (en ny i treet), legges i den
 // spalten som har færrest rader, så den aldri forsvinner.
-const SPALTER = [["Klassisk dannelse", "Kristen oppdragelse"], ["Empiri og metode", "Skolen for alle"], ["Barnet i sentrum", "Erfaring og demokrati"], ["Læring og utvikling", "Kritikk og frigjøring"]];
+const SPALTER = [["Natur og erfaring", "Logikk og analyse"], ["Fornuft og idé", "Tro og fornuft"], ["Det gode liv", "Samfunn og makt"], ["Eksistens og tolkning", "Andre tradisjoner"]];
 
 export function iSpalter(grupper, antallRader) {
   const spalter = SPALTER.map((navn) => navn.map((m) => grupper.find((g) => g.meta === m)).filter(Boolean));

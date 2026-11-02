@@ -27,7 +27,7 @@ Appen er kopiert fra musikkhistorie-appen, og kode, filnavn og databasenøkler b
 {
   "formatVersion":     1,
   "artists":           [ /* teoretikere */ ],
-  "genreDescriptions": { "meta": { "Erfaring og demokrati": { ... } }, "main": { "Progressivismen": { ... } }, "sub": { "Læring gjennom erfaring": { ... } } },
+  "genreDescriptions": { "meta": { "Natur og erfaring": { ... } }, "main": { "Pragmatismen": { ... } }, "sub": { "Læring gjennom erfaring": { ... } } },
   "edgeDescriptions":  { "pragmatisme__progressivisme": { "description": "...", "kilder": [ ... ] } },
   "tech":              [ /* reformer og milepæler */ ],
   "pages":             { "omHistorie": { "body": "..." }, "appGuide": { ... } },
@@ -69,20 +69,21 @@ Config-samlingen er borte: fagbakgrunnene er en konstant i `js/felles/limits.js`
   "birthYear": 1859,
   "deathYear": 1952,
   "gender": "mann",
-  "metaGenre": "Erfaring og demokrati",
-  "instrument": "Etikk",
-  "mainGenre": ["Pragmatismen", "Progressivismen"],
-  "subGenre": ["Læring gjennom erfaring"],
+  "metaGenre": "Natur og erfaring",
+  "instrument": "Erkjennelsesteori",
+  "instrument2": "Politisk filosofi",
+  "mainGenre": ["Pragmatismen"],
+  "subGenre": ["Erfaring"],
   "influenceStart": 1896,
   "influenceEnd": 1952,
   "geography": "Chicago og New York",
-  "description": "Amerikansk filosof og pedagog som ville gjøre skolen til et samfunn i miniatyr: barnet lærer ved å gjøre og reflektere, og demokratiet må øves der.",
+  "description": "Amerikansk filosof som så kunnskap som et redskap for å løse problemer, og demokratiet som en levemåte som må øves.",
   "keyWorks": [
     { "title": "Democracy and Education", "year": 1916 },
-    { "title": "Experience and Education", "year": 1938 }
+    { "title": "Experience and Nature", "year": 1925 }
   ],
   "kilder": [
-    { "text": "Store norske leksikon: John Dewey", "url": "https://snl.no/John_Dewey", "kategori": "Nettsteder" }
+    { "text": "Stanford Encyclopedia of Philosophy.", "url": "https://plato.stanford.edu/entries/dewey/", "kategori": "Nettsteder" }
   ],
   "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/...",
   "imageCredit": "Fotograf / lisens, via Wikimedia Commons",
@@ -175,7 +176,7 @@ Nestet i tre bolker etter TYPE — samme inndeling som lærerens Skrivebord:
 
 | Bolk | Innhold |
 |---|---|
-| `meta` | Retningene (de åtte i skjelettet: Klassisk dannelse, Kristen oppdragelse, Empiri og metode, Skolen for alle, Barnet i sentrum, Erfaring og demokrati, Læring og utvikling, Kritikk og frigjøring). |
+| `meta` | Retningene (de åtte i skjelettet: Natur og erfaring, Fornuft og idé, Det gode liv, Tro og fornuft, Samfunn og makt, Eksistens og tolkning, Logikk og analyse, Andre tradisjoner). |
 | `main` | Epokene (nodene i treet som ikke også er en retning). |
 | `sub` | De pedagogiske prinsippene (frie navn). |
 
@@ -184,21 +185,21 @@ Hvert navn står ÉN gang, i bolken som matcher typen. Verdien er hele dokumente
 ```json
 "genreDescriptions": {
   "meta": {
-    "Erfaring og demokrati": {
-      "meta": { "description": "Retningens beskrivelse.", "kilder": [ { "text": "Dewey, J. Democracy and Education. Macmillan, 1916." } ] },
+    "Natur og erfaring": {
+      "meta": { "description": "Retningens beskrivelse.", "kilder": [ { "text": "Dewey, J. Experience and Nature. Open Court, 1925." } ] },
       "story": { "body": "Fortellingen om retningen, skrevet som sammenhengende tekst." }
     }
   },
   "main": {
-    "Progressivismen": {
+    "Pragmatismen": {
       "main": {
         "description": "Epokens beskrivelse.",
-        "activeFrom": 1896,
-        "activeTo": 1955,
-        "era": "ca. 1896–1955",
-        "samfunn": "Industrialisering, innvandring og byvekst i USA.",
-        "skole": "Laboratorieskolen i Chicago, prosjektarbeid og elevaktive arbeidsmåter.",
-        "kilder": [ { "text": "Store norske leksikon.", "url": "https://snl.no/progressivisme" } ]
+        "activeFrom": 1878,
+        "activeTo": 1950,
+        "era": "1878–ca. 1950",
+        "samfunn": "Industrialisering, innvandring og byvekst i USA etter borgerkrigen.",
+        "skole": "Darwins evolusjonslære, den nye psykologien og det moderne amerikanske universitetet.",
+        "kilder": [ { "text": "Stanford Encyclopedia of Philosophy.", "url": "https://plato.stanford.edu/entries/pragmatism/" } ]
       }
     }
   },
@@ -289,16 +290,16 @@ Epokene er nodene i treet, retningene gir farge og kolonne, og radene er tidsrom
 {
   "version": 2,
   "nodes": [
-    { "id": "pragmatisme", "l": "Pragmatismen", "f": "Pragmatismen", "g": "Erfaring og demokrati", "r": 9, "p": ["empirisme"] },
-    { "id": "progressivisme", "l": "Progressivismen", "f": "Dewey og progressivismen", "g": "Erfaring og demokrati", "r": 10, "p": ["pragmatisme"], "rx": ["herbartianisme"] }
+    { "id": "empirismen", "l": "Britisk empirisme", "f": "Den britiske empirismen", "g": "Natur og erfaring", "r": 9, "p": ["nyvitenskap"], "rx": ["rasjonalismen"] },
+    { "id": "pragmatismen", "l": "Pragmatismen", "f": "Pragmatismen", "g": "Natur og erfaring", "r": 12, "p": ["empirismen", "kantianismen"] }
   ],
   "tidsrom": [
-    { "fra": -800, "til": -150, "etikett": "ca. 800–150 f.Kr.", "navn": "Antikkens Hellas" },
-    { "fra": 2010, "til": null }
+    { "fra": -800, "til": -450, "etikett": "ca. 800–450 f.Kr.", "navn": "Aksetiden" },
+    { "fra": 2000, "til": null }
   ],
-  "metaGenres": [ { "name": "Erfaring og demokrati", "column": 5, "fam": "rosa", "color": "#db2777" } ],
-  "families": { "rosa": { "stroke": "#db2777", "label": "Rosa" } },
-  "metaOrderHint": [ "Klassisk dannelse", "Kristen oppdragelse" ]
+  "metaGenres": [ { "name": "Natur og erfaring", "column": 2, "fam": "blaa", "color": "#3b82f6" } ],
+  "families": { "blaa": { "stroke": "#3b82f6", "label": "Blå" } },
+  "metaOrderHint": [ "Natur og erfaring", "Fornuft og idé" ]
 }
 ```
 
@@ -383,24 +384,25 @@ Formateringen skjer ved visning; det som lagres i Firestore og i denne fila er t
 {
   "artists": [
     {
-      "name": "Johann Heinrich Pestalozzi",
-      "birthYear": 1746,
-      "deathYear": 1827,
+      "name": "Immanuel Kant",
+      "birthYear": 1724,
+      "deathYear": 1804,
       "gender": "mann",
-      "metaGenre": "Barnet i sentrum",
-      "instrument": "Etikk",
-      "mainGenre": ["Anskuelsespedagogikken"],
-      "subGenre": ["Anskuelse"],
-      "influenceStart": 1774,
-      "influenceEnd": 1827,
-      "geography": "Sveits",
-      "description": "Sveitsisk skolemann som ville la barnet lære gjennom egne sanseinntrykk, og som drev skole for fattige barn.",
+      "metaGenre": "Fornuft og idé",
+      "instrument": "Erkjennelsesteori",
+      "instrument2": "Etikk",
+      "mainGenre": ["Kantianismen"],
+      "subGenre": ["Det kategoriske imperativ"],
+      "influenceStart": 1781,
+      "influenceEnd": 1804,
+      "geography": "Königsberg",
+      "description": "Tysk filosof som ville forene rasjonalismen og empirismen, og som grunnla moralen i fornuften.",
       "keyWorks": [
-        { "title": "Lienhard und Gertrud", "year": 1781 },
-        { "title": "Wie Gertrud ihre Kinder lehrt", "year": 1801 }
+        { "title": "Kritikk av den rene fornuft", "year": 1781 },
+        { "title": "Grunnlegging av moralens metafysikk", "year": 1785 }
       ],
       "kilder": [
-        { "text": "Store norske leksikon.", "url": "https://snl.no/Johann_Heinrich_Pestalozzi", "kategori": "Nettsteder" }
+        { "text": "Stanford Encyclopedia of Philosophy.", "url": "https://plato.stanford.edu/entries/kant/", "kategori": "Nettsteder" }
       ],
       "status": "active",
       "priority": 3,
@@ -409,19 +411,19 @@ Formateringen skjer ved visning; det som lagres i Firestore og i denne fila er t
   ],
   "genreDescriptions": {
     "main": {
-      "Anskuelsespedagogikken": {
+      "Kantianismen": {
         "main": {
-          "description": "Undervisning som starter i det barnet kan se, ta på og erfare.",
-          "activeFrom": 1780,
-          "activeTo": 1850,
-          "samfunn": "Opplysningstidens tro på oppdragelse og en voksende folkeopplysning.",
-          "skole": "Anskuelsesundervisning og sansetrening i de nye allmueskolene."
+          "description": "Filosofien som undersøker hva fornuften selv kan vite og kreve.",
+          "activeFrom": 1781,
+          "activeTo": 1804,
+          "samfunn": "Opplyst enevelde i Preussen og den franske revolusjonen.",
+          "skole": "Newtons fysikk som kunnskapsideal og universitetene som ramme for filosofien."
         }
       }
     },
     "sub": {
-      "Anskuelse": {
-        "sub": { "description": "At undervisningen bygger på konkrete inntrykk før begreper." }
+      "Det kategoriske imperativ": {
+        "sub": { "description": "Kants moralske grunnlov: handle bare etter den regelen du kan ville skal gjelde for alle." }
       }
     }
   }

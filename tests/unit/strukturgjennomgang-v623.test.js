@@ -83,14 +83,14 @@ test("spillAlleHtml: én del, duplikater spilles én gang, og under to videoer i
 // ---------------------------------------------------------------------------
 test("iSpalter: faste spalter med to retninger i hver, og en ukjent retning i den korteste", () => {
   const g = (meta, n) => ({ meta, n });
-  const grupper = ["Klassisk dannelse", "Kristen oppdragelse", "Empiri og metode", "Skolen for alle", "Barnet i sentrum",
-    "Erfaring og demokrati", "Læring og utvikling", "Kritikk og frigjøring"]
-    .map((m) => g(m, { "Klassisk dannelse": 11, "Skolen for alle": 9 }[m] || 3)).concat(g("Ny", 2));
+  const grupper = ["Natur og erfaring", "Logikk og analyse", "Fornuft og idé", "Tro og fornuft", "Det gode liv",
+    "Samfunn og makt", "Eksistens og tolkning", "Andre tradisjoner"]
+    .map((m) => g(m, { "Natur og erfaring": 11, "Fornuft og idé": 9 }[m] || 3)).concat(g("Ny", 2));
   const sp = iSpalter(grupper, (x) => x.n).map((s) => s.map((x) => x.meta));
-  assert.deepEqual(sp, [["Klassisk dannelse", "Kristen oppdragelse"], ["Empiri og metode", "Skolen for alle"],
-    ["Barnet i sentrum", "Erfaring og demokrati", "Ny"], ["Læring og utvikling", "Kritikk og frigjøring"]],
+  assert.deepEqual(sp, [["Natur og erfaring", "Logikk og analyse"], ["Fornuft og idé", "Tro og fornuft"],
+    ["Det gode liv", "Samfunn og makt", "Ny"], ["Eksistens og tolkning", "Andre tradisjoner"]],
     "den korteste spalten tar imot den nye");
-  assert.deepEqual(iSpalter([g("Klassisk dannelse", 4)], (x) => x.n).map((s) => s.map((x) => x.meta)), [["Klassisk dannelse"], [], [], []],
+  assert.deepEqual(iSpalter([g("Natur og erfaring", 4)], (x) => x.n).map((s) => s.map((x) => x.meta)), [["Natur og erfaring"], [], [], []],
     "metasjangre uten noder står ikke med, og spaltene beholder plassen");
 });
 

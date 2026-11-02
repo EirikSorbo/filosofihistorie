@@ -1,4 +1,4 @@
-// Pedagogikkens eget tre (fase 1 og 2) og eksemplene i JSON-OPPSKRIFT.md.
+// Filosofiens eget tre (steg 6) og eksemplene i JSON-OPPSKRIFT.md.
 // De andre testene låser FORMLENE mot musikkappens frø (tests/helpers/seed-model.js);
 // denne låser det nye innholdet: skjelettet Eirik importerer på lærersiden, og at
 // eksemplene i oppskriften faktisk lar seg importere. Treet bygges fra kilden i
@@ -27,12 +27,12 @@ test("skjelettet er et gyldig tre uten feil", () => {
   assert.deepEqual(sjekkTidsrom(tre.tidsrom, tre.nodes).filter((p) => p.nivå === "feil"), []);
 });
 
-test("skjelettet har vedtatt størrelse: 8 retninger, 45 epoker, 16 tidsrom, 55 påvirkninger og 8 motreaksjoner", () => {
+test("skjelettet har foreslått størrelse: 8 retninger, 78 epoker, 17 tidsrom, 122 påvirkninger og 22 motreaksjoner", () => {
   assert.equal(tre.metaGenres.length, 8);
-  assert.equal(tre.nodes.length, 45);
-  assert.equal(tre.tidsrom.length, 16);
-  assert.equal(tre.nodes.reduce((n, e) => n + e.p.length, 0), 55);
-  assert.equal(tre.nodes.reduce((n, e) => n + (e.rx || []).length, 0), 8);
+  assert.equal(tre.nodes.length, 78);
+  assert.equal(tre.tidsrom.length, 17);
+  assert.equal(tre.nodes.reduce((n, e) => n + e.p.length, 0), 122);
+  assert.equal(tre.nodes.reduce((n, e) => n + (e.rx || []).length, 0), 22);
 });
 
 test("hver epoke hører til en retning, står i et tidsrom og påvirkes bare bakover i tid", () => {
@@ -50,9 +50,9 @@ test("hver epoke hører til en retning, står i et tidsrom og påvirkes bare bak
 
 test("appens modell tar imot treet: ingen røtter, alle epoker kan tagges og har x-posisjon", () => {
   rebuild(tre);
-  assert.equal(GENEALOGY_ROOT_GENRES.length, 0, "røtter kan ikke tagges på teoretikere");
-  assert.equal(GENEALOGY_MAIN_GENRES.length, 45);
-  assert.equal(TIDSROM.length, 16);
+  assert.equal(GENEALOGY_ROOT_GENRES.length, 0, "røtter kan ikke tagges på filosofer");
+  assert.equal(GENEALOGY_MAIN_GENRES.length, 78);
+  assert.equal(TIDSROM.length, 17);
   for (const n of tre.nodes) assert.ok(Number.isFinite(layoutX(n.id)), `${n.id} mangler x-posisjon`);
 });
 
@@ -63,9 +63,9 @@ test("tidsrommene starter før Kristus og slutter åpent «til i dag»", () => {
 });
 
 // Den genererte fila ligger bare lokalt; på GitHub hoppes testen over.
-test("json files/pedagogikk-skjelett.json er i takt med kilden i tools/", { skip: fil ? false : "fila er utenfor git" }, () => {
+test("json files/filosofi-skjelett.json er i takt med kilden i tools/", { skip: fil ? false : "fila er utenfor git" }, () => {
   assert.equal(fil.formatVersion, 1);
-  assert.deepEqual(fil.genealogy, tre, "kjør node tools/lag-pedagogikk-skjelett.js på nytt");
+  assert.deepEqual(fil.genealogy, tre, "kjør node tools/lag-filosofi-skjelett.js på nytt");
 });
 
 // ---------------------------------------------------------------------------
@@ -83,7 +83,7 @@ const blokkMed = (tekst) => {
 const retninger = new Set(tre.metaGenres.map((m) => m.name));
 const epokeEtiketter = new Set(tre.nodes.map((n) => n.l));
 
-function sjekkTeoretiker(a) {
+function sjekkFilosof(a) {
   assert.ok(retninger.has(a.metaGenre), `retningen «${a.metaGenre}» finnes ikke i treet`);
   assert.ok(INSTRUMENTS.includes(a.instrument), `disiplinen «${a.instrument}» finnes ikke`);
   assert.ok(GENDERS.some((g) => g.value === a.gender), `kjønnet «${a.gender}» finnes ikke`);
@@ -91,23 +91,23 @@ function sjekkTeoretiker(a) {
   assert.ok(Array.isArray(a.kilder) && a.kilder.length, "kilder er påkrevd");
 }
 
-test("teoretikereksempelet i oppskriften er en gyldig import", () => {
+test("filosofeksempelet i oppskriften er en gyldig import", () => {
   const dewey = blokkMed('"name": "John Dewey"');
-  sjekkTeoretiker(dewey);
+  sjekkFilosof(dewey);
   assert.deepEqual(validateArtistsForImport([dewey]).errors, []);
 });
 
-test("mini-fila i oppskriften kjennes igjen av importen og har gyldige teoretikere", () => {
-  const fil = blokkMed('"name": "Johann Heinrich Pestalozzi"');
+test("mini-fila i oppskriften kjennes igjen av importen og har gyldige filosofer", () => {
+  const fil = blokkMed('"name": "Immanuel Kant"');
   const d = normalizeImportFile(fil);
   assert.ok(d, "fila ble ikke gjenkjent");
   assert.equal(d.artists.length, 1);
   assert.deepEqual(validateArtistsForImport(d.artists).errors, []);
-  d.artists.forEach(sjekkTeoretiker);
+  d.artists.forEach(sjekkFilosof);
   // Beskrivelsene flates ut til { navn: dokument }, og begge nivåene er med.
   const flat = flattenGenreDescriptions(d.genreDescriptions);
-  assert.ok(flat["Anskuelsespedagogikken"].main.description);
-  assert.ok(flat["Anskuelse"].sub.description);
+  assert.ok(flat["Kantianismen"].main.description);
+  assert.ok(flat["Det kategoriske imperativ"].sub.description);
 });
 
 test("toppnivået i oppskriften bruker bare nøkler importen kjenner", () => {

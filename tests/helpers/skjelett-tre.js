@@ -1,16 +1,16 @@
 // ============================================================================
-//  TESTHJELPER — pedagogikkens tre bygd fra kilden i tools/
+//  TESTHJELPER — filosofiens tre bygd fra kilden i tools/
 // ----------------------------------------------------------------------------
 //  «json files/» er utenfor git (.gitignore), så testene kan ikke lese
-//  json files/pedagogikk-skjelett.json på GitHub. Her bygges det samme treet
-//  fra tools/pedagogikk-skjelett.js, med samme form som
-//  tools/lag-pedagogikk-skjelett.js skriver. Finnes JSON-fila lokalt, kan en
+//  json files/filosofi-skjelett.json på GitHub. Her bygges det samme treet
+//  fra tools/filosofi-skjelett.js, med samme form som
+//  tools/lag-filosofi-skjelett.js skriver. Finnes JSON-fila lokalt, kan en
 //  test sammenligne de to (skjelettFil()).
 // ============================================================================
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { FAMILIES, RETNINGER, TIDSROM, EPOKER } from "../../tools/pedagogikk-skjelett.js";
+import { FAMILIES, RETNINGER, TIDSROM, EPOKER } from "../../tools/filosofi-skjelett.js";
 
 const ROT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -41,6 +41,6 @@ export function skjelettTre() {
 
 // Den genererte fila, eller null når den ikke finnes (som på GitHub).
 export function skjelettFil() {
-  const fil = path.join(ROT, "json files", "pedagogikk-skjelett.json");
+  const fil = path.join(ROT, "json files", "filosofi-skjelett.json");
   return fs.existsSync(fil) ? JSON.parse(fs.readFileSync(fil, "utf8")) : null;
 }

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // ============================================================================
-//  IMPORTFIL FOR PEDAGOGIKKENS SLEKTSTRE (fase 1, tidsrommene fra fase 2)
+//  IMPORTFIL FOR FILOSOFIENS SLEKTSTRE (steg 6)
 // ----------------------------------------------------------------------------
 //  Bygger dokumentet content/genealogy fra skjelettet i
-//  tools/pedagogikk-skjelett.js og skriver det som JSON. Læreren importerer
+//  tools/filosofi-skjelett.js og skriver det som JSON. Læreren importerer
 //  fila i Innholdspakke-flyten; skript skriver ALDRI til Firestore direkte.
 //
-//  Kjør:  node tools/lag-pedagogikk-skjelett.js
-//  Ut:    json files/pedagogikk-skjelett.json
+//  Kjør:  node tools/lag-filosofi-skjelett.js
+//  Ut:    json files/filosofi-skjelett.json
 //
 //  Før fila skrives, kjøres treet gjennom appens egen kode: validateTree
 //  (sykler, ID-er, etiketter, tidsrommene) og rebuild (modellen og layouten).
@@ -16,13 +16,13 @@
 //
 //  Formen er { formatVersion, genealogy } med genealogy på toppnivå, som
 //  tools/seed-genealogy.js. Bare strukturen følger med: era og personer i
-//  skjelettet er notater til fase 6. Tidsrommene (fase 2) står i
+//  skjelettet er notater til tekstrundene. Tidsrommene står i
 //  genealogy.tidsrom, uten `rad` (raden er plassen i lista).
 // ============================================================================
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { FAMILIES, RETNINGER, TIDSROM, EPOKER } from "./pedagogikk-skjelett.js";
+import { FAMILIES, RETNINGER, TIDSROM, EPOKER } from "./filosofi-skjelett.js";
 import { validateTree } from "../js/sjangre/genre-validate.js";
 import { rebuild, GENEALOGY_MAIN_GENRES, GENEALOGY_ROOT_GENRES, GENEALOGY_EDGES, TIDSROM as MODELL_TIDSROM, layoutX } from "../js/sjangre/genre-model.js";
 
@@ -81,7 +81,7 @@ if (feil.length) {
   process.exit(1);
 }
 
-const utfil = path.join(ROT, "json files", "pedagogikk-skjelett.json");
+const utfil = path.join(ROT, "json files", "filosofi-skjelett.json");
 fs.mkdirSync(path.dirname(utfil), { recursive: true });
 fs.writeFileSync(utfil, JSON.stringify({ formatVersion: 1, genealogy: tree }, null, 2) + "\n");
 
