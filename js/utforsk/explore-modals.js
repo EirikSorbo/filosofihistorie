@@ -183,7 +183,7 @@ ${TECH_DETAIL_MODAL_HTML}
       <button class="dash-card" id="sb-om-historie">
         <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-om-historie)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12M6 22h12"/><path d="M8 2v4l4 4 4-4V2"/><path d="M8 22v-4l4-4 4 4v4"/></svg>
         <span class="dash-title">Om historie</span>
-        <span class="dash-desc">Hvorfor pedagogikkhistorie</span>
+        <span class="dash-desc">Hvorfor filosofihistorie</span>
       </button>
       <button class="dash-card" id="sb-historier">
         <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-historier)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>

@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "pensum",
+      "name": "filosofihistorie",
       "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "python3 -m http.server \"${PORT:-8731}\""],
-      "port": 8731,
+      "runtimeArgs": ["-c", "python3 -m http.server \"${PORT:-8741}\""],
+      "port": 8741,
       "autoPort": true
     }
   ]

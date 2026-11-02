@@ -104,7 +104,7 @@ export function apneLerret() {
   startStyring();
   // Alltid forsiden: står styringen i slektstreet, viser lerretet det i rammen.
   const vindu = window.open(sideUrl("index"), "pensum-lerret", "popup,width=1280,height=760");
-  if (!vindu) api.melding?.("Nettleseren stoppet det nye vinduet. Tillat sprettoppvinduer for historieappen.no og trykk på knappen igjen.");
+  if (!vindu) api.melding?.("Nettleseren stoppet det nye vinduet. Tillat sprettoppvinduer for filosofi.historieappen.no og trykk på knappen igjen.");
 }
 
 // Avslutt visningen: lerretet lukkes også, og vinduet er ikke styring lenger.

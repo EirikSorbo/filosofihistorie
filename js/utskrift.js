@@ -623,14 +623,14 @@ function tocHtml() {
 // Forsiden (v5.74): tittelblokka øverst og innholdsfortegnelsen under. Et
 // LITE hefte (modell.liten) får tittelblokka som et hode på første side, uten
 // innholdsfortegnelse og uten sideskift: ett artistkort skal ikke koste tre
-// ark. Tidslinja følger da rett under. (Merket «historieappen.no» og «Slik er
+// ark. Tidslinja følger da rett under. (Merket «filosofi.historieappen.no» og «Slik er
 // heftet bygd opp» er bevisst ute, brukervalg 2026-09-25, og kursnavnet under
 // tittelen fra v6.82, brukerønske 2026-10-13.)
 function forsideHtml(t, farge) {
   const liten = modell.liten;
   return `<section class="h-forside${liten ? " h-forside-liten" : ""}" data-toc="forside">
     <div class="h-tittelblokk" style="--farge:${h(farge)}">
-      <p class="h-overlinje">Pensumutdrag · MUR114</p>
+      <p class="h-overlinje">Pensumutdrag</p>
       <h1 class="h-tittel">${h(t)}</h1>
       <p class="h-meta">Laget <strong>${h(datoTekst())}</strong><br>Utvalg: <strong>${h(tellingerTekst(modell.tellinger))}</strong></p>
     </div>
@@ -738,7 +738,7 @@ function lyttelisteHtml() {
 
 // Kolofonen (brukervalg 2026-09-25): bare denne ene setningen.
 function kolofonHtml() {
-  return `<footer class="h-kolofon">Laget med utskriftsfunksjonen i historieappen.no, ${h(datoTekst())}.</footer>`;
+  return `<footer class="h-kolofon">Laget med utskriftsfunksjonen i filosofi.historieappen.no, ${h(datoTekst())}.</footer>`;
 }
 
 // Løpende topptekst og sidetall via @page-marginbokser. Virker i Firefox og
@@ -756,7 +756,7 @@ function settSidestil(t) {
   const font = "font: 7.5pt \"Public Sans\", system-ui, sans-serif; color: #7a7a7a;";
   // Bare heftets tittel: kursnavnet er ute av utskriften (v6.82, brukerønske 2026-10-13).
   st.textContent = `@page { @top-left { content: ${JSON.stringify(t)}; ${font} }`
-    + ` @bottom-left { content: "historieappen.no"; ${font} } @bottom-right { content: counter(page); ${font} } }\n`
+    + ` @bottom-left { content: "filosofi.historieappen.no"; ${font} } @bottom-right { content: counter(page); ${font} } }\n`
     + `@page :first { @top-left { content: none; } }`;
 }
 

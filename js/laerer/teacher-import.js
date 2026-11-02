@@ -93,9 +93,9 @@ export function setupDataButtons() {
     if (!(await bekreft("Dette sletter ALL teoretikerdata permanent. Handlingen kan ikke angres.", { tittel: "Er du HELT sikker?", ja: "Gå videre", farlig: true }))) return;
     // Samme sikkerhetsnett som «Erstatt alle»: full backup lastes ned FØR
     // slettingen, og læreren må aktivt skrive SLETT for å bekrefte.
-    downloadJson(buildExportData(), `pedagogikkhistorie-BACKUP-${dateStamp()}.json`);
+    downloadJson(buildExportData(), `filosofihistorie-BACKUP-${dateStamp()}.json`);
     const svar = await sporTekst(
-      "En sikkerhetskopi skal nå ligge i Nedlastinger (pedagogikkhistorie-BACKUP-…).\n\n" +
+      "En sikkerhetskopi skal nå ligge i Nedlastinger (filosofihistorie-BACKUP-…).\n\n" +
       "Skriv SLETT for å bekrefte at all teoretikerdata skal slettes permanent:",
       "", { tittel: "Slette all teoretikerdata", ok: "Slett" }
     );
@@ -276,7 +276,7 @@ async function kanEksportere() {
 
 async function handleExport() {
   if (!(await kanEksportere())) return;
-  downloadJson(buildExportData(), `pedagogikkhistorie-${dateStamp()}.json`);
+  downloadJson(buildExportData(), `filosofihistorie-${dateStamp()}.json`);
 }
 
 let pendingImportData = null;
@@ -693,9 +693,9 @@ async function handleReplace(data) {
   // Last ned backupen og KREV at læreren bekrefter at fila faktisk kom før vi
   // sletter — en programmatisk nedlasting kan bli blokkert stille, og da skal
   // vi ikke slette noe.
-  downloadJson(buildExportData(), `pedagogikkhistorie-BACKUP-${dateStamp()}.json`);
+  downloadJson(buildExportData(), `filosofihistorie-BACKUP-${dateStamp()}.json`);
   if (!(await bekreft(
-    "En sikkerhetskopi skal nå ligge i Nedlastinger (pedagogikkhistorie-BACKUP-…).\n\n" +
+    "En sikkerhetskopi skal nå ligge i Nedlastinger (filosofihistorie-BACKUP-…).\n\n" +
     "Bekreft at du finner filen der FØR vi sletter. Trykk Avbryt hvis den mangler.",
     { tittel: "Finner du sikkerhetskopien?", ja: "Ja, slett og importer", farlig: true }
   ))) return false;

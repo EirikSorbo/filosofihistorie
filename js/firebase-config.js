@@ -6,12 +6,12 @@
 // ============================================================================
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyADJnm1KCchp4-tWBV1KeX3Kfd0IjScXzI",
-  authDomain: "pedagogikkhistorie.firebaseapp.com",
-  projectId: "pedagogikkhistorie",
-  storageBucket: "pedagogikkhistorie.firebasestorage.app",
-  messagingSenderId: "940313073759",
-  appId: "1:940313073759:web:04240f0bd1f7b6a5a623ea",
+  apiKey: "AIzaSyCg35k3JFEec8HVJEKXbKn216oekBH192c",
+  authDomain: "filosofihistorie-68ff7.firebaseapp.com",
+  projectId: "filosofihistorie-68ff7",
+  storageBucket: "filosofihistorie-68ff7.firebasestorage.app",
+  messagingSenderId: "670882057775",
+  appId: "1:670882057775:web:e7c4a6f68e716edc12c0da",
 };
 
 // ----------------------------------------------------------------------------
