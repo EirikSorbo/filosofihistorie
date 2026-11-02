@@ -855,7 +855,7 @@ function byggTimeliste() {
       </div>
       <p class="muted timeliste-kontekst" id="timeliste-kontekst"></p>
       <form id="timeliste-skjema" class="timeliste-skjema" autocomplete="off">
-        <label>Teoretiker <input type="text" id="timeliste-artist" maxlength="120" placeholder="Navn på teoretikeren" required></label>
+        <label>Filosof <input type="text" id="timeliste-artist" maxlength="120" placeholder="Navn på filosofen" required></label>
         <label>Foreslått av <input type="text" id="timeliste-student" maxlength="60" placeholder="Fornavn (valgfritt)"></label>
         <button type="submit" class="btn primary small">Legg til</button>
       </form>
@@ -1300,7 +1300,7 @@ function tegnRaskPanel(panel, beskjed = "", valg = null) {
     </div>` : ""}
     <p class="pres-rask-msg" id="pres-rask-msg" role="status">${escapeHtml(beskjed)}</p>
     <p class="pres-panel-tips">${valg
-      ? "Gjelder bare denne visningen. Navn på teoretikere og epoker blir lenker. Ctrl/Cmd+Enter legger til."
+      ? "Gjelder bare denne visningen. Navn på filosofer og epoker blir lenker. Ctrl/Cmd+Enter legger til."
       : "Velg når påminnelsen skal komme. Den gjelder bare denne visningen."}</p>
     ${ventende.length ? `<hr class="pres-skille">
     <p class="pres-panel-hode">Kommer i denne visningen</p>

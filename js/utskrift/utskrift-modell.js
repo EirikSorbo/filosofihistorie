@@ -71,12 +71,12 @@ export const ROTTER = "Røtter";
 export const LITEN_GRENSE = 3;
 // Undersjangre som ikke lar seg plassere i en familie (ingen artist bærer
 // taggen, og navnet er ikke en tre-node) samles i en egen bolk bakerst.
-export const UNDERSJANGRE_LOSE = "Prinsipper";
+export const UNDERSJANGRE_LOSE = "Begreper";
 
 export const TYPE_ETIKETT = {
   metasjanger: "Retning",
-  artist: "Teoretiker", sjanger: "Epoke", undersjanger: "Prinsipp",
-  tech: "Reform", instrument: "Fagbakgrunn", historie: "Historie", side: "Side", yt: "Video",
+  artist: "Filosof", sjanger: "Epoke", undersjanger: "Begrep",
+  tech: "Milepæl", instrument: "Disiplin", historie: "Historie", side: "Side", yt: "Video",
 };
 
 // Metasjangeren finnes bare i heftet (ingen ?vis=-type, ingen modal): verdien
@@ -162,7 +162,7 @@ export const DELER = [
   { gruppe: "Retning", valg: [
     { id: "meta.historie", navn: "Historien om retningen", standard: false, historie: true },
   ] },
-  { gruppe: "Teoretikerkort", valg: [
+  { gruppe: "Filosofkort", valg: [
     { id: "artist.bilde", navn: "Bilde" },
     { id: "artist.fakta", navn: "Faktalinje" },
     { id: "artist.virketid", navn: "Tidslinje for virketid" },
@@ -178,9 +178,9 @@ export const DELER = [
     // Koblingstekstene (v5.74): strekene inn i og ut av sjangeren i slektstreet.
     // Av som standard: de er et tillegg, og læreren velger dem til.
     { id: "sjanger.koblinger", navn: "Koblingstekster fra slektstreet", standard: false },
-    { id: "sjanger.ordliste", navn: "Ordliste over prinsippene på teoretikerkortene" },
+    { id: "sjanger.ordliste", navn: "Ordliste over begrepene på filosofkortene" },
   ] },
-  { gruppe: "Reformskort", valg: [
+  { gruppe: "Milepælskort", valg: [
     { id: "tech.bilde", navn: "Bilde" },
     { id: "tech.fakta", navn: "Årstall og kategori" },
     { id: "tech.punkter", navn: "Oppsummering i punkter", punkter: true },
@@ -952,8 +952,8 @@ export function foreslaaTittel(modell, { planTittel = "" } = {}) {
     const tekst = navn.length <= 3 ? listeTekst(navn) : `${navn.slice(0, 3).join(", ")} og ${navn.length - 3} til`;
     return normaliserTittel(tekst);
   }
-  if (modell?.innovasjoner?.length) return "Reformer";
-  if (modell?.instrumenter?.length) return "Fagbakgrunnene";
+  if (modell?.innovasjoner?.length) return "Milepæler";
+  if (modell?.instrumenter?.length) return "Disiplinene";
   const lytte = modell?.lytteliste || [];
   if (lytte.length && lytte.every((l) => l.valgt) && !(modell?.sider || []).length) return "Videoer";
   return "Pensumutdrag";

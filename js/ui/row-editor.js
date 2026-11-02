@@ -29,7 +29,7 @@ export const WORK_SPEC = {
   rowClass: "work-row", removeClass: "remove-work", keepKey: "title",
   removeLabel: "Fjern verk",
   fields: [
-    { key: "title", cls: "work-title", type: "text", ph: "Tittel (f.eks. «Democracy and Education»)", label: "Tittel", always: true },
+    { key: "title", cls: "work-title", type: "text", ph: "Tittel (f.eks. «Kritikk av den rene fornuft»)", label: "Tittel", always: true },
     { key: "year",  cls: "work-year",  type: "number", ph: "Årstall", label: "Årstall" },
     { key: "url",   cls: "work-url",   type: "url", ph: "https://… (valgfritt)", label: "Lenke (https)" },
   ],
@@ -41,7 +41,7 @@ export const SELES_SPEC = {
   rowClass: "sl-row", removeClass: "remove-sl", keepKey: "tittel",
   removeLabel: "Fjern post",
   fields: [
-    { key: "tittel", cls: "sl-tittel", type: "text", ph: "Tittel (f.eks. «Pestalozzi om anskuelse»)", label: "Tittel", always: true },
+    { key: "tittel", cls: "sl-tittel", type: "text", ph: "Tittel (f.eks. «Platon om dialektikk»)", label: "Tittel", always: true },
     { key: "kilde", cls: "sl-kilde", type: "text", ph: "Kilde (forfatter, verk, år)", label: "Kilde" },
     { key: "url", cls: "sl-url", type: "url", ph: "https://… video eller tekst (valgfritt)", label: "Lenke (https)" },
     { key: "tekst", cls: "sl-tekst", type: "textarea", ph: "Kort utdrag (valgfritt, høyst 1200 tegn)", label: "Utdrag", max: 1200, rows: 4 },
@@ -50,27 +50,27 @@ export const SELES_SPEC = {
 
 export const MUSIC_SPEC = {
   rowClass: "me-row", removeClass: "remove-me", keepKey: "url",
-  removeLabel: "Fjern musikkeksempel",
+  removeLabel: "Fjern video",
   fields: [
     // Sjangeren står ØVERST og på egen linje (v4.95): den gjelder HELE raden,
     // og bakerst i rekka ble den lett oversett — et lytteeksempel uten sjanger
     // faller ut av spillelistene. breakAfter tvinger linjeskift, se rowInnerHtml.
-    { key: "genre", cls: "me-genre", type: "select", ph: "Epoke …", label: "Epoke (for spillelister)", title: "Hvilken tre-sjanger dette lytteeksempelet hører til. Styrer hvilken spilleliste det vises i, viktig for teoretikere med flere sjangre.", options: [] },
+    { key: "genre", cls: "me-genre", type: "select", ph: "Epoke …", label: "Epoke (for spillelister)", title: "Hvilken tre-epoke denne videoen hører til. Styrer hvilken spilleliste den vises i, viktig for filosofer med flere epoker.", options: [] },
     // To nivåer (brukervalg 2026-10-15): sentrale lytteeksempler får en fylt prikk
     // i visningen, kontekst-eksemplene (uten merke) står som før. Bare læreren
     // setter det (musicSpecWithGenres skjuler feltet ellers), men feltet står
     // alltid i raden så et studentforslag ikke mister merket ved lagring.
     // `check`: lagres som true, aldri som false (fraværende = kontekst).
-    { key: "sentral", cls: "me-sentral", type: "check", label: "Sentralt eksempel", tekst: "Sentralt", title: "Sentralt lytteeksempel: får en fylt prikk i visningen. Uten merke er eksempelet kontekst.", breakAfter: true },
-    { key: "label", cls: "me-label", type: "text", ph: "Tittel (f.eks. «Hellhound on My Trail»)", label: "Tittel", always: true },
+    { key: "sentral", cls: "me-sentral", type: "check", label: "Sentral video", tekst: "Sentral", title: "Sentral video: får en fylt prikk i visningen. Uten merke er videoen kontekst.", breakAfter: true },
+    { key: "label", cls: "me-label", type: "text", ph: "Tittel (f.eks. «Introduksjon til Platons Republikken»)", label: "Tittel", always: true },
     { key: "year",  cls: "me-year",  type: "number", ph: "Årstall", label: "Årstall" },
     { key: "url",   cls: "me-url",   type: "url", ph: "https://youtube.com/…", label: "Lenke (https)", always: true },
     // Starttiden (v5.88, brukerønske 2026-09-29) lagres ikke for seg: den
     // skrives inn i lenka som t=, der spilleren, visningen og heftet alltid
     // har lest den. Feltet og lenka speiler hverandre, se kobleStarttid.
     { key: "start", cls: "me-start", type: "text", ph: "Start m:ss", label: "Starttid", title: "Hvor avspillingen starter, som 1:30 eller 90 (sekunder). Skrives inn i YouTube-lenka (t=…). Limer du inn en lenke med tid, hentes tiden derfra.", ui: true, verdi: (v) => starttidTekst(v.url) },
-    { key: "performanceYear", cls: "me-perf-year", type: "number", ph: "Framf.år", label: "Framføringsår", title: "Året for framføring/konsert (kun hvis annet enn utgivelsesår)" },
-    { key: "note", cls: "me-note", type: "text", ph: "Hør etter … (valgfritt lytteanvisning)", label: "Hør etter", title: "Kort lytteanvisning: hva skal man legge merke til i akkurat denne innspillingen?" },
+    { key: "performanceYear", cls: "me-perf-year", type: "number", ph: "Framf.år", label: "Framføringsår", title: "Året for framføringen eller forelesningen (kun hvis annet enn utgivelsesår)" },
+    { key: "note", cls: "me-note", type: "text", ph: "Se etter … (valgfritt)", label: "Se etter", title: "Kort veiledning: hva skal man legge merke til i akkurat denne videoen?" },
   ],
   kobleRad: (row) => kobleStarttid(row),
 };

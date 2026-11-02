@@ -137,7 +137,7 @@ export function openUndersjangre() {
           <span class="sj-rad-navn">${escapeHtml(u.navn)}</span><span class="sj-rad-aar">${u.antall}</span>
         </button>`).join("")}
       </section>`).join("")}</div>`
-    : `<p class="muted">Ingen prinsipper registrert ennå.</p>`;
+    : `<p class="muted">Ingen begreper registrert ennå.</p>`;
 
   modalOpen(modal);
 }
@@ -165,7 +165,7 @@ export function openSubgenreInfo(subgenreId) {
     el.innerHTML = "";
   } else {
     el.innerHTML = `
-      <button class="btn ghost small sgi-toggle" style="margin-top:12px">Teoretikere (${artists.length})</button>
+      <button class="btn ghost small sgi-toggle" style="margin-top:12px">Filosofer (${artists.length})</button>
       <div class="sgi-list" style="display:none;margin-top:10px">
         ${artists.map(a => `<div class="result-row sgi-artist-row" data-id="${escapeHtml(a.id)}" tabindex="0" role="button">
           <span class="result-name">${escapeHtml(a.name)}</span>
@@ -180,7 +180,7 @@ export function openSubgenreInfo(subgenreId) {
       const list = el.querySelector(".sgi-list");
       const visible = list.style.display !== "none";
       list.style.display = visible ? "none" : "block";
-      e.target.textContent = visible ? `Teoretikere (${artists.length})` : "Skjul teoretikere";
+      e.target.textContent = visible ? `Filosofer (${artists.length})` : "Skjul filosofer";
     });
     // Klikk OG tastatur (tabindex + Enter/mellomrom) — samme mønster som den
     // delte artistlista (openArtistListModal); radene her var mus-only.

@@ -26,17 +26,20 @@ import { erAar } from "../js/felles/aarstall.js";
 import { SELES_TEKST_MAKS, SELES_MAKS } from "../js/felles/se-og-les.js";
 import { TECH_CATEGORIES, TECH_TYPES } from "../js/ui/ui-tech.js";
 
-// Ordgrenser per tekst (myke: gir advarsel). Justert etter runde 1 (2026-10-21):
-// samfunn og skole er korte kontekstbokser, ikke egne essays.
+// Ordgrenser per tekst (myke: gir advarsel). Satt for bachelor og master
+// (2026-11-02) og justeres etter første runde. samfunn og skole er korte
+// kontekstbokser, ikke egne essays.
 export const ORDGRENSER = {
-  teoretiker: [40, 260],
-  epoke: [100, 450],
-  samfunn: [25, 300],
-  skole: [25, 300],
-  prinsipp: [60, 400],
-  historie: [150, 1200],
+  teoretiker: [40, 220],
+  epoke: [100, 400],
+  samfunn: [25, 250],
+  skole: [25, 250],
+  prinsipp: [60, 350],
+  historie: [150, 1000],
 };
 
+// Visningsnavn på tellingene (nøklene i `tall` er interne og stemmer med testene).
+const TALLNAVN = { teoretikere: "filosofer", prinsipper: "begreper", pavirkninger: "påvirkninger", reformer: "milepæler" };
 const ord = (t) => String(t || "").trim().split(/\s+/).filter(Boolean).length;
 const erHttp = (u) => /^https?:\/\/\S+$/i.test(String(u || ""));
 // Innholdssidene appen viser (JSON-OPPSKRIFT, «pages»).
@@ -53,7 +56,7 @@ export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrin
   const tall = { teoretikere: 0, epoker: 0, retninger: 0, prinsipper: 0, pavirkninger: 0, reformer: 0, sider: 0 };
 
   const d = normalizeImportFile(fil);
-  if (!d) { F("Fila kjennes ikke igjen som en importfil (ingen teoretikere og ingen innholdsdeler)."); return { feil, advarsler, tall }; }
+  if (!d) { F("Fila kjennes ikke igjen som en importfil (ingen filosofer og ingen innholdsdeler)."); return { feil, advarsler, tall }; }
   for (const k of Object.keys(fil && !Array.isArray(fil) ? fil : {})) {
     if (!KJENTE_NOKLER.has(k)) A(`Ukjent toppnøkkel «${k}»: importen ignorerer den.`);
   }
@@ -77,12 +80,12 @@ export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrin
 
   // --- Teoretikerne -----------------------------------------------------
   const val = validateArtistsForImport(d.artists);
-  for (const e of val.errors) for (const p of e.problems) F(`Teoretiker ${e.row}${e.name ? ` (${e.name})` : ""}: ${p}`);
+  for (const e of val.errors) for (const p of e.problems) F(`Filosof ${e.row}${e.name ? ` (${e.name})` : ""}: ${p}`);
   const navn = new Map();
   const bruktePrinsipper = new Set();
   d.artists.forEach((a, i) => {
     if (!a || typeof a !== "object") return;
-    const hva = `Teoretiker ${i + 1} (${a.name || "uten navn"})`;
+    const hva = `Filosof ${i + 1} (${a.name || "uten navn"})`;
     tall.teoretikere++;
     const nokkel = String(a.name || "").trim().toLowerCase();
     if (nokkel) {
@@ -91,8 +94,8 @@ export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrin
     }
     if (!GENDERS.some((g) => g.value === a.gender)) F(`${hva}: kjønn «${a.gender}» er ikke ${GENDERS.map((g) => g.value).join("/")}.`);
     if (!retninger.has(a.metaGenre)) F(`${hva}: retningen «${a.metaGenre}» finnes ikke i treet.`);
-    if (!INSTRUMENTS.includes(a.instrument)) F(`${hva}: fagbakgrunnen «${a.instrument}» er ikke i lista (${INSTRUMENTS.join(", ")}).`);
-    if (a.instrument2 && !INSTRUMENTS.includes(a.instrument2)) F(`${hva}: fagbakgrunn 2 «${a.instrument2}» er ikke i lista.`);
+    if (!INSTRUMENTS.includes(a.instrument)) F(`${hva}: disiplinen «${a.instrument}» er ikke i lista (${INSTRUMENTS.join(", ")}).`);
+    if (a.instrument2 && !INSTRUMENTS.includes(a.instrument2)) F(`${hva}: disiplin 2 «${a.instrument2}» er ikke i lista.`);
     const mg = Array.isArray(a.mainGenre) ? a.mainGenre : (a.mainGenre ? [a.mainGenre] : []);
     if (!mg.length) F(`${hva}: ingen epoke (mainGenre).`);
     for (const e of mg) if (!epoker.has(e)) F(`${hva}: epoken «${e}» finnes ikke i treet (bruk etiketten, ikke id-en).`);
@@ -148,7 +151,7 @@ export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrin
         if (l.era && String(l.era).length > 60) F(`${hva}: era er lengre enn 60 tegn.`);
       }
       if (l.seOgLes != null) {
-        if (nivå !== "sub") A(`${hva}: seOgLes brukes bare på prinsipper (sub).`);
+        if (nivå !== "sub") A(`${hva}: seOgLes brukes bare på begreper (sub).`);
         const rå2 = Array.isArray(l.seOgLes) ? l.seOgLes : [];
         if (!Array.isArray(l.seOgLes)) F(`${hva}: seOgLes må være en liste.`);
         if (rå2.length > SELES_MAKS) F(`${hva}: seOgLes har ${rå2.length} poster (høyst ${SELES_MAKS}).`);
@@ -169,7 +172,7 @@ export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrin
   }
   const kjente = new Set(kjentePrinsipper);
   for (const s of bruktePrinsipper) {
-    if (s && !prinsippMedTekst.has(s) && !kjente.has(s)) A(`Prinsippet «${s}» brukes på teoretikere, men har ingen felles tekst i genreDescriptions.sub.`);
+    if (s && !prinsippMedTekst.has(s) && !kjente.has(s)) A(`Begrepet «${s}» brukes på filosofer, men har ingen felles tekst i genreDescriptions.sub.`);
   }
 
   // --- Påvirkningene ----------------------------------------------------
@@ -187,7 +190,7 @@ export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrin
   // --- Reformer og milepæler --------------------------------------------
   const reformNavn = new Set();
   (d.tech || []).forEach((t, i) => {
-    const hva = `Reform ${i + 1} (${t?.name || "uten navn"})`;
+    const hva = `Milepæl ${i + 1} (${t?.name || "uten navn"})`;
     tall.reformer++;
     if (!String(t?.name || "").trim()) F(`${hva}: mangler name.`);
     else if (reformNavn.has(t.name.trim().toLowerCase())) F(`${hva}: navnet står to ganger.`);
@@ -221,7 +224,7 @@ if (erHovedfil) {
   const ROT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
   const args = process.argv.slice(2);
   const treIdx = args.indexOf("--tre");
-  const trefil = treIdx >= 0 ? args[treIdx + 1] : path.join(ROT, "json files/pedagogikk-skjelett.json");
+  const trefil = treIdx >= 0 ? args[treIdx + 1] : path.join(ROT, "json files/filosofi-skjelett.json");
   const filnavn = args.filter((a, i) => !a.startsWith("--") && i !== treIdx + 1)[0];
   if (!filnavn) { console.error("Bruk: node tools/sjekk-innholdsfil.js <fil.json> [--tre tre.json]"); process.exit(2); }
   const les = (f) => JSON.parse(fs.readFileSync(f, "utf8"));
@@ -231,7 +234,7 @@ if (erHovedfil) {
   const { feil, advarsler, tall } = sjekkInnholdsfil(fil, tre);
   advarsler.forEach((m) => console.log(`  [advarsel] ${m}`));
   feil.forEach((m) => console.log(`  [FEIL] ${m}`));
-  const deler = Object.entries(tall).filter(([, n]) => n).map(([k, n]) => `${n} ${k}`).join(", ");
+  const deler = Object.entries(tall).filter(([, n]) => n).map(([k, n]) => `${n} ${TALLNAVN[k] || k}`).join(", ");
   console.log(`\n${filnavn}: ${deler || "ingenting"}. ${feil.length} feil, ${advarsler.length} advarsler.`);
   process.exit(feil.length ? 1 : 0);
 }

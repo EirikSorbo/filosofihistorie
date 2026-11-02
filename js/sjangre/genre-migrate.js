@@ -198,7 +198,7 @@ export function planGenreRename(state, fra, til) {
     if (ref.harSub || ref.harMeta || ref.harStory) {
       ops.push(op("field.delete", "genreDescriptions", fra, { felt: "main" },
         `«${fra}» beholdes for de andre nivåene på samme navn`));
-      if (ref.harSub) advarsler.push(`«${fra}» har også en undersjanger-beskrivelse. Den blir liggende igjen på det gamle navnet, som er riktig: den hører til en fri prinsipp, ikke til tre-sjangeren.`);
+      if (ref.harSub) advarsler.push(`«${fra}» har også en undersjanger-beskrivelse. Den blir liggende igjen på det gamle navnet, som er riktig: den hører til et fritt begrep, ikke til tre-sjangeren.`);
       if (ref.harMeta || ref.harStory) advarsler.push(`«${fra}» er også en metasjanger. Metasjanger-beskrivelsen og epokehistorien blir stående på det gamle navnet, som er riktig: de hører til retningen, ikke tre-sjangeren.`);
     } else {
       ops.push(op("doc.delete", "genreDescriptions", fra, null,
@@ -215,7 +215,7 @@ export function planGenreRename(state, fra, til) {
       `Artist: ${a.name}`));
   }
   if (ref.artister.length) {
-    advarsler.push(`${ref.artister.length} teoretiker(er) blir tagget om.`);
+    advarsler.push(`${ref.artister.length} filosof(er) blir tagget om.`);
   }
 
   // 3b) Sjangeren på lytteeksemplene. Artister som allerede får en skriving
@@ -228,13 +228,13 @@ export function planGenreRename(state, fra, til) {
       `Video hos ${a.name}`));
   }
   if (ref.eksempler.length) {
-    advarsler.push(`${ref.eksempler.length} teoretiker(er) har videoer merket med epoken. De følger med.`);
+    advarsler.push(`${ref.eksempler.length} filosof(er) har videoer merket med epoken. De følger med.`);
   }
 
   // 3c) Frie undersjangre med samme navn røres IKKE. De er et annet vokabular,
   //     og et automatisk bytte ville endret noe læreren ikke ba om.
   if (ref.friUndersjanger.length) {
-    advarsler.push(`${ref.friUndersjanger.length} teoretiker(er) har «${fra}» som FRI undersjanger. Den taggen står igjen med vilje: den er et eget vokabular, ikke tre-sjangeren. Rett den manuelt om den skulle følge med.`);
+    advarsler.push(`${ref.friUndersjanger.length} filosof(er) har «${fra}» som FRI undersjanger. Den taggen står igjen med vilje: den er et eget vokabular, ikke tre-sjangeren. Rett den manuelt om den skulle følge med.`);
   }
 
   // 5) Lærerens avkryssing
@@ -272,12 +272,12 @@ export function planGenreRename(state, fra, til) {
     const felter = artistForslagOmskriving(e, fra, nyttNavn);
     if (Object.keys(felter).length) {
       ops.push(op("doc.merge", "pendingEdits", e.id, { proposedFields: { ...e.proposedFields, ...felter } },
-        `Teoretikerforslag «${e.entityName || e.entityId}» får det nye navnet`));
+        `Filosofforslag «${e.entityName || e.entityId}» får det nye navnet`));
     }
   }
   const friSub = forslagMedFriSub(state, fra);
   if (friSub.length) {
-    advarsler.push(`${friSub.length} teoretikerforslag i køen har «${fra}» som fritt prinsipp-merke. Den står igjen med vilje, som på teoretikerne.`);
+    advarsler.push(`${friSub.length} filosofforslag i køen har «${fra}» som fritt begrepsmerke. Den står igjen med vilje, som på filosofene.`);
   }
 
   return { ops, feil, advarsler };
@@ -315,7 +315,7 @@ export function planSubRename(state, fra, til) {
   if (nyttNavn.includes("/")) feil.push("Navnet kan ikke inneholde «/»: navnet er dokument-ID i genreDescriptions, og Firestore forbyr det. Bruk «&».");
   if (gammelt === nyttNavn) feil.push("Det nye navnet er det samme som det gamle.");
   if (noder.some((n) => lik(n.l, gammelt))) feil.push(`«${gammelt}» er en epoke i treet. Den får nytt navn i epoketre-editoren.`);
-  if (!tagget.length && !eksempler.length && !descNokkel) feil.push(`Fant ingen prinsipp som heter «${gammelt}».`);
+  if (!tagget.length && !eksempler.length && !descNokkel) feil.push(`Fant ikke noe begrep som heter «${gammelt}».`);
   const kollisjon = noder.find((n) => lik(n.l, nyttNavn) || lik(n.g, nyttNavn));
   if (kollisjon) feil.push(`«${nyttNavn}» er allerede navnet på en epoke i treet.`);
   if (Object.keys(descs).some((k) => lik(k, nyttNavn) && descs[k]?.sub)
@@ -383,7 +383,7 @@ export function planSubRename(state, fra, til) {
     }
     if (Object.keys(felter).length) {
       ops.push(op("doc.merge", "pendingEdits", e.id, { proposedFields: { ...f, ...felter } },
-        `Teoretikerforslag «${e.entityName || e.entityId}» får det nye navnet`));
+        `Filosofforslag «${e.entityName || e.entityId}» får det nye navnet`));
     }
   }
 
@@ -484,7 +484,7 @@ export function planMetaRename(state, fra, til) {
   for (const a of artister) {
     ops.push(op("doc.merge", "artists", a.id, { metaGenre: nyttNavn }, `Artist: ${a.name}`));
   }
-  if (artister.length) advarsler.push(`${artister.length} teoretiker(er) blir tagget om.`);
+  if (artister.length) advarsler.push(`${artister.length} filosof(er) blir tagget om.`);
 
   // Artistforslag i køen med den gamle metasjangeren (v5.31, audit-funn 6):
   // uten dette skrev en godkjenning ETTER planen det døde navnet tilbake, og
@@ -496,7 +496,7 @@ export function planMetaRename(state, fra, til) {
     if (!("metaGenre" in f) || !lik(f.metaGenre, fra)) continue;
     ops.push(op("doc.merge", "pendingEdits", e.id,
       { proposedFields: { ...f, metaGenre: nyttNavn } },
-      `Teoretikerforslag «${e.entityName || e.entityId}» får den nye retningen`));
+      `Filosofforslag «${e.entityName || e.entityId}» får den nye retningen`));
   }
 
   const sjekket = (state?.teacherChecks?.metaGenres || []);
@@ -534,7 +534,7 @@ export function planGenreDelete(state, label) {
   const blokkeringer = [];
   if (ref.artister.length) {
     blokkeringer.push({
-      hva: `${ref.artister.length} teoretiker(er) er tagget med «${label}»`,
+      hva: `${ref.artister.length} filosof(er) er tagget med «${label}»`,
       losning: "Tagg dem om til en annen epoke først.",
       detaljer: ref.artister.slice(0, 12).map((a) => a.name),
     });
@@ -551,7 +551,7 @@ export function planGenreDelete(state, label) {
   // taggene levde videre i skjemaene. Samme prinsipp som artist-taggene.
   if (ref.eksempler.length) {
     blokkeringer.push({
-      hva: `${ref.eksempler.length} teoretiker(er) har videoer merket «${label}»`,
+      hva: `${ref.eksempler.length} filosof(er) har videoer merket «${label}»`,
       losning: "Endre epoken på videoene først.",
       detaljer: ref.eksempler.slice(0, 12).map((a) => a.name),
     });
@@ -597,12 +597,12 @@ export function planGenreDelete(state, label) {
     const felter = artistForslagOmskriving(e, label, null);
     if (Object.keys(felter).length) {
       ops.push(op("doc.merge", "pendingEdits", e.id, { proposedFields: { ...e.proposedFields, ...felter } },
-        `Epoken strykes fra teoretikerforslaget «${e.entityName || e.entityId}»`));
+        `Epoken strykes fra filosofforslaget «${e.entityName || e.entityId}»`));
     }
   }
   const friSubSlett = forslagMedFriSub(state, label);
   if (friSubSlett.length) {
-    advarsler.push(`${friSubSlett.length} teoretikerforslag i køen har «${label}» som fritt prinsipp-merke. Den står igjen med vilje, som på teoretikerne.`);
+    advarsler.push(`${friSubSlett.length} filosofforslag i køen har «${label}» som fritt begrepsmerke. Den står igjen med vilje, som på filosofene.`);
   }
 
   return { ops, feil, advarsler, blokkeringer: [] };
@@ -646,7 +646,7 @@ export function planMetaDelete(state, navn) {
   }
   if (artister.length) {
     blokkeringer.push({
-      hva: `${artister.length} teoretiker(er) er tagget med «${meta.name}»`,
+      hva: `${artister.length} filosof(er) er tagget med «${meta.name}»`,
       losning: "Tagg dem om til en annen retning først.",
       detaljer: artister.slice(0, 12).map((a) => a.name),
     });
@@ -657,7 +657,7 @@ export function planMetaDelete(state, navn) {
     e.entityType === "artist" && lik(e.proposedFields?.metaGenre, meta.name));
   if (forslagMedMeta.length) {
     blokkeringer.push({
-      hva: `${forslagMedMeta.length} teoretikerforslag i køen foreslår retningen «${meta.name}»`,
+      hva: `${forslagMedMeta.length} filosofforslag i køen foreslår retningen «${meta.name}»`,
       losning: "Behandle forslagene først. Blir ett av dem godkjent etterpå, kommer den slettede retningen tilbake.",
       detaljer: forslagMedMeta.slice(0, 12).map((e) => e.entityName || e.entityId),
     });

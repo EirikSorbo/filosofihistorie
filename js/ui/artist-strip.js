@@ -115,7 +115,7 @@ export function flerStripeHtml(poster, { nowYear = new Date().getFullYear(), tid
       + `style="left:${left.toFixed(2)}%;width:${width.toFixed(2)}%;top:${(li * BANE).toFixed(2)}rem;`
       + `background:${farge}59;border-color:${farge}b3"></div>`;
   })).join("");
-  return `<div class="ai-strip" role="img" aria-label="${gyldige.length} teoretikere på tidsaksen">`
+  return `<div class="ai-strip" role="img" aria-label="${gyldige.length} filosofer på tidsaksen">`
     + axisHtml(grenser)
     + `<div class="ai-track ai-flere" style="--ai-n:${grenser.length};height:${(lanes.length * BANE + 0.2).toFixed(2)}rem">${stolper}</div></div>`;
 }

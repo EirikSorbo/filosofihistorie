@@ -60,7 +60,7 @@ export function slaaSammen(deler, { aar = new Date().getFullYear(), foreslaattAv
     }
     for (const t of del.tech || []) {
       const k = `reform:${String(t.name).trim().toLowerCase()}`;
-      if (hvor.has(k)) feil.push(`Reformen «${t.name}» står i både ${hvor.get(k)} og ${navn}.`);
+      if (hvor.has(k)) feil.push(`Milepælen «${t.name}» står i både ${hvor.get(k)} og ${navn}.`);
       hvor.set(k, navn);
       ut.tech.push({ status: "active", ...ryddDypt(t) });
     }
@@ -120,7 +120,7 @@ if (erHovedfil) {
   for (const f of filer) deler.push([f, (await import(pathToFileURL(path.join(abs, f)).href)).default]);
   const { fil, feil } = slaaSammen(deler, { foreslaattAv: `Fase 6, ${path.basename(abs)}` });
   feil.forEach((m) => console.log(`  [FEIL] ${m}`));
-  const tre = JSON.parse(fs.readFileSync(path.join(ROT, "json files/pedagogikk-skjelett.json"), "utf8"));
+  const tre = JSON.parse(fs.readFileSync(path.join(ROT, "json files/filosofi-skjelett.json"), "utf8"));
   // Prinsippene fra de andre rundene i innhold/ er allerede skrevet og kan brukes
   // på teoretikerne i denne runden uten advarsel.
   const kjentePrinsipper = [];

@@ -62,7 +62,7 @@ const DATA = {
   // ikke lenger.
   content: {
     omHistorie: { body: "Om historie." },
-    "instrument-filosof": { body: "Gitarens historie.", kilder: [{ text: "Store norske leksikon.", url: "https://snl.no/gitar" }] },
+    "instrument-metafysikk": { body: "Gitarens historie.", kilder: [{ text: "Store norske leksikon.", url: "https://snl.no/gitar" }] },
   },
   techItems: [
     { id: "elgitar", name: "Elektrisk gitar", status: "active", category: "Instrumenter og lydutstyr", inventedYear: 1931, adoptedYear: 1938, adoptedLabel: "Vanlig fra slutten av 1930-tallet.", decade: "1930", description: "Pickup.", kilder: [{ text: "SNL.", url: "https://snl.no/el-gitar" }] },
@@ -229,7 +229,7 @@ test("heftet har ingen lytteliste fra kortene lenger, og kortene bærer ingen ly
 });
 
 test("kildene er ikke med i heftet (brukervalg 2026-09-25): ingen kilde-del, ingen kilde-felt", () => {
-  const m = settSammen(["artist:muddy", "artist:robert", "sjanger:Blues", "tech:elgitar", "instrument:Filosof"], DATA, STUDENT);
+  const m = settSammen(["artist:muddy", "artist:robert", "sjanger:Blues", "tech:elgitar", "instrument:Metafysikk"], DATA, STUDENT);
   assert.equal("kilder" in m, false);
   assert.equal(DELER.flatMap((g) => g.valg).some((v) => v.id === "bak.kilder"), false);
   assert.equal("kilder" in m.familier[0].hodeKort.artister[0], false);
@@ -249,10 +249,10 @@ test("fase 2: heftet har ikke lenger tiår, og artistene drar ingen tiår med se
 });
 
 test("innovasjonene etter år, instrumentene i seksjonens rekkefølge, sidene i fast rekkefølge", () => {
-  const m = settSammen(["tech:elgitar", "tech:ror", "instrument:Filosof", "instrument:Psykolog", "side:omHistorie", "tech:pending", "instrument:Tuba"], DATA, LAERER);
+  const m = settSammen(["tech:elgitar", "tech:ror", "instrument:Metafysikk", "instrument:Erkjennelsesteori", "side:omHistorie", "tech:pending", "instrument:Tuba"], DATA, LAERER);
   assert.deepEqual(m.innovasjoner.map((t) => [t.navn, t.aar]), [["Elektrisk gitar", 1938], ["Rørforsterkeren", 1945]]);
   // Rekkefølgen er Instrumenter-kortets (INSTRUMENT_TIMELINE_GROUPS), ikke utvalgets.
-  assert.deepEqual(m.instrumenter.map((i) => i.tittel), ["Filosofene", "Psykologene"]);
+  assert.deepEqual(m.instrumenter.map((i) => i.tittel), ["Metafysikken", "Erkjennelsesteorien"]);
   assert.equal(m.instrumenter[1].body, "", "sammendrag uten side er tomt, ikke borte");
   assert.deepEqual(m.sider.map((s) => s.id), ["omHistorie"]);
   assert.deepEqual(m.mangler.map((x) => x.vis), ["tech:pending", "instrument:Tuba"]);
@@ -440,7 +440,7 @@ test("heltPensum: metasjangrene i pensumet, røttene, aktive innovasjoner og skr
   for (const m of metaer) assert.ok(GENEALOGY_META_GENRES.includes(m), m);
   for (const n of GENEALOGY_ROOT_GENRES) assert.ok(alt.includes(`sjanger:${n.l}`), `roten ${n.l}`);
   assert.deepEqual(alt.filter((v) => v.startsWith("tech:")), ["tech:elgitar", "tech:ror", "tech:transistor", "tech:hendelse"], "ventende kort er ikke med");
-  assert.deepEqual(alt.filter((v) => v.startsWith("instrument:")), ["instrument:Filosof"], "bare sammendrag som er skrevet");
+  assert.deepEqual(alt.filter((v) => v.startsWith("instrument:")), ["instrument:Metafysikk"], "bare sammendrag som er skrevet");
   // Alt lar seg sette sammen uten mangler.
   const m = settSammen(alt, DATA, STUDENT);
   assert.deepEqual(m.mangler, []);
@@ -488,8 +488,8 @@ test("tittel: flere metasjangre listes, høyst tre", () => {
 test("tittel: bare innovasjoner, bare instrumenter, ellers «Pensumutdrag»", () => {
   // Et gammelt tiårsvalg gir ingen tiårstittel lenger (fase 2).
   assert.equal(foreslaaTittel(settSammen(["tiår:1950"], DATA, STUDENT)), "Pensumutdrag");
-  assert.equal(foreslaaTittel(settSammen(["tech:elgitar"], DATA, STUDENT)), "Reformer");
-  assert.equal(foreslaaTittel(settSammen(["instrument:Filosof"], DATA, STUDENT)), "Fagbakgrunnene");
+  assert.equal(foreslaaTittel(settSammen(["tech:elgitar"], DATA, STUDENT)), "Milepæler");
+  assert.equal(foreslaaTittel(settSammen(["instrument:Metafysikk"], DATA, STUDENT)), "Disiplinene");
   assert.equal(foreslaaTittel(settSammen([], DATA, STUDENT)), "Pensumutdrag");
   assert.equal(foreslaaTittel(null), "Pensumutdrag");
 });

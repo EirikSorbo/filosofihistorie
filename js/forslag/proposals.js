@@ -50,8 +50,8 @@ const FIELD_SPECS = {
     ] },
     // Instrumentgruppen kortet hører til — styrer hvilken tidslinje det havner
     // på i Instrumenter-seksjonen. Tomt = kortet vises kun under Teknologi.
-    { key: "instrument", label: "Fagbakgrunn", type: "select", options: [
-      { value: "", label: "Ingen / gjelder ikke ett fagbakgrunn" },
+    { key: "instrument", label: "Disiplin", type: "select", options: [
+      { value: "", label: "Ingen / gjelder ikke én disiplin" },
       ...INSTRUMENT_TIMELINE_GROUPS.map((i) => ({ value: i, label: i })),
     ] },
     // (Tiåret, «decade», styrte tiårsvinduets tidslinje til fase 2.)
@@ -62,7 +62,7 @@ const FIELD_SPECS = {
     // lærerens diff-tabell kalte endringen «Oppfunnet». Etikettene her er nå
     // ordrett de samme som i lærerens editor (teacher.html).
     { key: "inventedYear", label: "Vedtatt eller innført (år)", type: "number",
-      hint: `Året reformen ble vedtatt eller innført, eller milepælen inntraff. ${AAR_HJELP}` },
+      hint: `Året milepælen inntraff. ${AAR_HJELP}` },
     { key: "adoptedYear", label: "Gjennomslag (år)", type: "number",
       hint: "Året det ble tatt i bruk i nevneverdig skala." },
     { key: "adoptedLabel", label: "Gjennomslag (kort forklaring)", type: "text", max: 150 },
@@ -82,14 +82,14 @@ const FIELD_SPECS = {
     { key: "era", label: "Epoke med ord", type: "text", levels: ["main"], full: true, max: 60,
       hint: "Vises ordrett på epoketidslinjen, og på epokekortet når årstallene over står tomme. Bruk den for nyansering av årstallene hvis nødvendig." },
     { key: "samfunn", label: "Samfunn", type: "textarea", levels: ["main"], full: true },
-    { key: "skole", label: "Skole og oppdragelse", type: "textarea", levels: ["main"], full: true },
+    { key: "skole", label: "Vitenskap og lærdom", type: "textarea", levels: ["main"], full: true },
     KILDE_FELT,
   ],
   // Kilder er PÅKREVD for studentforslag her (brukerkrav): sammendraget er
   // studentarbeid som skal kunne etterprøves, akkurat som instrumentkortene.
   // Læreren skriver i sin egen editor og møter ikke kravet.
   instrument: [
-    { key: "body", label: "Sammendrag av fagbakgrunnens utvikling", type: "textarea", full: true, max: SAMMENDRAG_MAKS },
+    { key: "body", label: "Sammendrag av disiplinens utvikling", type: "textarea", full: true, max: SAMMENDRAG_MAKS },
     { ...KILDE_FELT, label: "Kilder *" },
   ],
 };
@@ -100,11 +100,11 @@ function fieldSpecsFor(entityType) {
 }
 
 const TITLES = {
-  artist: "Foreslå endring på teoretiker",
-  tech: "Foreslå endring på reformskort",
+  artist: "Foreslå endring på filosof",
+  tech: "Foreslå endring på milepælskort",
   subgenre: "Foreslå endring på epokebeskrivelse",
-  instrument: "Foreslå endring på fagbakgrunnsammendrag",
-  "new-tech": "Foreslå nytt reformskort",
+  instrument: "Foreslå endring på disiplinsammendrag",
+  "new-tech": "Foreslå nytt milepælskort",
 };
 
 function inputForField(spec, value) {
@@ -581,7 +581,7 @@ export function openNewTechProposal(preset = null, retur = null) {
   document.getElementById("prop-title").textContent = retur
     ? `Lever på nytt: ${retur.name || "(uten navn)"}`
     : (forInstrument
-      ? `Foreslå nytt fagbakgrunnkort: ${preset.instrument}`
+      ? `Foreslå nytt disiplinkort: ${preset.instrument}`
       : TITLES["new-tech"]);
   document.getElementById("prop-msg").textContent = "";
   document.getElementById("prop-by").value = retur?.proposedBy || "";

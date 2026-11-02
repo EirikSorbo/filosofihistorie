@@ -804,7 +804,7 @@ function byggModal() {
     <div id="pres-adm-rediger" hidden>
       <div class="add-grid pres-adm-hode">
         <label>Tittel *
-          <input type="text" id="pres-adm-tittel" maxlength="80" placeholder="F.eks. Uke 39: Pestalozzi og anskuelse" />
+          <input type="text" id="pres-adm-tittel" maxlength="80" placeholder="F.eks. Uke 39: Platon og dialektikk" />
         </label>
         <label>Gruppe
           <input type="text" id="pres-adm-gruppe" maxlength="${GRUPPE_MAKS}" list="pres-adm-grupper" autocomplete="off" placeholder="F.eks. Klassen høst 2026" />
@@ -812,10 +812,10 @@ function byggModal() {
         </label>
       </div>
       <div id="pres-adm-stopp" style="margin-top:10px"></div>
-      <p class="muted pres-adm-hint">Et oversiktskort over innholdet, gruppert etter teoretikere, videoer, epoker og så videre, legges automatisk først og sist i avspillingen. Dra radene for å endre rekkefølgen.</p>
+      <p class="muted pres-adm-hint">Et oversiktskort over innholdet, gruppert etter filosofer, videoer, epoker og så videre, legges automatisk først og sist i avspillingen. Dra radene for å endre rekkefølgen.</p>
       <div class="pres-adm-sok">
         <input type="search" id="pres-adm-sok" class="sok-felt" autocomplete="off" enterkeyhint="search"
-          placeholder="Legg til stopp: søk etter teoretiker, epoke, reform …" aria-label="Legg til stopp" />
+          placeholder="Legg til stopp: søk etter filosof, epoke, milepæl …" aria-label="Legg til stopp" />
         <div id="pres-adm-sok-treff" class="pres-adm-sok-treff" aria-live="polite"></div>
       </div>
       <div class="pres-adm-leggtil">
@@ -824,7 +824,7 @@ function byggModal() {
       </div>
       <div class="pres-adm-pam">
         <h3 class="vis-hode">Påminnelser</h3>
-        <p class="muted pres-adm-hint">Dukker opp når denne planen spilles: et antall minutter etter at du startet den, eller på et klokkeslett. De vises bare på din skjerm, med mindre du krysser av for lerretet. Navn på teoretikere og epoker blir lenker. En påminnelse som bare gjelder én visning, legger du inn underveis med tasten R.</p>
+        <p class="muted pres-adm-hint">Dukker opp når denne planen spilles: et antall minutter etter at du startet den, eller på et klokkeslett. De vises bare på din skjerm, med mindre du krysser av for lerretet. Navn på filosofer og epoker blir lenker. En påminnelse som bare gjelder én visning, legger du inn underveis med tasten R.</p>
         <div id="pres-adm-pam"></div>
         <button type="button" id="pres-adm-pam-ny" class="btn ghost small">Legg til påminnelse</button>
       </div>

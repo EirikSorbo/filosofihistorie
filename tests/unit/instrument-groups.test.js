@@ -18,9 +18,9 @@ test("INSTRUMENTS utledes av gruppene — én kilde, ingen duplikater", () => {
 
 // Fagbakgrunn (pedagogikkappens fase 3): sju verdier, hver sin gruppe, i
 // Eiriks rekkefølge. «Annet» og musikkinstrumentene er borte.
-const FAGBAKGRUNN = ["Filosof", "Teolog", "Psykolog", "Sosiolog", "Praktiker", "Politiker og reformator", "Forsker"];
+const FAGBAKGRUNN = ["Metafysikk", "Erkjennelsesteori", "Etikk", "Politisk filosofi", "Logikk og språk", "Estetikk", "Vitenskapsfilosofi", "Religionsfilosofi"];
 
-test("vokabularet er fagbakgrunnene, i den vedtatte rekkefølgen, og hver står for seg", () => {
+test("vokabularet er disiplinene, i den vedtatte rekkefølgen, og hver står for seg", () => {
   assert.deepEqual(INSTRUMENTS, FAGBAKGRUNN);
   assert.deepEqual(INSTRUMENT_TIMELINE_GROUPS, FAGBAKGRUNN);
   assert.deepEqual(Object.keys(INSTRUMENT_GROUPS), FAGBAKGRUNN);
@@ -32,26 +32,26 @@ test("vokabularet er fagbakgrunnene, i den vedtatte rekkefølgen, og hver står 
 // --- Nyvinnings-tidslinjen per instrument ------------------------------------
 
 const kort = [
-  { id: "a", name: "Elektrisk gitar", adoptedYear: 1938, instrument: "Filosof", status: "active" },
-  { id: "b", name: "Gibson Les Paul", adoptedYear: 1952, instrument: "Filosof", status: "active" },
-  { id: "c", name: "Ventende kort", adoptedYear: 1960, instrument: "Filosof", status: "pending" },
-  { id: "d", name: "El-bassen", adoptedYear: 1955, instrument: "Teolog", status: "active" },
+  { id: "a", name: "Elektrisk gitar", adoptedYear: 1938, instrument: "Metafysikk", status: "active" },
+  { id: "b", name: "Gibson Les Paul", adoptedYear: 1952, instrument: "Metafysikk", status: "active" },
+  { id: "c", name: "Ventende kort", adoptedYear: 1960, instrument: "Metafysikk", status: "pending" },
+  { id: "d", name: "El-bassen", adoptedYear: 1955, instrument: "Etikk", status: "active" },
   { id: "e", name: "Grammofonen", adoptedYear: 1900, status: "active" },   // uten instrument
 ];
 
 test("kun godkjente kort for RIKTIG instrument havner på tidslinjen", () => {
-  const gitar = instrumentInnovations(kort, "Filosof").map((t) => t.name);
+  const gitar = instrumentInnovations(kort, "Metafysikk").map((t) => t.name);
   assert.deepEqual(gitar, ["Elektrisk gitar", "Gibson Les Paul"], "ventende kort skal ikke vises");
-  assert.deepEqual(instrumentInnovations(kort, "Teolog").map((t) => t.name), ["El-bassen"]);
-  assert.deepEqual(instrumentInnovations(kort, "Psykolog"), []);
+  assert.deepEqual(instrumentInnovations(kort, "Etikk").map((t) => t.name), ["El-bassen"]);
+  assert.deepEqual(instrumentInnovations(kort, "Erkjennelsesteori"), []);
   // Et kort uten instrument hører kun hjemme under Teknologi.
   assert.ok(!INSTRUMENT_TIMELINE_GROUPS.some((g) => instrumentInnovations(kort, g).some((t) => t.id === "e")));
 });
 
 test("tidslinjen tegnes først ved minst to kort", () => {
-  assert.equal(buildInstrumentTimeline(kort, "Teolog"), "", "ett kort gir ingen tidslinje");
-  assert.equal(buildInstrumentTimeline(kort, "Forsker"), "", "null kort gir ingen tidslinje");
-  const gitar = buildInstrumentTimeline(kort, "Filosof");
+  assert.equal(buildInstrumentTimeline(kort, "Etikk"), "", "ett kort gir ingen tidslinje");
+  assert.equal(buildInstrumentTimeline(kort, "Religionsfilosofi"), "", "null kort gir ingen tidslinje");
+  const gitar = buildInstrumentTimeline(kort, "Metafysikk");
   assert.ok(gitar.includes("Elektrisk gitar") && gitar.includes("Gibson Les Paul"));
   assert.ok(!gitar.includes("Ventende kort"));
   // Grønn som innovasjonstidslinjen — ingen egen farge satt.
@@ -69,9 +69,9 @@ test("instrument og kilder er foreslåbare felter", () => {
 
 test("instrumentPageId gir lovlige, stabile Firestore-ID-er", async () => {
   const { instrumentPageId } = await import("../../js/felles/limits.js");
-  assert.equal(instrumentPageId("Filosof"), "instrument-filosof");
-  assert.equal(instrumentPageId("Politiker og reformator"), "instrument-politiker-og-reformator");
-  assert.equal(instrumentPageId("Praktiker"), "instrument-praktiker");
+  assert.equal(instrumentPageId("Metafysikk"), "instrument-metafysikk");
+  assert.equal(instrumentPageId("Logikk og språk"), "instrument-logikk-og-sprak");
+  assert.equal(instrumentPageId("Estetikk"), "instrument-estetikk");
   for (const g of INSTRUMENT_TIMELINE_GROUPS) {
     const id = instrumentPageId(g);
     // Firestore-ID-er tåler ikke skråstrek, og æøå gir vondt-å-feilsøke ID-er.
@@ -117,10 +117,10 @@ test("kort uten type ER en innovasjon — de 66 gamle trengte ingen migrering", 
 test("begge typer havner på instrumenttidslinjen, kun hendelser merkes", async () => {
   const { buildInstrumentTimeline } = await import("../../js/ui/ui-timeline.js");
   const kort = [
-    { id: "a", name: "Elektrisk gitar", adoptedYear: 1938, instrument: "Filosof", status: "active" },
-    { id: "b", name: "Charlie Christian som soloinstrument", adoptedYear: 1939, instrument: "Filosof", status: "active", type: "hendelse" },
+    { id: "a", name: "Elektrisk gitar", adoptedYear: 1938, instrument: "Metafysikk", status: "active" },
+    { id: "b", name: "Charlie Christian som soloinstrument", adoptedYear: 1939, instrument: "Metafysikk", status: "active", type: "hendelse" },
   ];
-  const html = buildInstrumentTimeline(kort, "Filosof");
+  const html = buildInstrumentTimeline(kort, "Metafysikk");
   assert.ok(html.includes("Elektrisk gitar") && html.includes("Charlie Christian"));
   assert.equal((html.match(/tl-item-hendelse/g) || []).length, 1, "kun hendelsen merkes");
   assert.ok(html.includes("tl-legend"), "tegnforklaring vises når begge typer finnes");
@@ -129,10 +129,10 @@ test("begge typer havner på instrumenttidslinjen, kun hendelser merkes", async 
 test("tegnforklaringen vises IKKE når bare én type finnes", async () => {
   const { buildInstrumentTimeline } = await import("../../js/ui/ui-timeline.js");
   const bare = (type) => [1938, 1952].map((y, i) => ({
-    id: "x" + i, name: "Kort " + i, adoptedYear: y, instrument: "Filosof", status: "active", ...(type ? { type } : {}),
+    id: "x" + i, name: "Kort " + i, adoptedYear: y, instrument: "Metafysikk", status: "active", ...(type ? { type } : {}),
   }));
-  assert.ok(!buildInstrumentTimeline(bare(null), "Filosof").includes("tl-legend"));
-  assert.ok(!buildInstrumentTimeline(bare("hendelse"), "Filosof").includes("tl-legend"));
+  assert.ok(!buildInstrumentTimeline(bare(null), "Metafysikk").includes("tl-legend"));
+  assert.ok(!buildInstrumentTimeline(bare("hendelse"), "Metafysikk").includes("tl-legend"));
 });
 
 test("hendelseskort vises ikke i Teknologi-seksjonen", async () => {
@@ -161,29 +161,29 @@ test("type er foreslåbar og står i regel-hvitelista", async () => {
 
 test("instrumentsInUse tar bare med instrumenter som er i bruk", () => {
   const artister = [
-    { name: "A", status: "active", instrument: "Filosof" },
-    { name: "B", status: "active", instrument: "Psykolog" },
-    { name: "C", status: "active", instrument: "Filosof" },
+    { name: "A", status: "active", instrument: "Metafysikk" },
+    { name: "B", status: "active", instrument: "Erkjennelsesteori" },
+    { name: "C", status: "active", instrument: "Metafysikk" },
   ];
-  assert.deepEqual(instrumentsInUse(artister), ["Filosof", "Psykolog"], "vokabularets rekkefølge, ikke artistenes");
+  assert.deepEqual(instrumentsInUse(artister), ["Metafysikk", "Erkjennelsesteori"], "vokabularets rekkefølge, ikke artistenes");
   assert.ok(!instrumentsInUse(artister).includes("Banjo"));
 });
 
 test("instrumentsInUse teller ikke skjulte eller fjernede artister", () => {
   const artister = [
-    { name: "A", status: "active", instrument: "Psykolog" },
+    { name: "A", status: "active", instrument: "Erkjennelsesteori" },
     { name: "B", status: "removed", instrument: "Banjo" },
     { name: "C", status: "active", priority: -1, instrument: "Mandolin" },
     { name: "D", status: "pending", instrument: "Trombone" },
   ];
-  assert.deepEqual(instrumentsInUse(artister), ["Psykolog"]);
+  assert.deepEqual(instrumentsInUse(artister), ["Erkjennelsesteori"]);
 });
 
 test("instrumentsInUse beholder et aktivt filtervalg som mistet siste artist", () => {
-  const artister = [{ name: "A", status: "active", instrument: "Psykolog" }];
-  assert.deepEqual(instrumentsInUse(artister, "Banjo"), ["Psykolog", "Banjo"]);
-  assert.deepEqual(instrumentsInUse(artister, "Psykolog"), ["Psykolog"], "ingen dublett når valget finnes");
-  assert.deepEqual(instrumentsInUse(artister, ""), ["Psykolog"]);
+  const artister = [{ name: "A", status: "active", instrument: "Erkjennelsesteori" }];
+  assert.deepEqual(instrumentsInUse(artister, "Banjo"), ["Erkjennelsesteori", "Banjo"]);
+  assert.deepEqual(instrumentsInUse(artister, "Erkjennelsesteori"), ["Erkjennelsesteori"], "ingen dublett når valget finnes");
+  assert.deepEqual(instrumentsInUse(artister, ""), ["Erkjennelsesteori"]);
 });
 
 test("instrumentsInUse tåler tom og manglende artistliste", () => {

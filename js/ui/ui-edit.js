@@ -12,7 +12,7 @@ import { PROPOSABLE_KEYS } from "../forslag/proposal-fields.js";
 const FIELD_LABELS = {
   artist: ARTIST_LABELS,
   tech: {
-    name: "Navn", type: "Type", category: "Kategori", instrument: "Fagbakgrunn",
+    name: "Navn", type: "Type", category: "Kategori", instrument: "Disiplin",
     inventedYear: "Vedtatt eller innført (år)",
     adoptedYear: "Gjennomslag (år)",
     adoptedLabel: "Gjennomslag (forklaring)", description: "Beskrivelse",
@@ -21,7 +21,7 @@ const FIELD_LABELS = {
   subgenre: {
     description: "Beskrivelse", kilder: "Kilder",
     activeFrom: "Mest aktiv fra år", activeTo: "Mest aktiv til år",
-    era: "Epoke med ord", samfunn: "Samfunn", skole: "Skole og oppdragelse",
+    era: "Epoke med ord", samfunn: "Samfunn", skole: "Vitenskap og lærdom",
   },
   instrument: {
     body: "Sammendrag",

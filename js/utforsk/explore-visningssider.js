@@ -37,7 +37,7 @@ export function openVisningssider() {
   body.innerHTML = `
     <h3 class="mo-head">Oversikt over retningene</h3>
     <div class="vs-knapper">${metas.map((m) => knapp("data-oversikt", m, m, m)).join("")}</div>
-    <h3 class="mo-head vs-galleri-head">Teoretikergalleri</h3>
+    <h3 class="mo-head vs-galleri-head">Filosofgalleri</h3>
     ${metas.map((m) => {
       const familie = genreFamilyNodes(m, s.genreDescs || {}).map(({ n }) => n);
       if (!familie.length) return "";
@@ -60,7 +60,7 @@ export function openArtistGalleri(sjanger) {
   const body = document.getElementById("ga-body");
   if (!modal || !body || !sjanger) return;
   modal.dataset.vis = `galleri:${sjanger}`;
-  document.getElementById("ga-tittel").textContent = `Teoretikergalleri: ${fulltNavn(sjanger)}`;
+  document.getElementById("ga-tittel").textContent = `Filosofgalleri: ${fulltNavn(sjanger)}`;
   const artister = artistsInGenre(getState().artists, sjanger);
   body.innerHTML = artister.length
     ? `<ul class="ga-rutenett">${artister.map((a) => {
@@ -73,7 +73,7 @@ export function openArtistGalleri(sjanger) {
         return `<li><button type="button" class="ga-kort" data-related-id="${escapeHtml(String(a.id))}">`
           + `<span class="ga-bilde">${bilde}</span><span class="ga-navn">${escapeHtml(a.name)}</span></button></li>`;
       }).join("")}</ul>`
-    : `<p class="gx-missing">Ingen teoretikere i ${escapeHtml(fulltNavn(sjanger))} ennå.</p>`;
+    : `<p class="gx-missing">Ingen filosofer i ${escapeHtml(fulltNavn(sjanger))} ennå.</p>`;
   // Et bilde åpner artistkortet oppå galleriet (← tilbake hit).
   wireRelated(body, buildLinkCtx());
   modalOpen(modal);

@@ -202,7 +202,7 @@ test("sletting BLOKKERES av artister og av barn, med liste over hva som må rydd
   const plan = planGenreDelete(lagState(), "R&B");
   assert.equal(plan.ops.length, 0, "ingenting skal skrives når det er blokkert");
   const tekster = plan.blokkeringer.map((b) => b.hva).join(" | ");
-  assert.ok(tekster.includes("teoretiker"), tekster);
+  assert.ok(tekster.includes("filosof"), tekster);
   assert.ok(tekster.includes("forelder"), tekster);
   const barnBlokk = plan.blokkeringer.find((b) => b.hva.includes("forelder"));
   assert.deepEqual(barnBlokk.detaljer.sort(), ["Rock", "Soul"]);
@@ -274,7 +274,7 @@ test("metasjanger-bytte tar med sjangerhistorien (story-feltet)", () => {
   assert.ok(ny.data.meta);
 });
 
-test("metasjanger-bytte oppdaterer metaOrderHint — ellers mistes den pedagogiske rangeringen", () => {
+test("metasjanger-bytte oppdaterer metaOrderHint — ellers mistes den filosofiske rangeringen", () => {
   const s = lagState();
   const plan = planMetaRename(s, "R&B", "Soul og funk");
   const tre = treet(plan);
@@ -340,7 +340,7 @@ test("tom metasjanger fjernes fra BÅDE metaGenres og metaOrderHint", () => {
   const t = treet(plan);
   assert.deepEqual(t.metaGenres.map((m) => m.name), ["Blues", "R&B", "Rock"]);
   assert.deepEqual(t.metaOrderHint, ["Blues", "R&B", "Rock"],
-    "glemmes hintet, blir navnet stående i den pedagogiske rangeringen");
+    "glemmes hintet, blir navnet stående i den filosofiske rangeringen");
   assert.equal(plan.ops.find((o) => o.id === "genealogy").type, "doc.replace");
 });
 
@@ -519,7 +519,7 @@ test("planMetaDelete: blokkeres av artistforslag som foreslår metasjangeren", a
   const plan = planMetaDelete(state, "Klubbmusikk");
   assert.equal(plan.ops.length, 0);
   assert.equal(plan.blokkeringer.length, 1);
-  assert.match(plan.blokkeringer[0].hva, /teoretikerforslag/);
+  assert.match(plan.blokkeringer[0].hva, /filosofforslag/);
   // Uten forslaget går slettingen gjennom.
   const uten = planMetaDelete({ ...state, pendingEdits: [] }, "Klubbmusikk");
   assert.deepEqual(uten.blokkeringer, []);
@@ -539,7 +539,7 @@ test("planGenreRename: fri undersjanger-tagg i forslag gir advarsel, ingen skriv
   };
   const plan = planGenreRename(state, "Disco", "Disco & boogie");
   assert.deepEqual(plan.feil, []);
-  assert.ok(plan.advarsler.some((a) => /fritt prinsipp-merke/.test(a)),
+  assert.ok(plan.advarsler.some((a) => /fritt begrepsmerke/.test(a)),
     "planen skal si fra om den frie taggen i køen");
   assert.equal(plan.ops.filter((o) => o.coll === "pendingEdits").length, 0,
     "den frie taggen skal ikke skrives om");

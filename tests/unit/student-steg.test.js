@@ -27,7 +27,7 @@ const STEGENE = [
 ];
 
 test("fem steg i avtalt rekkefølge, med feltene i riktig steg", () => {
-  assert.match(src, /const STEGNAVN = \["Teoretikeren", "Retning og periode", "Beskrivelse", "Hovedverk", "Kilder og innsending"\];/);
+  assert.match(src, /const STEGNAVN = \["Filosofen", "Retning og periode", "Beskrivelse", "Hovedverk", "Kilder og innsending"\];/);
   assert.equal(seksjoner.length, STEGENE.length, "antall steg");
   STEGENE.forEach(([tittel, felt], i) => {
     const s = seksjoner[i];
@@ -78,7 +78,7 @@ test("obligatoriske felt per modus", () => {
 });
 
 test("lærerfeltene bare for læreren (plateselskapsfeltet er tatt ut i fase 4)", () => {
-  assert.match(markup, /\$\{laerer \? `<label>Fagbakgrunn 2/);
+  assert.match(markup, /\$\{laerer \? `<label>Disiplin 2/);
   assert.doesNotMatch(markup, /Plateselskap/);
   assert.match(markup, /\$\{laerer \? `<div class="full punktfelt">/);
 });

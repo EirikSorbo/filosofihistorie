@@ -73,7 +73,7 @@ test("prinsippFolk: eldst først, subGenre og mainGenre, uavhengig av store boks
   assert.deepEqual(prinsippFolk("Finnes ikke", FOLK), []);
 });
 
-test("prinsippFolk og prinsippEpoker: epokene er tre-nodene teoretikerne er merket med, uten gjentak, i treets rekkefølge", () => {
+test("prinsippFolk og prinsippEpoker: epokene er tre-nodene filosofene er merket med, uten gjentak, i treets rekkefølge", () => {
   const folk = prinsippFolk("Anskuelse", FOLK);
   const blues = folk.find((f) => f.artist.id === "b");
   assert.deepEqual(blues.epoker.map((n) => n.l), ["Blues"]);
@@ -87,7 +87,7 @@ test("prinsippFolk og prinsippEpoker: epokene er tre-nodene teoretikerne er merk
   assert.ok(GENEALOGY.length > 0);
 });
 
-test("hosHvemHtml: stripe, epoker som sjangerlenker og teoretikere som artistlenker; tom uten teoretikere", () => {
+test("hosHvemHtml: stripe, epoker som sjangerlenker og filosofer som artistlenker; tom uten filosofer", () => {
   const html = hosHvemHtml("Anskuelse", FOLK, { nowYear: 2026 });
   assert.match(html, /Hos hvem og når/);
   assert.match(html, /class="ai-strip"/);
@@ -114,7 +114,7 @@ test("flerStripeHtml: én stolpe per periode, overlappende perioder i hver sin b
   assert.match(html, /title="Basedow"[^>]*top:0\.55rem/, "overlapper Rousseau: neste bane");
   assert.match(html, /ai-bar-flere is-cut-end" title="Biesta"/);
   assert.match(html, /--ai-n:4/);
-  assert.match(html, /aria-label="3 teoretikere på tidsaksen"/);
+  assert.match(html, /aria-label="3 filosofer på tidsaksen"/);
 });
 
 test("flerStripeHtml: før Kristus står i det første tidsrommet, og tom uten akse eller poster", () => {

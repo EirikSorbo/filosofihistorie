@@ -28,37 +28,37 @@ import { ytMaal } from "../visning/presentasjon-modell.js";
 
 // Etikettene som vises på treffene. Nøkkelen er postens `type`.
 export const TYPE_LABEL = {
-  artist: "Teoretiker",
+  artist: "Filosof",
   lytteeksempel: "Video",
   sjanger: "Epoke",
   rot: "Rot",
-  undersjanger: "Prinsipp",
+  undersjanger: "Begrep",
   historie: "Epokehistorie",
-  tech: "Reform",
+  tech: "Milepæl",
   hendelse: "Hendelse",
   side: "Innholdsside",
-  instrument: "Fagbakgrunn",
+  instrument: "Disiplin",
   kobling: "Epokekobling",
   oversikt: "Retning",
-  galleri: "Teoretikergalleri",
+  galleri: "Filosofgalleri",
   slide: "Slide",
 };
 
 // Overskriften over en gruppe treff.
 export const TYPE_FLERTALL = {
-  artist: "Teoretikere",
+  artist: "Filosofer",
   lytteeksempel: "Videoer",
   sjanger: "Epoker",
   rot: "Røtter",
-  undersjanger: "Prinsipper",
+  undersjanger: "Begreper",
   historie: "Epokehistorier",
-  tech: "Reformer",
+  tech: "Milepæler",
   hendelse: "Hendelser",
   side: "Innholdssider",
-  instrument: "Fagbakgrunner",
+  instrument: "Disipliner",
   kobling: "Epokekoblinger",
   oversikt: "Retninger",
-  galleri: "Teoretikergallerier",
+  galleri: "Filosofgallerier",
   slide: "Slides",
 };
 
@@ -192,7 +192,7 @@ export function byggIndeks(state = {}, { erLærer = false, skjul = {}, skjulHub 
   for (const [navn, g] of Object.entries(genreDescs)) {
     const sub = g && g.sub;
     if (!sub || findTreeGenreNode(navn)) continue;
-    ut.push(post("undersjanger", navn, navn, "Prinsipp",
+    ut.push(post("undersjanger", navn, navn, "Begrep",
       [sub.description, sub.era], { hva: "undersjanger", id: navn }));
   }
 
@@ -229,7 +229,7 @@ export function byggIndeks(state = {}, { erLærer = false, skjul = {}, skjulHub 
       // Artistgalleriene (v5.96), én per sjanger i de aktive familiene. Bare
       // for visningsmodus.
       for (const n of GENEALOGY.filter((x) => x.g === meta)) {
-        ut.push(post("galleri", n.l, `Teoretikergalleri: ${n.f || n.l}`, `Visningsmodus · ${meta}`,
+        ut.push(post("galleri", n.l, `Filosofgalleri: ${n.f || n.l}`, `Visningsmodus · ${meta}`,
           [n.l, n.f, "galleri bilder"], { hva: "galleri", id: n.l }));
       }
     }
@@ -266,7 +266,7 @@ export function byggIndeks(state = {}, { erLærer = false, skjul = {}, skjulHub 
     const side = pageFor(instrumentPageId(gruppe), content);
     if (!side) continue;
     ut.push(post("instrument", gruppe, INSTRUMENT_TITLE[gruppe] || `Utviklingen av ${gruppe}`,
-      "Fagbakgrunner", [side.body], { hva: "instrument", id: gruppe }));
+      "Disipliner", [side.body], { hva: "instrument", id: gruppe }));
   }
 
   // (Plateselskapene, søkbare fra v6.37, ble tatt ut i fase 4.)

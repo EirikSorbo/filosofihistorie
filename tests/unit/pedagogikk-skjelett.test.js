@@ -85,7 +85,7 @@ const epokeEtiketter = new Set(tre.nodes.map((n) => n.l));
 
 function sjekkTeoretiker(a) {
   assert.ok(retninger.has(a.metaGenre), `retningen «${a.metaGenre}» finnes ikke i treet`);
-  assert.ok(INSTRUMENTS.includes(a.instrument), `fagbakgrunnen «${a.instrument}» finnes ikke`);
+  assert.ok(INSTRUMENTS.includes(a.instrument), `disiplinen «${a.instrument}» finnes ikke`);
   assert.ok(GENDERS.some((g) => g.value === a.gender), `kjønnet «${a.gender}» finnes ikke`);
   for (const e of a.mainGenre) assert.ok(epokeEtiketter.has(e), `epoken «${e}» finnes ikke i treet`);
   assert.ok(Array.isArray(a.kilder) && a.kilder.length, "kilder er påkrevd");

@@ -23,3 +23,6 @@ test-results/
 playwright-report/
 firestore-debug.log
 firebase-debug.log
+
+# Python lager denne når tools/ordbytte.py kjøres
+__pycache__/

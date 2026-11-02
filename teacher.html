@@ -76,8 +76,8 @@
         <div class="dash-grid">
           <button class="dash-card" id="btn-t-artister">
             <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-artister)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-            <span class="dash-title">Teoretikere</span>
-            <span class="dash-desc">Utforsk teoretikere</span>
+            <span class="dash-title">Filosofer</span>
+            <span class="dash-desc">Utforsk filosofer</span>
           </button>
           <button class="dash-card" id="btn-t-genres">
             <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-sjangre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><path d="M9 17V4h8v9"/><circle cx="17" cy="13" r="3"/></svg>
@@ -86,8 +86,8 @@
           </button>
           <button class="dash-card" id="btn-t-reformer">
             <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-tech)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>
-            <span class="dash-title">Reformer og milepæler</span>
-            <span class="dash-desc">Lover, læreplaner og metoder</span>
+            <span class="dash-title">Milepæler</span>
+            <span class="dash-desc">Institusjoner, verk, miljøer og overlevering</span>
           </button>
           <!-- Det store bildet står sist, helt til høyre (v6.54, brukerønske 2026-10-07). -->
           <button class="dash-card" id="btn-t-store-bildet">
@@ -148,7 +148,7 @@
       <!-- Forslagsliste -->
       <section class="panel">
         <div class="list-head">
-          <h2 id="artistkort-tittel">Teoretikerkort</h2>
+          <h2 id="artistkort-tittel">Filosofkort</h2>
           <div class="priority-filter-bar" id="t-prio-bar">
             <button class="prio-filter-btn" data-prio="3" title="Bare viktigst" aria-label="Bare viktigst"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></button>
             <button class="prio-filter-btn" data-prio="2" title="Viktig og viktigst" aria-label="Viktig og viktigst"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></button>
@@ -161,7 +161,7 @@
               <!-- Visningsvelgeren (v6.26, som i studentenes artistsøk):
                    Kort er standard her (brukervalg 2026-10-04), fordi
                    godkjenning, prioritet og avhuking står på kortene. -->
-              <div class="vis-velger" id="t-view-toggle" role="group" aria-label="Visning av teoretikerne">
+              <div class="vis-velger" id="t-view-toggle" role="group" aria-label="Visning av filosofene">
                 <button type="button" data-treffvisning="galleri" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Galleri</button>
                 <button type="button" data-treffvisning="liste" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</button>
                 <button type="button" data-treffvisning="kort" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h6M7 13h10M7 17h8"/></svg>Kort</button>
@@ -174,8 +174,8 @@
               </label>
               <div class="spacer"></div>
               <!-- Artisttidslinje til venstre for «Ny artist» (v6.68, brukerønske). -->
-              <button type="button" id="btn-tidslinje-artister" class="btn ghost small">Teoretikertidslinje</button>
-              <button type="button" class="btn primary small" id="btn-ny-artist">Ny teoretiker</button>
+              <button type="button" id="btn-tidslinje-artister" class="btn ghost small">Filosoftidslinje</button>
+              <button type="button" class="btn primary small" id="btn-ny-artist">Ny filosof</button>
             </div>
             <div class="filter-row filter-row--selects">
               <select id="f-sjanger"></select>
@@ -285,7 +285,7 @@
           <div class="innst-kort">
             <div class="innst-rad">
               <span class="innst-ikon" style="--farge:var(--icon-l-fare)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span>
-              <span class="innst-tekst"><span class="innst-tittel">Slett all teoretikerdata</span><span class="innst-desc">Sletter alle teoretikerkortene for godt. Appen laster ned en sikkerhetskopi først, og du må skrive SLETT for å bekrefte.</span></span>
+              <span class="innst-tekst"><span class="innst-tittel">Slett all filosofdata</span><span class="innst-desc">Sletter alle filosofkortene for godt. Appen laster ned en sikkerhetskopi først, og du må skrive SLETT for å bekrefte.</span></span>
               <button type="button" id="btn-nuke" class="btn danger small">Slett</button>
             </div>
           </div>
@@ -436,18 +436,18 @@
              lenker og korte utdrag med kilde. -->
         <div id="ss-seles-wrap" hidden>
           <span class="field-label">Se og les</span>
-          <p class="hint">Valgfritt: videoer og tekstutdrag som hører til prinsippet. Utdrag høyst 1200 tegn, alltid med kilde.</p>
+          <p class="hint">Valgfritt: videoer og tekstutdrag som hører til begrepet. Utdrag høyst 1200 tegn, alltid med kilde.</p>
           <div id="ss-seles-rows"></div>
           <button type="button" class="btn ghost small" id="ss-seles-add">+ Legg til post</button>
         </div>
-        <!-- Epokekortets kontekstfelt (fase 3): samfunnet epoken sto i, og hva den
-             betydde for skole og oppdragelse. Bare for epoker (main-nivå). -->
+        <!-- Epokekortets kontekstfelt (fase 3): samfunnet epoken sto i, og hva som
+             preget vitenskap og lærdom. Bare for epoker (main-nivå). -->
         <div id="ss-kontekst-wrap" hidden>
           <label>Samfunn
             <textarea id="ss-samfunn" rows="5" data-format="full" placeholder="Samfunnet epoken sto i: politikk, økonomi, tro, vitenskap …"></textarea>
           </label>
-          <label>Skole og oppdragelse
-            <textarea id="ss-skole" rows="5" data-format="full" placeholder="Hvem gikk på skole, hva ble lært, og hvordan ble barn oppdratt? Norsk spor der det finnes."></textarea>
+          <label>Vitenskap og lærdom
+            <textarea id="ss-skole" rows="5" data-format="full" placeholder="Hvilke institusjoner, skoler og vitenskaper preget tenkningen, og hva ble lest og undervist?"></textarea>
           </label>
         </div>
         <!-- Påstander som ikke fikk kildebelegg i gjennomgangen. Vises KUN her,
@@ -513,20 +513,18 @@
   <div class="modal-backdrop" id="modal-tech-admin">
     <div class="modal modal-wide">
       <div class="modal-head">
-        <h2>Reformer og milepæler</h2>
+        <h2>Milepæler</h2>
         <button class="modal-close btn ghost small">✕</button>
       </div>
       <div class="tech-category-tabs">
         <button class="btn ghost small tech-tab active" data-tech-cat="">Alle</button>
-        <button class="btn ghost small tech-tab" data-tech-cat="Lov">Lov</button>
-        <button class="btn ghost small tech-tab" data-tech-cat="Læreplan">Læreplan</button>
         <button class="btn ghost small tech-tab" data-tech-cat="Institusjon">Institusjon</button>
-        <button class="btn ghost small tech-tab" data-tech-cat="Læremiddel">Læremiddel</button>
-        <button class="btn ghost small tech-tab" data-tech-cat="Metode">Metode</button>
-        <button class="btn ghost small tech-tab" data-tech-cat="Norsk spor">Norsk spor</button>
+        <button class="btn ghost small tech-tab" data-tech-cat="Verk">Verk</button>
+        <button class="btn ghost small tech-tab" data-tech-cat="Krets og skole">Krets og skole</button>
+        <button class="btn ghost small tech-tab" data-tech-cat="Overlevering">Overlevering</button>
       </div>
       <div class="modal-foot-right" style="margin-bottom:12px">
-        <button type="button" id="tech-new-btn" class="btn ghost small">+ Ny reform</button>
+        <button type="button" id="tech-new-btn" class="btn ghost small">+ Ny milepæl</button>
       </div>
       <div id="tech-admin-list"></div>
     </div>
@@ -539,7 +537,7 @@
   <div class="modal-backdrop" id="modal-tech-single">
     <div class="modal modal-wide">
       <div class="modal-head">
-        <h2 id="tech-single-title">Rediger reform</h2>
+        <h2 id="tech-single-title">Rediger milepæl</h2>
         <button class="modal-close btn ghost small">✕</button>
       </div>
       <div class="add-grid" style="grid-template-columns:1fr 1fr">
@@ -549,7 +547,7 @@
         <div class="full">
           <span class="field-label">Hva slags kort er dette?</span>
           <div class="radio-row" id="tech-type">
-            <label class="radio-opt"><input type="radio" name="tech-type" value="innovasjon" checked /> Reform eller milepæl</label>
+            <label class="radio-opt"><input type="radio" name="tech-type" value="innovasjon" checked /> Milepæl</label>
             <label class="radio-opt"><input type="radio" name="tech-type" value="hendelse" /> Viktig hendelse</label>
           </div>
         </div>
@@ -559,7 +557,7 @@
             <option value="Kringkasting og spredning">Kringkasting og spredning</option>
           </select>
         </label>
-        <label>Fagbakgrunn
+        <label>Disiplin
           <select id="tech-instrument"></select>
         </label>
         <label>Vedtatt eller innført (år)

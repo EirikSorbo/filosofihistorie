@@ -347,14 +347,14 @@ function renderDagensSection() {
 function renderDagensIArtister(el) {
   const artist = dagensArtist();
   if (!artist) {
-    el.innerHTML = `<p class="muted empty">${state.artistsLoaded ? "Ingen teoretikere ennå." : "Laster forslag …"}</p>`;
+    el.innerHTML = `<p class="muted empty">${state.artistsLoaded ? "Ingen filosofer ennå." : "Laster forslag …"}</p>`;
     return;
   }
   // Rammen (overskriften og «Ny teoretiker») bygges bare når den mangler. Selve
   // kortet males bare når HTML-en er endret (renderSpotlightCards), som på forsiden.
   if (!el.querySelector("[data-dagens-kort]")) {
-    el.innerHTML = `<div class="dagens-head"><p class="section-label" style="margin:0">Dagens teoretiker</p>
-    <button type="button" class="btn ghost small" data-dagens-ny>Ny teoretiker</button></div>
+    el.innerHTML = `<div class="dagens-head"><p class="section-label" style="margin:0">Dagens filosof</p>
+    <button type="button" class="btn ghost small" data-dagens-ny>Ny filosof</button></div>
     <div class="spotlight-grid" data-dagens-kort></div>`;
   }
   renderSpotlightCards(el.querySelector("[data-dagens-kort]"), [artist], explore.buildLinkCtx());
@@ -450,7 +450,7 @@ function openArtistModal() {
 function refreshFilterControls() {
   fillSelect($("#sp-sjanger"), GENEALOGY_MAIN_GENRES, { placeholder: "Epoke" });
   fillSelect($("#sp-genre"), GENEALOGY_META_GENRES.map(g => ({ value: g, label: g })), { placeholder: "Retning" });
-  fillSelect($("#sp-instrument"), instrumentsInUse(state.artists, state.filters.instrument), { placeholder: "Fagbakgrunn" });
+  fillSelect($("#sp-instrument"), instrumentsInUse(state.artists, state.filters.instrument), { placeholder: "Disiplin" });
   // Tidsrommene (fase 2) kommer fra treet, som de andre to nedtrekkene over.
   fillSelect($("#sp-tidsrom"), tidsromValg(), { placeholder: "Tidsrom" });
   if (state.filters.mainGenre)  $("#sp-sjanger").value = state.filters.mainGenre;
@@ -574,7 +574,7 @@ function visReturer(liste) {
   const el = $("#retur-liste");
   if (!el) return;
   if (!liste.length) { el.innerHTML = ""; return; }
-  const typeLabel = { artist: "Teoretikerforslag", tech: "Reformskort", edit: "Endringsforslag" };
+  const typeLabel = { artist: "Filosofforslag", tech: "Milepælskort", edit: "Endringsforslag" };
   el.innerHTML = liste.map((r) => {
     const navn = r.type === "edit" ? (r.entityName || r.entityId || "") : (r.name || "(uten navn)");
     return `<div class="retur-student-kort">
@@ -704,7 +704,7 @@ function init() {
     if (!hasFilters() && pool.length > 20) {
       const ok = await askChoice({
         title: "Hele lista til utskriften?",
-        text: `Ingen filter er valgt, så dette legger alle ${pool.length} teoretikerne i utskriften.`,
+        text: `Ingen filter er valgt, så dette legger alle ${pool.length} filosofene i utskriften.`,
         buttons: [{ label: "Legg til alle", value: true, className: "primary" }, { label: "Avbryt", value: false }],
         dismissValue: false,
       });

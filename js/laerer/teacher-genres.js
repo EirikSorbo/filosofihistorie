@@ -214,7 +214,7 @@ function radHtml(n) {
   return `<button class="gen-rad" data-node="${escapeHtml(n.id)}">
     <span class="gen-rad-navn">${escapeHtml(n.l)}</span>
     <span class="muted">${escapeHtml(tiar)}</span>
-    <span class="muted">${antall} teoretiker(er)</span>
+    <span class="muted">${antall} filosof(er)</span>
   </button>`;
 }
 

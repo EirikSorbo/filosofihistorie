@@ -113,7 +113,7 @@ function sjangerRad(k, F) {
   const opphav = [ "sjanger", F.valgt && k.kilde === "metasjanger" ? "" : OPPHAV[k.kilde] ].filter(Boolean).join(" · ");
   const n = k.artister.length;
   const med = k.artister.filter((a) => a.med).length;
-  const teller = !n ? "" : med === n ? `${n} ${n === 1 ? "artist" : "artister"}` : `${med} av ${n} teoretikere`;
+  const teller = !n ? "" : med === n ? `${n} ${n === 1 ? "artist" : "artister"}` : `${med} av ${n} filosofer`;
   const apen = erApen(k, F);
   return `<li class="ut-sj${k.med ? "" : " ut-av"}${apen ? "" : " ut-lukket"}">` +
     `<div class="ut-sj-rad"><label><input type="checkbox" data-huk="${h(k.vis)}"${k.med ? " checked" : ""}> ` +
@@ -217,7 +217,7 @@ function tegnHurtig() {
   const utenBilde = artisterUten("bilde").length;
   if (!utenBilde) { el.innerHTML = ""; return; }
   el.innerHTML = `<span class="muted">Ta ut:</span>` +
-    (utenBilde ? ` <button type="button" class="btn ghost small" data-hurtig="bilde">teoretikere uten bilde (${utenBilde})</button>` : "");
+    (utenBilde ? ` <button type="button" class="btn ghost small" data-hurtig="bilde">filosofer uten bilde (${utenBilde})</button>` : "");
 }
 
 // «Send til en annen enhet» (v5.74): utvalget bor i denne nettleseren, og
@@ -387,7 +387,7 @@ function tegnSok() {
     const nArt = state.artists.filter((a) => isVisible(a) && a.metaGenre === meta).length;
     const nSj = GENEALOGY.filter((n) => n.g === meta).length;
     sett.add(vis);
-    treff.push({ t: { type: "metasjanger", tittel: meta, sti: `hele metasjangeren: ${nSj} epoker, ${nArt} teoretikere` }, vis });
+    treff.push({ t: { type: "metasjanger", tittel: meta, sti: `hele metasjangeren: ${nSj} epoker, ${nArt} filosofer` }, vis });
   }
   for (const t of res.grupper.flatMap((g) => g.treff)) {
     const vis = kanoniskVis(byggVisVerdi(t.apne) || "");
@@ -470,7 +470,7 @@ function faktaHtml(k) {
   const sjangre = k.fakta.sjangre.filter(Boolean);
   if (sjangre.length) setninger.push(`<span class="h-etikett">Epoke:</span> ${sjangre.map(h).join(" · ")}.`);
   const under = k.fakta.undersjangre.filter(Boolean);
-  if (under.length) setninger.push(`<span class="h-etikett">Prinsipp:</span> ${under.map(h).join(" · ")}.`);
+  if (under.length) setninger.push(`<span class="h-etikett">Begrep:</span> ${under.map(h).join(" · ")}.`);
   return setninger.length ? `<p class="h-fakta">${setninger.join(" ")}</p>` : "";
 }
 
@@ -548,8 +548,8 @@ const overlinje = (hva) => `<p class="h-overlinje">${h(tittelVist)} · ${h(hva)}
 function familieHtml(F, d, kompakt, medNr) {
   if (F.pseudo) {
     return `<section class="h-familie" data-toc="familie:${h(F.navn)}" style="--farge:${h(F.farge)}">
-      <header class="h-familie-hode">${overlinje("Prinsipper")}<h1>Prinsipper</h1></header>
-      ${ordlisteHtml(F.ordliste, "Prinsipper i utvalget")}
+      <header class="h-familie-hode">${overlinje("Begreper")}<h1>Begreper</h1></header>
+      ${ordlisteHtml(F.ordliste, "Begreper i utvalget")}
     </section>`;
   }
   const hode = F.hodeKort;
@@ -563,8 +563,8 @@ function familieHtml(F, d, kompakt, medNr) {
     ${F.historie ? `<div class="h-historie"><h2>Historien om ${h(F.historie.navn)}</h2>${rt(F.historie.body)}</div>` : ""}
     ${hode ? sjangerKroppHtml(hode, d, kompakt, medNr) : ""}
     ${F.sjangre.map((k) => sjangerKortHtml(k, d, kompakt, medNr)).join("")}
-    ${F.loseArtister.length ? `<div class="h-lose">${harKort ? `<h2 class="h-lose-hode">Flere teoretikere i ${h(F.navn)}</h2>` : ""}${F.loseArtister.map((a) => artistKortHtml(a, d, kompakt, medNr)).join("")}</div>` : ""}
-    ${ordlisteHtml(F.ordliste, "Prinsipper i utvalget")}
+    ${F.loseArtister.length ? `<div class="h-lose">${harKort ? `<h2 class="h-lose-hode">Flere filosofer i ${h(F.navn)}</h2>` : ""}${F.loseArtister.map((a) => artistKortHtml(a, d, kompakt, medNr)).join("")}</div>` : ""}
+    ${ordlisteHtml(F.ordliste, "Begreper i utvalget")}
   </section>`;
 }
 
@@ -580,7 +580,7 @@ function tidslinjeHtml(t) {
     `<i class="h-tl-stolpe ${r.type}${r.apen ? " apen" : ""}" style="left:${pct(r.fra).toFixed(2)}%;width:${Math.max(0.7, pct(r.til) - pct(r.fra)).toFixed(2)}%;--stolpe:${h(r.farge)}"></i></div>`);
   return `<div class="h-tidslinje">
     <h2>Tidslinje over utvalget</h2>
-    <p class="h-hint">Epokene som brede stolper, teoretikerne som streker. Årstallene er innflytelsesperiodene fra kortene; en stolpe som tones ut, er fortsatt aktiv.</p>
+    <p class="h-hint">Epokene som brede stolper, filosofene som streker. Årstallene er innflytelsesperiodene fra kortene; en stolpe som tones ut, er fortsatt aktiv.</p>
     <div class="h-tl">
       <div class="h-tl-akse${t.ticks.length > 10 ? " tett" : ""}">${t.ticks.map((x) => `<span style="left:${pct(x).toFixed(2)}%">${h(visAar(x))}</span>`).join("")}</div>
       ${rader.join("")}
@@ -603,8 +603,8 @@ function tocHtml() {
     punkter.push({ navn: F.navn, linjer, ref: `familie:${F.navn}` });
   }
   if (modell.tidslinje) punkter.push({ navn: "Tidslinje over utvalget", linjer: [], ref: "tidslinje" });
-  if (modell.innovasjoner.length) punkter.push({ navn: "Reformer", linjer: [kortListe(modell.innovasjoner.map((t) => t.navn))], ref: "innovasjoner" });
-  if (modell.instrumenter.length) punkter.push({ navn: "Fagbakgrunner", linjer: [kortListe(modell.instrumenter.map((i) => i.tittel))], ref: "instrumenter" });
+  if (modell.innovasjoner.length) punkter.push({ navn: "Milepæler", linjer: [kortListe(modell.innovasjoner.map((t) => t.navn))], ref: "innovasjoner" });
+  if (modell.instrumenter.length) punkter.push({ navn: "Disipliner", linjer: [kortListe(modell.instrumenter.map((i) => i.tittel))], ref: "instrumenter" });
   for (const s of modell.sider) punkter.push({ navn: s.tittel, linjer: [], ref: `side:${s.id}` });
   if (modell.lytteliste.length) punkter.push({ navn: "Videoer", linjer: [], ref: "lytteliste" });
   // Tidslinja står på side 2, altså før familiene: sorter etter rekkefølgen i
@@ -690,13 +690,13 @@ function techKortHtml(t, d, kompakt) {
 
 function innovasjonerHtml(d, kompakt) {
   if (!modell.innovasjoner.length) return "";
-  return `<section class="h-seksjon h-nyside h-innovasjoner" data-toc="innovasjoner" style="--farge:var(--icon-tech)">${seksjonHode("Reformer", "Teknologien bak lyden")}${modell.innovasjoner.map((t) => techKortHtml(t, d, kompakt)).join("")}</section>`;
+  return `<section class="h-seksjon h-nyside h-innovasjoner" data-toc="innovasjoner" style="--farge:var(--icon-tech)">${seksjonHode("Milepæler", "Teknologien bak lyden")}${modell.innovasjoner.map((t) => techKortHtml(t, d, kompakt)).join("")}</section>`;
 }
 
 function instrumenterHtml() {
   if (!modell.instrumenter.length) return "";
   const deler = modell.instrumenter.map((i) => `<article class="h-instrument"><h2>${h(i.tittel)}</h2>${i.body.trim() ? rt(i.body) : mangler("Sammendraget er ikke skrevet ennå.")}</article>`);
-  return `<section class="h-seksjon h-nyside h-instrumenter" data-toc="instrumenter" style="--farge:var(--icon-instrumenter)">${seksjonHode("Fagbakgrunner", "Fagbakgrunnenes utvikling")}${deler.join("")}</section>`;
+  return `<section class="h-seksjon h-nyside h-instrumenter" data-toc="instrumenter" style="--farge:var(--icon-instrumenter)">${seksjonHode("Disipliner", "Disiplinenes utvikling")}${deler.join("")}</section>`;
 }
 
 function siderHtml() {
@@ -997,7 +997,7 @@ function koble() {
     const apen = b.getAttribute("aria-expanded") === "true";
     foldValg.set(vis, !apen);
     b.setAttribute("aria-expanded", apen ? "false" : "true");
-    b.title = apen ? "Vis teoretikerne" : "Skjul teoretikerne";
+    b.title = apen ? "Vis filosofene" : "Skjul filosofene";
     li?.classList.toggle("ut-lukket", apen);
     const ul = li?.querySelector(":scope > ul");
     if (ul) ul.hidden = apen;

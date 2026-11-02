@@ -67,7 +67,7 @@ function buildCategories() {
 
   return [
     {
-      key: "artists", label: "Teoretikerkort",
+      key: "artists", label: "Filosofkort",
       items: [...active].sort((a, b) => byNo(a.name, b.name)).map((a) => ({ id: a.id, name: a.name })),
       checkedSet: new Set(active.filter((a) => a.teacherChecked === true).map((a) => a.id)),
     },
@@ -77,7 +77,7 @@ function buildCategories() {
       checkedSet: set("genres"),
     },
     {
-      key: "subgenres", label: "Prinsipper",
+      key: "subgenres", label: "Begreper",
       items: subTags.map((s) => ({ id: s, name: s })),
       checkedSet: set("subgenres"),
     },
@@ -93,7 +93,7 @@ function buildCategories() {
       checkedSet: set("metaGenres"),
     },
     {
-      key: "tech", label: "Reformskort",
+      key: "tech", label: "Milepælskort",
       items: activeTech.map((t) => ({ id: t.id, name: t.name || "(uten navn)" })),
       checkedSet: set("tech"),
     },
@@ -179,7 +179,7 @@ export function renderDesk(el) {
 
   const inbox = [
     pendingArtists
-      ? item(ICON.artist, pendingArtists, pendingArtists === 1 ? "nytt teoretikerforslag" : "nye teoretikerforslag", "review-artists", state.filters.showPending)
+      ? item(ICON.artist, pendingArtists, pendingArtists === 1 ? "nytt filosofforslag" : "nye filosofforslag", "review-artists", state.filters.showPending)
       : "",
     pendingEdits ? item(ICON.edit, pendingEdits, "endringsforslag", "review-edits") : "",
   ].filter(Boolean).join("");
@@ -328,7 +328,7 @@ function sjekketRegelHtml(v) {
     <p class="muted desk-synlighet-hint">${paa
       ? "På: studentene ser bare det du har sjekket, også på lerretet. «Vis innhold som er skjult for studentene» i visningen viser alt for økta."
       : "Av: studentene ser også det du ikke har sjekket."}
-      For epokene og prinsippene er det teksten som skjules, ikke epoken.</p>
+      For epokene og begrepene er det teksten som skjules, ikke epoken.</p>
     <ul class="desk-sjekket-liste">${rader}</ul>
   </div>`;
 }
@@ -435,7 +435,7 @@ function timeforslagHtml() {
       <span class="desk-time-tekst"><b>${escapeHtml(p.artist || "")}</b>${p.student ? ` <span class="muted">· foreslått av ${escapeHtml(p.student)}</span>` : ""}
         <span class="muted desk-time-meta">${[dato(p.laget), p.kontekst].filter(Boolean).map((x) => escapeHtml(x)).join(" · ")}</span></span>
       <span class="desk-time-knapper">
-        <button type="button" class="btn ghost small" data-desk-foreslaa="${escapeHtml(p.artist || "")}" title="Åpne teoretikerskjemaet med navnet fylt inn">Foreslå</button>
+        <button type="button" class="btn ghost small" data-desk-foreslaa="${escapeHtml(p.artist || "")}" title="Åpne filosofskjemaet med navnet fylt inn">Foreslå</button>
         <button type="button" class="btn ghost small" data-desk-time-slett="${escapeHtml(p.id)}">Fjern</button>
       </span>
     </li>`).join("")}</ul>

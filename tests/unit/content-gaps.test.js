@@ -10,7 +10,7 @@ import { GENEALOGY_EDGES, edgeKey } from "../../js/sjangre/genre-model.js";
 const artist = (o) => ({
   status: "active", priority: 0, mainGenre: [], subGenre: [],
   imageUrl: "x", description: "d", musicExamples: [{}], keyWorks: [{}], kilder: [{}],
-  instrument: "Psykolog", ...o,
+  instrument: "Erkjennelsesteori", ...o,
 });
 
 test("contentGaps: artist-mediahull telles per felt", () => {

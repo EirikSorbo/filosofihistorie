@@ -388,7 +388,7 @@ test("planOversikt: kobling med nodenavn, historie og visninger får lesbare nav
   const tekster = (id) => g.find((k) => k.id === id).punkter.map((p) => p.tekst);
   assert.deepEqual(tekster("sjangre"), ["Blues → R&B", "Historien om Rock"]);
   assert.deepEqual(tekster("oversikter"), ["Epokehimmelen", "Epokehistoriene", "Om historie"]);
-  assert.deepEqual(tekster("teknologi"), ["Reformoversikten"]);
+  assert.deepEqual(tekster("teknologi"), ["Milepæloversikten"]);
 });
 
 // Avspilleren og lerretet bor i DOM/CSS: lås kildeformen.
@@ -618,14 +618,14 @@ test("tastene er koblet: én felles lytter, svart skjerm i capture, samleøkt et
 
 test("metaRader: «Instrument: …» og «Sjanger: …» som egne rader, med samme knapper som før", () => {
   const html = metaRader({ instrument: "Vokal", mainGenre: ["Blues"], subGenre: [] });
-  assert.match(html, /<span class="meta-etikett">Fagbakgrunn:<\/span> <button class="tag tag-instrument" data-instrument="Vokal">Vokal<\/button>/);
+  assert.match(html, /<span class="meta-etikett">Disiplin:<\/span> <button class="tag tag-instrument" data-instrument="Vokal">Vokal<\/button>/);
   assert.match(html, /<span class="meta-etikett">Epoke:<\/span> <button class="tag tag-sjanger" data-sjanger="Blues">Blues<\/button>/);
   assert.equal((html.match(/class="meta-rad"/g) || []).length, 2, "tom undersjanger-liste gir ingen rad");
-  assert.ok(html.indexOf("Fagbakgrunn:") < html.indexOf("Epoke:"), "instrumentet først, som før");
+  assert.ok(html.indexOf("Disiplin:") < html.indexOf("Epoke:"), "instrumentet først, som før");
   // Flertall og komma mellom flere verdier; undersjangre på egen rad.
   const flere = metaRader({ mainGenre: ["Blues", "Rock"], subGenre: ["Delta blues", "Chicago blues"] });
   assert.match(flere, /Epoker:<\/span> <button[^>]*>Blues<\/button><span class="meta-skille">, <\/span><button[^>]*>Rock<\/button>/);
-  assert.match(flere, /Prinsipper:<\/span>/);
+  assert.match(flere, /Begreper:<\/span>/);
   assert.doesNotMatch(flere, /Instrument/, "uten instrument ingen instrumentrad");
   // Escaping og tomme artister.
   assert.match(metaRader({ mainGenre: ['R&B "x"'] }), /data-sjanger="R&amp;B &quot;x&quot;"/);

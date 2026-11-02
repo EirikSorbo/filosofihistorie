@@ -1,13 +1,13 @@
-// Reformer og milepæler (pedagogikkappens fase 3): innovasjonskortene (`tech`)
-// har kategoriene lov, læreplan, institusjon, læremiddel, metode og norsk spor.
+// Milepæler (filosofiappens steg 4): innovasjonskortene (`tech`) har
+// kategoriene institusjon, verk, krets og skole og overlevering.
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { TECH_CATEGORIES, TECH_CATEGORY_TABS } from "../../js/ui/ui-tech.js";
 
-const MAL = ["Lov", "Læreplan", "Institusjon", "Læremiddel", "Metode", "Norsk spor"];
+const MAL = ["Institusjon", "Verk", "Krets og skole", "Overlevering"];
 
-test("kategoriene er de seks fra planen, og fanene bærer samme navn", () => {
+test("kategoriene er de fire fra planen, og fanene bærer samme navn", () => {
   assert.deepEqual(TECH_CATEGORIES, MAL);
   assert.deepEqual(TECH_CATEGORY_TABS, MAL.map((v) => ({ value: v, label: v })));
   assert.equal(new Set(TECH_CATEGORIES).size, TECH_CATEGORIES.length);

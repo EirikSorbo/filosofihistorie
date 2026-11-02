@@ -195,7 +195,7 @@ function startAppInner() {
     // Returnerer et løfte (v6.25): bekreftelsen er appens egen dialog, ikke
     // nettleserens confirm, så svaret kommer etterpå. explore-tech venter.
     onTechDelete: async (id) => {
-      if (!(await bekreft("Kortet slettes for godt.", { tittel: "Slette dette reformskortet?", ja: "Slett", farlig: true }))) return false;
+      if (!(await bekreft("Kortet slettes for godt.", { tittel: "Slette dette milepælskortet?", ja: "Slett", farlig: true }))) return false;
       guardTeacherAction(deleteTech(id));
       return true;
     },

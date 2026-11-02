@@ -19,9 +19,9 @@ const getCurrentEntityValues = (edit) => currentEntityValues(state, edit);
 
 function entityTypeLabel(t) {
   return ({
-    artist: "Teoretiker", tech: "Reformskort", subgenre: "Epoke",
-    instrument: "Fagbakgrunnsammendrag",
-    "new-tech": "Nytt reformskort",
+    artist: "Filosof", tech: "Milepælskort", subgenre: "Epoke",
+    instrument: "Disiplinsammendrag",
+    "new-tech": "Nytt milepælskort",
   })[t] || t;
 }
 
@@ -135,7 +135,7 @@ export function setupPendingEditsUi() {
       }
       const rejBtn = e.target.closest('[data-action="reject-tech"]');
       if (rejBtn) {
-        if (await bekreft("Kortet slettes.", { tittel: "Avvise dette reformskortet?", ja: "Avvis", farlig: true })) {
+        if (await bekreft("Kortet slettes.", { tittel: "Avvise dette milepælskortet?", ja: "Avvis", farlig: true })) {
           await guardTeacherAction(deleteTech(rejBtn.dataset.id));
         }
         return;

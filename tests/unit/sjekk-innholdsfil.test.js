@@ -9,7 +9,7 @@ const tre = skjelettTre();
 
 const teoretiker = (over = {}) => ({
   name: "John Dewey", birthYear: 1859, deathYear: 1952, gender: "mann",
-  metaGenre: "Erfaring og demokrati", instrument: "Filosof",
+  metaGenre: "Erfaring og demokrati", instrument: "Etikk",
   mainGenre: ["Progressivismen"], subGenre: ["Læring gjennom erfaring"],
   influenceStart: 1896, influenceEnd: 1952,
   description: "Amerikansk filosof og pedagog.",
@@ -28,7 +28,7 @@ const gyldig = () => ({
       seOgLes: [{ tittel: "Utdrag", kilde: "Dewey (1938)", tekst: "Kort." }, { tittel: "Video", url: "https://www.youtube.com/watch?v=abc" }] } } },
   },
   edgeDescriptions: { pragmatisme__progressivisme: { description: "Dewey bygde videre." } },
-  tech: [{ name: "Almueskoleloven av 1860", category: "Lov", type: "innovasjon", inventedYear: 1860, description: "Lov." }],
+  tech: [{ name: "Almueskoleloven av 1860", category: "Institusjon", type: "innovasjon", inventedYear: 1860, description: "Lov." }],
 });
 
 const feilFor = (fil) => sjekkInnholdsfil(fil, tre).feil;
@@ -49,8 +49,8 @@ test("teoretikere: ukjent epoke, retning og fagbakgrunn, manglende kilder og dob
   assert.ok(harFeil(f({ mainGenre: ["Progressivisme"] }), /epoken «Progressivisme» finnes ikke/));
   assert.ok(harFeil(f({ mainGenre: ["progressivisme"] }), /bruk etiketten, ikke id-en|finnes ikke/));
   assert.ok(harFeil(f({ metaGenre: "Blues" }), /retningen «Blues» finnes ikke/));
-  assert.ok(harFeil(f({ instrument: "Gitar" }), /fagbakgrunnen «Gitar»/));
-  assert.ok(harFeil(f({ instrument2: "Vokal" }), /fagbakgrunn 2/));
+  assert.ok(harFeil(f({ instrument: "Gitar" }), /disiplinen «Gitar»/));
+  assert.ok(harFeil(f({ instrument2: "Vokal" }), /disiplin 2/));
   assert.ok(harFeil(f({ kilder: [] }), /minst én kilde/));
   assert.ok(harFeil(f({ kilder: [{ text: "x", url: "javascript:alert(1)" }] }), /ikke er http\(s\)/));
   assert.ok(harFeil(f({ gender: "x" }), /kjønn/));
@@ -63,7 +63,7 @@ test("teoretikere: ukjent epoke, retning og fagbakgrunn, manglende kilder og dob
 test("år før Kristus er gyldige, og tekst som årstall er feil", () => {
   const f = (over) => ({ artists: [teoretiker(over)] });
   assert.deepEqual(feilFor(f({ name: "Sokrates", birthYear: -470, deathYear: -399, influenceStart: -430, influenceEnd: -399,
-    metaGenre: "Klassisk dannelse", instrument: "Filosof", mainGenre: ["Gresk paideia"], subGenre: [] })), []);
+    metaGenre: "Klassisk dannelse", instrument: "Etikk", mainGenre: ["Gresk paideia"], subGenre: [] })), []);
   assert.ok(harFeil(f({ birthYear: "1859x" }), /birthYear.*ikke et årstall/));
 });
 
@@ -110,8 +110,8 @@ test("påvirkninger må finnes som strek i treet, med id-er", () => {
 
 test("reformer: kategori, type og årstall", () => {
   const g = gyldig();
-  g.tech = [{ name: "A", category: "Opptak og avspilling" }, { name: "B", category: "Lov", type: "annet" },
-    { name: "C", category: "Lov", inventedYear: "gammel" }, { name: "a", category: "Lov" }];
+  g.tech = [{ name: "A", category: "Opptak og avspilling" }, { name: "B", category: "Institusjon", type: "annet" },
+    { name: "C", category: "Institusjon", inventedYear: "gammel" }, { name: "a", category: "Institusjon" }];
   const feil = feilFor(g);
   assert.ok(feil.some((m) => /kategorien «Opptak og avspilling»/.test(m)));
   assert.ok(feil.some((m) => /type «annet»/.test(m)));

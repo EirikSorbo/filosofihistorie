@@ -175,14 +175,14 @@ function byggModal() {
       </div>
       <label class="gj-felt">Viktighetsgrad
         <select id="gj-nivaa">
-          <option value="0">Alle teoretikere</option>
+          <option value="0">Alle filosofer</option>
           ${[3, 2, 1].map((n) => `<option value="${n}">${NIVAA_TEKST[n]}</option>`).join("")}
         </select>
       </label>
       <label class="gj-felt"><input type="checkbox" id="gj-sentrale" /> Bare sentrale videoer</label>
     </div>
     <p class="muted gj-merknad" id="gj-ukjente" hidden></p>
-    <p class="muted gj-merknad" id="gj-merknad" hidden>Viktighetsgraden gjelder teoretikerne og videoene deres. Resten har ingen grad og vises uansett.</p>
+    <p class="muted gj-merknad" id="gj-merknad" hidden>Viktighetsgraden gjelder filosofene og videoene deres. Resten har ingen grad og vises uansett.</p>
     <div class="sj-fanerad gj-typer" id="gj-typer" role="group" aria-label="Type"></div>
     <div id="gj-liste"></div>
   </div>

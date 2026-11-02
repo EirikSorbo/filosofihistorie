@@ -189,10 +189,10 @@ export function metaRader(a) {
       `${knapper.join(`<span class="meta-skille">, </span>`)}</span>`
     : "";
   return [
-    rad("Fagbakgrunn", "Fagbakgrunner", instrumenterFor(a).map((i) =>
+    rad("Disiplin", "Disipliner", instrumenterFor(a).map((i) =>
       genreTags({ instrument: i }, { withInstrument: true, withSub: false }))),
     rad("Epoke", "Epoker", liste(a?.mainGenre).map((s) => genreTags({ mainGenre: [s] }, { withSub: false }))),
-    rad("Prinsipp", "Prinsipper", liste(a?.subGenre).map((s) => genreTags({ subGenre: [s] }))),
+    rad("Begrep", "Begreper", liste(a?.subGenre).map((s) => genreTags({ subGenre: [s] }))),
   ].join("");
 }
 
@@ -389,7 +389,7 @@ export function relatedArtistsHtml(a, lc, { limit = 5 } = {}) {
   const related = relatedArtists(a, lc?.artists || [], { limit });
   if (!related.length) return "";
   return `<div class="related">
-      <h4 class="related-head">Beslektede teoretikere</h4>
+      <h4 class="related-head">Beslektede filosofer</h4>
       <div class="related-list">
         ${related.map((r) => {
           return `<button type="button" class="related-chip" data-related-id="${escapeHtml(String(r.id))}">${escapeHtml(r.name)}</button>`;
@@ -518,7 +518,7 @@ export function techFactsLines(t) {
     // på det instrumentet. (Boblene de erstattet var rene spans — dette er ny
     // funksjonalitet, ikke gjenoppretting.)
     ["Kategori", t.category, { attr: "data-tech-cat" }],
-    ["Fagbakgrunn", t.instrument],
+    ["Disiplin", t.instrument],
     ["Vedtatt eller innført", visAar(t.inventedYear)],
     ["Gjennomslag", t.adoptedLabel],
   ]);

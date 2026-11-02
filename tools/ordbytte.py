@@ -1,17 +1,49 @@
 #!/usr/bin/env python3
-"""Fase 4: bytter musikkord med pedagogikkord i SYNLIG tekst i HTML-sider (tekst mellom tagger og title, placeholder, aria-label, alt).
+"""Steg 3: bytter musikkord og pedagogikkord med filosofiord i SYNLIG tekst i HTML-sider (tekst mellom tagger og title, placeholder, aria-label, alt).
 Rører aldri id, class, data-attributter, skript eller stil. Kjør: python3 -I tools/ordbytte.py side.html ...
-Ordtabellen følger PLAN.md (artist→teoretiker, sjanger→epoke, metasjanger→retning, undersjanger→prinsipp, innovasjon→reform, instrument→fagbakgrunn)."""
+Ordtabellen følger PLAN.md. Både musikkordene (artist, sjanger, instrument ...) og pedagogikkordene (teoretiker, prinsipp,
+reform, fagbakgrunn ...) går rett til filosofiordene, så skriptet kan brukes på commits som hentes fra begge de andre appene."""
 import re, sys
-MAP = [
- ("metasjangrene","retningene"),("metasjangre","retninger"),("metasjangeren","retningen"),("metasjanger","retning"),
- ("undersjangrene","prinsippene"),("undersjangre","prinsipper"),("undersjangeren","prinsippet"),("undersjanger","prinsipp"),
- ("sjangrene","epokene"),("sjangre","epoker"),("sjangeren","epoken"),("sjanger","epoke"),
- ("artistene","teoretikerne"),("artisten","teoretikeren"),("artister","teoretikere"),("artist","teoretiker"),
- ("innovasjonene","reformene"),("innovasjoner","reformer"),("innovasjonen","reformen"),("innovasjon","reform"),
- ("instrumentene","fagbakgrunnene"),("instrumenter","fagbakgrunner"),("instrumentet","fagbakgrunnen"),("instrument","fagbakgrunn"),
+FRASER = [
+ # Hele uttrykk først. Lengste form vinner uansett, men uttrykkene må stå som ett ord i tabellen.
+ ("skole og oppdragelse", "vitenskap og lærdom"),
+ ("reformen ble vedtatt eller innført, eller milepælen inntraff", "milepælen inntraff"),
+ ("lover, læreplaner og metoder", "institusjoner, verk, miljøer og overlevering"),
+ ("reformer og milepæler", "milepæler"), ("reformer eller milepæler", "milepæler"),
+ ("reform eller milepæl", "milepæl"), ("reform og milepæl", "milepæl"),
+ ("ett fagbakgrunn", "én disiplin"), ("dette fagbakgrunnen", "denne disiplinen"),
+ ("ett instrument", "én disiplin"), ("dette instrumentet", "denne disiplinen"),
 ]
-RE = re.compile(r"(?<![\wæøåÆØÅ-])(" + "|".join(a for a, _ in MAP) + ")", re.I)
+ORD = [
+ # Musikk
+ ("metasjangrene","retningene"),("metasjangre","retninger"),("metasjangeren","retningen"),("metasjanger","retning"),
+ ("undersjangrene","begrepene"),("undersjangre","begreper"),("undersjangeren","begrepet"),("undersjanger","begrep"),
+ ("sjangrene","epokene"),("sjangre","epoker"),("sjangeren","epoken"),("sjanger","epoke"),
+ ("artistene","filosofene"),("artisten","filosofen"),("artister","filosofer"),("artist","filosof"),
+ ("innovasjonene","milepælene"),("innovasjoner","milepæler"),("innovasjonen","milepælen"),("innovasjon","milepæl"),
+ ("instrumentene","disiplinene"),("instrumenter","disipliner"),("instrumentet","disiplinen"),("instrument","disiplin"),
+ # Pedagogikk
+ ("teoretikerne","filosofene"),("teoretikeren","filosofen"),("teoretikere","filosofer"),("teoretiker","filosof"),
+ ("pedagogene","filosofene"),("pedagogen","filosofen"),("pedagoger","filosofer"),("pedagog","filosof"),
+ ("pedagogikk","filosofi"),("pedagogiske","filosofiske"),("pedagogisk","filosofisk"),
+ ("prinsippene","begrepene"),("prinsipper","begreper"),("prinsippet","begrepet"),("prinsipp","begrep"),
+ ("prinsippkort","begrepskort"),
+ ("reformskort","milepælskort"),("reformkort","milepælskort"),("reformoversikt","milepæloversikt"),
+ ("reformene","milepælene"),("reformer","milepæler"),("reformen","milepælen"),("reform","milepæl"),
+ ("fagbakgrunnene","disiplinene"),("fagbakgrunner","disipliner"),("fagbakgrunnen","disiplinen"),("fagbakgrunn","disiplin"),
+]
+MAP = FRASER + ORD
+# Unntak: «reformasjon», «reformator», «Reformpedagogikk» og «reformert» er ikke reformer i appens forstand, og
+# «den pedagogiske rekkefølgen» i tre-editoren betyr undervisningsrekkefølgen (se FILOSOFI-OPPSKRIFT.md).
+UNNTAK = {
+ "reform": r"(?!asjon|ator|pedag|ert|ere\b|ist)",
+ "reformer": r"(?!t|e\b|es\b)",
+ "pedagog": r"(?!ik|isk)",
+ "pedagogisk": r"(?!e?\s+rekkefølg)", "pedagogiske": r"(?!\s+rekkefølg)",
+}
+# Lengste form først, så «teoretikeren» ikke fanges av «teoretikere» og et uttrykk ikke av enkeltordet i det.
+_SORT = sorted(MAP, key=lambda e: -len(e[0]))
+RE = re.compile(r"(?<![\wæøåÆØÅ-])(" + "|".join(re.escape(a) + UNNTAK.get(a, "") for a, _ in _SORT) + ")", re.I)
 D = dict(MAP)
 def byt(tekst):
     def f(m):

@@ -37,33 +37,35 @@ export const BATCH_MAX = 500;
 //  Nøklene her er gruppenavnene, verdiene er det som kan stå på en artist.
 //  Grupper med bare seg selv (Vokal, Bass …) er helt vanlige — de har bare
 //  ingen underinndeling.
-// FAGBAKGRUNN (pedagogikkappens fase 3): hva teoretikeren kom fra. Feltet og
-// konstantene heter fortsatt instrument (databasenøkler og kode beholdes, så
-// forbedringer kan hentes fra musikkappen), men verdiene er fagbakgrunnene
-// Eirik vedtok 2026-10-20. Hver gruppe har bare seg selv: Instrumenter-siden
-// og instrumentsammendragene går ut i fase 4. En teoretiker kan ha to
-// (instrument2): Dewey er både filosof og pedagogisk praktiker.
+// DISIPLIN (filosofiappen, steg 4): hvilke grener av filosofien filosofen
+// arbeidet i. Feltet og konstantene heter fortsatt instrument (databasenøkler
+// og kode beholdes, så forbedringer kan hentes fra de andre appene), men
+// verdiene er disiplinene Eirik vedtok 2026-11-02. Hver gruppe har bare seg
+// selv. En filosof kan ha to (instrument2): Kant er både erkjennelsesteoretiker
+// og moralfilosof.
 export const INSTRUMENT_GROUPS = {
-  "Filosof": ["Filosof"],
-  "Teolog": ["Teolog"],
-  "Psykolog": ["Psykolog"],
-  "Sosiolog": ["Sosiolog"],
-  "Praktiker": ["Praktiker"],
-  "Politiker og reformator": ["Politiker og reformator"],
-  "Forsker": ["Forsker"],
+  "Metafysikk": ["Metafysikk"],
+  "Erkjennelsesteori": ["Erkjennelsesteori"],
+  "Etikk": ["Etikk"],
+  "Politisk filosofi": ["Politisk filosofi"],
+  "Logikk og språk": ["Logikk og språk"],
+  "Estetikk": ["Estetikk"],
+  "Vitenskapsfilosofi": ["Vitenskapsfilosofi"],
+  "Religionsfilosofi": ["Religionsfilosofi"],
 };
 
 // Overskriften over hvert instrumentsammendrag. Skrives ut i sin helhet fordi
 // norsk genitiv ikke lar seg utlede mekanisk — «Vokalens», «Tangentenes» og
 // «Trommenes» følger tre ulike mønstre.
 export const INSTRUMENT_TITLE = {
-  "Filosof": "Filosofene",
-  "Teolog": "Teologene",
-  "Psykolog": "Psykologene",
-  "Sosiolog": "Sosiologene",
-  "Praktiker": "Praktikerne",
-  "Politiker og reformator": "Politikerne og reformatorene",
-  "Forsker": "Forskerne",
+  "Metafysikk": "Metafysikken",
+  "Erkjennelsesteori": "Erkjennelsesteorien",
+  "Etikk": "Etikken",
+  "Politisk filosofi": "Politisk filosofi",
+  "Logikk og språk": "Logikk og språk",
+  "Estetikk": "Estetikken",
+  "Vitenskapsfilosofi": "Vitenskapsfilosofien",
+  "Religionsfilosofi": "Religionsfilosofien",
 };
 
 // Rekkefølgen gruppene VISES i (brukervalg 2026-09-01): rytmeseksjonen først,
@@ -77,7 +79,7 @@ export const INSTRUMENT_TITLE = {
 // En gruppe som IKKE står her havner sist i stedet for å forsvinne — lista er
 // en prioritering, ikke en hviteliste.
 const INSTRUMENT_REKKEFOLGE = [
-  "Filosof", "Teolog", "Psykolog", "Sosiolog", "Praktiker", "Politiker og reformator", "Forsker",
+  "Metafysikk", "Erkjennelsesteori", "Etikk", "Politisk filosofi", "Logikk og språk", "Estetikk", "Vitenskapsfilosofi", "Religionsfilosofi",
 ];
 
 // Gruppene som får egen nyvinnings-tidslinje i Instrumenter-seksjonen.

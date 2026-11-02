@@ -22,12 +22,12 @@ export const ARTIST_FIELDS = [
   { key: "deathYear",      label: "Dødsår",           type: "number" },
   { key: "gender",         label: "Kjønn",            type: "gender" },
   { key: "metaGenre",      label: "Retning",       type: "text" },
-  { key: "instrument",     label: "Fagbakgrunn",      type: "text" },
+  { key: "instrument",     label: "Disiplin",      type: "text" },
   { key: "mainGenre",      label: "Epoker",          type: "csv" },
-  { key: "subGenre",       label: "Prinsipper",     type: "csv" },
+  { key: "subGenre",       label: "Begreper",     type: "csv" },
   { key: "influenceStart", label: "Innflytelse fra",  type: "number" },
   { key: "influenceEnd",   label: "Innflytelse til",  type: "number" },
-  { key: "recordLabel",    label: "Plateselskap (gammelt felt)", type: "text" },
+  { key: "recordLabel",    label: "Gammelt felt", type: "text" },
   { key: "geography",      label: "Virkested",        type: "text" },
   { key: "description",    label: "Beskrivelse",      type: "textarea", full: true },
   { key: "keyWorks",       label: "Hovedverk",         type: "complex" },
@@ -49,7 +49,7 @@ export const ARTIST_FIELDS = [
 //            Les alltid begge via instrumenterFor (limits.js).
 export const ARTIST_LAERERFELT = [
   { key: "punkter", label: "Oppsummering i punkter", type: "complex" },
-  { key: "instrument2", label: "Fagbakgrunn 2", type: "text" },
+  { key: "instrument2", label: "Disiplin 2", type: "text" },
 ];
 
 // { key: label } — brukt av diff-tabell og merge-dialog.

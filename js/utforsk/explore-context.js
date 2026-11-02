@@ -122,5 +122,5 @@ export function showArtistsForSjanger({ label }) {
 
 // Teoretikere med en bestemt fagbakgrunn.
 export function showArtistsForInstrument(instrument) {
-  openArtistListModal(instrument, artistsByInstrument(getState().artists, instrument), opts.onArtistClick, "Ingen forslag med dette fagbakgrunnen ennå.", {});
+  openArtistListModal(instrument, artistsByInstrument(getState().artists, instrument), opts.onArtistClick, "Ingen forslag med denne disiplinen ennå.", {});
 }

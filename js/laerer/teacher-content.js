@@ -270,7 +270,7 @@ export function setupSubgenreSingleSave() {
 // som navnebyttet i sjangertre-editoren.
 async function gaNyttNavnUndersjanger(fra) {
   if (!fra) return;
-  const til = await sporTekst(`Nytt navn på prinsippet «${fra}». Teoretikerne, beskrivelsen, sjekken og notatene følger med.`, fra,
+  const til = await sporTekst(`Nytt navn på begrepet «${fra}». Filosofene, beskrivelsen, sjekken og notatene følger med.`, fra,
     { tittel: "Gi nytt navn", ok: "Vis hva som endres" });
   if (til == null || String(til).trim() === fra) return;
   const plan = planSubRename({
@@ -289,7 +289,7 @@ async function gaNyttNavnUndersjanger(fra) {
   try {
     await runMigrationPlan(plan.ops);
     closeAdminModal("modal-subgenre-single");
-    melding(`Prinsippet heter nå «${String(til).trim()}».`);
+    melding(`Begrepet heter nå «${String(til).trim()}».`);
   } catch (err) {
     melding(`Navnebyttet ble ikke gjort (${err?.message || err}). Ingenting er endret, siden alt skrives samlet.`);
   }
@@ -326,7 +326,7 @@ export function openTechEditor(t, preset = null) {
   if (title) {
     title.textContent = t ? `Rediger: ${t.name}`
       : preset?.instrument ? `Nytt kort: ${preset.instrument}`
-      : "Ny reform";
+      : "Ny milepæl";
   }
   openAdminModal("modal-tech-single");
 }
@@ -345,7 +345,7 @@ function renderTechAdmin() {
   if (!el) return;
   const filtered = techAdminCat ? state.techItems.filter(t => t.category === techAdminCat) : state.techItems;
   if (!filtered.length) {
-    el.innerHTML = `<p class="muted empty">Ingen reformer eller milepæler i denne kategorien ennå.</p>`;
+    el.innerHTML = `<p class="muted empty">Ingen milepæler i denne kategorien ennå.</p>`;
     return;
   }
   el.className = "tech-grid";
@@ -381,14 +381,14 @@ function renderTechAdmin() {
     btn.addEventListener("click", () => {
       const id = btn.closest("[data-tech-id]").dataset.techId;
       const t = state.techItems.find(x => x.id === id);
-      redigerNotatForKort("tech", id, t?.name || "Reform");
+      redigerNotatForKort("tech", id, t?.name || "Milepæl");
     });
   });
 
   el.querySelectorAll(".tech-del-btn").forEach(btn => {
     btn.addEventListener("click", async () => {
       const id = btn.closest("[data-tech-id]").dataset.techId;
-      if (await bekreft("Kortet slettes for godt.", { tittel: "Slette dette reformskortet?", ja: "Slett", farlig: true })) await guardTeacherAction(deleteTech(id));
+      if (await bekreft("Kortet slettes for godt.", { tittel: "Slette dette milepælskortet?", ja: "Slett", farlig: true })) await guardTeacherAction(deleteTech(id));
     });
   });
 
@@ -420,7 +420,7 @@ function fillTechForm(t, preset = null) {
   // Instrumentgruppen avgjør hvilken tidslinje kortet havner på i Instrumenter-
   // seksjonen. Tomt = kortet vises kun under Teknologi.
   fillSelect(document.getElementById("tech-instrument"), INSTRUMENT_TIMELINE_GROUPS,
-    { placeholder: "Ingen / gjelder ikke ett fagbakgrunn" });
+    { placeholder: "Ingen / gjelder ikke én disiplin" });
   document.getElementById("tech-instrument").value = t ? t.instrument || "" : (preset?.instrument || "");
   // Kilder som strukturerte rader (tekst + lenke), som i artistskjemaet.
   buildRows(document.getElementById("tech-source-rows"), SOURCE_SPEC,

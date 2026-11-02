@@ -77,7 +77,7 @@ function metaRow(m, maxN) {
   return `<div class="ov-row ov-row-meta${zero}">
     <span class="ov-name">${escapeHtml(m.g)}</span>
     ${bar(m.n, maxN, "ov-bar-n")}
-    <button type="button" class="ov-num" data-ov-meta="${escapeHtml(m.g)}" title="Vis teoretikerne i ${escapeHtml(m.g)}">${m.n}</button>
+    <button type="button" class="ov-num" data-ov-meta="${escapeHtml(m.g)}" title="Vis filosofene i ${escapeHtml(m.g)}">${m.n}</button>
   </div>`;
 }
 
@@ -307,7 +307,7 @@ export function renderDashboard(el, {
   // Under søyla står startåret («1790», «800 f.Kr.»); hele etiketten og
   // navnet står i title.
   const histCols = tidsrom.map(({ i, t, n }) => {
-    return `<button type="button" class="ov-hist-col" data-ov-tidsrom="${i}" title="${escapeHtml(romNavn(t))}: ${n} teoretikere. Klikk for liste">
+    return `<button type="button" class="ov-hist-col" data-ov-tidsrom="${i}" title="${escapeHtml(romNavn(t))}: ${n} filosofer. Klikk for liste">
       <span class="ov-hist-val">${n}</span>
       <span class="ov-hist-bar${n <= 1 ? " ov-thin" : ""}" style="height:${Math.max(2, (n / maxTidsrom) * 100)}%"></span>
       <span class="ov-hist-year">${escapeHtml(visAar(t.fra))}</span>
@@ -359,7 +359,7 @@ export function renderDashboard(el, {
     <div class="ov-kpis">
       <div class="ov-kpi">
         <span class="ov-kpi-n">${counts.total}</span>
-        <span class="ov-kpi-l">Teoretikere</span>
+        <span class="ov-kpi-l">Filosofer</span>
       </div>
       <div class="ov-kpi">
         <span class="ov-kpi-n">${covered}</span>
@@ -367,11 +367,11 @@ export function renderDashboard(el, {
       </div>
       <button type="button" class="ov-kpi ov-click" data-ov-open="tech">
         <span class="ov-kpi-n">${techCount}</span>
-        <span class="ov-kpi-l">Reformskort</span>
+        <span class="ov-kpi-l">Milepælskort</span>
       </button>
       <button type="button" class="ov-kpi ov-click" data-ov-open="subgenres">
         <span class="ov-kpi-n">${subTags.length}</span>
-        <span class="ov-kpi-l">Prinsipper</span>
+        <span class="ov-kpi-l">Begreper</span>
       </button>
       <div class="ov-kpi">
         <span class="ov-kpi-n">${hovedverkAntall}</span>
@@ -391,8 +391,8 @@ export function renderDashboard(el, {
       </div>
       ${[3, 2, 1, -1].map((p) => `
       <button type="button" class="ov-kpi ov-kpi-half ov-click prio-${p}" data-ov-prio="${p}"
-        aria-label="${escapeHtml(PRIO_LABELS[p])}: ${prioLists[p].length} teoretikere"
-        title="${escapeHtml(PRIO_LABELS[p])}: vis teoretikerne">
+        aria-label="${escapeHtml(PRIO_LABELS[p])}: ${prioLists[p].length} filosofer"
+        title="${escapeHtml(PRIO_LABELS[p])}: vis filosofene">
         <span class="ov-prio-i">${PRIO_ICONS[p]}</span>
         <span class="ov-kpi-n">${prioLists[p].length}</span>
       </button>`).join("")}
@@ -407,23 +407,23 @@ export function renderDashboard(el, {
     </div>
 
     <div class="stat-card ov-block">
-      <div class="stat-label">Antall teoretikere per tidsrom</div>
+      <div class="stat-label">Antall filosofer per tidsrom</div>
       <div class="ov-hist">${histCols || `<p class="muted">Treet har ingen tidsrom ennå.</p>`}</div>
     </div>
 
     <div class="stat-card ov-block">
-      <div class="stat-label">Antall teoretikere per epoke</div>
+      <div class="stat-label">Antall filosofer per epoke</div>
       <div class="ov-genre-cols">${genreCounts.map((g) =>
         distRow(g.l, g.n, maxGenre, `data-ov-genre="${escapeHtml(g.l)}"`)).join("")}</div>
     </div>
 
     <div class="ov-two">
       <div class="stat-card ov-block" style="margin-top:0">
-        <div class="stat-label">Antall teoretikere per retning</div>
+        <div class="stat-label">Antall filosofer per retning</div>
         <div class="ov-rows-meta">
           <div class="ov-row ov-row-meta ov-row-head">
             <span></span>
-            <span class="ov-colh">Teoretikere</span>
+            <span class="ov-colh">Filosofer</span>
           </div>
           ${metaCounts.map((m) => metaRow(m, maxMeta)).join("")}
         </div>
@@ -435,7 +435,7 @@ export function renderDashboard(el, {
     </div>
 
     <div class="stat-card ov-block">
-      <div class="stat-label">Fagbakgrunner</div>
+      <div class="stat-label">Disipliner</div>
       <div class="ov-chips">${instruments.map((i) => {
         const n = counts.perInstrument[i] || 0;
         return `<button type="button" class="ov-chip" data-ov-instr="${escapeHtml(i)}">${escapeHtml(i)} <strong>${n}</strong></button>`;
@@ -457,7 +457,7 @@ export function renderDashboard(el, {
       ${pageItem("Skriveveiledning", pageStatus("skriveveiledning"), "skriveveiledning")}
       ${missItem("Epoker uten beskrivelse", mainMissing.length,
         mainMissing.map((n) => nameRow(n, `data-ov-desc="${escapeHtml(n)}" data-ov-level="main"`)).join(""))}
-      ${missItem("Prinsipper uten beskrivelse", subMissing.length,
+      ${missItem("Begreper uten beskrivelse", subMissing.length,
         subMissing.map((n) => nameRow(n, `data-ov-desc="${escapeHtml(n)}" data-ov-level="sub"`)).join(""))}
       <div class="ov-miss-item">
         <button type="button" class="ov-miss-head" ${edgeX.btn}>
@@ -466,13 +466,13 @@ export function renderDashboard(el, {
         </button>
         ${edgeX.panel}
       </div>
-      ${missItem("Teoretikere uten beskrivelse", noDesc.length, artistRows(noDesc))}
-      ${missItem("Teoretikere uten bilde", noImage.length, artistRows(noImage))}
-      ${missItem("Teoretikere uten hovedverk", noMusic.length, artistRows(noMusic))}
-      ${missItem("Teoretikere uten gyldig fagbakgrunn", gaps.badInstrument.length,
+      ${missItem("Filosofer uten beskrivelse", noDesc.length, artistRows(noDesc))}
+      ${missItem("Filosofer uten bilde", noImage.length, artistRows(noImage))}
+      ${missItem("Filosofer uten hovedverk", noMusic.length, artistRows(noMusic))}
+      ${missItem("Filosofer uten gyldig disiplin", gaps.badInstrument.length,
         artistRows(gaps.badInstrument, (a) => instrumenterFor(a).map((i) => `<span class="tag">${escapeHtml(i)}</span>`).join("")))}
-      ${missItem("Teoretikere uten kilder", noSources.length, artistRows(noSources))}
-      ${missItem("Teoretikere uten viktighetsgrad", utenPrio.length, artistRows(utenPrio))}
+      ${missItem("Filosofer uten kilder", noSources.length, artistRows(noSources))}
+      ${missItem("Filosofer uten viktighetsgrad", utenPrio.length, artistRows(utenPrio))}
     </div>
 
     <div class="ov-kick">Hull og skjevheter</div>
@@ -482,16 +482,16 @@ export function renderDashboard(el, {
         ${tynneTidsrom.length
           ? `<div class="ov-chips">${tynneTidsrom.map(({ i, t, n }) =>
               `<button type="button" class="ov-chip ov-zero" data-ov-tidsrom="${i}">${escapeHtml(t.navn || t.etikett)} <strong>${n}</strong></button>`).join("")}</div>`
-          : `<p class="muted">Ingen. Alle tidsrom har minst to teoretikere.</p>`}
+          : `<p class="muted">Ingen. Alle tidsrom har minst to filosofer.</p>`}
       </div>
       <div class="ov-gap">
-        <div class="ov-gap-t">Teoretikere uten epoke <span>${artistsNoSjanger.length}</span></div>
+        <div class="ov-gap-t">Filosofer uten epoke <span>${artistsNoSjanger.length}</span></div>
         ${artistsNoSjanger.length
           ? `<button type="button" class="btn ghost small" ${noSjangerX.btn}>Vis</button>${noSjangerX.panel}`
-          : `<p class="muted">Ingen. Alle teoretikere er plassert.</p>`}
+          : `<p class="muted">Ingen. Alle filosofer er plassert.</p>`}
       </div>
       <div class="ov-gap">
-        <div class="ov-gap-t">Prinsipper uten teoretikerkort <span>${orphanedSubgenres.length}</span></div>
+        <div class="ov-gap-t">Begreper uten filosofkort <span>${orphanedSubgenres.length}</span></div>
         ${orphanedSubgenres.length
           ? `<button type="button" class="btn ghost small" ${orphanX.btn}>Vis</button>${orphanX.panel}`
           : `<p class="muted">Ingen.</p>`}
@@ -636,7 +636,7 @@ function renderGenderChart(dist) {
       (k) => `
       <span class="legend-item">
         <span class="dot" style="background:${GENDER_COLORS[k]}"></span>
-        ${GENDER_LABEL[k]}: <button type="button" class="ov-num-inline" data-ov-gender="${k}" title="Vis teoretikerne">${dist[k]}</button>
+        ${GENDER_LABEL[k]}: <button type="button" class="ov-num-inline" data-ov-gender="${k}" title="Vis filosofene">${dist[k]}</button>
         (${pct(dist[k], dist.total)}%)
       </span>`
     )

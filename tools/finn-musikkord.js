@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 // ============================================================================
-//  FINN MUSIKKORD SOM STÅR IGJEN (fase 4)
+//  FINN PEDAGOGIKKORD SOM STÅR IGJEN (steg 3)
 // ----------------------------------------------------------------------------
-//  Appen er kopiert fra musikkhistorie-appen, og koden, filnavnene og
-//  databasenøklene beholdes (PLAN.md). Det som skal byttes, er det brukerne
-//  SER. Dette skriptet leser HTML-sidene og js/ og lister linjer med
-//  musikkord, uten linjer som bare er kommentarer, så lista er en
-//  arbeidsliste for synlige tekster og ikke for kode.
+//  Appen er kopiert fra pedagogikkappen (som igjen er kopiert fra
+//  musikkhistorie-appen), og koden, filnavnene og databasenøklene beholdes
+//  (PLAN.md). Det som skal byttes, er det brukerne SER. Dette skriptet leser
+//  HTML-sidene og js/ og lister linjer med pedagogikkord, uten linjer som bare
+//  er kommentarer, så lista er en arbeidsliste for synlige tekster og ikke
+//  for kode.
 //
 //  Kjør:  node tools/finn-musikkord.js            (tall per fil)
 //         node tools/finn-musikkord.js --detalj   (hver linje)
 //         node tools/finn-musikkord.js js/ui      (bare en mappe eller fil)
+//         node tools/finn-musikkord.js --musikk   (også musikkordene)
 //
 //  Treff i identifikatorer (artists, musicExamples, INSTRUMENT_GROUPS …) er
 //  ikke synlige og hoppes over: ordet må stå i en streng eller i HTML-tekst.
@@ -25,13 +27,18 @@ const args = process.argv.slice(2);
 const detalj = args.includes("--detalj");
 const mal = args.filter((a) => !a.startsWith("--"));
 
-// Ordene som røper musikkappen. Ordgrenser foran, så «artistisk» ikke teller
-// men «artisten» og «artister» gjør det.
+// Ordene som røper pedagogikkappen. Ordgrenser foran, så «reformasjon» og
+// «reformator» ikke teller men «reformene» og «reformer» gjør det (se
+// UNNTAK i tools/ordbytte.py).
 const ORD = [
-  "artist", "musikk", "sjanger", "lytt", "spilleliste", "plateselskap", "innspilling", "album",
-  "instrument", "tiår", "låt", "sang", "band\\b", "konsert", "innovasjon", "teknologi",
-  "jazz", "blues", "rock", "hip-hop", "pop\\b", "gitar", "trommer", "vokal", "genre",
+  "teoretiker", "pedagog(?!isk\\w* rekkefølg)", "reform(?!asjon|ator|pedag|ert|ere\\b|ist)", "læreplan", "oppdragelse", "prinsipp",
+  "fagbakgrunn", "Dewey", "Rousseau", "Montessori", "Pestalozzi", "Fröbel",
 ];
+// --musikk: sjekker også de gamle musikkordene (for filer som er hentet fra musikkappen).
+if (args.includes("--musikk")) {
+  ORD.push("artist", "musikk", "sjanger", "lytt", "spilleliste", "plateselskap", "innspilling", "album", "instrument", "tiår",
+    "låt", "sang", "band\\b", "konsert", "innovasjon", "teknologi", "jazz", "blues", "rock", "hip-hop", "pop\\b", "gitar", "trommer", "vokal", "genre");
+}
 const RE = new RegExp(`(?:^|[^\\p{L}])(?:${ORD.join("|")})`, "iu");
 
 // En linje er «synlig tekst» når ordet står i en streng eller i HTML mellom
@@ -93,4 +100,4 @@ for (const [f, treff] of perFil) {
   console.log(`${String(treff.length).padStart(4)}  ${f}`);
   if (detalj) for (const [n, l] of treff) console.log(`        ${n}: ${l}`);
 }
-console.log(`\n${totalt} linjer med musikkord i ${perFil.length} av ${filer.length} filer.`);
+console.log(`\n${totalt} linjer med pedagogikkord i ${perFil.length} av ${filer.length} filer.`);

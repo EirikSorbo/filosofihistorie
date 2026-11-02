@@ -181,9 +181,9 @@ export function showSjangerInfo(label, opts = {}, { reopen = true } = {}) {
   const kilderHtml = buildKilderList(resolved.kilder, "Kilder");
 
   const btnArea = [
-    (n.g && onShowArtists) ? `<button type="button" class="btn ghost small gx-artists-btn">Teoretikere</button>` : "",
+    (n.g && onShowArtists) ? `<button type="button" class="btn ghost small gx-artists-btn">Filosofer</button>` : "",
     // Bare når tidslinja har en seksjon for sjangeren (harTidslinje, v6.23).
-    (n.g && onShowTimeline && (!harTidslinje || harTidslinje(n.l))) ? `<button type="button" class="btn ghost small gx-timeline-btn">Teoretikertidslinje</button>` : "",
+    (n.g && onShowTimeline && (!harTidslinje || harTidslinje(n.l))) ? `<button type="button" class="btn ghost small gx-timeline-btn">Filosoftidslinje</button>` : "",
     // Artistgalleriet (v5.96; i appen også fra v5.97, brukerønske 2026-10-01).
     (n.g && onShowGallery) ? `<button type="button" class="btn ghost small gx-galleri-btn">Galleri</button>` : "",
     // «Vis i slektstreet» (v6.08, S8): fra kortet tilbake til sjangerens plass.
@@ -202,7 +202,7 @@ export function showSjangerInfo(label, opts = {}, { reopen = true } = {}) {
   // --sj-farge (v5.90): sjangerens farge, den samme som i treet, til
   // streken og overskriften i sidespalta (se .sj-artister i styles.css).
   const artisterHtml = iSjangeren.length ? `<div class="sj-artister" style="--sj-farge:${escapeHtml(nodeColor(n))}">
-      <h4 class="related-head">Teoretikere</h4>
+      <h4 class="related-head">Filosofer</h4>
       <ul class="sj-artister-liste">${iSjangeren.map((a) =>
         `<li><button type="button" class="sj-artist" data-related-id="${escapeHtml(String(a.id))}">${escapeHtml(a.name)}</button></li>`).join("")}</ul>
     </div>` : "";
@@ -216,7 +216,7 @@ export function showSjangerInfo(label, opts = {}, { reopen = true } = {}) {
     ${sekt("punkter", punkterHtml(resolved.punkter, lcSelv))}
     ${sekt("beskrivelse", `<div class="gx-desc rt">${descText ? renderRichText(descText, lcSelv) : `<span class="gx-missing">${missingDesc("main")}</span>`}</div>`)}
     ${sekt("samfunn", resolved.samfunn ? `<h4 class="related-head">Samfunn</h4><div class="gx-desc rt">${renderRichText(resolved.samfunn, lcSelv)}</div>` : "")}
-    ${sekt("skole", resolved.skole ? `<h4 class="related-head">Skole og oppdragelse</h4><div class="gx-desc rt">${renderRichText(resolved.skole, lcSelv)}</div>` : "")}
+    ${sekt("skole", resolved.skole ? `<h4 class="related-head">Vitenskap og lærdom</h4><div class="gx-desc rt">${renderRichText(resolved.skole, lcSelv)}</div>` : "")}
     ${sekt("relasjoner", relasjoner)}
     ${sekt("artister", artisterHtml)}
     ${sekt("kilder", kilderHtml)}

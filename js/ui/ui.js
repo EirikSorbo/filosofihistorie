@@ -258,7 +258,7 @@ function levetid(a) {
 // kortene: læreren ser det alltid, studentene bare når bryteren
 // «Viktighetsgraden» er på.
 export function artistGalleriHtml(liste, { visPrioritet = false } = {}) {
-  if (!liste.length) return `<p class="muted empty">Ingen teoretikere matcher søket.</p>`;
+  if (!liste.length) return `<p class="muted empty">Ingen filosofer matcher søket.</p>`;
   return `<div class="ar-galleri">${liste.map((a) => {
     const url = safeUrl(a.imageUrl);
     const sjangre = (a.mainGenre || []).join(", ");
@@ -603,7 +603,7 @@ function showGenreLevelInfo(label, level, opts = {}) {
   }, level);
 
   const btnArea = [
-    onShowArtists ? `<button type="button" class="btn ghost small gx-artists-btn">Teoretikere</button>` : "",
+    onShowArtists ? `<button type="button" class="btn ghost small gx-artists-btn">Filosofer</button>` : "",
   ].filter(Boolean).join(" ");
 
   // Peker navnet på en tre-sjanger? Tilby snarvei til sjanger-beskrivelsen.

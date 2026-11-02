@@ -21,15 +21,15 @@ import { INSTRUMENT_TIMELINE_GROUPS, isVisible } from "../felles/limits.js";
 import { finnSlide, slidesLastet } from "./slides-liste.js";
 
 export const TYPE_NAVN = {
-  artist: "Teoretiker", sjanger: "Epoke", undersjanger: "Prinsipp",
-  historie: "Historie", tech: "Reform", side: "Side",
-  instrument: "Fagbakgrunn", kobling: "Kobling", tidslinje: "Tidslinje",
+  artist: "Filosof", sjanger: "Epoke", undersjanger: "Begrep",
+  historie: "Historie", tech: "Milepæl", side: "Side",
+  instrument: "Disiplin", kobling: "Kobling", tidslinje: "Tidslinje",
   sjangerperioder: "Epokeperioder",
   himmel: "Epokehimmel", referanser: "Referanser",
   "store-bildet": "Det store bildet",
-  teknologi: "Reformer og milepæler", slektstre: "Slektstre", yt: "Video",
+  teknologi: "Milepæler", slektstre: "Slektstre", yt: "Video",
   oversikt: "Oversikt", galleri: "Galleri",
-  sjangre: "Epoker", undersjangre: "Prinsipper", artister: "Teoretikere",
+  sjangre: "Epoker", undersjangre: "Begreper", artister: "Filosofer",
   slide: "Slide",
 };
 

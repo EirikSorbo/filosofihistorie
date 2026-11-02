@@ -20,13 +20,13 @@ import { parseVisVerdi } from "../felles/vis-lenke.js";
 export const FLATER = {
   artist: [
     { id: "bilde", navn: "Bilde" },
-    { id: "fakta", navn: "Fakta (levetid, fagbakgrunn …)" },
-    { id: "tags", navn: "Fagbakgrunn og epoke" },
+    { id: "fakta", navn: "Fakta (levetid, disiplin …)" },
+    { id: "tags", navn: "Disiplin og epoke" },
     { id: "stripe", navn: "Innflytelseslinje" },
     { id: "punkter", navn: "Oppsummering i punkter" },
     { id: "beskrivelse", navn: "Beskrivelse" },
     { id: "verk", navn: "Hovedverk" },
-    { id: "beslektede", navn: "Beslektede teoretikere" },
+    { id: "beslektede", navn: "Beslektede filosofer" },
   ],
   sjanger: [
     { id: "era", navn: "Epoke" },
@@ -35,9 +35,9 @@ export const FLATER = {
     // Epokekortets kontekstfelt (fase 3). Ikke i NIVAA_SEKT, så de står bare
     // på nivå 3 (Alt), som alle nye seksjoner.
     { id: "samfunn", navn: "Samfunn" },
-    { id: "skole", navn: "Skole og oppdragelse" },
+    { id: "skole", navn: "Vitenskap og lærdom" },
     { id: "relasjoner", navn: "Slektskap (vokste ut av …)" },
-    { id: "artister", navn: "Teoretikere i epoken (navneliste)" },
+    { id: "artister", navn: "Filosofer i epoken (navneliste)" },
   ],
   tech: [
     { id: "bilde", navn: "Bilde" },
@@ -45,7 +45,7 @@ export const FLATER = {
     { id: "punkter", navn: "Oppsummering i punkter" },
     { id: "beskrivelse", navn: "Beskrivelse" },
     // v6.07 (K6): artistene som nevner innovasjonen.
-    { id: "artister", navn: "Teoretikere som nevner den" },
+    { id: "artister", navn: "Filosofer som nevner den" },
   ],
   // Tiårsvinduet og varmestripene er tatt ut (fase 2). Over historien står
   // epokene i retningen som bobler (familie).
@@ -464,11 +464,11 @@ export function tellerTekst(i, antall) {
 }
 
 export const OVERSIKT_KATEGORIER = [
-  { id: "artister", navn: "Teoretikere" },
+  { id: "artister", navn: "Filosofer" },
   { id: "lytteeksempler", navn: "Videoer" },
   { id: "sjangre", navn: "Epoker" },
-  { id: "teknologi", navn: "Reformer og milepæler" },
-  { id: "instrumenter", navn: "Fagbakgrunner" },
+  { id: "teknologi", navn: "Milepæler" },
+  { id: "instrumenter", navn: "Disipliner" },
   { id: "oversikter", navn: "Oversikter" },
 ];
 
@@ -477,7 +477,7 @@ const VISNING_NAVN = {
   himmel: "Epokehimmelen", referanser: "Referansene",
   "store-bildet": "Det store bildet", slektstre: "Slektstreet",
   // Vinduene med egen adresse fra v6.08 (S7).
-  sjangre: "Epokene", undersjangre: "Prinsippene", artister: "Teoretikerne",
+  sjangre: "Epokene", undersjangre: "Begrepene", artister: "Filosofene",
 };
 const SIDE_NAVN = { omHistorie: "Om historie" };
 
@@ -508,7 +508,7 @@ function oversiktPunkt(m, oppslag) {
     case "oversikt":
       return { kat: "oversikter", tekst: `Oversikt over ${m.id || "metasjangeren"}` };
     case "galleri":
-      return { kat: "oversikter", tekst: `Teoretikergalleri: ${m.id || "sjangeren"}` };
+      return { kat: "oversikter", tekst: `Filosofgalleri: ${m.id || "sjangeren"}` };
     case "kobling": {
       const [fra, til] = String(m.id || "").split("__");
       const navn = (id) => oppslag.nodeNavn?.(id) || id || "?";
@@ -519,9 +519,9 @@ function oversiktPunkt(m, oppslag) {
       return t ? { kat: "teknologi", tekst: t.name } : null;
     }
     case "teknologi":
-      return { kat: "teknologi", tekst: m.id ? `Reform: ${m.id}` : "Reformoversikten" };
+      return { kat: "teknologi", tekst: m.id ? `Milepæl: ${m.id}` : "Milepæloversikten" };
     case "instrument":
-      return { kat: "instrumenter", tekst: m.id || "Fagbakgrunnene" };
+      return { kat: "instrumenter", tekst: m.id || "Disiplinene" };
     case "side":
       return { kat: "oversikter", tekst: SIDE_NAVN[m.id] || "Slik bruker du appen" };
     // Slides (v7.06) er lærerens private sider og står aldri på oversikten
@@ -863,7 +863,7 @@ export const PRES_TASTER = [
   ] },
   { gruppe: "Ellers", rader: [
     { taster: ["S"], hva: "Søk" },
-    { taster: ["N"], hva: "Navn fra timen: noter en teoretiker som kom opp, og hvem som foreslo den", laerer: true },
+    { taster: ["N"], hva: "Navn fra timen: noter en filosof som kom opp, og hvem som foreslo den", laerer: true },
     { taster: ["P"], hva: "Private notater for kortet som vises (bare på din skjerm)", laerer: true },
     { taster: ["Å"], hva: "Rediger de private notatene til kortet som vises", laerer: true },
     { taster: ["Esc"], hva: "Lukk øverste kort" },

@@ -70,7 +70,7 @@ Config-samlingen er borte: fagbakgrunnene er en konstant i `js/felles/limits.js`
   "deathYear": 1952,
   "gender": "mann",
   "metaGenre": "Erfaring og demokrati",
-  "instrument": "Filosof",
+  "instrument": "Etikk",
   "mainGenre": ["Pragmatismen", "Progressivismen"],
   "subGenre": ["Læring gjennom erfaring"],
   "influenceStart": 1896,
@@ -104,7 +104,7 @@ Config-samlingen er borte: fagbakgrunnene er en konstant i `js/felles/limits.js`
 | `deathYear` | number \| null | | Dødsår, samme regler. |
 | `gender` | string | ✓ | Én av: `"kvinne"`, `"mann"`, `"annet"` (vises som «Gruppe»), `"ikkebinaer"`. Alt annet telles som «ukjent» i statistikken. |
 | `metaGenre` | string | ✓ | **Retningen.** Én av treets retninger (`metaGenres[].name` i `genealogy`). Hver teoretiker har én. |
-| `instrument` | string | ✓ | **Fagbakgrunn.** Én verdi fra `INSTRUMENTS` i `js/felles/limits.js`: Filosof, Teolog, Psykolog, Sosiolog, Praktiker, Politiker og reformator, Forsker. |
+| `instrument` | string | ✓ | **Fagbakgrunn.** Én verdi fra `INSTRUMENTS` i `js/felles/limits.js`: Metafysikk, Erkjennelsesteori, Etikk, Politisk filosofi, Logikk og språk, Estetikk, Vitenskapsfilosofi, Religionsfilosofi. |
 | `instrument2` | string | | Andre fagbakgrunn, for dem som er sentrale på to. Bare læreren setter det. Les alltid begge via `instrumenterFor`. |
 | `mainGenre` | array av strings | | **Epokene** teoretikeren hører til (flere er lov). Strengene må matche en node-etikett (`nodes[].l`) i treet. |
 | `subGenre` | array av strings | | **Pedagogiske prinsipper** teoretikeren er merket med. Frie tags: samme stavemåte overalt, og gi dem gjerne en felles tekst under `genreDescriptions.sub`. |
@@ -250,7 +250,7 @@ Nøkkelen er `fra__til` med epokenes `id`-er (ikke etikettene). Samme felter som
 ```json
 {
   "name": "Almueskoleloven av 1860",
-  "category": "Lov",
+  "category": "Institusjon",
   "type": "innovasjon",
   "inventedYear": 1860,
   "adoptedYear": 1860,
@@ -388,7 +388,7 @@ Formateringen skjer ved visning; det som lagres i Firestore og i denne fila er t
       "deathYear": 1827,
       "gender": "mann",
       "metaGenre": "Barnet i sentrum",
-      "instrument": "Praktiker",
+      "instrument": "Etikk",
       "mainGenre": ["Anskuelsespedagogikken"],
       "subGenre": ["Anskuelse"],
       "influenceStart": 1774,

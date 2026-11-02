@@ -19,7 +19,7 @@ export const MODAL_HTML = `
 <div class="modal-backdrop" id="modal-teknologi" data-vis="teknologi">
   <div class="modal modal-innhold">
     <div class="modal-head">
-      <h2>Reformer og milepæler</h2>
+      <h2>Milepæler</h2>
       <button class="modal-close btn ghost small">✕</button>
     </div>
     <!-- Kategoriene i sin egen rekkefølge; «Foreslå ny» (student) / admin-
@@ -42,7 +42,7 @@ export const MODAL_HTML = `
       <button class="modal-close btn ghost small">✕</button>
     </div>
     <input type="search" id="sok-felt" class="sok-felt" autocomplete="off"
-      placeholder="Søk i teoretikere, epoker, tekster …" aria-label="Søk i alt innholdet">
+      placeholder="Søk i filosofer, epoker, tekster …" aria-label="Søk i alt innholdet">
     <!-- role=status: treffantallet endrer seg mens man skriver, og en
          skjermleserbruker fikk det ellers aldri lest opp. -->
     <p class="muted sok-status" id="sok-status" role="status" aria-live="polite"></p>
@@ -90,7 +90,7 @@ export const MODAL_HTML = `
       <h2>Epokehimmelen</h2>
       <button class="modal-close btn ghost small">✕</button>
     </div>
-    <p class="muted" style="margin-bottom:10px;font-size:0.88rem">Epokene står i slektstreets rekkefølge. Klikk (eller trykk på) en stjerne, så spretter epokens teoretikere frem, forbundet med stjernen. Hold musen over en prikk for navnet; klikk prikken for teoretikerkortet. «Alle broer» viser teoretikerne som hører til flere epoker.</p>
+    <p class="muted" style="margin-bottom:10px;font-size:0.88rem">Epokene står i slektstreets rekkefølge. Klikk (eller trykk på) en stjerne, så spretter epokens filosofer frem, forbundet med stjernen. Hold musen over en prikk for navnet; klikk prikken for filosofkortet. «Alle broer» viser filosofene som hører til flere epoker.</p>
     <div id="sh-body"></div>
   </div>
 </div>
@@ -103,7 +103,7 @@ export const MODAL_HTML = `
       <button class="modal-close btn ghost small">✕</button>
     </div>
     <div class="sj-faner" data-sj-faner="tidslinje"></div>
-    <p class="muted" style="margin-bottom:16px;font-size:0.9rem">Hver blokk er en teoretikers aktive periode, gruppert etter retning. Flat høyrekant med › betyr at perioden pågår eller mangler sluttår. Trykk på en blokk for å åpne teoretikerkortet.</p>
+    <p class="muted" style="margin-bottom:16px;font-size:0.9rem">Hver blokk er en filosofs aktive periode, gruppert etter retning. Flat høyrekant med › betyr at perioden pågår eller mangler sluttår. Trykk på en blokk for å åpne filosofkortet.</p>
     <div id="tid-body"></div>
   </div>
 </div>
@@ -130,7 +130,7 @@ export const MODAL_HTML = `
       <button class="modal-close btn ghost small">✕</button>
     </div>
     <div class="sj-faner" data-sj-faner="undersjangre"></div>
-    <p class="muted" style="margin-bottom:14px;font-size:0.9rem">De frie taggene på teoretikerkortene, under retningen flest av teoretikerne hører til. Tallet er antall teoretikere.</p>
+    <p class="muted" style="margin-bottom:14px;font-size:0.9rem">De frie taggene på filosofkortene, under retningen flest av filosofene hører til. Tallet er antall filosofer.</p>
     <div id="ul-chips"></div>
   </div>
 </div>
@@ -192,8 +192,8 @@ ${TECH_DETAIL_MODAL_HTML}
       </button>
       <button class="dash-card" id="sb-tidslinje">
         <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-tidslinje)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8M9 12h12M5 17h10"/></svg>
-        <span class="dash-title">Teoretikertidslinje</span>
-        <span class="dash-desc">Teoretikernes aktive år visualisert</span>
+        <span class="dash-title">Filosoftidslinje</span>
+        <span class="dash-desc">Filosofenes aktive år visualisert</span>
       </button>
       <button class="dash-card" id="sb-slektstre">
         <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-slektstre)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><circle cx="5" cy="20" r="2"/><circle cx="12" cy="20" r="2"/><circle cx="19" cy="20" r="2"/><path d="M12 6v5M12 11c-4 0-7 3-7 7M12 11c4 0 7 3 7 7M12 11v7"/></svg>
@@ -208,7 +208,7 @@ ${TECH_DETAIL_MODAL_HTML}
       <button class="dash-card" id="sb-himmel">
         <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-himmel)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.2"/><circle cx="19" cy="9" r="2.2"/><circle cx="11" cy="19" r="2.2"/><path d="M8.1 6.5l8.7 2M17.7 10.7l-5.5 6.5M6.8 8.1l3.5 8.8"/></svg>
         <span class="dash-title">Epokehimmel</span>
-        <span class="dash-desc">Teoretikerne rundt epokene sine</span>
+        <span class="dash-desc">Filosofene rundt epokene sine</span>
       </button>
       <button class="dash-card" id="sb-referanser">
         <svg class="dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="--ikon:var(--icon-referanser)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4a2 2 0 012-2h7l5 5v13a2 2 0 01-2 2H7a2 2 0 01-2-2z"/><path d="M14 2v5h5"/><path d="M9 12h6M9 16h6"/></svg>
@@ -336,7 +336,7 @@ ${TECH_DETAIL_MODAL_HTML}
 <div class="modal-backdrop" id="modal-galleri">
   <div class="modal modal-innhold">
     <div class="modal-head">
-      <h2 id="ga-tittel">Teoretikergalleri</h2>
+      <h2 id="ga-tittel">Filosofgalleri</h2>
       <button class="modal-close btn ghost small">✕</button>
     </div>
     <div id="ga-body" class="ga-body"></div>

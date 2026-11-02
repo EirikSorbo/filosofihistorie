@@ -99,7 +99,7 @@ function tegnOversiktOgMangler() {
     onEditPage: (id) => openPageEditor(id),
     onEditEdge: (fromId, toId) => openSingleEdgeModal(fromId, toId),
     onEdgeCheck: (fromId, toId, on) => setContentCheck("edges", edgeKey(fromId, toId), on),
-    onShowArtistList: (title, list) => openArtistListModal(title, list, openDetail, "Ingen teoretikere her ennå."),
+    onShowArtistList: (title, list) => openArtistListModal(title, list, openDetail, "Ingen filosofer her ennå."),
     // Metasjangerens lytteeksempler: samme bygger som popupen, så tallet i
     // kolonnen og antallet i lista alltid er det samme.
     countExamplesFor: (list) => countArtistExamples(list),
@@ -233,9 +233,9 @@ const UTKAST_LAERER = "pensum-artistutkast:laerer";
 export function openNyArtist(navn = "") {
   const api = apneArtistSkjema({
     modus: "laerer-ny",
-    tittel: "Ny teoretiker",
+    tittel: "Ny filosof",
     utkastNokkel: UTKAST_LAERER,
-    sendTekst: "Legg til teoretiker",
+    sendTekst: "Legg til filosof",
     finnDuplikat: async (n) => {
       const x = String(n || "").trim().toLowerCase();
       return state.artists.find((a) => a.status !== "removed" && (a.name || "").trim().toLowerCase() === x) || null;

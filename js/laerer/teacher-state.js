@@ -89,7 +89,7 @@ export const handlers = {
   // forslagsflyt, ikke lærerens eget bruk av kortene.
   notat: (id) => {
     const a = state.artists.find(x => x.id === id);
-    redigerNotatForKort("artist", id, a?.name || "Teoretiker");
+    redigerNotatForKort("artist", id, a?.name || "Filosof");
   },
 };
 
@@ -201,11 +201,11 @@ export function refreshControls() {
   // Tidsrommene (fase 2) kommer fra treet, så nedtrekket fylles på nytt når
   // det lander, og valget settes tilbake under.
   fillSelect($("#f-tidsrom"), tidsromValg(), { placeholder: "Alle tidsrom" });
-  fillSelect($("#f-instrument"), instrumentsInUse(state.artists, state.filters.instrument), { placeholder: "Alle fagbakgrunner" });
+  fillSelect($("#f-instrument"), instrumentsInUse(state.artists, state.filters.instrument), { placeholder: "Alle disipliner" });
   const allSubs = [...new Set(
     (state.artists || []).flatMap((a) => [...(a.mainGenre || []), ...(a.subGenre || [])])
   )].sort((a, b) => a.localeCompare(b, "no"));
-  fillSelect($("#f-subgenre"), allSubs, { placeholder: "Alle prinsipper" });
+  fillSelect($("#f-subgenre"), allSubs, { placeholder: "Alle begreper" });
   if (state.filters.mainGenre)  $("#f-sjanger").value = state.filters.mainGenre;
   if (state.filters.metaGenre)    $("#f-genre").value = state.filters.metaGenre;
   if (state.filters.subgenre) $("#f-subgenre").value = state.filters.subgenre;

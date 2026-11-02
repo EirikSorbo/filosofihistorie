@@ -20,18 +20,20 @@ export function techImage(t, bredde = 480) {
   return `<figure class="artist-image">${imgTag(url, t.name, bredde)}${fmtCredit(t.imageCredit)}</figure>`;
 }
 
-// Reformer og milepæler (pedagogikkappens fase 3): kategoriene som før var
-// teknologikategorier (opptak, kringkasting, instrumenter). Kortene heter
-// fortsatt «tech» i dataene og koden, og feltet `category` er det samme.
-// «Norsk spor» er en egen kategori slik planen sier: en norsk lov eller
-// reform kan bare ha én, så læreren velger den som sier mest.
+// Milepæler (filosofiappens steg 4): kategoriene som før var teknologikategorier
+// (opptak, kringkasting, instrumenter). Kortene heter fortsatt «tech» i dataene
+// og koden, og feltet `category` er det samme. «Hendelse» er ikke en kategori
+// men en korttype (TECH_TYPES under), og hendelseskort velger også en av disse.
+//   Institusjon  steder der filosofi ble drevet (Akademiet, universitetene)
+//   Verk         bare verk som endret debatten, med mottakelse; resten står
+//                som Hovedverk på filosofkortet
+//   Krets og skole  selve miljøet: hvor, når, hvem (epokekortet tar ideene)
+//   Overlevering hvordan tekstene ble bevart og spredt (oversettelser, boktrykk)
 export const TECH_CATEGORIES = [
-  "Lov",
-  "Læreplan",
   "Institusjon",
-  "Læremiddel",
-  "Metode",
-  "Norsk spor",
+  "Verk",
+  "Krets og skole",
+  "Overlevering",
 ];
 
 // ----------------------------------------------------------------------------
@@ -45,7 +47,7 @@ export const TECH_CATEGORIES = [
 //  fantes før v3.84 ikke trengte migrering — og hvorfor techType() alltid må
 //  brukes i stedet for å lese t.type rått.
 export const TECH_TYPES = [
-  { value: "innovasjon", label: "Reform eller milepæl" },
+  { value: "innovasjon", label: "Milepæl" },
   { value: "hendelse",   label: "Viktig hendelse" },
 ];
 
@@ -64,7 +66,7 @@ export function renderTechList(el, items, activeCategory, lc) {
   // De vises på instrumenttidslinjen i stedet.
   const innovasjoner = items.filter((t) => !isHendelse(t));
   const filtered = activeCategory ? innovasjoner.filter(t => t.category === activeCategory) : innovasjoner;
-  renderTechCards(el, filtered, lc, "Ingen reformer eller milepæler i denne kategorien ennå.");
+  renderTechCards(el, filtered, lc, "Ingen milepæler i denne kategorien ennå.");
 }
 
 // Selve kortlisten, uten filtrering. Skilt ut (v5.03) da Instrumenter-kortet
@@ -114,6 +116,6 @@ function artisterSomNevnerHtml(t, lc) {
     .filter((a) => isVisible(a) && nevnerNavn(a.description, t.name))
     .sort((a, b) => (a.influenceStart || 0) - (b.influenceStart || 0) || a.name.localeCompare(b.name, "no"));
   if (!liste.length) return "";
-  return `<div class="related"><h4 class="related-head">Teoretikere som nevner den</h4><div class="related-list">${
+  return `<div class="related"><h4 class="related-head">Filosofer som nevner den</h4><div class="related-list">${
     liste.map((a) => `<button type="button" class="related-chip" data-related-id="${escapeHtml(String(a.id))}">${escapeHtml(a.name)}</button>`).join("")}</div></div>`;
 }

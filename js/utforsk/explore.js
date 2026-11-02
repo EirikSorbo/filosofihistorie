@@ -152,8 +152,8 @@ function wireModals() {
   const SJ_FANER = [
     { id: "sjangre", navn: "Epoker", modal: "modal-subgenre-list", apne: () => openSubgenreList() },
     { id: "sjangerperioder", navn: "Epokeperioder", modal: "modal-sjangerperioder", apne: () => openSjangerperioder() },
-    { id: "tidslinje", navn: "Teoretikertidslinje", modal: "modal-tidslinje", apne: () => openTidslinje() },
-    { id: "undersjangre", navn: "Prinsipper", modal: "modal-undersjangre", apne: () => openUndersjangre() },
+    { id: "tidslinje", navn: "Filosoftidslinje", modal: "modal-tidslinje", apne: () => openTidslinje() },
+    { id: "undersjangre", navn: "Begreper", modal: "modal-undersjangre", apne: () => openUndersjangre() },
   ];
   // Med «Bare sjekket innhold» på (v6.89) også bare når minst én historie er sjekket.
   const visHistorier = () => !!opts.onStoryEdit
