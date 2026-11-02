@@ -1,21 +1,21 @@
-# JSON-oppskrift — Pedagogikkens historie
+# JSON-oppskrift — Filosofiens historie
 
 Eksport-/importformat for hele datagrunnlaget. Filen ligger på rota og oppdateres når skjemaet endres.
 
-**Versjon:** 0.21 (følger appversjonen i `js/version.js`)
-**Sist endret:** 2026-10-20
+**Versjon:** følger appversjonen i `js/version.js`
+**Sist endret:** 2026-11-03
 
-Appen er kopiert fra musikkhistorie-appen, og kode, filnavn og databasenøkler beholdes (se [PLAN.md](PLAN.md)). Derfor heter feltene fortsatt `artists`, `metaGenre`, `mainGenre`, `subGenre`, `instrument` og `tech`. Tabellen viser hva de betyr i pedagogikkappen. **I filene bruker du alltid databasenøklene; i appen heter de det høyre kolonnen sier.**
+Appen er kopiert fra pedagogikkappen, som igjen er kopiert fra musikkhistorie-appen, og kode, filnavn og databasenøkler beholdes (se [PLAN.md](PLAN.md)). Derfor heter feltene fortsatt `artists`, `metaGenre`, `mainGenre`, `subGenre`, `instrument` og `tech`. Tabellen viser hva de betyr i filosofiappen. **I filene bruker du alltid databasenøklene; i appen heter de det høyre kolonnen sier.**
 
 | Databasenøkkel | I appen |
 |---|---|
-| `artists` (ett objekt) | Teoretiker (pedagog) |
+| `artists` (ett objekt) | Filosof |
 | `metaGenre` / `genreDescriptions.meta` | Retning (farge og gruppe i treet) |
 | `mainGenre` / `genreDescriptions.main` / treets noder | Epoke |
-| `subGenre` / `genreDescriptions.sub` | Pedagogisk prinsipp |
-| `instrument`, `instrument2` | Fagbakgrunn |
+| `subGenre` / `genreDescriptions.sub` | Filosofisk begrep |
+| `instrument`, `instrument2` | Disiplin |
 | `keyWorks` | Hovedverk |
-| `tech` | Reformer og milepæler |
+| `tech` | Milepæler |
 | `edgeDescriptions` | Påvirkning mellom to epoker |
 | `story` (på retningen) | Fortellingen om retningen |
 
@@ -28,7 +28,7 @@ Appen er kopiert fra musikkhistorie-appen, og kode, filnavn og databasenøkler b
   "formatVersion":     1,
   "artists":           [ /* teoretikere */ ],
   "genreDescriptions": { "meta": { "Natur og erfaring": { ... } }, "main": { "Pragmatismen": { ... } }, "sub": { "Læring gjennom erfaring": { ... } } },
-  "edgeDescriptions":  { "pragmatisme__progressivisme": { "description": "...", "kilder": [ ... ] } },
+  "edgeDescriptions":  { "empirismen__pragmatismen": { "description": "...", "kilder": [ ... ] } },
   "tech":              [ /* reformer og milepæler */ ],
   "pages":             { "omHistorie": { "body": "..." }, "appGuide": { ... } },
   "teacherChecks":     { /* lærerens sjekk-fremdrift */ },
@@ -39,15 +39,15 @@ Appen er kopiert fra musikkhistorie-appen, og kode, filnavn og databasenøkler b
 }
 ```
 
-Alle nøkler er valgfrie, men fila må ha teoretikere eller minst én innholdsdel (`genreDescriptions`, `edgeDescriptions`, `tech`, `pages`, `referanser`, `genealogy`, `presentasjoner`). En fil uten teoretikere godtas som ren innholdsfil.
+Alle nøkler er valgfrie, men fila må ha filosofer eller minst én innholdsdel (`genreDescriptions`, `edgeDescriptions`, `tech`, `pages`, `referanser`, `genealogy`, `presentasjoner`). En fil uten filosofer godtas som ren innholdsfil.
 
 | Nøkkel | Type | Beskrivelse |
 |---|---|---|
 | `formatVersion` | number | Filformat-merke (1). |
-| `artists` | array | ALLE teoretikere uansett status — også ventende og fjernede forslag (tapsfri backup). Rekkefølge spiller ingen rolle. |
-| `genreDescriptions` | objekt | Beskrivelser for retninger, epoker og prinsipper, nestet i tre bolker (`meta`/`main`/`sub`). `story` på retningen er fortellingen om retningen. Se seksjon 2. |
+| `artists` | array | ALLE filosofer uansett status — også ventende og fjernede forslag (tapsfri backup). Rekkefølge spiller ingen rolle. |
+| `genreDescriptions` | objekt | Beskrivelser for retninger, epoker og begreper, nestet i tre bolker (`meta`/`main`/`sub`). `story` på retningen er fortellingen om retningen. Se seksjon 2. |
 | `edgeDescriptions` | objekt | Beskrivelsene av påvirkningene (strekene i treet). Nøkkel = dokument-ID `fra__til`, to epoke-id-er (`id` i `genealogy.nodes`) skilt av to understreker. |
-| `tech` | array | Reformer og milepæler (alle statuser, også pending). Sortert etter `adoptedYear`. |
+| `tech` | array | Milepæler (alle statuser, også pending). Sortert etter `adoptedYear`. |
 | `pages` | objekt | Innholdssidene: `omHistorie`, `appGuide`, `skriveveiledning` (hjelp øverst i skjemaet) og `laererHandbok`. |
 | `teacherChecks` | objekt | Lærerens sjekk-fremdrift per kategori: `{ kategori: [id, ...] }`. |
 | `referanser` | objekt | Frittstående referanser (erstattes i sin helhet ved import). |
@@ -57,11 +57,11 @@ Alle nøkler er valgfrie, men fila må ha teoretikere eller minst én innholdsde
 
 Tre nøkler fra musikkappen er tatt ut og leses ikke lenger: `decades` (tiårene, fase 2), `varmekart` (fase 2) og `podcasts` (fase 4). Står de i en gammel fil, ignoreres de, og importen advarer om ukjente nøkler før du bekrefter. En fil som bare har slike nøkler, kjennes ikke igjen som en importfil.
 
-Config-samlingen er borte: fagbakgrunnene er en konstant i `js/felles/limits.js`, og vokabularet for retninger og epoker kommer fra `genealogy`.
+Config-samlingen er borte: disiplinene er en konstant i `js/felles/limits.js`, og vokabularet for retninger og epoker kommer fra `genealogy`.
 
 ---
 
-## 1. Teoretikerobjekt (`artists`)
+## 1. Filosofobjekt (`artists`)
 
 ```json
 {
@@ -104,15 +104,15 @@ Config-samlingen er borte: fagbakgrunnene er en konstant i `js/felles/limits.js`
 | `birthYear` | number \| null | | Fødselsår. År før Kristus skrives som negative tall (−428); skjemaene godtar −3000 til 2100. |
 | `deathYear` | number \| null | | Dødsår, samme regler. |
 | `gender` | string | ✓ | Én av: `"kvinne"`, `"mann"`, `"annet"` (vises som «Gruppe»), `"ikkebinaer"`. Alt annet telles som «ukjent» i statistikken. |
-| `metaGenre` | string | ✓ | **Retningen.** Én av treets retninger (`metaGenres[].name` i `genealogy`). Hver teoretiker har én. |
-| `instrument` | string | ✓ | **Fagbakgrunn.** Én verdi fra `INSTRUMENTS` i `js/felles/limits.js`: Metafysikk, Erkjennelsesteori, Etikk, Politisk filosofi, Logikk og språk, Estetikk, Vitenskapsfilosofi, Religionsfilosofi. |
-| `instrument2` | string | | Andre fagbakgrunn, for dem som er sentrale på to. Bare læreren setter det. Les alltid begge via `instrumenterFor`. |
-| `mainGenre` | array av strings | | **Epokene** teoretikeren hører til (flere er lov). Strengene må matche en node-etikett (`nodes[].l`) i treet. |
-| `subGenre` | array av strings | | **Pedagogiske prinsipper** teoretikeren er merket med. Frie tags: samme stavemåte overalt, og gi dem gjerne en felles tekst under `genreDescriptions.sub`. |
-| `influenceStart` | number | ✓ | Året teoretikeren begynte å virke. Plasserer personen i tidsrommene. |
+| `metaGenre` | string | ✓ | **Retningen.** Én av treets retninger (`metaGenres[].name` i `genealogy`). Hver filosof har én. |
+| `instrument` | string | ✓ | **Disiplin.** Én verdi fra `INSTRUMENTS` i `js/felles/limits.js`: Metafysikk, Erkjennelsesteori, Etikk, Politisk filosofi, Logikk og språk, Estetikk, Vitenskapsfilosofi, Religionsfilosofi. |
+| `instrument2` | string | | Andre disiplin, for dem som er sentrale på to. Bare læreren setter det. Les alltid begge via `instrumenterFor`. |
+| `mainGenre` | array av strings | | **Epokene** filosofen hører til (flere er lov). Strengene må matche en node-etikett (`nodes[].l`) i treet. |
+| `subGenre` | array av strings | | **Filosofiske begreper** filosofen er merket med. Frie tags: samme stavemåte overalt, og gi dem gjerne en felles tekst under `genreDescriptions.sub`. |
+| `influenceStart` | number | ✓ | Året filosofen begynte å virke. Plasserer personen i tidsrommene. |
 | `influenceEnd` | number \| null | | Året virket tok slutt (null hvis fortsatt aktiv). |
 | `geography` | string | | «Virkested», fritekst: by, land, miljø. |
-| `description` | string | | Hvorfor teoretikeren er med. Vanlig tekst, kort. Markdown-light (se under). |
+| `description` | string | | Hvorfor filosofen er med. Vanlig tekst, kort. Markdown-light (se under). |
 | `keyWorks` | array av objekter | | **Hovedverk.** Se under. |
 | `kilder` | array av objekter | ✓ | Kilder (minst én). Se under. |
 | `punkter` | array av strings | | Oppsummering i punkter, ett punkt per element. Bare læreren skriver dem. |
@@ -178,7 +178,7 @@ Nestet i tre bolker etter TYPE — samme inndeling som lærerens Skrivebord:
 |---|---|
 | `meta` | Retningene (de åtte i skjelettet: Natur og erfaring, Fornuft og idé, Det gode liv, Tro og fornuft, Samfunn og makt, Eksistens og tolkning, Logikk og analyse, Andre tradisjoner). |
 | `main` | Epokene (nodene i treet som ikke også er en retning). |
-| `sub` | De pedagogiske prinsippene (frie navn). |
+| `sub` | De filosofiske begrepene (frie navn). |
 
 Hvert navn står ÉN gang, i bolken som matcher typen. Verdien er hele dokumentet, som selv er **nivådelt**: nøklene `meta`/`main`/`sub` holder teksten for hvert nivå. Et navn som både er en retning og en epoke ligger i `meta`-bolken, men dokumentet kan ha tekst på flere nivåer. Importen flettes ved samme navn i flere bolker.
 
@@ -204,13 +204,13 @@ Hvert navn står ÉN gang, i bolken som matcher typen. Verdien er hele dokumente
     }
   },
   "sub": {
-    "Læring gjennom erfaring": {
+    "Erfaring": {
       "sub": {
-        "description": "Prinsippets felles tekst, som går på tvers av epoker og teoretikere.",
-        "kilder": [ { "text": "Dewey, J. Experience and Education. Kappa Delta Pi, 1938." } ],
+        "description": "Begrepets felles tekst, som går på tvers av epoker og filosofer.",
+        "kilder": [ { "text": "Dewey, J. Experience and Nature. Open Court, 1925." } ],
         "seOgLes": [
-          { "tittel": "Utdrag fra Experience and Education", "kilde": "Dewey (1938)", "tekst": "Kort sitat på høyst 1200 tegn." },
-          { "tittel": "Forelesning om erfaringslæring", "kilde": "Nettvideo", "url": "https://www.youtube.com/watch?v=..." }
+          { "tittel": "Utdrag fra Experience and Nature", "kilde": "Dewey (1925)", "tekst": "Kort sitat på høyst 1200 tegn." },
+          { "tittel": "Forelesning om erfaring", "kilde": "Nettvideo", "url": "https://www.youtube.com/watch?v=..." }
         ]
       }
     }
@@ -227,7 +227,7 @@ Per nivå:
 | `activeFrom`, `activeTo` | `main` | Epokens årstall (hele år; `activeTo` tomt = fortsatt aktiv). Før Kristus som negative tall. |
 | `era` | `main` | Epoken med ord, vises ordrett på tidslinja (høyst 60 tegn). |
 | `samfunn` | `main` | Samfunnet epoken sto i. Tok over det tiårskortene gjorde. |
-| `skole` | `main` | Skole og oppdragelse: hva epoken betydde for skolen. |
+| `skole` | `main` | Vitenskap og lærdom: hva epoken betydde for skolen. |
 | `punkter` | `main` | Oppsummering i punkter (bare læreren). |
 | `seOgLes` | `sub` | Valgfri liste, høyst 12 poster. Hver post har `tittel` (påkrevd, ≤ 200 tegn), og eventuelt `kilde` (≤ 300), `url` (http/https) og `tekst` (utdrag, ≤ 1200 tegn). Typen utledes: har posten `tekst`, er den et utdrag; ellers er den en video (YouTube-lenker åpnes i appens spiller) eller en lenke til noe å lese. Utdragene er sitater og skal ha kilde. Bare læreren skriver lista, studenter kan ikke foreslå den. |
 | `story.body` | dokumentet (retningen) | Fortellingen om retningen. |
@@ -238,7 +238,7 @@ Det finnes INGEN fallback-tekster i koden: mangler `description`, viser appen en
 
 ```json
 "edgeDescriptions": {
-  "pragmatisme__progressivisme": { "description": "Dewey bygde pragmatismens syn på erfaring og handling inn i en skoleteori.", "kilder": [ ... ] }
+  "empirismen__pragmatismen": { "description": "William James kalte pragmatismen et nytt navn på gamle tenkemåter og viste til den britiske empirismen.", "kilder": [ ... ] }
 }
 ```
 
@@ -246,18 +246,18 @@ Nøkkelen er `fra__til` med epokenes `id`-er (ikke etikettene). Samme felter som
 
 ---
 
-## 3. Reformer og milepæler (`tech`)
+## 3. Milepæler (`tech`)
 
 ```json
 {
-  "name": "Almueskoleloven av 1860",
+  "name": "Platons akademi",
   "category": "Institusjon",
   "type": "innovasjon",
-  "inventedYear": 1860,
-  "adoptedYear": 1860,
-  "adoptedLabel": "1860",
-  "description": "Norsk lov som la rammene for almueskolen på landsbygda.",
-  "kilder": [ { "text": "Store norske leksikon.", "url": "https://snl.no/almueskole" } ],
+  "inventedYear": -387,
+  "adoptedYear": -387,
+  "adoptedLabel": "ca. 387 f.Kr.",
+  "description": "Skolen Platon grunnla ved lunden Akademeia utenfor Athen.",
+  "kilder": [ { "text": "Stanford Encyclopedia of Philosophy.", "url": "https://plato.stanford.edu/entries/plato/" } ],
   "imageUrl": "",
   "imageCredit": "",
   "status": "active"
@@ -267,9 +267,9 @@ Nøkkelen er `fra__til` med epokenes `id`-er (ikke etikettene). Samme felter som
 | Felt | Type | Påkrevd | Notater |
 |---|---|---|---|
 | `name` | string | ✓ | Visningsnavn. |
-| `category` | string | ✓ | Én av `Lov`, `Læreplan`, `Institusjon`, `Læremiddel`, `Metode`, `Norsk spor` (`TECH_CATEGORIES` i `js/ui/ui-tech.js`). «Norsk spor» er en egen kategori: en norsk lov eller reform kan bare ha én, så velg den som sier mest. |
-| `type` | string | | `"innovasjon"` (vises som *reform eller milepæl*) eller `"hendelse"` (*viktig hendelse*). Mangler feltet, er kortet en reform/milepæl. |
-| `inventedYear` | number \| null | | Året reformen ble vedtatt eller milepælen inntraff. (Skjemaet kaller feltet «Oppfunnet (år)» fra musikkappen.) |
+| `category` | string | ✓ | Én av `Institusjon`, `Verk`, `Krets og skole`, `Overlevering` (`TECH_CATEGORIES` i `js/ui/ui-tech.js`). Viktige hendelser velger også en av disse, med `type: "hendelse"`. |
+| `type` | string | | `"innovasjon"` (vises som *milepæl*) eller `"hendelse"` (*viktig hendelse*). Mangler feltet, er kortet en milepæl/milepæl. |
+| `inventedYear` | number \| null | | Året milepælen inntraff. (Skjemaet kaller feltet «Oppfunnet (år)» fra musikkappen.) |
 | `adoptedYear` | number \| null | | Året den fikk gjennomslag i nevneverdig skala. Brukes til sortering. |
 | `adoptedLabel` | string | | Kort forklaring av tidspunktet, f.eks. `"ca. 1950"`, `"sent 1960-tall"` (≤ 150 tegn). |
 | `description` | string | | Hva den var og hva den betydde. |
@@ -306,7 +306,7 @@ Epokene er nodene i treet, retningene gir farge og kolonne, og radene er tidsrom
 | Felt | Notater |
 |---|---|
 | `nodes[].id` | Stabil ID (små bokstaver). Brukes i `p`, `rx` og i nøklene i `edgeDescriptions`. |
-| `nodes[].l` | Etiketten: epokens korte navn. **Dette er strengen som står i `mainGenre` på teoretikerne**, og dokument-ID i `genreDescriptions`. Kan ikke inneholde «/». |
+| `nodes[].l` | Etiketten: epokens korte navn. **Dette er strengen som står i `mainGenre` på filosofene**, og dokument-ID i `genreDescriptions`. Kan ikke inneholde «/». |
 | `nodes[].f` | Det fulle navnet. |
 | `nodes[].g` | Retningen (navnet på en `metaGenres`-post). |
 | `nodes[].r` | Raden = indeksen i `tidsrom`. |
@@ -317,13 +317,13 @@ Epokene er nodene i treet, retningene gir farge og kolonne, og radene er tidsrom
 | `metaGenres[]` | Retningene: `{ name, column, fam, color }`. |
 | `families` | Fargepaletten retningene velger fra. |
 
-Treet valideres (`js/sjangre/genre-validate.js`: sykler, ID-er, etiketter, tidsrom) før det skrives, og ERSTATTES i sin helhet ved import. Skjelettet fra fase 1 og 2 ligger i `json files/pedagogikk-skjelett.json` og lages av `node tools/lag-pedagogikk-skjelett.js` (45 epoker, 16 tidsrom, 8 retninger).
+Treet valideres (`js/sjangre/genre-validate.js`: sykler, ID-er, etiketter, tidsrom) før det skrives, og ERSTATTES i sin helhet ved import. Skjelettet ligger i `json files/filosofi-skjelett.json` og lages av `node tools/lag-filosofi-skjelett.js` (78 epoker, 17 tidsrom, 8 retninger).
 
 ---
 
 ## Tekstformatering (gjelder ALLE beskrivelser)
 
-Alle tekstfelter i appen leses som **markdown-light** — teoretikerbeskrivelser, epoke-, retnings- og prinsipptekster, påvirkningene, reformene og historiene/innholdssidene. Samme syntaks overalt, og samme knapper over hvert felt i editoren:
+Alle tekstfelter i appen leses som **markdown-light** — filosofbeskrivelser, epoke-, retnings- og begreptekster, påvirkningene, milepælene og historiene/innholdssidene. Samme syntaks overalt, og samme knapper over hvert felt i editoren:
 
 ```
 **fet**            *kursiv*            [lenketekst](https://…)
@@ -338,8 +338,8 @@ Detaljer verdt å kjenne:
 
 - **Tankestrek som kulepunkt** (`– `) teller som punktliste.
 - **Stjerne inni et ord** blir IKKE kursiv. Kursivmarkørene må stå på ordgrense.
-- **Lenker** må være `http`/`https`; alt annet vises som ren tekst. Lenketeksten blir aldri gjort om til teoretikerlenke, så man slipper lenker inni lenker.
-- **Teoretiker-, epoke-, prinsipp- og reformnavn** blir automatisk klikkbare, også inni fet/kursiv tekst og listepunkter.
+- **Lenker** må være `http`/`https`; alt annet vises som ren tekst. Lenketeksten blir aldri gjort om til filosoflenke, så man slipper lenker inni lenker.
+- **Filosof-, epoke-, begrep- og milepælnavn** blir automatisk klikkbare, også inni fet/kursiv tekst og listepunkter.
 - **HTML i teksten escapes.** Egne `<b>`-tagger vises som tekst, ikke markup.
 
 Formateringen skjer ved visning; det som lagres i Firestore og i denne fila er teksten slik den er skrevet.
@@ -360,18 +360,18 @@ Formateringen skjer ved visning; det som lagres i Firestore og i denne fila er t
 - Nettsider: `"Tittel" — Nettsted. Hentet 2026-10-20.` + `url`.
 - Kilderekkefølge for de første tekstene (PLAN.md): SNL, Stanford Encyclopedia of Philosophy, Britannica, Internet Encyclopedia of Philosophy.
 
-### Tagging — epoker og prinsipper
+### Tagging — epoker og begreper
 - **`mainGenre`** = en av epokene i treet. Disse styrer filtre, søk og koblinger. Vær konservativ, og bruk etiketten (`l`) slik den står.
-- **`subGenre`** = prinsipper: fri tagg, men samme stavemåte overalt, og gi dem en felles tekst under `genreDescriptions.sub`.
+- **`subGenre`** = begreper: fri tagg, men samme stavemåte overalt, og gi dem en felles tekst under `genreDescriptions.sub`.
 - I tvil: er navnet en node i treet? → `mainGenre`. Ellers → `subGenre`.
 
 ### `metaGenre` (retning)
 - Skal alltid være satt, og være navnet på en retning i treet.
-- For teoretikere som krysser retninger: velg den dominerende, og la de andre epokene stå i `mainGenre`.
+- For filosofer som krysser retninger: velg den dominerende, og la de andre epokene stå i `mainGenre`.
 
 ### Innflytelse vs. levetid
 - `birthYear`/`deathYear` = biografi.
-- `influenceStart`/`influenceEnd` = når teoretikeren virket. Det er dette som plasserer personen i tidsrommene, så en teoretiker født i ett tidsrom og aktiv i et annet vises i det siste.
+- `influenceStart`/`influenceEnd` = når filosofen virket. Det er dette som plasserer personen i tidsrommene, så en filosof født i ett tidsrom og aktiv i et annet vises i det siste.
 
 ### Tomme felter
 - `null` og `""` er ok. Tomme arrays er ok. Mangler en array → leses som `[]`.
@@ -434,11 +434,11 @@ Formateringen skjer ved visning; det som lagres i Firestore og i denne fila er t
 
 ## Import-/eksport-flyt
 
-1. **Eksport** (lærersiden → «Eksporter»): `pedagogikkhistorie-YYYY-MM-DD.json` med alle seksjonene i toppnivåstrukturen over. Tar med alle teoretikere og reformer uansett status — også ventende forslag — så eksporten er en komplett, tapsfri backup. Vakten foran eksporten nekter å lage en fil før alle samlingene er lastet.
-2. **Import** (lærersiden → «Importer»): velg fil. Hele teoretikerlista valideres FØR noe skrives eller slettes; feil rapporteres med radnummer og ingenting endres. Deretter valget *Erstatt* eller *Slå sammen*.
-3. **Erstatt alle**: laster ned en full sikkerhetskopi (`pedagogikkhistorie-BACKUP-…`) og krever bekreftelse på at fila faktisk kom, FØR noe slettes.
-4. **Slå sammen**: teoretikere matches på navn (uavhengig av store/små bokstaver). Tomme felter fylles automatisk fra importfila. Konflikter løses interaktivt eller med *Behold alle*/*Importer alle*. En fil med bare noen felt (navn + oppsummeringspunkter, uten retning og beskrivelse) regnes som en delpost og kan bare flettes inn i teoretikere som finnes.
-5. **Beskrivelser** importeres alltid (overskriver eksisterende verdier). **Reformer** matches på navn (oppdater/legg til). **Treet** og **referansene** erstattes i sin helhet.
+1. **Eksport** (lærersiden → «Eksporter»): `filosofihistorie-YYYY-MM-DD.json` med alle seksjonene i toppnivåstrukturen over. Tar med alle filosofer og milepæler uansett status — også ventende forslag — så eksporten er en komplett, tapsfri backup. Vakten foran eksporten nekter å lage en fil før alle samlingene er lastet.
+2. **Import** (lærersiden → «Importer»): velg fil. Hele filosoflista valideres FØR noe skrives eller slettes; feil rapporteres med radnummer og ingenting endres. Deretter valget *Erstatt* eller *Slå sammen*.
+3. **Erstatt alle**: laster ned en full sikkerhetskopi (`filosofihistorie-BACKUP-…`) og krever bekreftelse på at fila faktisk kom, FØR noe slettes.
+4. **Slå sammen**: filosofer matches på navn (uavhengig av store/små bokstaver). Tomme felter fylles automatisk fra importfila. Konflikter løses interaktivt eller med *Behold alle*/*Importer alle*. En fil med bare noen felt (navn + oppsummeringspunkter, uten retning og beskrivelse) regnes som en delpost og kan bare flettes inn i filosofer som finnes.
+5. **Beskrivelser** importeres alltid (overskriver eksisterende verdier). **Milepæler** matches på navn (oppdater/legg til). **Treet** og **referansene** erstattes i sin helhet.
 
 ### Formatkrav (ingen bakoverkompatibilitet)
 Importfiler må følge formatet i dette dokumentet:

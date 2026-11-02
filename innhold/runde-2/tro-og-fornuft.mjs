@@ -48,7 +48,7 @@ export default {
         Romerriket med forfølgelser, så Konstantins godkjenning av kristendommen i 313 og Theodosius' statsreligion fra 380. Goterne plyndret Roma i 410, og vandalene sto utenfor Hippo da Augustin døde i 430.
       `, `
         Alexandria var sentrum for bibeltolkning og filosofi, med en kristen lærdomsskole. Kirkemøtene, som Nikea i 325, gjorde filosofiske begreper til spørsmål om rett tro. Kodeksen avløste bokrullen og gjorde tekstene lettere å bruke.
-      `, [AUG, PATRISTIK, iep("https://iep.utm.edu/augustin/")]),
+      `, [AUG, PATRISTIK, iep("https://iep.utm.edu/augustine-overview/")]),
 
       "Tidlig skolastikk": epoke("ca. 500–1150", 500, 1150, `
         Etter Vestromerrikets fall var det lite gresk og lite filosofi igjen i Vesten. Boethius ville oversette hele Aristoteles og Platon, men rakk bare logikken før han ble henrettet. Det var nok til å holde spørsmålet om universaliene levende. Eriugena oversatte Pseudo-Dionysios ved hoffet til Karl den skallede og skrev et stort nyplatonsk system, men sto ganske alene.
@@ -173,7 +173,7 @@ export default {
     // --- Patristikken ---
     f("Justin", [null, 165], "mann", ["Religionsfilosofi"], ["Patristikken"], ["Logos"], [150, 165], "Flavia Neapolis og Roma", `
       Kristen filosof fra Samaria, kjent som Justin Martyr. Han søkte hos stoikere, peripatetikere, pytagoreere og platonikere, før han fant kristendommen og fortsatte å bære filosofkappen. Logos, hevdet han, har vært virksom i alle mennesker, så det de greske filosofene sa riktig, tilhører de kristne. Han forsvarte kristendommen for keiseren, drev en skole i Roma og ble henrettet rundt 165.
-    `, [["Apologi"], ["Dialog med Tryfon"]], [snl("https://snl.no/Justin")]),
+    `, [["Apologi"], ["Dialog med Tryfon"]], [bok("Minns, Denis og Paul Parvis. Justin, Philosopher and Martyr: Apologies. Oxford University Press, 2009.")]),
     f("Klemens av Alexandria", [null, null], "mann", ["Religionsfilosofi"], ["Patristikken"], ["Logos"], [190, 215], "Athen og Alexandria", `
       Gresk kirkefar og lærer i Alexandria. Filosofien var for grekerne det Moseloven var for jødene: en forberedelse til Kristus. Den ekte kristne er en «gnostiker», som går fra tro til innsikt, og må ikke forveksles med den gnostisismen han angrep. I «Stromateis» samler han sitater fra greske forfattere, og mye av dette kjenner vi bare gjennom ham.
     `, [["Stromateis"], ["Protreptikos"]], [snl("https://snl.no/Clemens_av_Alexandria")]),
@@ -182,7 +182,7 @@ export default {
     `, [["De principiis"], ["Contra Celsum"], ["Hexapla"]], [sep("https://plato.stanford.edu/entries/origen/")]),
     f("Augustin", [354, 430], "mann", ["Religionsfilosofi", "Metafysikk"], ["Patristikken"], ["Fri vilje", "Det ondes problem", "Gudsbevis", "Tvil", "Sannhet"], [386, 430], "Tagaste, Milano og Hippo", `
       Romersk filosof og biskop i Hippo i Nord-Afrika, den viktigste av de latinske kirkefedrene. Etter en periode som manikeer og skeptiker ble han kristen i Milano i 386, påvirket av Ambrosius og nyplatonikerne. «Bekjennelser» gjør selvet til filosofisk tema, og boken om tiden der regnes som en klassiker. «Gudsstaten» svarer på Romas fall. Hans lære om arvesynd og nåde preger hele vestlig kristendom. Han foregrep også Descartes' argument om at den som tviler, må finnes.
-    `, [["Om den frie vilje", 395], ["Bekjennelser", 400], ["Om treenigheten", 419], ["Gudsstaten", 426]], [AUG, snl("https://snl.no/Augustin")]),
+    `, [["Om den frie vilje", 395], ["Bekjennelser", 400], ["Om treenigheten", 419], ["Gudsstaten", 426]], [AUG, iep("https://iep.utm.edu/augustine-overview/")]),
 
     // --- Tidlig skolastikk ---
     f("Boethius", [null, 524], "mann", ["Logikk og språk", "Religionsfilosofi"], ["Tidlig skolastikk"], ["Universalier", "Fri vilje"], [505, 524], "Roma og Pavia", `

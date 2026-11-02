@@ -11,7 +11,7 @@ stopper et kart som ikke stemmer med filene.
 |---|---|---|
 | `js/` | Sidene og oppsettet | 11 |
 | `js/utforsk/` | Utforsk | 15 |
-| `js/sjangre/` | Epokene, prinsippene og slektstreet | 13 |
+| `js/sjangre/` | Epokene, begrepene og slektstreet | 13 |
 | `js/visning/` | Visning | 20 |
 | `js/laerer/` | Lærersiden | 8 |
 | `js/forslag/` | Endringsforslag | 3 |
@@ -23,7 +23,7 @@ stopper et kart som ikke stemmer med filene.
 
 ## Reglene koden holder seg til
 
-- Navnene i koden er musikkappens (PLAN.md): `artist` er en teoretiker, `sjanger` (`genre`, `mainGenre`) en epoke, `metaGenre` en retning, `subGenre` et prinsipp, `instrument` en fagbakgrunn og `tech` en reform eller milepæl. Bare det brukerne ser, er byttet.
+- Navnene i koden er musikkappens (PLAN.md): `artist` er en filosof, `sjanger` (`genre`, `mainGenre`) en epoke, `metaGenre` en retning, `subGenre` et begrep, `instrument` en disiplin og `tech` en milepæl. Bare det brukerne ser, er byttet.
 - Bare `data/store.js` snakker med Firestore, og alle sidene leser de delte samlingene gjennom `data/shared-data.js`.
 - Importer en funksjon fra fila som definerer den, ikke via en annen modul. `tools/check-imports.js` stopper videresending.
 - Ingen filer importerer hverandre i ring. Utforsk-kjernen (`utforsk/explore-context.js`) åpner featurene gjennom `nav`, som `utforsk/explore.js` fyller, i stedet for å importere dem. `tools/check-imports.js` stopper importringer.
@@ -52,7 +52,7 @@ stopper et kart som ikke stemmer med filene.
 
 ## `js/utforsk/` Utforsk
 
-Det store bildet, epokene, epokeperiodene, tidslinja, reformene, referansene, søket og ?vis=-ruteren. explore.js kobler dem sammen, og explore-context.js er limet de deler.
+Det store bildet, epokene, epokeperiodene, tidslinja, milepælene, referansene, søket og ?vis=-ruteren. explore.js kobler dem sammen, og explore-context.js er limet de deler.
 
 | Fil | Hva den gjør |
 |---|---|
@@ -72,9 +72,9 @@ Det store bildet, epokene, epokeperiodene, tidslinja, reformene, referansene, s�
 | `explore.js` | UTFORSK — ORKESTRATOR |
 | `metaoversikt-modell.js` | METASJANGER-OVERSIKTEN — ren modell (v5.94) |
 
-## `js/sjangre/` Epokene, prinsippene og slektstreet
+## `js/sjangre/` Epokene, begrepene og slektstreet
 
-Epokemodellen (treet bor i Firestore, og alt annet avledes av det), beskrivelsene, epokekortet, prinsippene, slektstreet, epokehimmelen og migreringen når en epoke eller et prinsipp bytter navn. Mappen heter fortsatt sjangre (musikkappens navn).
+Epokemodellen (treet bor i Firestore, og alt annet avledes av det), beskrivelsene, epokekortet, begrepene, slektstreet, epokehimmelen og migreringen når en epoke eller et begrep bytter navn. Mappen heter fortsatt epoker (musikkappens navn).
 
 | Fil | Hva den gjør |
 |---|---|
@@ -121,7 +121,7 @@ Presentasjonsvisningen på lerretet, kjøreplanene og Visning-vinduet bak presen
 
 ## `js/laerer/` Lærersiden
 
-Skrivebordet, teoretikerne, innholdsredigeringen, epoketre-editoren, gjennomgangen av endringsforslag og import/eksport.
+Skrivebordet, filosofene, innholdsredigeringen, epoketre-editoren, gjennomgangen av endringsforslag og import/eksport.
 
 | Fil | Hva den gjør |
 |---|---|
@@ -155,7 +155,7 @@ Utvalget til heftet og heftets oppbygning. Selve siden er js/utskrift.js.
 
 ## `js/ui/` Byggeklosser for skjermen
 
-Teoretikerkortene og listene, modalene og meldingsboksene, tidslinjene, reformkortene, oversikten på lærersiden, skjemadelene og videospilleren.
+Filosofkortene og listene, modalene og meldingsboksene, tidslinjene, milepælskortene, oversikten på lærersiden, skjemadelene og videospilleren.
 
 | Fil | Hva den gjør |
 |---|---|
@@ -177,7 +177,7 @@ Teoretikerkortene og listene, modalene og meldingsboksene, tidslinjene, reformko
 
 ## `js/data/` Data
 
-Firestore (store.js er den eneste fila som snakker med databasen), den delte dataroten, appens tilstand, teoretikerskjemaet og importformatet.
+Firestore (store.js er den eneste fila som snakker med databasen), den delte dataroten, appens tilstand, filosofskjemaet og importformatet.
 
 | Fil | Hva den gjør |
 |---|---|
@@ -194,7 +194,7 @@ Firestore (store.js er den eneste fila som snakker med databasen), den delte dat
 
 ## `js/felles/` Felles hjelpere
 
-Små hjelpere og vokabular som flere deler av appen bruker: tekst og lenker, kilder, søkeindeksen, årstall og tidsakse, fagbakgrunner, dype lenker og bryterne.
+Små hjelpere og vokabular som flere deler av appen bruker: tekst og lenker, kilder, søkeindeksen, årstall og tidsakse, disipliner, dype lenker og bryterne.
 
 | Fil | Hva den gjør |
 |---|---|
