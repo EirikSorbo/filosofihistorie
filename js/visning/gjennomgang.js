@@ -25,7 +25,7 @@ import { slider } from "./slides-liste.js";
 
 const MODAL_ID = "modal-gjennomgang";
 const FILTER_NOKKEL = "pensum-gj-filter";
-const NAVN = { ...TYPE_FLERTALL, samfunn: "Tiår: samfunn", teknologi: "Tiår: teknologi" };
+const NAVN = TYPE_FLERTALL;
 const STATUSER = [["gjennomgatt", "Gått gjennom"], ["ikke", "Ikke gått gjennom"], ["alle", "Alle"]];
 const MOT = [["referanse", "Mot referansen"], ["alt", "Alt i appen"]];
 const SJEKK_SVG = '<svg class="gj-sjekk" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>';
@@ -88,7 +88,7 @@ function postHtml(p) {
     <button type="button" class="gj-apne" data-gj-i="${i}">${p.sentral ? sentralMerke({ sentral: true }) : ""}${escapeHtml(p.tittel)}</button>
     ${prio}
     ${p.sti && p.type !== "artist" ? `<span class="muted gj-sti">${escapeHtml(p.sti)}</span>` : ""}
-    ${p.status === "lyttet" ? '<span class="gj-merke" title="Et lytteeksempel er spilt, men kortet er ikke vist">bare lyttet</span>' : ""}
+    ${p.status === "lyttet" ? '<span class="gj-merke" title="En video er spilt, men kortet er ikke vist">bare spilt</span>' : ""}
     ${h?.kort ? `<span class="muted gj-hvor" title="${escapeHtml(h.lang)}">${escapeHtml(h.kort)}</span>` : ""}
   </li>`;
 }
@@ -175,14 +175,14 @@ function byggModal() {
       </div>
       <label class="gj-felt">Viktighetsgrad
         <select id="gj-nivaa">
-          <option value="0">Alle artister</option>
+          <option value="0">Alle teoretikere</option>
           ${[3, 2, 1].map((n) => `<option value="${n}">${NIVAA_TEKST[n]}</option>`).join("")}
         </select>
       </label>
-      <label class="gj-felt"><input type="checkbox" id="gj-sentrale" /> Bare sentrale lytteeksempler</label>
+      <label class="gj-felt"><input type="checkbox" id="gj-sentrale" /> Bare sentrale videoer</label>
     </div>
     <p class="muted gj-merknad" id="gj-ukjente" hidden></p>
-    <p class="muted gj-merknad" id="gj-merknad" hidden>Viktighetsgraden gjelder artistene og lytteeksemplene deres. Resten har ingen grad og vises uansett.</p>
+    <p class="muted gj-merknad" id="gj-merknad" hidden>Viktighetsgraden gjelder teoretikerne og videoene deres. Resten har ingen grad og vises uansett.</p>
     <div class="sj-fanerad gj-typer" id="gj-typer" role="group" aria-label="Type"></div>
     <div id="gj-liste"></div>
   </div>

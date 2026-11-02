@@ -45,11 +45,8 @@ test("dekningsNokkel: samme mål via ulike veier gir samme nøkkel", () => {
   assert.equal(dekningsNokkel("yt:abcdefghijk:PL1:30"), "yt:abcdefghijk");
   assert.equal(dekningsNokkel("galleri:Bebop"), dekningsNokkel("sjanger:Bebop"));
   assert.equal(dekningsNokkel("undersjanger:Chicago Blues"), "undersjanger:chicago blues");
-  assert.equal(dekningsNokkel("tiår:1950"), "tiår:1950:society");
-  assert.equal(dekningsNokkel("tiår:1950:tech"), "tiår:1950:tech");
   assert.equal(dekningsNokkel("tidslinje"), null, "visninger uten id teller ikke");
   assert.equal(dekningsNokkel("tull:x"), null);
-  assert.equal(postNokkel({ type: "samfunn", id: "1950", apne: { hva: "tiår", id: "1950", modus: "society" } }), "tiår:1950:society");
   assert.equal(postNokkel({ type: "undersjanger", id: "Chicago blues", apne: { hva: "undersjanger", id: "Chicago blues" } }), "undersjanger:chicago blues");
   assert.equal(postNokkel({ type: "lytteeksempel", id: "https://x", apne: { hva: "artist", id: "a1" } }), "artist:a1",
     "et eksempel utenfor YouTube regnes som artisten");
@@ -67,16 +64,13 @@ const INDEKS = [
   { type: "lytteeksempel", id: "abcdefghijk", tittel: "Hoochie", apne: { hva: "yt", id: "abcdefghijk", modus: "", ekstra: "" } },
   { type: "lytteeksempel", id: "bbbbbbbbbbb", tittel: "St. Louis", apne: { hva: "yt", id: "bbbbbbbbbbb", modus: "", ekstra: "" } },
   { type: "sjanger", id: "Electric blues", tittel: "Electric blues", apne: { hva: "sjanger", id: "Electric blues" } },
-  { type: "samfunn", id: "1950", tittel: "1950-tallet", apne: { hva: "tiår", id: "1950", modus: "society" } },
-  { type: "teknologi", id: "1950", tittel: "1950-tallet", apne: { hva: "tiår", id: "1950", modus: "tech" } },
-  { type: "plateselskap", id: "stax", tittel: "Stax", apne: { hva: "plateselskap", id: "stax" } },
   { type: "side", id: "appGuide", tittel: "Slik bruker du appen", apne: { hva: "side", id: "appGuide" } },
   { type: "podkast", id: "p1", tittel: "Episode 1", apne: { hva: "podkast", id: "p1" } },
 ];
 const PLANER = normaliserPlaner({
-  t1: { tittel: "Blues", dato: "2026-10-03", laget: "2026-10-03", gruppe: "Klassen", stopp: [{ vis: "artist:muddy" }, { vis: "galleri:Electric blues" }, { vis: "tiår:1950:society" }] },
+  t1: { tittel: "Blues", dato: "2026-10-03", laget: "2026-10-03", gruppe: "Klassen", stopp: [{ vis: "artist:muddy" }, { vis: "galleri:Electric blues" }] },
   t2: { tittel: "Mer blues", dato: "2026-10-10", laget: "2026-10-10", gruppe: "Klassen", stopp: [{ vis: "yt:bbbbbbbbbbb::12" }, { vis: "artist:muddy" }] },
-  annen: { tittel: "Soul", laget: "2026-10-12", gruppe: "Soul", stopp: [{ vis: "artist:otis" }, { vis: "plateselskap:stax" }] },
+  annen: { tittel: "Soul", laget: "2026-10-12", gruppe: "Soul", stopp: [{ vis: "artist:otis" }] },
 });
 
 test("beregnGjennomgang: alt i gruppen merket med planene som viste det", () => {
@@ -94,9 +88,6 @@ test("beregnGjennomgang: alt i gruppen merket med planene som viste det", () => 
   assert.equal(post("lytteeksempel", "Hoochie").sentral, true);
   assert.equal(post("lytteeksempel", "Hoochie").prio, 3, "eksempelet får artistens grad");
   assert.equal(post("sjanger", "Electric blues").status, "vist", "galleriet regnes som sjangeren");
-  assert.equal(post("samfunn", "1950-tallet").status, "vist");
-  assert.equal(post("teknologi", "1950-tallet").status, "ikke", "samfunn og teknologi hver for seg");
-  assert.equal(post("plateselskap", "Stax").status, "ikke");
   assert.ok(!res.typer.some((t) => t.type === "podkast"), "podkastene er ikke med");
   assert.ok(!res.typer.some((t) => t.type === "side"), "bruksveiledningen er ikke pensum");
   assert.deepEqual(res.typer.find((t) => t.type === "artist").poster.map((p) => p.tittel),

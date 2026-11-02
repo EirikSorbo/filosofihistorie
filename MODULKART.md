@@ -5,19 +5,19 @@ Kartet lages av `tools/modulkart.js` og skal ikke redigeres for hånd: endre inn
 i fila og kjør `./bump.sh` (eller `node tools/modulkart.js`). Pre-push-kroken og GitHub
 stopper et kart som ikke stemmer med filene.
 
-108 filer i 11 mapper.
+114 filer i 11 mapper.
 
 | Mappe | Innhold | Filer |
 |---|---|---|
 | `js/` | Sidene og oppsettet | 11 |
 | `js/utforsk/` | Utforsk | 15 |
 | `js/sjangre/` | Epokene, prinsippene og slektstreet | 13 |
-| `js/visning/` | Visning | 15 |
+| `js/visning/` | Visning | 20 |
 | `js/laerer/` | Lærersiden | 8 |
 | `js/forslag/` | Endringsforslag | 3 |
 | `js/utskrift/` | Utskrift | 2 |
 | `js/ui/` | Byggeklosser for skjermen | 15 |
-| `js/data/` | Data | 9 |
+| `js/data/` | Data | 10 |
 | `js/felles/` | Felles hjelpere | 16 |
 | `js/vendor/` | Tredjepart | 1 |
 
