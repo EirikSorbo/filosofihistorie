@@ -245,7 +245,7 @@ export default {
     `, [["A Philosophical Enquiry into the Sublime and Beautiful", 1757], ["Reflections on the Revolution in France", 1790]], [sep("https://plato.stanford.edu/entries/burke/")]),
     f("Joseph de Maistre", [1753, 1821], "mann", ["Politisk filosofi", "Religionsfilosofi"], ["Konservatismen"], ["Makt"], [1796, 1821], "Savoia og St. Petersburg", `
       Savoyisk jurist og diplomat, flyktning fra den franske revolusjonen og i tjeneste hos kongen av Sardinia. Revolusjonen er Guds straff, fornuften er maktesløs uten tro, og paven bør være Europas øverste dommer. Hans skildring av bøddelen som grunnlaget for samfunnsorden er blitt stående. Isaiah Berlin så ham som en forløper for fascismen, en tolkning andre har utfordret.
-    `, [["Considérations sur la France", 1796], ["Du pape", 1819], ["Les soirées de Saint-Pétersbourg", 1821]], [iep("https://iep.utm.edu/maistre/")]),
+    `, [["Considérations sur la France", 1796], ["Du pape", 1819], ["Les soirées de Saint-Pétersbourg", 1821]], [bok("Maistre, Joseph de. Considerations on France. Cambridge University Press, 1994.")]),
 
     // --- Liberalismen ---
     f("Benjamin Constant", [1767, 1830], "mann", ["Politisk filosofi"], ["Liberalismen"], ["Frihet"], [1796, 1830], "Lausanne og Paris", `
