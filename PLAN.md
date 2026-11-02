@@ -60,8 +60,8 @@ Fra oppskriften. Hakene settes etter hvert som de er gjort.
 - [x] **Steg 4: Fagkonstanter og tester.** Gjort 2026-11-02: disiplinene (`INSTRUMENT_GROUPS`, `INSTRUMENT_TITLE` og visningsrekkefølgen i `js/felles/limits.js`), milepælkategoriene (`TECH_CATEGORIES` i `js/ui/ui-tech.js` og fanene i `teacher.html`), eksempeltekstene i skjemaene (Kant, Königsberg, «Fri vilje, Universalier»), ordgrensene og skjelettstien i innholdsverktøyene (`json files/filosofi-skjelett.json`), og testene som låste det gamle faget (disiplinverdiene i testdata, kategoriene og dokumenteksemplene). **Venter på skjelettet (steg 6):** `STORY_ORDER` (`js/felles/story-format.js`) og `SPALTER` (`js/utforsk/explore-sjanger.js`) må få de nye retningsnavnene, og `tools/pedagogikk-skjelett.js`, `tools/lag-pedagogikk-skjelett.js`, `tests/unit/pedagogikk-skjelett.test.js`, `tests/helpers/skjelett-tre.js` og treeksemplene i `tests/unit/sjekk-innholdsfil.test.js` (Dewey, Progressivismen) skrives om samtidig. Musikktreet i `js/sjangre/genealogy-data.js` står som testfrø.
 - [x] **Steg 5: Publisering.** Gjort 2026-11-02: DNS (CNAME til `eiriksorbo.github.io`, sjekket mot alle tre navneserverne), Pages fra `main` og `/ (root)`, sertifikat fra Let's Encrypt, Firebase-domenet og `firestore.rules` publisert (offentlig lesing av `artists`, `content` og `genreDescriptions` gir 200 og tomme samlinger). Klassekodeskjermen står på `https://filosofi.historieappen.no` uten konsollfeil. Ikke testet av meg: studentsiden bak klassekoden og lærerinnloggingen (Eirik tester). Gjenstår: nettlesertestene i `tests/e2e/` (jobben «nettleser» under Actions) sjekker musikkord og må rettes ut fra de faktiske feilene.
 - [x] **Steg 6: Skjelettet (Opus), foreløpig.** Forslaget står i `tools/filosofi-skjelett.js`: 8 retninger, 78 epoker, 17 tidsrom, 122 påvirkninger og 22 motreaksjoner. `node tools/lag-filosofi-skjelett.js` kjører det gjennom appens validator og skriver `json files/filosofi-skjelett.json`. **Eirik har ikke godkjent det ennå** (se «Valg tatt uten Eirik» under). Node-ID-ene låses først når treet er importert, så alt kan endres fram til da.
-- [ ] **Steg 7: Innholdet (Opus), i runder.** Retninger og epoker, personer, begreper, milepæler, de fire sidene. Omfanget avtales før hver runde.
-- [ ] **Steg 8: Dokumentene.** `README.md`, `JSON-OPPSKRIFT.md`, `MODULKART.md`. `KART-OPPSKRIFT.md` slettes.
+- [x] **Steg 7: Innholdet (Opus), førsteutkast natt til 2026-11-03.** I `innhold/runde-1` til `runde-5`: 277 filosofer, 78 epoker, 8 retninger med fortelling, 144 påvirkninger, 45 begreper (13+ med utdrag i «Se og les»), 68 milepæler og de fire sidene. Alle bygger med 0 feil og 29 myke ordgrense-advarsler. Lenkene er sjekket, og fødsels- og dødsår er sjekket mot Wikidata. **Ikke uavhengig faktasjekket:** `teacherChecked` er false overalt, og hovedverkenes årstall og tekstene er bare lest av forfatteren.
+- [x] **Steg 8: Dokumentene.** `README.md`, `JSON-OPPSKRIFT.md` og modulkartet er på filosofi. `KART-OPPSKRIFT.md` er slettet.
 
 ## Valg tatt uten Eirik (natt til 2026-11-03)
 
@@ -71,6 +71,16 @@ Eirik la seg og ba om at det ikke skulle spørres. Disse valgene er derfor Claud
 - **Tradisjoner Eirik ikke nevnte:** Jødisk filosofi, Kyoto-skolen og Afrikansk filosofi er med i «Andre tradisjoner». De er enkle å fjerne før import.
 - **Kilderekkefølge:** SEP, IEP, SNL, Britannica, med bøker der nettkilde mangler.
 - **Ikke pushet:** alt ligger lokalt på `main`. Eirik pusher når han har sett det.
+
+## Neste steg for Eirik
+
+1. Se gjennom skjelettet i widgeten i samtalen (eller `tools/filosofi-skjelett.js`). Endringer er gratis før import, for node-ID-ene låses først da.
+2. Push `main` (v0.03). Ingenting er pushet siden `24705a00`.
+3. Importer på lærersiden, Innstillinger, Importer, i denne rekkefølgen: `json files/filosofi-skjelett.json`, så `runde-1.json` til `runde-5.json`. Velg «Slå sammen» for alt etter runde 1.
+4. Bestem om en uavhengig kontrollrunde skal kjøres (subagenter startes bare når Eirik ber om det).
+5. Slå på det som skal være synlig under «Synlig for studentene», og sett viktighetsgrad. Ingen kort har grad nå.
+
+Åpent: nettlesertestene i `tests/e2e/` er fra musikkappen (plateselskaper, tiår, musikkord) og er ikke tilpasset, så jobben «nettleser» på GitHub blir rød til de er skrevet om.
 
 ## Pågår
 
