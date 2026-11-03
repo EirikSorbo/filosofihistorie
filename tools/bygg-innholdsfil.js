@@ -15,6 +15,8 @@
 //  genreDescriptions ({ meta, main, sub }), edgeDescriptions og tech. Navn som står i
 //  to deler, er en feil: hver teoretiker, epoke og påvirkning skrives ett sted.
 //  Tekstene trimmes, og innrykk i malstrengene fjernes (se ryddTekst).
+//  Viktighetsgraden (`priority`) står samlet i innhold/viktighet.mjs for alle
+//  rundene. Finnes fila, er en filosof uten grad i den en feil.
 // ============================================================================
 import fs from "node:fs";
 import path from "node:path";
@@ -39,7 +41,7 @@ function ryddDypt(v) {
 
 export const STANDARD = { status: "active", teacherChecked: false, priority: 0, votedUpBy: [] };
 
-export function slaaSammen(deler, { aar = new Date().getFullYear(), foreslaattAv = "" } = {}) {
+export function slaaSammen(deler, { aar = new Date().getFullYear(), foreslaattAv = "", viktighet = null } = {}) {
   const feil = [];
   const ut = { formatVersion: 1, artists: [], genreDescriptions: { meta: {}, main: {}, sub: {} }, edgeDescriptions: {}, tech: [], pages: {} };
   const hvor = new Map();
@@ -48,7 +50,9 @@ export function slaaSammen(deler, { aar = new Date().getFullYear(), foreslaattAv
       const k = `teoretiker:${String(a.name).trim().toLowerCase()}`;
       if (hvor.has(k)) feil.push(`«${a.name}» står i både ${hvor.get(k)} og ${navn}.`);
       hvor.set(k, navn);
-      ut.artists.push({ ...STANDARD, addedYear: aar, ...(foreslaattAv ? { proposedBy: foreslaattAv } : {}), ...ryddDypt(a) });
+      const grad = viktighet?.[String(a.name).trim()];
+      if (viktighet && grad == null) feil.push(`«${a.name}» (${navn}) har ingen viktighetsgrad i innhold/viktighet.mjs.`);
+      ut.artists.push({ ...STANDARD, addedYear: aar, ...(foreslaattAv ? { proposedBy: foreslaattAv } : {}), ...ryddDypt(a), ...(grad != null ? { priority: grad } : {}) });
     }
     for (const bolk of ["meta", "main", "sub"]) {
       for (const [n, dok] of Object.entries(del.genreDescriptions?.[bolk] || {})) {
@@ -118,7 +122,9 @@ if (erHovedfil) {
   const filer = fs.readdirSync(abs).filter((f) => f.endsWith(".mjs")).sort();
   const deler = [];
   for (const f of filer) deler.push([f, (await import(pathToFileURL(path.join(abs, f)).href)).default]);
-  const { fil, feil } = slaaSammen(deler, { foreslaattAv: `Fase 6, ${path.basename(abs)}` });
+  const gradfil = path.join(path.dirname(abs), "viktighet.mjs");
+  const viktighet = fs.existsSync(gradfil) ? (await import(pathToFileURL(gradfil).href)).default : null;
+  const { fil, feil } = slaaSammen(deler, { foreslaattAv: `Fase 6, ${path.basename(abs)}`, viktighet });
   feil.forEach((m) => console.log(`  [FEIL] ${m}`));
   const tre = JSON.parse(fs.readFileSync(path.join(ROT, "json files/filosofi-skjelett.json"), "utf8"));
   // Prinsippene fra de andre rundene i innhold/ er allerede skrevet og kan brukes

@@ -128,7 +128,7 @@ export default {
         Under «Synlig for studentene» på Skrivebordet slår du av og på kortene i Det store bildet. Som standard er Om historie, Epokehistorier, Epokehimmel, Referanser og Slik bruker du appen skjult til du slipper dem inn. I «Slik bruker du appen» slås hver del (hver mellomtittel) av og på for seg, og en ny del er skjult til du huker den av.
 
         ### Viktighetsgrad
-        Stjernene på filosofkortene i lærerlista gir en grad: **Mindre viktig**, **Viktig** eller **Viktigst**. Studentene kan filtrere på graden under Filosofer, så gradene bør settes før en eksamensperiode. **Skjult** tar en filosof ut av studentvisningen uten å slette kortet. Ingen kort har grad når de importeres.
+        Stjernene på filosofkortene i lærerlista gir en grad: **Mindre viktig**, **Viktig** eller **Viktigst**. Studentene kan filtrere på graden under Filosofer, så gradene bør være gått gjennom før en eksamensperiode. **Skjult** tar en filosof ut av studentvisningen uten å slette kortet. Importen gir hver filosof en foreslått grad, som du endrer med stjernene.
 
         ### Forslag fra studentene
         Nye filosofer og endringsforslag venter på godkjenning. Du kan godkjenne, avvise eller **sende tilbake** med en tilbakemelding. Da får du en kode som du gir studenten, og studenten åpner forslaget igjen under «Fått kode fra lærer?» på forsiden.

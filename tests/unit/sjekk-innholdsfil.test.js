@@ -58,6 +58,9 @@ test("teoretikere: ukjent epoke, retning og fagbakgrunn, manglende kilder og dob
   assert.ok(harFeil(f({ deathYear: 1800 }), /dødsår før fødselsår/));
   assert.ok(harFeil({ artists: [teoretiker(), teoretiker({ name: "john dewey" })] }, /står to ganger/));
   assert.ok(harFeil(f({ mainGenre: [] }), /ingen epoke/));
+  assert.ok(harFeil(f({ priority: 4 }), /viktighetsgraden «4»/));
+  assert.ok(harFeil(f({ priority: "3" }), /viktighetsgraden «3»/));
+  assert.deepEqual(feilFor(f({ priority: 3 })), []);
 });
 
 test("år før Kristus er gyldige, og tekst som årstall er feil", () => {

@@ -103,6 +103,7 @@ export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrin
       if (a[nokkelAar] != null && a[nokkelAar] !== "" && !erAar(a[nokkelAar])) F(`${hva}: ${nokkelAar} «${a[nokkelAar]}» er ikke et årstall (−3000 til 2100).`);
     }
     if (a.influenceStart == null || a.influenceStart === "") F(`${hva}: mangler influenceStart.`);
+    if (a.priority != null && ![0, 1, 2, 3].includes(a.priority)) F(`${hva}: viktighetsgraden «${a.priority}» er ikke 0, 1, 2 eller 3.`);
     if (erAar(a.birthYear) && erAar(a.deathYear) && a.deathYear < a.birthYear) F(`${hva}: dødsår før fødselsår.`);
     if (erAar(a.influenceStart) && erAar(a.influenceEnd) && a.influenceEnd < a.influenceStart) F(`${hva}: influenceEnd før influenceStart.`);
     if (!Array.isArray(a.kilder) || !a.kilder.length) F(`${hva}: minst én kilde er påkrevd.`);
