@@ -317,7 +317,7 @@ Epokene er nodene i treet, retningene gir farge og kolonne, og radene er tidsrom
 | `metaGenres[]` | Retningene: `{ name, column, fam, color }`. |
 | `families` | Fargepaletten retningene velger fra. |
 
-Treet valideres (`js/sjangre/genre-validate.js`: sykler, ID-er, etiketter, tidsrom) før det skrives, og ERSTATTES i sin helhet ved import. Skjelettet ligger i `json files/filosofi-skjelett.json` og lages av `node tools/lag-filosofi-skjelett.js` (78 epoker, 17 tidsrom, 8 retninger).
+Treet valideres (`js/sjangre/genre-validate.js`: sykler, ID-er, etiketter, tidsrom) før det skrives, og ERSTATTES i sin helhet ved import. Skjelettet ligger i `json files/filosofi-skjelett.json` og lages av `node tools/lag-filosofi-skjelett.js` (52 epoker, 16 tidsrom, 8 retninger).
 
 ---
 

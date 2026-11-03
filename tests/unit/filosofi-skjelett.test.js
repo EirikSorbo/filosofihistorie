@@ -27,12 +27,12 @@ test("skjelettet er et gyldig tre uten feil", () => {
   assert.deepEqual(sjekkTidsrom(tre.tidsrom, tre.nodes).filter((p) => p.nivå === "feil"), []);
 });
 
-test("skjelettet har foreslått størrelse: 8 retninger, 78 epoker, 17 tidsrom, 122 påvirkninger og 22 motreaksjoner", () => {
+test("skjelettet har oversiktsstørrelse: 8 retninger, 52 epoker, 16 tidsrom, 86 påvirkninger og 17 motreaksjoner", () => {
   assert.equal(tre.metaGenres.length, 8);
-  assert.equal(tre.nodes.length, 78);
-  assert.equal(tre.tidsrom.length, 17);
-  assert.equal(tre.nodes.reduce((n, e) => n + e.p.length, 0), 122);
-  assert.equal(tre.nodes.reduce((n, e) => n + (e.rx || []).length, 0), 22);
+  assert.equal(tre.nodes.length, 52);
+  assert.equal(tre.tidsrom.length, 16);
+  assert.equal(tre.nodes.reduce((n, e) => n + e.p.length, 0), 86);
+  assert.equal(tre.nodes.reduce((n, e) => n + (e.rx || []).length, 0), 17);
 });
 
 test("hver epoke hører til en retning, står i et tidsrom og påvirkes bare bakover i tid", () => {
@@ -51,8 +51,8 @@ test("hver epoke hører til en retning, står i et tidsrom og påvirkes bare bak
 test("appens modell tar imot treet: ingen røtter, alle epoker kan tagges og har x-posisjon", () => {
   rebuild(tre);
   assert.equal(GENEALOGY_ROOT_GENRES.length, 0, "røtter kan ikke tagges på filosofer");
-  assert.equal(GENEALOGY_MAIN_GENRES.length, 78);
-  assert.equal(TIDSROM.length, 17);
+  assert.equal(GENEALOGY_MAIN_GENRES.length, 52);
+  assert.equal(TIDSROM.length, 16);
   for (const n of tre.nodes) assert.ok(Number.isFinite(layoutX(n.id)), `${n.id} mangler x-posisjon`);
 });
 

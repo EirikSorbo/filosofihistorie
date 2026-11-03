@@ -43,25 +43,17 @@ export default {
       },
     },
     main: {
-      "Naturfilosofene": epoke("ca. 600–430 f.Kr.", -600, -430, `
+      "Naturfilosofene": epoke("ca. 600–370 f.Kr.", -600, -370, `
         Filosofene i Milet og Efesos regnes som de første i vestlig filosofi fordi de forklarte naturen ut fra naturen selv. De lette etter en *arkhe*, et opphav eller grunnprinsipp som alt kan føres tilbake til: vann hos Thales, det grenseløse hos Anaximander, luft hos Anaximenes. Heraklit satte motsetningene og forandringen i sentrum og lot en *logos* holde dem sammen.
 
-        Vi kjenner dem nesten bare gjennom fragmenter og referater hos senere forfattere, særlig Aristoteles, som leste dem som forløpere for sin egen årsakslære. Det gjør det vanskelig å vite hva de faktisk mente. Det nye var likevel ikke svarene, men at svarene kom med begrunnelser som andre kunne kritisere.
-      `, `
-        Greske bystater langs kysten av Lilleasia, med handel over hele Middelhavet og kontakt med Egypt og Babylon. Perserne tok kontroll over Jonia på 540-tallet f.Kr., og Milet ble ødelagt i 494 f.Kr. etter det joniske opprøret.
-      `, `
-        Geometri og astronomi kom til Hellas fra Egypt og Babylon. Fordi det ikke fantes noe presteskap som forvaltet en hellig lære, kunne ideer diskuteres fritt. Lærdommen ble overlevert muntlig og i korte prosaskrifter, som nesten alle er tapt.
-      `, [PRE, iep("https://iep.utm.edu/thales/")]),
+        Atomismen var et svar på Parmenides, som hadde hevdet at forandring er umulig fordi det som ikke er, ikke kan være. Leukipp og Demokrit godtok at det værende ikke kan oppstå eller forgå, men delte det i utallige udelelige legemer, *atomer*, som beveger seg i tomrommet. Farge og smak finnes bare «etter konvensjon», mens atomene og tomrommet finnes i virkeligheten. Det er det nærmeste antikken kom en rent mekanisk naturforklaring, og via Epikur og Lukrets nådde den 1600-tallets naturfilosofer.
 
-      "Atomistene": epoke("ca. 450–370 f.Kr.", -450, -370, `
-        Atomismen er et svar på Parmenides, som hadde hevdet at forandring er umulig fordi det som ikke er, ikke kan være. Leukipp og Demokrit godtok at det værende ikke kan oppstå eller forgå, men delte det i utallige udelelige legemer, *atomer*, som beveger seg i tomrommet. Forskjeller i form, stilling og rekkefølge forklarer alt annet.
-
-        Læren er det nærmeste antikken kom en rent mekanisk naturforklaring. Farge og smak finnes bare «etter konvensjon», mens atomene og tomrommet finnes i virkeligheten. Skillet ligner det senere skillet mellom primære og sekundære egenskaper. Aristoteles avviste atomismen, men Epikur tok den opp, og via Lukrets nådde den 1600-tallets naturfilosofer.
+        Vi kjenner disse tenkerne nesten bare gjennom fragmenter og referater hos senere forfattere, særlig Aristoteles, som leste dem som forløpere for sin egen årsakslære. Det gjør det vanskelig å vite hva de faktisk mente. Det nye var likevel ikke svarene, men at svarene kom med begrunnelser som andre kunne kritisere.
       `, `
-        Athen på høyden av sin makt under Perikles, og Peloponneserkrigen (431–404 f.Kr.). Abdera i Trakia, der Demokrit hørte hjemme, var en gresk koloni på handelsruten nordover.
+        Greske bystater langs kysten av Lilleasia, med handel over hele Middelhavet og kontakt med Egypt og Babylon. Perserne tok kontroll over Jonia på 540-tallet f.Kr., og Milet ble ødelagt i 494 f.Kr. etter det joniske opprøret. Atomistene levde i Athens storhetstid og under Peloponneserkrigen (431–404 f.Kr.).
       `, `
-        Bevegelse, tall og sansing ble forklart som del av samme naturorden. Demokrit skrev om alt fra etikk til musikk, men bare fragmenter er bevart. Medisinen hos Hippokrates viste samme vilje til naturlige forklaringer.
-      `, [ATOM, sep("https://plato.stanford.edu/entries/democritus/")]),
+        Geometri og astronomi kom til Hellas fra Egypt og Babylon. Fordi det ikke fantes noe presteskap som forvaltet en hellig lære, kunne ideer diskuteres fritt. Lærdommen ble overlevert muntlig og i korte prosaskrifter, som nesten alle er tapt. Demokrit skrev om alt fra etikk til musikk, men bare fragmenter er bevart.
+      `, [PRE, ATOM, iep("https://iep.utm.edu/thales/")]),
 
       "Aristotelismen": epoke("335 f.Kr.–", -335, null, `
         Aristoteles forlot Platons akademi og grunnla sin egen skole i Lykeion i Athen. Der ble filosofi drevet som systematisk forskning: samlinger av dyr, planter og statsforfatninger, og logikk som redskap for all kunnskap. Mot Platon hevdet han at formen finnes i tingene, ikke i en egen verden. Naturen forklares ved fire slags årsaker, der formålet er sentralt.
@@ -103,55 +95,33 @@ export default {
         Termodynamikk, Darwins evolusjonslære (1859) og den fremvoksende statistikken ga vitenskapen enorm autoritet. Samfunnsfagene ble egne fag, og det tyske forskningsuniversitetet ble et forbilde.
       `, [sep("https://plato.stanford.edu/entries/comte/"), sep("https://plato.stanford.edu/entries/mill/"), sep("https://plato.stanford.edu/entries/ernst-mach/")]),
 
-      "Pragmatismen": epoke("1878–ca. 1950", 1878, 1950, `
-        Pragmatismen er den første store filosofiske bevegelsen fra USA. Charles S. Peirce foreslo at meningen i et begrep er de praktiske følgene det har, og at sannhet er det undersøkelsen ville ende opp i. William James gjorde metoden kjent og brukte den på religion og sannhet: en tanke er sann i den grad den fungerer i livet. Det ga ham kritikk for relativisme, og Peirce tok avstand ved å kalle sin versjon pragmatisisme.
+      "Pragmatismen": epoke("1878–", 1878, null, `
+        Pragmatismen er den første store filosofiske bevegelsen fra USA. Charles S. Peirce foreslo at meningen i et begrep er de praktiske følgene det har, og at sannhet er det undersøkelsen ville ende opp i. William James gjorde metoden kjent og brukte den på religion og sannhet: en tanke er sann i den grad den fungerer i livet. John Dewey forente tradisjonen med Darwin og Hegel. Mennesket er en organisme som møter problemer i omgivelsene, og tenkning er redskap for å løse dem. Skillet mellom teori og praksis faller dermed bort, og demokrati og oppdragelse blir filosofiske tema.
 
-        John Dewey forente tradisjonen med Darwin og Hegel. Mennesket er en organisme som møter problemer i omgivelsene, og tenkning er redskap for å løse dem. Tradisjonens skille mellom teori og praksis faller dermed bort, og demokrati og oppdragelse blir filosofiske tema. Etter 1945 ble pragmatismen fortrengt av analytisk filosofi, men den kom tilbake.
+        Etter 1945 ble pragmatismen fortrengt av analytisk filosofi, men den kom tilbake. Wilfrid Sellars angrep det han kalte myten om det gitte, ideen om at erfaringen gir oss noe som begrunner uten selv å være tolket. Med «Philosophy and the Mirror of Nature» (1979) gjorde Richard Rorty tradisjonen til kritikk av hele erkjennelsesteorien: filosofien bør slutte å se seg som domstol over kunnskapen og bli en stemme i samtalen. Hilary Putnam delte kritikken av et gudsperspektiv, men holdt fast på at vi kan ta feil på måter som går utover enighet. Robert Brandom og John McDowell knyttet Sellars' arbeid til Hegel, og Cornel West knyttet tradisjonen til svart profetisk kristendom og politisk kamp.
       `, `
-        USA etter borgerkrigen (1861–1865): rask industrialisering, massiv innvandring og voksende storbyer. Tiltroen til reform preget den progressive tidsalderen rundt 1900.
+        USA etter borgerkrigen (1861–1865): rask industrialisering, massiv innvandring og voksende storbyer. Tiltroen til reform preget den progressive tidsalderen rundt 1900. Nypragmatismen vokste fram i kulturkampene ved amerikanske universiteter på 1980- og 1990-tallet.
       `, `
-        Darwins evolusjonslære var utgangspunktet for tenkningen. Den nye eksperimentelle psykologien, sannsynlighetsteori og det moderne amerikanske forskningsuniversitetet, med Johns Hopkins, Harvard og Chicago, ga miljøene.
-      `, [PRAG, sep("https://plato.stanford.edu/entries/peirce/"), sep("https://plato.stanford.edu/entries/dewey/")]),
+        Darwins evolusjonslære var utgangspunktet for tenkningen. Den nye eksperimentelle psykologien, sannsynlighetsteori og det moderne amerikanske forskningsuniversitetet, med Johns Hopkins, Harvard og Chicago, ga miljøene. Senere ble universitetet i Pittsburgh et sentrum for den nye pragmatismen.
+      `, [PRAG, sep("https://plato.stanford.edu/entries/peirce/"), sep("https://plato.stanford.edu/entries/dewey/"), sep("https://plato.stanford.edu/entries/rorty/")]),
 
-      "Vitenskapsfilosofien": epoke("1934–1980-tallet", 1934, 1989, `
-        Vitenskapsfilosofien spør hva som skiller vitenskap fra annet, og hvordan teorier skifter. Karl Popper svarte med falsifikasjon: en teori er vitenskapelig hvis den kan motbevises, og vitenskapen går fram ved dristige hypoteser og harde prøver. Thomas Kuhn skrev historien annerledes. Normalvitenskap arbeider innenfor et paradigme, og skifter av paradigme ligner omvendelser mer enn logiske beviser.
+      "Vitenskapsfilosofien": epoke("1934–", 1934, null, `
+        Vitenskapsfilosofien spør hva som skiller vitenskap fra annet, og hvordan teorier skifter. Karl Popper svarte med falsifikasjon: en teori er vitenskapelig hvis den kan motbevises, og vitenskapen går fram ved dristige hypoteser og harde prøver. Thomas Kuhn skrev historien annerledes. Normalvitenskap arbeider innenfor et paradigme, og skifter av paradigme ligner omvendelser mer enn logiske beviser. Imre Lakatos ville forene de to med sine forskningsprogrammer, mens Paul Feyerabend hevdet at ingen metoderegel holder i alle tilfeller.
 
-        Imre Lakatos ville forene de to med sine forskningsprogrammer, mens Paul Feyerabend hevdet at ingen metoderegel holder i alle tilfeller. Debatten flyttet interessen fra vitenskapens logikk til dens historie og praksis, og førte fram til dagens vitenskapssosiologi og realismedebatt.
+        W.V.O. Quine angrep fra en annen kant. Han avviste skillet mellom analytiske og syntetiske sannheter og ville gjøre erkjennelsesteori til en gren av psykologien. Våre oppfatninger møter erfaringen som en helhet, og ingen av dem er immune mot revisjon. Denne *naturalismen* sier at filosofien ikke har noe eget ståsted utenfor vitenskapene, og Paul og Patricia Churchland førte den videre inn i sinnsfilosofien. Debatten flyttet interessen fra vitenskapens logikk til dens historie og praksis, og førte fram til dagens vitenskapssosiologi og realismedebatt.
       `, `
-        Atombomben, den kalde krigen og romkappløpet gjorde vitenskap til politikk. Popper og Lakatos var flyktninger fra henholdsvis nazismen og kommunismen, og Poppers forsvar for det åpne samfunnet vokste ut av samme erfaring.
+        Atombomben, den kalde krigen og romkappløpet gjorde vitenskap til politikk. Popper og Lakatos var flyktninger fra henholdsvis nazismen og kommunismen, og Poppers forsvar for det åpne samfunnet vokste ut av samme erfaring. Emigrantene fra Wienerkretsen gjorde USA til sentrum for analytisk filosofi.
       `, `
-        Einsteins relativitetsteori og kvantemekanikken var de store eksemplene: tilsynelatende sikker kunnskap, Newtons fysikk, hadde vist seg å måtte erstattes. Etterkrigstidens store forskningsprogrammer reiste nye spørsmål om hvordan vitenskap faktisk drives.
-      `, [sep("https://plato.stanford.edu/entries/popper/"), sep("https://plato.stanford.edu/entries/thomas-kuhn/"), sep("https://plato.stanford.edu/entries/feyerabend/")]),
-
-      "Naturalismen": epoke("ca. 1969–", 1969, null, `
-        Naturalismen hevder at filosofien ikke har noe eget ståsted utenfor vitenskapene. W.V.O. Quine angrep skillet mellom analytiske og syntetiske sannheter og ville gjøre erkjennelsesteori til en gren av psykologien: vi skal ikke begrunne vitenskapen utenfra, men undersøke hvordan mennesker faktisk kommer fram til den. Våre oppfatninger møter erfaringen som en helhet, og ingen av dem er immune mot revisjon.
-
-        Paul Churchland og Patricia Churchland førte tanken inn i sinnsfilosofien. Hverdagens snakk om oppfatninger og ønsker er en teori som nevrovitenskapen kan komme til å avløse. Kritikerne svarer at normative spørsmål, om hva vi *bør* tro, ikke lar seg redusere til spørsmål om hva vi faktisk gjør.
-      `, `
-        Etterkrigstidens amerikanske universiteter vokste kraftig, med tette bånd mellom filosofi, psykologi og datavitenskap. Opptaket av emigranter fra Wienerkretsen hadde gjort USA til sentrum for analytisk filosofi.
-      `, `
-        Kognitiv psykologi, lingvistikk og senere hjerneavbildning gjorde sinnet til et empirisk forskningsfelt. Teorier fra evolusjonsbiologien ble også tatt i bruk på spørsmål om kunnskap og moral.
-      `, [NAT, sep("https://plato.stanford.edu/entries/quine/"), sep("https://plato.stanford.edu/entries/materialism-eliminative/")]),
-
-      "Nypragmatismen": epoke("ca. 1979–", 1979, null, `
-        Med «Philosophy and the Mirror of Nature» (1979) gjenopplivet Richard Rorty pragmatismen som kritikk av hele den erkjennelsesteoretiske tradisjonen. Ideen om sinnet som et speil av naturen, og om filosofien som domstol over kunnskapen, burde oppgis. Sannhet er det samtalepartnerne våre lar oss slippe unna med, sa han provoserende, og filosofien bør bli en stemme i samtalen.
-
-        Hilary Putnam delte kritikken av et gudsperspektiv, men holdt fast på at vi kan ta feil på måter som går utover enighet. Cornel West knyttet tradisjonen til svart profetisk kristendom og politisk kamp. Felles er troen på at filosofien må svare for hva den gjør i menneskers liv.
-      `, `
-        Slutten av den kalde krigen, multikulturalismedebatter og kulturkampene i amerikanske universiteter. Rorty argumenterte for en liberal, ironisk offentlighet uten filosofisk grunnlag.
-      `, `
-        Analytisk filosofi møtte kontinental tenkning og ble mindre selvsikker. Kuhn, sen Wittgenstein og Quine hadde svekket idealet om et nøytralt grunnlag. Interessen for Dewey og James kom tilbake.
-      `, [PRAG, sep("https://plato.stanford.edu/entries/rorty/"), snl("https://snl.no/Hilary_Putnam")]),
+        Einsteins relativitetsteori og kvantemekanikken var de store eksemplene: tilsynelatende sikker kunnskap, Newtons fysikk, hadde vist seg å måtte erstattes. Etterkrigstidens store forskningsprogrammer reiste nye spørsmål om hvordan vitenskap faktisk drives, og kognitiv psykologi gjorde sinnet til et empirisk forskningsfelt.
+      `, [sep("https://plato.stanford.edu/entries/popper/"), sep("https://plato.stanford.edu/entries/thomas-kuhn/"), sep("https://plato.stanford.edu/entries/feyerabend/"), sep("https://plato.stanford.edu/entries/quine/"), NAT]),
     },
   },
 
   edgeDescriptions: {
-    naturfilosofene__atomistene: strek(`Spørsmålet om hva naturen består av gikk i arv fra Milet, men svaret ble nytt: ikke ett urstoff, men utallige små legemer.`),
-    eleatene__atomistene: strek(`Atomene er Parmenides' uforanderlige væren delt opp i småbiter. Slik kunne atomistene godta argumentet hans og likevel forklare forandring.`),
     platonismen__aristotelismen: strek(`Aristoteles var Platons elev i tjue år. Han beholdt spørsmålet om form og allmennhet, men plasserte formen i tingene selv.`),
     naturfilosofene__aristotelismen: strek(`Aristoteles leste naturfilosofene som forløpere som hadde funnet noen av årsakene, men ikke alle. Mye av det vi vet om dem, kommer fra ham.`),
-    atomistene__nyvitenskap: strek(`Da Lukrets ble lest igjen og Pierre Gassendi forsvarte Epikur, kom atomismen tilbake som korpuskulær naturfilosofi hos blant andre Robert Boyle.`),
-    senskolastikken__nyvitenskap: strek(`Nominalistene i Paris og Oxford kritiserte Aristoteles' fysikk på 1300-tallet, med ideer om bevegelse og impetus som senere ble tatt videre. Hvor mye dette betydde for Galilei, er omstridt.`),
+    naturfilosofene__nyvitenskap: strek(`Da Lukrets ble lest igjen og Pierre Gassendi forsvarte Epikur, kom atomismen tilbake som korpuskulær naturfilosofi hos blant andre Robert Boyle.`),
+    skolastikken__nyvitenskap: strek(`Nominalistene i Paris og Oxford kritiserte Aristoteles' fysikk på 1300-tallet, med ideer om bevegelse og impetus som senere ble tatt videre. Hvor mye dette betydde for Galilei, er omstridt.`),
     aristotelismen__nyvitenskap: strek(`Den nye vitenskapen definerte seg mot skolenes Aristoteles: naturen skulle ikke forklares med formål og former, men med materie, bevegelse og matematikk.`),
     nyvitenskap__empirismen: strek(`John Locke så seg selv som arbeider i Newtons og Boyles tjeneste. Empirismen er langt på vei den nye vitenskapens selvforståelse skrevet ut som filosofi.`),
     rasjonalismen__empirismen: strek(`Lockes angrep på medfødte ideer retter seg blant annet mot kartesianerne. Lockes «Essay» fikk senere et kritisk motsvar fra G.W. Leibniz i «Nouveaux essais».`),
@@ -160,10 +130,6 @@ export default {
     kantianismen__pragmatismen: strek(`Charles S. Peirce begynte med Kant og tok ordet «pragmatisch» fra ham. Også kategorilæren hans er utviklet i dialog med Kant.`),
     empirismen__vitenskapsfilosofi: strek(`Karl Popper tok utgangspunkt i Humes problem med induksjonen og godtok at det ikke kan løses. Hans løsning var å gi opp induksjon som vitenskapens metode.`),
     logpositivisme__vitenskapsfilosofi: strek(`Popper angrep verifikasjonskriteriet, og Kuhn og Feyerabend viste at historien ikke passet i Wienerkretsens logiske rekonstruksjon. Kuhns bok kom ironisk nok ut i leksikonserien Wienerkretsen selv hadde startet.`),
-    logpositivisme__naturalismen: strek(`W.V.O. Quine var Rudolf Carnaps elev og venn. Naturalismen vokste fram som hans indre kritikk av den logiske empirismen, særlig skillet mellom analytisk og syntetisk.`),
-    pragmatismen__naturalismen: strek(`Quine avsluttet angrepet på empirismens dogmer med å kalle seg en mer gjennomført pragmatist. Deweys blikk på kunnskap som naturlig prosess peker fram mot ham.`),
-    pragmatismen__nypragmatismen: strek(`Richard Rorty regnet Dewey blant århundrets tre viktigste filosofer, sammen med sen Wittgenstein og Heidegger, og gjorde tradisjonen aktuell igjen.`),
-    dagligspraak__nypragmatismen: strek(`Rorty kom fra analytisk filosofi og redigerte antologien «The Linguistic Turn» (1967). Sen Wittgenstein og oppgjøret med ideen om språket som speil bar kritikken hans.`),
   },
 
   artists: [
@@ -181,11 +147,11 @@ export default {
       Gresk filosof fra Efesos, kjent i antikken som «den dunkle» for sine gåtefulle setninger. Verden er en stadig strid mellom motsetninger som holdes sammen av en felles orden, *logos*, og ilden er dens bilde. Den kjente formuleringen om at man ikke kan stige ned i samme elv to ganger, er en senere parafrase av Platon. Stoikerne og Hegel leste ham som en forløper.
     `, [], [sep("https://plato.stanford.edu/entries/heraclitus/")]),
 
-    // --- Atomistene ---
-    f("Leukipp", [null, null], "mann", ["Metafysikk"], ["Atomistene"], [], [-450, -420], "Milet og Abdera", `
+    // --- Atomistene (nå i Naturfilosofene) ---
+    f("Leukipp", [null, null], "mann", ["Metafysikk"], ["Naturfilosofene"], [], [-450, -420], "Milet og Abdera", `
       Gresk filosof fra 400-tallet f.Kr., av Aristoteles regnet som atomismens grunnlegger. Nesten alt om livet hans er ukjent, og Epikur skal til og med ha tvilt på at han fantes. Det ene fragmentet vi har, sier at ingenting skjer tilfeldig, men alt av nødvendighet. Læren hans er ikke lett å skille fra Demokrits.
     `, [], [sep("https://plato.stanford.edu/entries/leucippus/"), ATOM]),
-    f("Demokrit", [-460, -370], "mann", ["Metafysikk", "Etikk"], ["Atomistene"], ["Kausalitet"], [-430, -370], "Abdera", `
+    f("Demokrit", [-460, -370], "mann", ["Metafysikk", "Etikk"], ["Naturfilosofene"], ["Kausalitet"], [-430, -370], "Abdera", `
       Gresk filosof fra Abdera som utviklet atomismen til et system. Bare atomer og tomrom finnes egentlig, mens farger og smaker er avhengige av oss. Skriftene hans dekket alt fra fysikk til musikk, men bare fragmenter er bevart, de fleste etiske: det gode livet er sinnsro, *euthymia*. Årstallene er omtrentlige. Demokrit ble kjent som «den leende filosofen», en sen legende.
     `, [], [sep("https://plato.stanford.edu/entries/democritus/"), ATOM]),
 
@@ -224,7 +190,7 @@ export default {
     f("George Berkeley", [1685, 1753], "mann", ["Erkjennelsesteori", "Metafysikk"], ["Britisk empirisme"], ["Erfaring", "Substans"], [1709, 1753], "Dublin og Cloyne i Irland", `
       Irsk filosof og biskop. Å være er å bli oppfattet: *esse est percipi*. Materien som Locke og fysikerne regner med, er en ubegrunnet abstraksjon, for vi møter aldri annet enn ideer. Tingene finnes likevel, fordi de hele tiden er oppfattet av Gud. Læren ble lenge avvist som absurd, men argumentene har vist seg vanskelige å tilbakevise. Han skrev også en skarp kritikk av Newtons infinitesimalregning.
     `, [["A Treatise Concerning the Principles of Human Knowledge", 1710], ["Three Dialogues between Hylas and Philonous", 1713]], [sep("https://plato.stanford.edu/entries/berkeley/")]),
-    f("David Hume", [1711, 1776], "mann", ["Erkjennelsesteori", "Etikk"], ["Britisk empirisme", "Moralsansfilosofien", "Deismen"], ["Kausalitet", "Induksjon", "Moralsk sans", "Erfaring", "Tvil"], [1739, 1776], "Edinburgh", `
+    f("David Hume", [1711, 1776], "mann", ["Erkjennelsesteori", "Etikk"], ["Britisk empirisme", "Opplysningsfilosofien"], ["Kausalitet", "Induksjon", "Moralsk sans", "Erfaring", "Tvil"], [1739, 1776], "Edinburgh", `
       Skotsk filosof og historiker, ofte regnet som den viktigste filosofen som har skrevet på engelsk. Årsakssammenheng er ingen nødvendighet vi kan se, bare en vane av tankene, og induksjon kan ikke begrunnes uten å forutsette seg selv. Moral bygger på følelse, ikke fornuft, og av hva som *er*, følger ikke hva som *bør* være. Han fikk aldri professorat, trolig på grunn av tvil om religionen, og var i levetiden mest kjent for sin Englands historie.
     `, [["A Treatise of Human Nature", 1739], ["An Enquiry Concerning Human Understanding", 1748], ["An Enquiry Concerning the Principles of Morals", 1751], ["Dialogues Concerning Natural Religion", 1779]], [sep("https://plato.stanford.edu/entries/hume/"), snl("https://snl.no/David_Hume")]),
 
@@ -264,25 +230,25 @@ export default {
       Østerriksk filosof, først påvirket av Popper og deretter hans skarpeste kritiker. «Against Method» hevder at historiens store gjennombrudd skjedde fordi noen brøt alle regler, og at «alt går» er det eneste prinsippet som overlever. Han ville verne samfunnet mot vitenskapen som ny kirke. Det gjorde ham til en av fagets mest provoserende skikkelser. Han ble såret som soldat på østfronten.
     `, [["Against Method", 1975], ["Science in a Free Society", 1978]], [sep("https://plato.stanford.edu/entries/feyerabend/")]),
 
-    // --- Naturalismen ---
-    f("W.V.O. Quine", [1908, 2000], "mann", ["Logikk og språk", "Erkjennelsesteori"], ["Naturalismen", "Analytisk metafysikk"], ["Mening og referanse", "Erfaring"], [1951, 2000], "Harvard", `
+    // --- Naturalismen (nå i Vitenskapsfilosofien) ---
+    f("W.V.O. Quine", [1908, 2000], "mann", ["Logikk og språk", "Erkjennelsesteori"], ["Vitenskapsfilosofien", "Språkfilosofien"], ["Mening og referanse", "Erfaring"], [1951, 2000], "Harvard", `
       Amerikansk filosof og logiker, en av de mest innflytelsesrike analytiske filosofene etter krigen. «Two Dogmas of Empiricism» angrep skillet mellom analytisk og syntetisk: våre oppfatninger møter erfaringen som en helhet. Han gjorde erkjennelsesteorien til en del av den naturvitenskapelige psykologien, og argumenterte for at oversettelse alltid er ubestemt. Spørsmålet om hva som finnes, avgjøres av hva de beste teoriene våre må regne med.
     `, [["Two Dogmas of Empiricism", 1951], ["Word and Object", 1960], ["Epistemology Naturalized", 1969]], [sep("https://plato.stanford.edu/entries/quine/")]),
-    f("Patricia Churchland", [1943, null], "kvinne", ["Vitenskapsfilosofi"], ["Naturalismen"], ["Bevissthet", "Kropp og sjel"], [1986, null], "San Diego", `
+    f("Patricia Churchland", [1943, null], "kvinne", ["Vitenskapsfilosofi"], ["Vitenskapsfilosofien", "Sinnsfilosofien"], ["Bevissthet", "Kropp og sjel"], [1986, null], "San Diego", `
       Kanadisk-amerikansk filosof som har gjort nevrovitenskap til grunnlag for sinnsfilosofien. «Neurophilosophy» hevder at problemene om bevissthet, frihet og selvet må løses sammen med hjerneforskningen, ikke på forhånd. Senere har hun skrevet om moralens biologiske røtter i omsorg og i hormoner som oxytocin. Hun er gift med Paul Churchland, og de to har ofte arbeidet sammen.
     `, [["Neurophilosophy", 1986], ["Braintrust", 2011]], [sep("https://plato.stanford.edu/entries/materialism-eliminative/"), bok("Churchland, Patricia S. Neurophilosophy: Toward a Unified Science of the Mind-Brain. MIT Press, 1986.")]),
-    f("Paul Churchland", [1942, null], "mann", ["Vitenskapsfilosofi"], ["Naturalismen"], ["Bevissthet", "Kropp og sjel"], [1979, null], "San Diego", `
+    f("Paul Churchland", [1942, null], "mann", ["Vitenskapsfilosofi"], ["Vitenskapsfilosofien", "Sinnsfilosofien"], ["Bevissthet", "Kropp og sjel"], [1979, null], "San Diego", `
       Kanadisk filosof, kjent for den *eliminative materialismen*. Hverdagspsykologi, med oppfatninger og ønsker, er en teori og kan vise seg like gal som læren om flogiston. Moden nevrovitenskap vil ikke redusere den, men avløse den. Mange har innvendt at teorien undergraver seg selv, for hva er den om ikke en oppfatning? Churchland har også utviklet nevrale nettverk som modell for kunnskap.
     `, [["Scientific Realism and the Plasticity of Mind", 1979], ["Eliminative Materialism and the Propositional Attitudes", 1981]], [sep("https://plato.stanford.edu/entries/materialism-eliminative/")]),
 
-    // --- Nypragmatismen ---
-    f("Richard Rorty", [1931, 2007], "mann", ["Erkjennelsesteori", "Politisk filosofi"], ["Nypragmatismen"], ["Sannhet"], [1979, 2007], "Princeton, Virginia og Stanford", `
+    // --- Nypragmatismen (nå i Pragmatismen) ---
+    f("Richard Rorty", [1931, 2007], "mann", ["Erkjennelsesteori", "Politisk filosofi"], ["Pragmatismen"], ["Sannhet"], [1979, 2007], "Princeton, Virginia og Stanford", `
       Amerikansk filosof som tok analytisk filosofi fra innsiden. «Philosophy and the Mirror of Nature» avviste ideen om sinnet som speil av verden og om filosofien som kunnskapens domstol. Han kalte seg en liberal ironiker: en som forsvarer sine verdier selv om de mangler et endelig grunnlag. Moralsk framskritt kommer mer fra romaner og solidaritet enn fra argumenter. Kritikere har kalt ham relativist, noe han selv avviste.
     `, [["Philosophy and the Mirror of Nature", 1979], ["Contingency, Irony, and Solidarity", 1989]], [sep("https://plato.stanford.edu/entries/rorty/")]),
-    f("Hilary Putnam", [1926, 2016], "mann", ["Metafysikk", "Logikk og språk"], ["Nypragmatismen", "Sinnsfilosofien"], ["Mening og referanse", "Bevissthet", "Sannhet"], [1960, 2016], "Harvard", `
+    f("Hilary Putnam", [1926, 2016], "mann", ["Metafysikk", "Logikk og språk"], ["Pragmatismen", "Sinnsfilosofien"], ["Mening og referanse", "Bevissthet", "Sannhet"], [1960, 2016], "Harvard", `
       Amerikansk filosof som skiftet mening så ofte at det ble en del av hans ry. Han lanserte *funksjonalismen* i sinnsfilosofien og siden kritiserte den. Tvillingjord-eksperimentet viste at mening ikke bare er i hodet. Senere avviste han metafysisk realisme til fordel for en pragmatisk realisme, påvirket av William James og Dewey. Han arbeidet også med matematisk logikk og bidro til løsningen av Hilberts tiende problem.
     `, [["The Meaning of 'Meaning'", 1975], ["Reason, Truth and History", 1981], ["The Collapse of the Fact/Value Dichotomy", 2002]], [snl("https://snl.no/Hilary_Putnam")]),
-    f("Cornel West", [1953, null], "mann", ["Politisk filosofi", "Religionsfilosofi"], ["Nypragmatismen"], ["Frihet"], [1982, null], "Princeton, Harvard og New York", `
+    f("Cornel West", [1953, null], "mann", ["Politisk filosofi", "Religionsfilosofi"], ["Pragmatismen"], ["Frihet"], [1982, null], "Princeton, Harvard og New York", `
       Amerikansk filosof og samfunnsdebattant, en av USAs mest kjente offentlige intellektuelle. Han forener pragmatismen med svart profetisk kristendom og marxistisk samfunnskritikk. «The American Evasion of Philosophy» skriver pragmatismens historie som en tradisjon som vil ta tak i menneskers lidelse. «Race Matters» nådde et bredt publikum og gjorde ham til en sentral stemme i debatten om rase i USA.
     `, [["The American Evasion of Philosophy", 1989], ["Race Matters", 1993]], [snl("https://snl.no/Cornel_West")]),
   ],

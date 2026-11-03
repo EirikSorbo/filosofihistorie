@@ -53,57 +53,41 @@ export default {
         Kants filosofi og Fichtes jeg-lære var det umiddelbare utgangspunktet. Goethe i Weimar var et bakteppe. Studiet av språk, særlig sanskrit, og historie og filologi ble nye vitenskaper.
       `, [ROM, sep("https://plato.stanford.edu/entries/schlegel/"), sep("https://plato.stanford.edu/entries/novalis/")]),
 
-      "Eksistenstenkningen": epoke("1843–1855", 1843, 1855, `
-        Søren Kierkegaard skrev i Hegels skygge og ønsket å vise hva systemet glemmer: den enkelte som må leve og velge. Filosofien står ifølge ham i fare for å bygge et slott og selv bo i et skur ved siden av. Under ulike pseudonymer beskrev han tre livsformer, den estetiske, den etiske og den religiøse, og hevdet at overgangen mellom dem ikke kan begrunnes. Den krever et sprang.
+      "Eksistenstenkningen": epoke("1819–1889", 1819, 1889, `
+        Tre tenkere på 1800-tallet satte det enkelte menneskets liv over systemene. Arthur Schopenhauer tok Kants skille og ga det nytt innhold: bak det vi ser, ligger ikke en ukjent ting, men vilje, et blindt strev uten mål. Derfor er livet lidelse. Kunst, særlig musikk, gir en pause, og medlidenhet og askese gir en vei ut. Han var den første store vestlige filosofen som leste Upanishadene og buddhismen med stor respekt.
 
-        Angst er det frie menneskets svimmelhet, og fortvilelse er ikke å ville være seg selv. Sannhet er subjektivitet: ikke at alt er relativt, men at det avgjørende må tilegnes personlig. Han fikk liten virkning i sin levetid og var en dansk særling, men etter 1900 ble han en av de viktigste kildene for Heidegger, Sartre og moderne teologi.
-      `, `
-        Danmark under kong Christian 8. med voksende borgerskap, avvikling av eneveldet i 1849 og en statskirke i vekst. Kierkegaard angrep den i sine siste år som et forræderi mot kristendommen.
-      `, `
-        Hegelianismen dominerte København gjennom J.L. Heiberg og H.L. Martensen. Kierkegaard hørte Schellings forelesninger i Berlin i 1841 og ble skuffet. Tidsskrifter og satire, som bladet «Corsaren», formet det offentlige liv.
-      `, [sep("https://plato.stanford.edu/entries/kierkegaard/"), snl("https://snl.no/S%C3%B8ren_Kierkegaard")]),
+        Søren Kierkegaard skrev i Hegels skygge og ønsket å vise hva systemet glemmer: den enkelte som må leve og velge. Under ulike pseudonymer beskrev han tre livsformer, den estetiske, den etiske og den religiøse, og hevdet at overgangen mellom dem krever et sprang. Angst er det frie menneskets svimmelhet, og sannhet er subjektivitet: ikke at alt er relativt, men at det avgjørende må tilegnes personlig.
 
-      "Viljesfilosofien": epoke("1819–1889", 1819, 1889, `
-        Arthur Schopenhauer tok Kants skille og ga det nytt innhold: bak det vi ser, ligger ikke en ukjent ting, men vilje, et blindt strev uten mål. Derfor er livet lidelse. Kunst, særlig musikk, gir en pause, og medlidenhet og askese gir en vei ut. Han var den første store vestlige filosofen som leste Upanishadene og buddhismen med stor respekt, og fikk stor virkning på Wagner, Tolstoj og Freud.
-
-        Friedrich Nietzsche begynte som tilhenger og ble motstander. Gud er død, og spørsmålet er hvordan vi kan leve med det. I «Zur Genealogie der Moral» viser han at moralen er oppstått av svakes ressentiment. Vilje til makt, evig gjenkomst og overmennesket er forsøk på å si ja til livet. Boken ble misbrukt av nazistene, ikke minst gjennom søsterens redigering, men han var fiende av både nasjonalisme og antisemittisme.
+        Friedrich Nietzsche begynte som Schopenhauers tilhenger og ble motstander. Gud er død, og spørsmålet er hvordan vi kan leve med det. I «Zur Genealogie der Moral» viser han at moralen er oppstått av svakes ressentiment, og vilje til makt, evig gjenkomst og overmennesket er forsøk på å si ja til livet. Nazistene misbrukte ham, ikke minst gjennom søsterens redigering, men han var fiende av både nasjonalisme og antisemittisme. Etter 1900 ble Kierkegaard og Nietzsche de viktigste kildene for eksistensfilosofien.
       `, `
-        Etter 1848 kom en periode med skuffelse i Tyskland, og Schopenhauer fikk sent sin leserskare. Bismarcks rike ble grunnlagt i 1871. Sekularisering og industrialisering reiste spørsmålet om hva som kunne erstatte kristendommen.
+        Danmark avviklet eneveldet i 1849, og Kierkegaard angrep statskirken i sine siste år som et forræderi mot kristendommen. I Tyskland kom en periode med skuffelse etter 1848, og Bismarcks rike ble grunnlagt i 1871. Sekularisering og industrialisering reiste spørsmålet om hva som kunne erstatte kristendommen.
       `, `
-        Darwin og fysiologi satte mennesket i naturen. Klassisk filologi, Nietzsches eget fag, ga ham blikket for historiske tekster. Indiske tekster kom til Europa i latinsk oversettelse fra persisk.
-      `, [sep("https://plato.stanford.edu/entries/schopenhauer/"), sep("https://plato.stanford.edu/entries/nietzsche/")]),
+        Hegelianismen dominerte både Berlin og København, og Kierkegaard hørte Schellings forelesninger i Berlin i 1841 og ble skuffet. Klassisk filologi, Nietzsches eget fag, ga ham blikket for historiske tekster, og indiske tekster kom til Europa i latinsk oversettelse fra persisk.
+      `, [sep("https://plato.stanford.edu/entries/kierkegaard/"), sep("https://plato.stanford.edu/entries/schopenhauer/"), sep("https://plato.stanford.edu/entries/nietzsche/")]),
 
-      "Hermeneutikken": epoke("ca. 1838–1911", 1838, 1911, `
-        Hermeneutikk er læren om tolkning, opprinnelig av Bibelen og lover. F.D.E. Schleiermacher gjorde den til en allmenn kunst: å forstå en tekst er å sette delene i helheten og helheten i delene, og å forstå forfatteren bedre enn han selv gjorde. J.G. Droysen, historikeren, skilte mellom å forklare og å forstå.
+      "Hermeneutikken": epoke("ca. 1838–", 1838, null, `
+        Hermeneutikk er læren om tolkning, opprinnelig av Bibelen og lover. F.D.E. Schleiermacher gjorde den til en allmenn kunst: å forstå en tekst er å sette delene i helheten og helheten i delene. Historikeren J.G. Droysen skilte mellom å forklare og å forstå, og Wilhelm Dilthey gjorde skillet til et program. Naturen forklarer vi, sjelelivet forstår vi, og åndsvitenskapene har derfor sin egen metode.
 
-        Wilhelm Dilthey gjorde skillet til et program. Naturen forklarer vi, sjelelivet forstår vi, slik han sa. Åndsvitenskapene har sin egen metode, og forståelse er noe vi gjør fordi vi selv er historiske vesener. Han kjempet hele livet med hvordan denne innsikten kunne unngå relativisme. Heidegger og Gadamer tok fatt på problemene han etterlot.
+        Hans-Georg Gadamer tok i «Wahrheit und Methode» (1960) opp Heideggers tanke om at forståelse ikke er en metode, men måten vi er til på. Vi møter alltid en tekst med fordommer, og de er ikke bare hindre, men vilkår for å forstå. Forståelse er en *horisontsammensmelting* mellom teksten og oss selv, og tradisjon er ikke noe vi kan stille oss utenfor. Jürgen Habermas kritiserte Gadamer for å overse makt, og Paul Ricœur forsøkte å forene tolkning og kritikk, særlig gjennom fortelling og identitet. Charles Taylor brukte tenkningen i samfunnsfagene: mennesker er selvtolkende dyr, og derfor kan vi ikke studeres som ting. Tradisjonen har vært viktig for medisin, jus, pedagogikk og teologi.
       `, `
-        Det tyske keiserriket og universitetenes storhetstid. Staten støttet historie og filologi som nasjonsbyggende fag, med Leopold von Ranke og den historiske skolen. Religionens autoritet svekket seg.
+        Det tyske keiserriket støttet historie og filologi som nasjonsbyggende fag, med Leopold von Ranke og den historiske skolen. Etter nazismen stilte det tyske etterkrigssamfunnet spørsmål om tradisjon og autoritet, og Gadamer-Habermas-debatten på 1960- og 70-tallet ble et hovedoppgjør.
       `, `
-        Bibelkritikk, klassisk filologi og historisk kildekritikk ble metodisk skolert. Positivismen var utfordringen. Psykologien var under utvikling, og Dilthey forsøkte å bygge en forstående variant.
-      `, [HERM, sep("https://plato.stanford.edu/entries/schleiermacher/"), sep("https://plato.stanford.edu/entries/dilthey/")]),
+        Bibelkritikk, klassisk filologi og historisk kildekritikk ble metodisk skolert, og positivismen var utfordringen. Senere møtte dannelsestradisjonen i humaniora nye krav om metode etter naturvitenskapens mønster.
+      `, [HERM, sep("https://plato.stanford.edu/entries/schleiermacher/"), sep("https://plato.stanford.edu/entries/dilthey/"), sep("https://plato.stanford.edu/entries/gadamer/"), sep("https://plato.stanford.edu/entries/ricoeur/")]),
 
-      "Fenomenologien": epoke("ca. 1874–1938", 1874, 1938, `
-        Franz Brentano hevdet i 1874 at det særegne ved det mentale er *intensjonalitet*: bevissthet er alltid bevissthet om noe. Eleven Edmund Husserl gjorde dette til grunnlag for en ny filosofi. Fenomenologien skal gå «tilbake til sakene selv» og beskrive hvordan ting viser seg, ved å sette spørsmålet om deres virkelighet i parentes, *epokhé*. Filosofien kan dermed bli en streng vitenskap.
+      "Fenomenologien": epoke("ca. 1874–1950", 1874, 1950, `
+        Franz Brentano hevdet i 1874 at det særegne ved det mentale er *intensjonalitet*: bevissthet er alltid bevissthet om noe. Eleven Edmund Husserl gjorde dette til grunnlag for en ny filosofi. Fenomenologien skal gå «tilbake til sakene selv» og beskrive hvordan ting viser seg, ved å sette spørsmålet om deres virkelighet i parentes, *epokhé*. Max Scheler brukte metoden på verdier og følelser, og Edith Stein skrev om innlevelse. Husserls sene begrep om livsverdenen, hverdagens selvfølgelige grunn, fikk stor betydning for samfunnsvitenskapene.
 
-        Max Scheler brukte metoden på verdier og følelser. Edith Stein skrev om innlevelse, og møtte en grusom skjebne. Husserls sene begrep om livsverdenen, hverdagens selvfølgelige grunn, fikk stor betydning for samfunnsvitenskapene. Etterfølgerne Heidegger, Merleau-Ponty og Levinas forlot mye av programmet, men tenkte alle gjennom det.
+        Martin Heidegger var Husserls assistent, men snudde prosjektet fra bevissthet til væren. I «Sein und Zeit» (1927) hevdet han at filosofien har glemt å spørre hva det vil si å være. Mennesket, *Dasein*, er ikke en tenkende ting, men et vesen som alltid allerede er kastet inn i verden, bruker ting, har andre rundt seg og vet at det skal dø. Boken forandret europeisk filosofi. Heidegger gikk inn i nazistpartiet som rektor i 1933, og hans «svarte hefter» har senere vist antisemittisme også i filosofien. Hvor mye dette rammer tenkningen, er et av fagets vanskeligste spørsmål. Eleven Hannah Arendt brukte fenomenologien til å tenke om politikk og handling.
       `, `
-        Tyskland før og under første verdenskrig, og Weimarrepublikkens krise. Husserl var jødisk født og mistet retten til å bruke universitetsbiblioteket i 1933. Arkivet hans ble smuglet til Leuven i 1938 av en belgisk prest.
+        Tyskland før og under første verdenskrig, Weimarrepublikkens krise og nazismens seier i 1933. Husserl var jødisk født og mistet retten til å bruke universitetsbiblioteket, og arkivet hans ble smuglet til Leuven i 1938 av en belgisk prest. Mange av Heideggers elever var jøder og måtte flykte.
       `, `
-        Psykologi og logikk var i strid om matematikkens grunnlag. Göttingen og München fikk tidlig egne fenomenologiske kretser. Studenter som Stein, Roman Ingarden og Martin Heidegger bidro til å spre metoden.
-      `, [FEN, sep("https://plato.stanford.edu/entries/husserl/"), sep("https://plato.stanford.edu/entries/brentano/")]),
+        Psykologi og logikk var i strid om matematikkens grunnlag. Göttingen og München fikk tidlig egne fenomenologiske kretser, og Heideggers forelesninger i Marburg og Freiburg trakk en hel generasjon.
+      `, [FEN, sep("https://plato.stanford.edu/entries/husserl/"), sep("https://plato.stanford.edu/entries/heidegger/"), sep("https://plato.stanford.edu/entries/brentano/")]),
 
-      "Eksistensfilosofien": epoke("ca. 1919–1950", 1919, 1950, `
-        Martin Heidegger hevdet i «Sein und Zeit» (1927) at filosofien har glemt å spørre hva det vil si å være. Mennesket, *Dasein*, er ikke en tenkende ting, men et vesen som alltid allerede er kastet inn i verden, bruker ting, har andre rundt seg og vet at det skal dø. Egentlighet er å ta sin endelighet inn over seg. Boken forandret europeisk filosofi.
+      "Eksistensialismen": epoke("ca. 1930–1960-tallet", 1930, 1969, `
+        Karl Jaspers kom til filosofien fra psykiatrien og skrev om grensesituasjoner som død, lidelse og skyld, der mennesket møter sin egen eksistens. Etter krigen tok han opp Tysklands skyld.
 
-        Karl Jaspers kom til filosofien fra psykiatrien, og skrev om grensesituasjoner som død og skyld. Etter krigen tok han opp Tysklands skyld. Heidegger gikk inn i nazistpartiet som rektor i 1933, og hans «svarte hefter» har senere vist antisemittisme også i filosofien. Hvor mye dette rammer tenkningen, er et av fagets vanskeligste spørsmål.
-      `, `
-        Tyskland etter første verdenskrig, med Weimarrepublikkens krise, inflasjon og nazismens seier i 1933. Krigens massedød ga død og mening ny tyngde. Mange av Heideggers elever var jøder, og måtte flykte.
-      `, `
-        Kierkegaard ble oversatt til tysk og lest av teologer som Karl Barth og Rudolf Bultmann. Fenomenologien var det metodiske grunnlaget. Heideggers forelesninger i Marburg og Freiburg trakk en hel generasjon.
-      `, [sep("https://plato.stanford.edu/entries/heidegger/"), sep("https://plato.stanford.edu/entries/jaspers/"), EKS]),
-
-      "Eksistensialismen": epoke("1943–1960-tallet", 1943, 1969, `
         Eksistensialismen ble et ord i Paris etter frigjøringen i 1944. Jean-Paul Sartre hevdet i «L'Être et le Néant» (1943) at bevisstheten er en intethet, og at mennesket ikke har noen fast natur. Eksistensen kommer før essensen, så vi er helt ansvarlige for hva vi blir. Å late som noe annet er *mauvaise foi*, dårlig tro. Foredraget om eksistensialismen som humanisme gjorde ham kjent over hele verden.
 
         Simone de Beauvoir utviklet en etikk om tvetydighet og viste hvordan kvinner gjøres til Den andre. Albert Camus skrev om det absurde: livet har ingen mening, men Sisyfos må tenkes lykkelig. Maurice Merleau-Ponty hevdet at vi ikke er rene bevisstheter, men kropper i verden. Sartres vei mot marxismen førte til brudd med Camus og Merleau-Ponty.
@@ -111,7 +95,7 @@ export default {
         Tysk okkupasjon av Frankrike, motstandskampen, frigjøringen og kolonikrigene i Indokina og Algerie. Den kalde krigen tvang fram politisk valg. Spørsmålet om medansvar og kollaborasjon ga friheten en konkret betydning.
       `, `
         Kafeene i Saint-Germain-des-Prés, tidsskriftet «Les Temps modernes» og litteraturen var like viktige som universitetet. Alexandre Kojèves forelesninger om Hegel i Paris på 1930-tallet hadde preget en hel generasjon.
-      `, [EKS, sep("https://plato.stanford.edu/entries/sartre/"), sep("https://plato.stanford.edu/entries/beauvoir/"), sep("https://plato.stanford.edu/entries/merleau-ponty/")]),
+      `, [EKS, sep("https://plato.stanford.edu/entries/sartre/"), sep("https://plato.stanford.edu/entries/beauvoir/"), sep("https://plato.stanford.edu/entries/merleau-ponty/"), sep("https://plato.stanford.edu/entries/jaspers/")]),
 
       "Strukturalismen": epoke("ca. 1949–1970", 1949, 1970, `
         Språkforskeren Ferdinand de Saussure lærte at et språk er et system av forskjeller, der et tegn bare får mening i forhold til andre. Claude Lévi-Strauss tok metoden over til antropologien i 1949, og viste at slektskap og myter følger skjulte regler som ingen deltaker kjenner. Strukturen er det som forklarer, ikke hva folk selv mener å gjøre. Det ble et direkte angrep på Sartres frie subjekt.
@@ -123,35 +107,18 @@ export default {
         Lingvistikk ble forbildet for humaniora, og informasjonsteori og matematiske modeller inspirerte. Psykoanalyse, marxisme og antropologi møttes i Paris, særlig ved École normale supérieure.
       `, [STRUKT, snl("https://snl.no/Ferdinand_de_Saussure"), snl("https://snl.no/Claude_L%C3%A9vi-Strauss")]),
 
-      "Filosofisk hermeneutikk": epoke("1960–", 1960, null, `
-        Hans-Georg Gadamer tok i «Wahrheit und Methode» (1960) opp Heideggers tanke om at forståelse ikke er en metode, men måten vi er til på. Vi møter alltid en tekst med fordommer, og de er ikke bare hindre, men vilkår for å forstå. Forståelse er en *horisontsammensmelting* mellom teksten og oss selv. Dermed er tradisjon ikke noe vi kan stille oss utenfor.
-
-        Jürgen Habermas kritiserte Gadamer for å overse makt, og Paul Ricœur forsøkte å forene tolkning og kritikk, særlig gjennom fortelling og identitet. Charles Taylor brukte tenkningen i samfunnsfag: mennesker er selvtolkende dyr, og derfor kan vi ikke studeres som ting. Tradisjonen har vært viktig for medisin, jus, pedagogikk og teologi.
-      `, `
-        Det tyske etterkrigssamfunnet stilte spørsmål om tradisjon og autoritet etter nazismen. Studentopprøret skjerpet diskusjonen, og Gadamer-Habermas-debatten på 1960- og 70-tallet ble et hovedoppgjør.
-      `, `
-        Dannelsestradisjonen i humaniora møtte vitenskapsteori og krav om metode. Teorier om lesning og litteratur vokste, og Heideggers forelesninger om Aristoteles var et skjult utgangspunkt.
-      `, [HERM, sep("https://plato.stanford.edu/entries/gadamer/"), sep("https://plato.stanford.edu/entries/ricoeur/")]),
-
       "Poststrukturalismen": epoke("1966–", 1966, null, `
         Rundt 1966 begynte franske tenkere å gjøre opp med både subjektet og strukturen. Michel Foucault viste at det vi kaller kunnskap, er formet av historiske regimer, og at makt ikke bare undertrykker, men skaper oss. Jacques Derrida hevdet med *dekonstruksjon* at vestlig filosofi hviler på ustabile motsetninger, og at mening stadig utsettes. Gilles Deleuze ville tenke forskjellen uten å underordne den noe felles.
 
         Julia Kristeva førte språkets kropp inn i teorien, og Jean-François Lyotard kalte det postmoderne en mistro mot de store fortellingene. Merkelappen er et produkt av lesere i USA. Bevegelsen har gjennomsyret humaniora og er blitt kritisert for dunkelhet og relativisme, ikke minst av analytiske filosofer og Habermas.
+
+        Etter 2000 vendte en ny generasjon seg mot hele denne arven. Quentin Meillassoux hevdet i «Après la finitude» (2006) at filosofien siden Kant har vært fanget i *korrelasjonisme*, tanken om at vi bare har tilgang til forholdet mellom tanke og verden. Graham Harman utviklet en objektorientert ontologi, og Karen Barad knyttet kvantefysikk og feministisk teori sammen i en ny materialisme. Interessen for klima og det ikke-menneskelige har gjort disse spekulative realistene viktige for kunst og humaniora.
       `, `
         Mai 1968 i Frankrike, skuffelse over kommunismen og vekst i minoritetsbevegelsene. Foucault arbeidet i fengselsaksjoner. Etter hvert ble teoriene sentrale i amerikanske universiteter, gjerne i litteraturfagene.
       `, `
         Nietzsche og Heidegger ble lest på ny mot Hegel og Sartre. Lingvistikk, psykoanalyse og vitenskapshistorie ved Georges Canguilhem ga redskapene. Universitetet Vincennes, grunnlagt i 1968, ble et sentrum.
-      `, [POST, sep("https://plato.stanford.edu/entries/foucault/"), sep("https://plato.stanford.edu/entries/derrida/"), sep("https://plato.stanford.edu/entries/deleuze/")]),
+      `, [POST, sep("https://plato.stanford.edu/entries/foucault/"), sep("https://plato.stanford.edu/entries/derrida/"), sep("https://plato.stanford.edu/entries/deleuze/"), bok("Meillassoux, Quentin. Après la finitude. Seuil, 2006.")]),
 
-      "Spekulativ realisme": epoke("2006–", 2006, null, `
-        Quentin Meillassoux hevdet i «Après la finitude» (2006) at filosofien siden Kant har holdt seg fanget i *korrelasjonisme*: tanken om at vi bare har tilgang til forholdet mellom tanke og verden, aldri til verden selv. Men vitenskapen sier mye om tiden før mennesket fantes. Hvordan er det mulig? Han argumenterer for at bare én ting er nødvendig, nemlig at alt er kontingent.
-
-        På et møte i London i 2007 ble navnet spekulativ realisme lansert, og gruppen gikk snart hver til sitt. Graham Harman utviklet en objektorientert ontologi, og Karen Barad knyttet kvantefysikk og feministisk teori sammen i en ny materialisme. Interessen for klima og det ikke-menneskelige har gjort retningen viktig også for kunst og humaniora. Hvor mye den står seg som filosofi, er ennå åpent.
-      `, `
-        Klimakrisen og menneskets rolle i det som kalles antropocen. Internett spredte debatten på blogger før den nådde tidsskriftene. Skuffelse over det språklige og det sosialkonstruktivistiske var også del av bakgrunnen.
-      `, `
-        Kognitiv vitenskap og fysikk satte nye spørsmål for filosofien. Tidsskriftet «Collapse» og nye forlag spilte en viktig rolle. Bruno Latours analyse av nettverk av ting og mennesker påvirket flere av dem.
-      `, [bok("Meillassoux, Quentin. Après la finitude. Seuil, 2006."), bok("Bryant, Levi, Nick Srnicek og Graham Harman (red.). The Speculative Turn. re.press, 2011."), bok("Barad, Karen. Meeting the Universe Halfway. Duke University Press, 2007.")]),
     },
   },
 
@@ -159,27 +126,21 @@ export default {
     kantianismen__romantikken: strek(`Romantikerne tok Kants grenser alvorlig: hvis det absolutte ikke kan vites, må det antydes. Herder og Hamann var også Kants tidlige elever og kritikere.`),
     opplysningen__romantikken: strek(`Romantikken er en reaksjon på opplysningens tro på allmenn fornuft og framskritt, men Rousseau og Lessing var også kilder. Skillet er derfor ikke rent.`),
     romantikken__eksistenstenkning: strek(`Kierkegaards doktoravhandling om ironien tar et oppgjør med romantikerne, særlig Friedrich Schlegel. Den estetiske livsformen i «Enten/Eller» er modellert etter dem.`),
-    tyskidealisme__eksistenstenkning: strek(`Kierkegaard skrev mot Hegel: et system kan ikke romme den enkelte. Hans oppgjør lånte likevel mye av Hegels dialektiske form.`),
-    kantianismen__viljesfilosofien: strek(`Schopenhauer så seg selv som Kants egentlige arvtaker og hevdet at han hadde avslørt hva tingen i seg selv er: viljen.`),
-    indisk__viljesfilosofien: strek(`Schopenhauer leste Upanishadene i latinsk oversettelse (Oupnekhat) og kalte dem livets trøst. Læren om slør og lidelse ble viktig, og han hadde en buddhafigur på skrivebordet.`),
-    tyskidealisme__viljesfilosofien: strek(`Schopenhauer hatet Hegel og la sine forelesninger i Berlin på samme tidspunkt som ham, men ingen kom. Nietzsche fortsatte kritikken av systemer.`),
+    tyskidealisme__eksistenstenkning: strek(`Kierkegaard skrev mot Hegel: et system kan ikke romme den enkelte, selv om oppgjøret lånte mye av Hegels dialektiske form. Schopenhauer hatet Hegel og la sine forelesninger i Berlin på samme tidspunkt som ham, men ingen kom.`),
+    kantianismen__eksistenstenkning: strek(`Schopenhauer så seg selv som Kants egentlige arvtaker og hevdet at han hadde avslørt hva tingen i seg selv er: viljen.`),
+    indisk__eksistenstenkning: strek(`Schopenhauer leste Upanishadene i latinsk oversettelse (Oupnekhat) og kalte dem livets trøst. Læren om slør og lidelse ble viktig, og han hadde en buddhafigur på skrivebordet.`),
     romantikken__hermeneutikken: strek(`F.D.E. Schleiermacher arbeidet i romantikkens krets og oversatte Platon med Friedrich Schlegel. Forståelseslæren vokste ut av filologien og romantikkens syn på uttrykk.`),
     kantianismen__fenomenologien: strek(`Husserls senere transcendentale vending minner om Kant, og han tok det selv opp. Kritikk fra Marburg-skolen førte ham i den retningen.`),
     aristotelismen__fenomenologien: strek(`Brentano var aristoteliker og skrev om Aristoteles' begrep om væren. Begrepet om intensjonalitet stammer fra skolastikkens tolkninger av ham.`),
     positivismen__fenomenologien: strek(`Husserl angrep psykologismen, den positivistiske tanken at logikken bygger på psykologi, i «Logische Untersuchungen» fra 1900.`),
-    fenomenologien__eksistensfilosofien: strek(`Heidegger var Husserls assistent og etterfulgte ham i Freiburg. «Sein und Zeit» er tilegnet læreren, men snur prosjektet fra bevissthet til væren.`),
-    eksistenstenkning__eksistensfilosofien: strek(`Angst, død og den enkelte kommer fra Kierkegaard, gjerne uten at Heidegger sier det. Jaspers bruker ham åpent.`),
-    viljesfilosofien__eksistensfilosofien: strek(`Heidegger holdt store forelesninger om Nietzsche fra 1936 og så ham som metafysikkens siste skikkelse. Jaspers skrev også en bok om ham.`),
-    eksistensfilosofien__eksistensialismen: strek(`Sartre leste Husserl og Heidegger i Berlin i 1933–1934. Tittelen «L'Être et le Néant» svarer på «Sein und Zeit». Heidegger tok avstand i «Brev om humanismen» (1947).`),
+    eksistenstenkning__eksistensialismen: strek(`Angst, død og den enkelte kommer fra Kierkegaard, og Jaspers bruker ham åpent. Camus drøfter både Kierkegaard og Nietzsche i «Le Mythe de Sisyphe».`),
+    fenomenologien__eksistensialismen: strek(`Sartre leste Husserl og Heidegger i Berlin i 1933–1934. Tittelen «L'Être et le Néant» svarer på «Sein und Zeit». Heidegger tok avstand i «Brev om humanismen» (1947).`),
     marxismen__strukturalismen: strek(`Lévi-Strauss nevner Marx som en av sine tre «elskerinner», og Althusser leste marxismen som en struktur uten subjekt.`),
     eksistensialismen__strukturalismen: strek(`Det siste kapittelet i Lévi-Strauss' «La Pensée sauvage» (1962) er et direkte angrep på Sartres historiesyn. Etter dette tapte eksistensialismen raskt sin plass i Frankrike.`),
-    hermeneutikken__filhermeneutikk: strek(`Gadamer bygger videre på Schleiermacher og Dilthey, men kritiserer dem for å ville gjøre forståelse til metode etter naturvitenskapens mønster.`),
-    eksistensfilosofien__filhermeneutikk: strek(`Gadamer tok habilitasjon hos Heidegger i Marburg. Heideggers analyse av forståelse i «Sein und Zeit» er utgangspunktet for hele «Wahrheit und Methode».`),
-    eksistensfilosofien__poststruktur: strek(`Derrida bygger ordet dekonstruksjon på Heideggers *Destruktion*, og Foucault kalte Heidegger avgjørende for sin egen filosofi.`),
-    viljesfilosofien__poststruktur: strek(`Nietzsches genealogi er Foucaults direkte metode. Deleuzes bok om Nietzsche fra 1962 ble viktig for en hel generasjon som vendte seg bort fra Hegel.`),
+    fenomenologien__hermeneutikken: strek(`Gadamer tok habilitasjon hos Heidegger i Marburg. Heideggers analyse av forståelse i «Sein und Zeit» er utgangspunktet for hele «Wahrheit und Methode».`),
+    fenomenologien__poststruktur: strek(`Derrida bygger ordet dekonstruksjon på Heideggers *Destruktion*, og Foucault kalte Heidegger avgjørende for sin egen filosofi.`),
+    eksistenstenkning__poststruktur: strek(`Nietzsches genealogi er Foucaults direkte metode. Deleuzes bok om Nietzsche fra 1962 ble viktig for en hel generasjon som vendte seg bort fra Hegel.`),
     strukturalismen__poststruktur: strek(`Derridas foredrag i Baltimore i 1966 viste at strukturen selv ikke kan ha et fast sentrum. De som kom etter, hadde selv vært lærlinger hos strukturalistene.`),
-    poststruktur__spekulativ: strek(`Deleuze er en viktig bakgrunn for den nye materialismen, og Latours kritikk av det moderne skillet mellom natur og kultur peker i samme retning.`),
-    fenomenologien__spekulativ: strek(`Meillassoux angriper alt som bygger på bevissthetens tilgang til verden, fra Kant via Husserl til Heidegger. Harman bygger samtidig på Heideggers verktøyanalyse.`),
   },
 
   artists: [
@@ -202,11 +163,11 @@ export default {
       Dansk filosof og teolog, sønn av en rik og tungsindig handelsmann. Han brøt forlovelsen med Regine Olsen og skrev en strøm av bøker under ulike forfatternavn. Livet har tre stadier, og overgangen til troen er et sprang. Angst er frihetens svimmelhet, og sannheten ligger i hvordan den tilegnes. Han angrep kirken i sine siste år og døde 42 år gammel. Eksistensfilosofi og moderne teologi bygger på ham.
     `, [["Enten/Eller", 1843], ["Frygt og Bæven", 1843], ["Begrebet Angest", 1844], ["Afsluttende uvidenskabelig Efterskrift", 1846], ["Sygdommen til Døden", 1849]], [sep("https://plato.stanford.edu/entries/kierkegaard/"), snl("https://snl.no/S%C3%B8ren_Kierkegaard")]),
 
-    // --- Viljesfilosofien ---
-    f("Arthur Schopenhauer", [1788, 1860], "mann", ["Metafysikk", "Estetikk"], ["Viljesfilosofien"], ["Fenomen og ting i seg selv", "Det skjønne og det sublime", "Tomhet"], [1819, 1860], "Danzig, Berlin og Frankfurt", `
+    // --- Viljesfilosofien (nå i Eksistenstenkningen) ---
+    f("Arthur Schopenhauer", [1788, 1860], "mann", ["Metafysikk", "Estetikk"], ["Eksistenstenkningen"], ["Fenomen og ting i seg selv", "Det skjønne og det sublime", "Tomhet"], [1819, 1860], "Danzig, Berlin og Frankfurt", `
       Tysk filosof, sønn av en rik handelsmann og forfatteren Johanna Schopenhauer. Verden er forestilling og blind vilje, og derfor er livet lidelse. Kunsten, og særlig musikken, gir en pause, mens medlidenhet er moralens grunnlag. Han var tidlig ute med å se Vesten i lys av indisk tenkning. Hovedverket ble ignorert i over tretti år. Han var uvanlig kvinnefiendtlig, men en meget god stilist.
     `, [["Die Welt als Wille und Vorstellung", 1819], ["Die beiden Grundprobleme der Ethik", 1841], ["Parerga und Paralipomena", 1851]], [sep("https://plato.stanford.edu/entries/schopenhauer/")]),
-    f("Friedrich Nietzsche", [1844, 1900], "mann", ["Etikk", "Estetikk"], ["Viljesfilosofien"], ["Sannhet", "Makt", "Dyd"], [1872, 1889], "Röcken, Basel og Torino", `
+    f("Friedrich Nietzsche", [1844, 1900], "mann", ["Etikk", "Estetikk"], ["Eksistenstenkningen"], ["Sannhet", "Makt", "Dyd"], [1872, 1889], "Röcken, Basel og Torino", `
       Tysk filosof og filolog, professor i Basel som 24-åring. Etter noen år ga han opp stillingen på grunn av sykdom og levde ensomt i Sveits og Italia. Gud er død, og moralen er blitt til av svakes ressentiment. Vilje til makt og evig gjenkomst er svar på nihilismen. I Torino i 1889 brøt han sammen og var syk til han døde. Søsteren redigerte etterlatenskapene til nazistenes bruk. Han har preget nesten all kontinental tenkning etter ham.
     `, [["Die Geburt der Tragödie", 1872], ["Also sprach Zarathustra", 1883], ["Jenseits von Gut und Böse", 1886], ["Zur Genealogie der Moral", 1887]], [sep("https://plato.stanford.edu/entries/nietzsche/"), snl("https://snl.no/Friedrich_Nietzsche")]),
 
@@ -232,11 +193,11 @@ export default {
       Tysk filosof, født i en jødisk familie, Husserls assistent og redaktør. Doktoravhandlingen hennes om innlevelse er en klassiker. Hun ble nektet habilitasjon fordi hun var kvinne, og skrev selv brev til ministeren om det. Hun ble katolikk i 1922 og karmelittnonne i 1933. Hun forsøkte å forene fenomenologi og Thomas Aquinas. Hun ble ført fra Nederland til Auschwitz og drept i 1942, og ble helgenkåret i 1998.
     `, [["Zum Problem der Einfühlung", 1917], ["Endliches und ewiges Sein", 1950]], [sep("https://plato.stanford.edu/entries/stein/")]),
 
-    // --- Eksistensfilosofien ---
-    f("Martin Heidegger", [1889, 1976], "mann", ["Metafysikk"], ["Eksistensfilosofien"], ["Væren", "Autentisitet", "Hermeneutisk sirkel", "Sannhet"], [1919, 1976], "Messkirch, Marburg og Freiburg", `
+    // --- Eksistensfilosofien (nå i Fenomenologien og Eksistensialismen) ---
+    f("Martin Heidegger", [1889, 1976], "mann", ["Metafysikk"], ["Fenomenologien", "Hermeneutikken"], ["Væren", "Autentisitet", "Hermeneutisk sirkel", "Sannhet"], [1919, 1976], "Messkirch, Marburg og Freiburg", `
       Tysk filosof, kanskje den mest innflytelsesrike og mest omstridte på 1900-tallet. «Sein und Zeit» spør etter meningen med væren og beskriver mennesket som *Dasein*, kastet inn i verden og på vei mot døden. Sen tenkning handler om teknikk og språk. Som rektor i Freiburg i 1933 gikk han inn i nazistpartiet og forble medlem, og han angret aldri offentlig. De svarte heftene viser antisemittisme. Elevene hans inkluderer Arendt, Gadamer, Marcuse og Levinas.
     `, [["Sein und Zeit", 1927], ["Was ist Metaphysik?", 1929], ["Brief über den Humanismus", 1947], ["Die Frage nach der Technik", 1953]], [sep("https://plato.stanford.edu/entries/heidegger/"), snl("https://snl.no/Martin_Heidegger")]),
-    f("Karl Jaspers", [1883, 1969], "mann", ["Metafysikk", "Politisk filosofi"], ["Eksistensfilosofien"], ["Autentisitet"], [1913, 1969], "Oldenburg, Heidelberg og Basel", `
+    f("Karl Jaspers", [1883, 1969], "mann", ["Metafysikk", "Politisk filosofi"], ["Eksistensialismen"], ["Autentisitet"], [1913, 1969], "Oldenburg, Heidelberg og Basel", `
       Tysk psykiater og filosof, kjent først for «Allgemeine Psychopathologie». Han skrev om grensesituasjoner, døden, skylden og striden, der vi møter det som overskrider oss. Kona var jødisk, og han ble fratatt stillingen i 1937. Etter krigen skrev han om tysk skyld i «Die Schuldfrage» og innførte begrepet aksetiden om perioden rundt 500 f.Kr. Arendt var hans elev og venn livet ut.
     `, [["Allgemeine Psychopathologie", 1913], ["Philosophie", 1932], ["Die Schuldfrage", 1946], ["Vom Ursprung und Ziel der Geschichte", 1949]], [sep("https://plato.stanford.edu/entries/jaspers/")]),
 
@@ -271,14 +232,14 @@ export default {
       Fransk marxistisk filosof ved École normale supérieure, lærer for Foucault og Derrida. Han leste Marx som en vitenskapsmann som brøt med sin unge humanisme. Ideologi virker ved å «kalle på» oss som subjekter, slik at vi tror vi velger fritt. Han led av alvorlige psykiske lidelser, og i 1980 kvalte han kona, Hélène Rytmann. Han ble erklært utilregnelig, og levde tilbaketrukket resten av livet.
     `, [["Pour Marx", 1965], ["Lire le Capital", 1965], ["Idéologie et appareils idéologiques d'État", 1970]], [sep("https://plato.stanford.edu/entries/althusser/")]),
 
-    // --- Filosofisk hermeneutikk ---
-    f("Hans-Georg Gadamer", [1900, 2002], "mann", ["Erkjennelsesteori", "Estetikk"], ["Filosofisk hermeneutikk"], ["Hermeneutisk sirkel", "Sannhet"], [1960, 2002], "Marburg, Leipzig og Heidelberg", `
+    // --- Filosofisk hermeneutikk (nå i Hermeneutikken) ---
+    f("Hans-Georg Gadamer", [1900, 2002], "mann", ["Erkjennelsesteori", "Estetikk"], ["Hermeneutikken"], ["Hermeneutisk sirkel", "Sannhet"], [1960, 2002], "Marburg, Leipzig og Heidelberg", `
       Tysk filosof, elev av Heidegger, og den som ga den filosofiske hermeneutikken dens form. «Wahrheit und Methode» (1960) hevder at forståelse ikke er en metode, men måten vi er på, og at fordommene våre er vilkår for å forstå. Kunst, historie og språk gir oss sannhet på sin egen måte. Han unngikk å ta side under nazismen, noe som er blitt diskutert. Han ble 102 år gammel.
     `, [["Wahrheit und Methode", 1960], ["Die Aktualität des Schönen", 1977]], [sep("https://plato.stanford.edu/entries/gadamer/")]),
-    f("Paul Ricœur", [1913, 2005], "mann", ["Etikk", "Religionsfilosofi"], ["Filosofisk hermeneutikk"], ["Hermeneutisk sirkel"], [1950, 2005], "Valence, Paris og Chicago", `
+    f("Paul Ricœur", [1913, 2005], "mann", ["Etikk", "Religionsfilosofi"], ["Hermeneutikken"], ["Hermeneutisk sirkel"], [1950, 2005], "Valence, Paris og Chicago", `
       Fransk filosof, foreldreløs etter første verdenskrig og krigsfange under den andre, der han oversatte Husserl. Han søkte å forene hermeneutikk, fenomenologi og analytisk filosofi. Identitet er en fortelling, og vi forstår oss selv gjennom tekster. Det er forskjell på mistankens hermeneutikk hos Marx, Nietzsche og Freud, og tillitens. Han var dekan i Nanterre under opprøret i 1968, og underviste i Chicago i mange år.
     `, [["De l'interprétation", 1965], ["La Métaphore vive", 1975], ["Temps et récit", 1983], ["Soi-même comme un autre", 1990]], [sep("https://plato.stanford.edu/entries/ricoeur/")]),
-    f("Charles Taylor", [1931, null], "mann", ["Politisk filosofi", "Religionsfilosofi"], ["Filosofisk hermeneutikk"], ["Anerkjennelse", "Autentisitet"], [1964, null], "Montreal og Oxford", `
+    f("Charles Taylor", [1931, null], "mann", ["Politisk filosofi", "Religionsfilosofi"], ["Hermeneutikken"], ["Anerkjennelse", "Autentisitet"], [1964, null], "Montreal og Oxford", `
       Kanadisk filosof ved McGill University, og en tid politiker. Mennesker er selvtolkende dyr, og derfor kan vi ikke studeres som ting. «Sources of the Self» viser hvordan det moderne selvet er blitt til. Essayet om anerkjennelsens politikk er sentralt i debatten om multikulturalisme. «A Secular Age» spør hvordan det ble mulig ikke å tro på Gud. Han er også katolikk og leder av en kommisjon om integrering i Québec.
     `, [["Hegel", 1975], ["Sources of the Self", 1989], ["The Politics of Recognition", 1992], ["A Secular Age", 2007]], [snl("https://snl.no/Charles_Taylor"), HERM]),
 
@@ -299,14 +260,14 @@ export default {
       Bulgarsk-fransk filosof, psykoanalytiker og forfatter, som kom til Paris i 1965. Hun introduserte begrepet *intertekstualitet* og skilte mellom språkets symbolske og semiotiske sider, der det siste er knyttet til kroppen og moren. «Pouvoirs de l'horreur» handler om det utstøtte. Hun har skrevet om Hannah Arendt, Melanie Klein og Colette. Påstander fra 2018 om at hun skal ha vært informant for bulgarsk etterretning, har hun selv avvist.
     `, [["Sèméiôtikè", 1969], ["La Révolution du langage poétique", 1974], ["Pouvoirs de l'horreur", 1980]], [snl("https://snl.no/Julia_Kristeva")]),
 
-    // --- Spekulativ realisme ---
-    f("Quentin Meillassoux", [1967, null], "mann", ["Metafysikk", "Erkjennelsesteori"], ["Spekulativ realisme"], ["Fenomen og ting i seg selv", "Kausalitet"], [2006, null], "Paris", `
+    // --- Spekulativ realisme (nå i Poststrukturalismen) ---
+    f("Quentin Meillassoux", [1967, null], "mann", ["Metafysikk", "Erkjennelsesteori"], ["Poststrukturalismen"], ["Fenomen og ting i seg selv", "Kausalitet"], [2006, null], "Paris", `
       Fransk filosof, elev av Alain Badiou. «Après la finitude» (2006) angriper det han kaller korrelasjonisme, tanken om at vi bare kan tenke verden i forhold til oss selv. Vitenskapen forteller om fortiden før noe menneske fantes. Bare kontingensen selv er nødvendig: lovene kunne endre seg når som helst uten grunn. Boken satte i gang en hel bevegelse, selv om han aldri selv brukte den betegnelsen særlig.
     `, [["Après la finitude", 2006]], [bok("Meillassoux, Quentin. Après la finitude. Seuil, 2006.")]),
-    f("Graham Harman", [1968, null], "mann", ["Metafysikk"], ["Spekulativ realisme"], ["Væren"], [2002, null], "Kairo og Los Angeles", `
+    f("Graham Harman", [1968, null], "mann", ["Metafysikk"], ["Poststrukturalismen", "Fenomenologien"], ["Væren"], [2002, null], "Kairo og Los Angeles", `
       Amerikansk filosof, lenge ved Det amerikanske universitetet i Kairo. Med utgangspunkt i Heideggers analyse av verktøy utviklet han en *objektorientert ontologi*: alle ting, ikke bare mennesker, har en indre virkelighet som er skjult for andre, og samspillet mellom dem er indirekte. Han har vært viktig for arkitektur og kunstteori, og har skrevet om Bruno Latour.
     `, [["Tool-Being", 2002], ["The Quadruple Object", 2011]], [bok("Harman, Graham. Tool-Being: Heidegger and the Metaphysics of Objects. Open Court, 2002.")]),
-    f("Karen Barad", [1956, null], "kvinne", ["Vitenskapsfilosofi", "Metafysikk"], ["Spekulativ realisme", "Feministisk filosofi"], ["Kjønn"], [2003, null], "Santa Cruz", `
+    f("Karen Barad", [1956, null], "kvinne", ["Vitenskapsfilosofi", "Metafysikk"], ["Feministisk filosofi"], ["Kjønn"], [2003, null], "Santa Cruz", `
       Amerikansk teoretisk fysiker og feministisk teoretiker ved University of California, Santa Cruz. «Meeting the Universe Halfway» utvikler med utgangspunkt i Niels Bohrs kvantefysikk en *agentiell realisme*: ting finnes ikke først og virker så på hverandre, men blir til gjennom samspill. Boken er blant grunntekstene for den nye materialismen, med vekt på at vitenskap også er etikk.
     `, [["Meeting the Universe Halfway", 2007]], [bok("Barad, Karen. Meeting the Universe Halfway. Duke University Press, 2007.")]),
   ],

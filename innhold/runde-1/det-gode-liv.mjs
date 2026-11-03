@@ -8,7 +8,6 @@ const SKEP = sep("https://plato.stanford.edu/entries/skepticism-ancient/");
 const UTIL = sep("https://plato.stanford.edu/entries/utilitarianism-history/");
 const META = sep("https://plato.stanford.edu/entries/metaethics/");
 const DYD = sep("https://plato.stanford.edu/entries/ethics-virtue/");
-const MORAL = sep("https://plato.stanford.edu/entries/moral-sentimentalism/");
 
 export default {
   genreDescriptions: {
@@ -40,35 +39,27 @@ export default {
       },
     },
     main: {
-      "Sofistene og Sokrates": epoke("ca. 450–399 f.Kr.", -450, -399, `
+      "Sofistene og Sokrates": epoke("ca. 450–300 f.Kr.", -450, -300, `
         I demokratiets Athen kunne dyktighet i tale gi makt, og omreisende lærere, sofistene, tok betalt for å lære den bort. De skilte mellom natur (*physis*) og konvensjon (*nomos*), og flere av dem hevdet at moral og lover er menneskeverk. Protagoras gjorde mennesket til målestokken, og Gorgias viste hva retorikken kunne få til. Platon og Aristoteles ga dem et dårlig ettermæle, som bare delvis er rettferdig.
 
         Sokrates ble regnet som sofist av mange samtidige, men tok aldri betalt og hevdet ikke å vite noe. Med sin *elenchos* prøvde han folks oppfatninger om dyd og rettferdighet og viste at de ikke holdt. Det uprøvde liv er ikke verdt å leve, sa han i retten. Athen dømte ham til døden i 399 f.Kr. for ugudelighet og for å forderve ungdommen. Alt vi vet om ham, kommer fra andre, og den historiske Sokrates er et uløst problem.
-      `, `
-        Athens demokrati og sjøimperium under Perikles, deretter Peloponneserkrigen (431–404 f.Kr.), pest og nederlag. Tyranniet i 404 f.Kr. var ledet av tidligere venner av Sokrates, og det kan forklare noe av fiendskapen mot ham.
-      `, `
-        Tragedien og komedien tok opp samme spørsmål om lov og rett, og Aristofanes gjorde narr av Sokrates. Kontakten med andre folk viste at skikkene varierer, noe Herodot også beskrev. Høyere utdanning var ny, og det var sofistene som tilbød den.
-      `, [sep("https://plato.stanford.edu/entries/socrates/"), sep("https://plato.stanford.edu/entries/protagoras/"), iep("https://iep.utm.edu/sophists/")]),
 
-      "Kynikerne": epoke("ca. 400–300 f.Kr.", -400, -300, `
-        Kynismen har navnet fra det greske ordet for hund, trolig fordi Diogenes fra Sinope levde uten skam på gaten. Antisthenes, elev av Sokrates, hadde lært at dyden er nok til et lykkelig liv, og at den vinnes ved arbeid, ikke ved å lære teorier. Kynikerne gjorde dette til en livsform: eiendom, ære, ekteskap og borgerskap er tomme konvensjoner, mens naturen er nok.
+        Blant elevene hans var Antisthenes, som lærte at dyden er nok til et lykkelig liv. Kynikerne gjorde dette til en livsform og en provokasjon. Diogenes fra Sinope levde uten skam på gaten, kalte seg verdensborger, *kosmopolites*, og ble kalt «en Sokrates som har blitt gal». Krates fra Theben ga bort formuen sin og levde med Hipparkia, en av få kvinner vi kjenner fra antikkens filosofi.
+      `, `
+        Athens demokrati og sjøimperium under Perikles, deretter Peloponneserkrigen (431–404 f.Kr.), pest og nederlag. Tyranniet i 404 f.Kr. var ledet av tidligere venner av Sokrates, og det kan forklare noe av fiendskapen mot ham. I kynikernes tid var Athens makt brutt, og Makedonia tok over.
+      `, `
+        Tragedien og komedien tok opp samme spørsmål om lov og rett, og Aristofanes gjorde narr av Sokrates. Høyere utdanning var ny, og det var sofistene som tilbød den. Kynikerne drev filosofien på torg og i gater, uten skole, og anekdoter hos Diogenes Laertios er hovedkilden til dem.
+      `, [sep("https://plato.stanford.edu/entries/socrates/"), sep("https://plato.stanford.edu/entries/protagoras/"), iep("https://iep.utm.edu/sophists/"), iep("https://iep.utm.edu/cynics/")]),
 
-        Mer enn en lære var kynismen en provokasjon, med anekdoter og hån i stedet for bøker. Diogenes kalte seg verdensborger, *kosmopolites*, et ord med lang framtid. Krates fra Theben ga bort formuen sin og levde med Hipparkia, en av få kvinner vi kjenner fra antikkens filosofi. Gjennom Zenon fra Kition gikk kynikernes frihetsideal inn i stoisismen.
-      `, `
-        Athens makt var brutt, og Makedonia var på vei opp. Den frie borger i bystaten sto foran slutten på sin tid, og Aleksanders erobringer åpnet en verden der den gamle lokale tilhørigheten betydde mindre.
-      `, `
-        Ingen skole eller fast lære: filosofien ble drevet på torg og i gater. Kynikernes tekster er tapt, og anekdoter hos Diogenes Laertios er hovedkilden. Kynisk tale, *diatribe*, påvirket senere moralsk og kristen preken.
-      `, [iep("https://iep.utm.edu/cynics/")]),
+      "Stoisismen": epoke("ca. 300 f.Kr.–180", -300, 180, `
+        Zenon fra Kition begynte å undervise i en søylehall, Stoa Poikile, i Athen rundt 300 f.Kr., og skolen fikk navnet derfra. Hele naturen er styrt av en fornuftig orden, *logos*, og det gode livet er å leve i samsvar med den. Bare dyden er god, og alt annet, også helse og rikdom, er likegyldig for lykken. Krysippos ga læren dens systematiske form og skapte en utsagnslogikk som først ble fullt ut forstått på 1900-tallet. Stoikerne hevdet at alt er bestemt, men at vi likevel er ansvarlige, for det handler om hvordan vi stiller oss til det som skjer.
 
-      "Stoisismen": epoke("ca. 300–50 f.Kr.", -300, -50, `
-        Zenon fra Kition begynte å undervise i en søylehall, Stoa Poikile, i Athen rundt 300 f.Kr., og skolen fikk navnet derfra. Filosofien hadde tre deler: logikk, fysikk og etikk. Hele naturen er styrt av en fornuftig orden, *logos*, og det gode livet er å leve i samsvar med den. Bare dyden er god, og alt annet, også helse og rikdom, er likegyldig for lykken.
-
-        Krysippos ga læren dens systematiske form og skapte en utsagnslogikk som først ble fullt ut forstått på 1900-tallet. Stoikerne hevdet at alt er bestemt, men at vi likevel er ansvarlige, for det handler om hvordan vi stiller oss til det som skjer. Læren ble den ledende i hellenismen, og via romerne og de første kristne fikk den stor betydning for naturrett og forestillingen om menneskers likeverd.
+        I Roma ble stoisismen en praktisk livsfilosofi for både slaver og keisere. Seneca skrev brev og essays om sinne, livets korthet og døden. Epiktet var født som slave, og hans *Samtaler* begynner med skillet mellom det som står i vår makt og det som ikke gjør det. Markus Aurelius skrev sine «Selvbetraktninger» som åndelige øvelser til seg selv, i felttelt langs Donau. Tanken om en naturlov som gjelder alle mennesker, gikk videre til kirkefedrene, naturretten og forestillingen om menneskers likeverd, og den moderne kognitive terapien har hentet direkte inspirasjon fra Epiktet.
       `, `
-        Aleksanders rike ble delt mellom generalene hans, og bystaten var ikke lenger et fritt fellesskap. Mange av de tidlige stoikerne kom fra østlige områder utenfor Hellas. Rom vokste fram som stormakt.
+        Aleksanders rike ble delt mellom generalene hans, og bystaten var ikke lenger et fritt fellesskap. Mange av de tidlige stoikerne kom fra østlige områder utenfor Hellas. I Romerrikets storhetstid var Seneca rådgiver for Nero og ble tvunget til å ta sitt eget liv, og keiser Domitian forviste filosofene fra Roma rundt år 90.
       `, `
-        Athen var fortsatt filosofiens hovedstad med fire store skoler, mens Alexandria med sitt bibliotek ble sentrum for matematikk og filologi. Stoikerne utviklet språkteori og grammatikk som ble grunnlaget for senere læreverk.
-      `, [HELL, iep("https://iep.utm.edu/stoicism/")]),
+        Athen var filosofiens hovedstad med fire store skoler, og stoikerne utviklet språkteori og grammatikk som ble grunnlaget for senere læreverk. I Roma var filosofi del av overklassens utdannelse, og gresk var fortsatt filosofiens språk. Cicero hadde gjort mye av den tilgjengelig på latin, og Markus Aurelius opprettet lærestoler i de fire skolene i Athen i 176.
+      `, [HELL, iep("https://iep.utm.edu/stoicism/"), sep("https://plato.stanford.edu/entries/seneca/"), sep("https://plato.stanford.edu/entries/epictetus/")]),
 
       "Epikureismen": epoke("ca. 306 f.Kr.–", -306, null, `
         Epikur kjøpte en hage utenfor Athens bymur i 306 f.Kr. og levde der med venner, også kvinner og slaver. Målet er glede, *hedone*, men forstått som fravær av smerte i kroppen og uro i sjelen, *ataraksi*. Enkle behov er lette å fylle, og vennskap er det viktigste vi har. Læren er derfor langt fra det vi i dag kaller epikureisk.
@@ -90,35 +81,17 @@ export default {
         Skolestriden i Athen, særlig mellom Akademiet og Stoa, drev fram skarpere argumenter om hva kunnskap er. Medisinen hadde også sin empiriske skole, og Sextus kan selv ha vært lege der.
       `, [SKEP, iep("https://iep.utm.edu/skepanci/")]),
 
-      "Romersk stoisisme": epoke("ca. 50–180", 50, 180, `
-        I Roma ble stoisismen en praktisk livsfilosofi for både slaver og keisere. Seneca skrev brev og essays om sinne, livets korthet og døden. Epiktet var født som slave, og hans *Samtaler* begynner med det kjente skillet mellom det som står i vår makt og det som ikke gjør det. Markus Aurelius skrev sine «Selvbetraktninger» som åndelige øvelser til seg selv, i felttelt langs Donau.
+      "Renessansen": epoke("ca. 1350–1600", 1350, 1600, `
+        Renessanse betyr gjenfødelse, og det som skulle fødes på nytt, var antikken. Humanisme var opprinnelig navnet på et lærdomsprogram: studiet av grammatikk, retorikk, historie, poesi og moralfilosofi hos de antikke forfatterne. Mot universitetenes skolastikk satte humanistene eleganse, historisk bevissthet og interesse for det levde livet. Petrarca samlet håndskrifter og skrev brev til Cicero, og Lorenzo Valla viste med språklige bevis at Konstantins gavebrev var en forfalskning.
 
-        Bevart er nesten bare denne etiske siden av skolen, ikke logikken og fysikken. Tekstene ble lest av kristne og fikk stor betydning for renessansen, og den moderne kognitive terapien har hentet direkte inspirasjon fra Epiktet. Idéhistorikeren Pierre Hadot har vist hvordan slike tekster må leses som øvelser i å leve, ikke bare som lære.
-      `, `
-        Romerrikets storhetstid. Seneca var lærer og rådgiver for Nero og ble tvunget til å ta sitt eget liv. Keiser Domitian forviste filosofene fra Roma rundt år 90, blant dem Epiktet, og Markus Aurelius selv brukte årene som keiser på krig og pest.
-      `, `
-        Filosofi var del av utdannelsen til overklassen, og gresk var fortsatt filosofiens språk. Cicero hadde gjort mye av den tilgjengelig på latin. Markus Aurelius opprettet lærestoler i de fire store skolene i Athen i 176.
-      `, [HELL, sep("https://plato.stanford.edu/entries/seneca/"), sep("https://plato.stanford.edu/entries/epictetus/"), sep("https://plato.stanford.edu/entries/marcus-aurelius/")]),
+        Da greske lærde kom til Italia på 1400-tallet, ble hele Platon tilgjengelig. Marsilio Ficino oversatte alle dialogene og Plotin til latin, og Pico della Mirandola skrev i «Om menneskets verdighet» at mennesket ikke har noen fast plass, men former seg selv. I Firenze så Niccolò Machiavelli på politikken slik den er, ikke slik den burde være: fyrsten må være både rev og løve. Jean Bodin fant i de franske religionskrigene begrepet suverenitet.
 
-      "Renessansehumanismen": epoke("ca. 1350–1590", 1350, 1590, `
-        Humanisme var opprinnelig navnet på et lærdomsprogram: studiet av grammatikk, retorikk, historie, poesi og moralfilosofi hos de antikke forfatterne. Mot universitetenes skolastikk satte humanistene eleganse, historisk bevissthet og interesse for det levde livet. Petrarca samlet håndskrifter og skrev brev til Cicero. Lorenzo Valla viste med språklige bevis at Konstantins gavebrev var en forfalskning, og forsvarte Epikur.
-
-        Bevegelsen spredte seg nordover og fikk en kristen form hos Erasmus, som ga ut Det nye testamente på gresk. Den kommer til sin mest personlige og tvilende form hos Montaigne, som på bakgrunn av religionskrigene spør: *Que sais-je?* Hva vet jeg? Humanistene var ikke sekulære i vår forstand, men de endret hvordan europeere leste, skrev og tenkte om seg selv.
+        Nord for Alpene fikk bevegelsen en kristen form hos Erasmus, som ga ut Det nye testamente på gresk. Martin Luther brukte humanistenes tekstkritikk, men angrep Aristoteles som lærer for teologer og skrev mot Erasmus at viljen er bundet. Mennesket er rettferdig ved troen alene. Philipp Melanchthon og Jean Calvin ga reformasjonen en systematisk lære, og Skriften skulle nå tolkes av den enkelte. Montaigne skrev på bakgrunn av religionskrigene og spurte: *Que sais-je?* Hva vet jeg? Renessansens tenkere var ikke sekulære i vår forstand, men de endret hvordan europeere leste, skrev og tenkte om seg selv.
       `, `
-        Rike byer i Italia, svartedauden (1347–1351), det store skismaet i kirken, oppdagelsesreisene og etter hvert reformasjonen. Montaigne opplevde de franske religionskrigene som ordfører i Bordeaux.
+        Rike bystater i Italia, svartedauden (1347–1351) og det store skismaet i kirken. Konstantinopels fall i 1453 brakte greske lærde vestover, og Italia ble invadert av Frankrike og Spania fra 1494. Luthers teser i 1517 delte Europa, og Danmark-Norge ble protestantisk i 1537. Montaigne opplevde de franske religionskrigene som ordfører i Bordeaux.
       `, `
-        Tapte verk av Cicero, Lukrets og Quintilian ble funnet i klosterbibliotekene, og boktrykket spredte dem. Humanistskoler og hoff ga stillinger utenfor universitetene. Filologi og kildekritikk ble nye redskaper.
-      `, [sep("https://plato.stanford.edu/entries/humanism-civic/"), snl("https://snl.no/Francesco_Petrarca"), sep("https://plato.stanford.edu/entries/erasmus/"), sep("https://plato.stanford.edu/entries/montaigne/")]),
-
-      "Moralsansfilosofien": epoke("1711–1790", 1711, 1790, `
-        Mot Thomas Hobbes, som bygde moralen på egeninteresse, hevdet Shaftesbury at mennesket har en naturlig sans for det rette og det skjønne. Francis Hutcheson utviklet tanken: moralske skiller gjøres ikke av fornuften, men av en egen sans, omtrent som smak. Han skrev også tidlig at den beste handlingen er den som gir størst lykke for flest.
-
-        David Hume forklarte moralen ut fra følelse og sympati. Fornuften er lidenskapenes slave, sa han, og av hva som er, følger ikke hva som bør være. Adam Smith gjorde den upartiske tilskueren, som vi lærer å dømme oss selv gjennom, til moralens kjerne. Retningen utfordres av Kant, men dagens etikere og moralpsykologer har igjen tatt den opp.
-      `, `
-        Den skotske opplysningen i Glasgow og Edinburgh, med et voksende handelssamfunn og kirker som tapte makt. Unionen med England i 1707 ga nye muligheter. Spørsmålet var hvordan folk kan leve sammen når religionen ikke lenger holder dem samlet.
-      `, `
-        Moral ble drøftet i klubber og tidsskrifter som «The Spectator», og forelesninger i moralfilosofi var et hovedfag ved skotske universiteter. Empirisk studie av menneskets natur, etter Newtons forbilde, var idealet.
-      `, [MORAL, sep("https://plato.stanford.edu/entries/shaftesbury/"), sep("https://plato.stanford.edu/entries/smith-moral-political/")]),
+        Tapte verk av Cicero, Lukrets og Quintilian ble funnet i klosterbibliotekene, og boktrykket spredte dem fra 1460-tallet. Humanistskoler og hoff ga stillinger utenfor universitetene, og filologi og kildekritikk ble nye redskaper. Bibelen kom på folkespråkene, og reformasjonen krevde lesekyndighet.
+      `, [sep("https://plato.stanford.edu/entries/humanism-civic/"), sep("https://plato.stanford.edu/entries/ficino/"), sep("https://plato.stanford.edu/entries/machiavelli/"), sep("https://plato.stanford.edu/entries/luther/"), sep("https://plato.stanford.edu/entries/montaigne/")]),
 
       "Utilitarismen": epoke("1789–1900", 1789, 1900, `
         Utilitarismen hevder at det riktige er det som gir størst samlet lykke, der alle teller likt. Jeremy Bentham gjorde dette til et reformprogram: lover og straff skal vurderes etter virkningene, ikke etter tradisjon. Lyst og smerte kan regnes på. John Stuart Mill forsvarte læren med et skille mellom høyere og lavere nytelser, og Henry Sidgwick ga den en grundig filosofisk framstilling.
@@ -164,17 +137,15 @@ export default {
 
   edgeDescriptions: {
     naturfilosofene__sokrates: strek(`Som ung skal Sokrates ha vært interessert i naturfilosofi, men Platon lar ham fortelle at han vendte seg bort fra den. Filosofien skulle nå handle om hvordan vi bør leve.`),
-    sokrates__kynikerne: strek(`Antisthenes fulgte Sokrates, og av ham lærte han at dyden er nok. Diogenes skal ha blitt kalt «en Sokrates som har blitt gal».`),
-    kynikerne__stoisismen: strek(`Zenon fra Kition var elev av Krates fra Theben. Stoa arvet kynikernes tanke om at dyden er det eneste gode, men forente den med logikk og fysikk.`),
-    atomistene__epikureismen: strek(`Epikur tok over Demokrits atomer, men la til en liten avvikning i atomenes bane for å gi rom for frihet.`),
+    sokrates__stoisismen: strek(`Zenon fra Kition var elev av kynikeren Krates fra Theben. Stoa arvet kynikernes tanke om at dyden er det eneste gode, men forente den med logikk og fysikk.`),
+    naturfilosofene__epikureismen: strek(`Epikur tok over Demokrits atomer, men la til en liten avvikning i atomenes bane for å gi rom for frihet.`),
     sokrates__skeptisismen: strek(`Arkesilaos gjorde Akademiet skeptisk ved å vende tilbake til Sokrates, som ikke hevdet å vite noe, og som prøvde alle andres påstander.`),
-    stoisismen__romerskstoa: strek(`Romerne overtok den greske læren og la særlig vekt på etikken. Mange greske stoikere underviste i Roma, og Cicero hadde formidlet mye av dette til latin.`),
-    romerskstoa__humanismen: strek(`Seneca var en av humanistenes mest leste forfattere, og Justus Lipsius utviklet på 1500-tallet en kristen nystoisisme.`),
-    skeptisismen__humanismen: strek(`Da Sextus Empiricus ble trykt på latin i 1562, fikk Montaigne stoffet til sin «Apologie de Raimond Sebond», den mest berømte skeptiske teksten fra renessansen.`),
-    hoyskolastikken__humanismen: strek(`Petrarca og hans etterfølgere hånte universitetenes språk og spissfindigheter. Motsetningen er delvis overdrevet, for de to fantes side om side i mange byer.`),
-    humanismen__moralsans: strek(`Shaftesbury var gjennomsyret av stoikerne og av klassisk dannelse. Moralsansfilosofene arvet humanistenes interesse for karakter og smak.`),
-    empirismen__moralsans: strek(`Shaftesbury var Lockes elev og gjorde opprør mot ham. Hutcheson tok Lockes sanselære som mønster for moralsansen, og Hume bygde etikken på sin egen empirisme.`),
-    moralsans__utilitarismen: strek(`Hutcheson formulerte tidlig tanken om størst mulig lykke for flest, og Bentham fant nytteprinsippet hos Hume. Men Bentham ga opp sansen til fordel for beregning.`),
+    stoisismen__renessansen: strek(`Seneca var en av humanistenes mest leste forfattere, og Justus Lipsius utviklet på 1500-tallet en kristen nystoisisme.`),
+    nyplatonismen__renessansen: strek(`Marsilio Ficino oversatte Plotin så vel som Platon, og leste Platon gjennom ham. Renessansens Platon er derfor i stor grad nyplatonikernes Platon.`),
+    skeptisismen__renessansen: strek(`Da Sextus Empiricus ble trykt på latin i 1562, fikk Montaigne stoffet til sin «Apologie de Raimond Sebond», den mest berømte skeptiske teksten fra renessansen.`),
+    skolastikken__renessansen: strek(`Petrarca og hans etterfølgere hånte universitetenes språk og spissfindigheter, og Luther kalte Aristoteles en forbannet hedning. Motsetningen er delvis overdrevet, for humanister og skolastikere fantes side om side i mange byer.`),
+    empirismen__utilitarismen: strek(`Jeremy Bentham fant nytteprinsippet hos David Hume og bygde etikken på et bilde av mennesket som styrt av lyst og smerte. John Stuart Mill skrev en empiristisk logikk ved siden av etikken.`),
+    opplysningen__utilitarismen: strek(`Formelen om størst mulig lykke for flest finnes allerede hos Francis Hutcheson og Cesare Beccaria. Bentham tok den med seg, og ville som opplysningsfilosofene reformere lover og straff etter fornuftige prinsipper.`),
     utilitarismen__metaetikken: strek(`G.E. Moore åpnet «Principia Ethica» med et angrep på Sidgwick og Mill, og hevdet at de begge begikk en feil ved å definere det gode. Han beholdt likevel en form for konsekvensetikk.`),
     logiskanalyse__metaetikken: strek(`Moore er med blant grunnleggerne av analytisk filosofi, og hans metode for begrepsanalyse ga metaetikken form. Ayer flyttet spørsmålet videre inn i den logiske empirismen.`),
     aristotelismen__dydsetikken: strek(`Elizabeth Anscombe ba filosofene gå tilbake til Aristoteles, og hans *eudaimonia* og dydslære er retningens utgangspunkt.`),
@@ -195,17 +166,17 @@ export default {
       Gresk filosof, sønn av en steinhugger og en jordmor. Han skrev ingenting, og vi kjenner ham gjennom Platon, Xenofon og Aristofanes. I samtaler spurte han folk hva dyd og rettferdighet er, og avslørte at de ikke visste. Delfi-oraklet erklærte at ingen var visere enn ham, og det forsto han slik at han i det minste visste at han ikke visste. Dømt til døden i 399 f.Kr. drakk han giftbegeret i stedet for å flykte.
     `, [], [sep("https://plato.stanford.edu/entries/socrates/"), snl("https://snl.no/Sokrates")]),
 
-    // --- Kynikerne ---
-    f("Antisthenes", [null, null], "mann", ["Etikk"], ["Kynikerne"], ["Dyd"], [-400, -365], "Athen", `
+    // --- Kynikerne (nå i Sofistene og Sokrates) ---
+    f("Antisthenes", [null, null], "mann", ["Etikk"], ["Sofistene og Sokrates"], ["Dyd"], [-400, -365], "Athen", `
       Gresk filosof fra Athen, først elev av Gorgias og siden en nær følgesvenn av Sokrates, og var til stede da han døde. Dyden er nok til lykke, sa han, og den vinnes ved handling, ikke ved lærdom. Senere tradisjon gjorde ham til kynismens grunnlegger, selv om forskere nå er i tvil om hvor nært han sto Diogenes. Han skrev mye, men alt er tapt unntatt fragmenter og to korte taler.
     `, [], [iep("https://iep.utm.edu/cynics/")]),
-    f("Diogenes fra Sinope", [null, -323], "mann", ["Etikk"], ["Kynikerne"], ["Dyd", "Frihet"], [-360, -323], "Sinope, Athen og Korint", `
+    f("Diogenes fra Sinope", [null, -323], "mann", ["Etikk"], ["Sofistene og Sokrates"], ["Dyd", "Frihet"], [-360, -323], "Sinope, Athen og Korint", `
       Gresk filosof, kjent for å ha bodd i en stor krukke i Athen og for å ha gått rundt med lykt på høylys dag for å lete etter et menneske. Da Aleksander den store spurte om han hadde noe ønske, ba han ham flytte seg fra solen. Han kalte seg verdensborger og levde uten skam i offentligheten. Skriftene er tapt, og det meste er anekdoter, men Diogenes ble selve bildet på den frie filosofen.
     `, [], [iep("https://iep.utm.edu/diogsino/")]),
-    f("Krates fra Theben", [null, null], "mann", ["Etikk"], ["Kynikerne"], ["Dyd"], [-330, -285], "Theben og Athen", `
+    f("Krates fra Theben", [null, null], "mann", ["Etikk"], ["Sofistene og Sokrates"], ["Dyd"], [-330, -285], "Theben og Athen", `
       Gresk filosof fra en rik familie, som ga bort formuen sin for å følge Diogenes fra Sinope. Han levde på gaten og ble vennlig mottatt i hjemmene i Athen fordi han mildnet folks uro med humor. Ekteskapet med Hipparkia vakte oppsikt. Som lærer for Zenon fra Kition er han bindeleddet mellom kynisme og stoisisme. Noen dikt og brokker av parodier er bevart.
     `, [], [iep("https://iep.utm.edu/cynics/")]),
-    f("Hipparkia fra Maroneia", [null, null], "kvinne", ["Etikk"], ["Kynikerne"], ["Kjønn"], [-320, -290], "Maroneia og Athen", `
+    f("Hipparkia fra Maroneia", [null, null], "kvinne", ["Etikk"], ["Sofistene og Sokrates"], ["Kjønn"], [-320, -290], "Maroneia og Athen", `
       Gresk filosof, en av svært få kvinner vi kjenner fra antikk filosofi. Hun forlot en rik familie for å leve som kyniker med Krates fra Theben, og trosset dermed alle regler for en gresk kvinne. Diogenes Laertios forteller at hun deltok i symposier og slo tilbake når en mann mente hun burde holde seg ved vevstolen: hun brukte tiden på utdannelse. Skriftene er tapt.
     `, [], [iep("https://iep.utm.edu/cynics/")]),
 
@@ -242,39 +213,39 @@ export default {
       Gresk lege og filosof fra rundt år 200, vår viktigste kilde til pyrrhonismen. «Pyrrhoneiske grunntrekk» forklarer hvordan vi kan stille motstridende argumenter mot hverandre og la dommen falle bort. Det gir ro. Han angriper vitenskapene én for én, og har et tidlig argument mot induksjon. Latinske utgaver fra 1500-tallet påvirket Montaigne og den moderne filosofiens skeptiske krise.
     `, [["Pyrrhoneiske grunntrekk"], ["Mot lærerne"]], [sep("https://plato.stanford.edu/entries/sextus-empiricus/")]),
 
-    // --- Romersk stoisisme ---
-    f("Seneca", [null, 65], "mann", ["Etikk"], ["Romersk stoisisme"], ["Dyd", "Ataraksi"], [41, 65], "Córdoba og Roma", `
+    // --- Romersk stoisisme (nå i Stoisismen) ---
+    f("Seneca", [null, 65], "mann", ["Etikk"], ["Stoisismen"], ["Dyd", "Ataraksi"], [41, 65], "Córdoba og Roma", `
       Romersk filosof, dramatiker og statsmann fra Spania, lærer og senere rådgiver for keiser Nero. «Brev til Lucilius» og essayene om sinne, nåde og livets korthet er blant de mest leste tekstene fra antikken. Han ble styrtrik i keiserens tjeneste, og motsetningen til læren har forundret lesere siden. Nero beordret ham til å ta sitt eget liv i 65, en scene Tacitus beskriver i detalj.
     `, [["Om livets korthet"], ["Om sinne"], ["Brev til Lucilius"]], [sep("https://plato.stanford.edu/entries/seneca/")]),
-    f("Epiktet", [null, null], "mann", ["Etikk"], ["Romersk stoisisme"], ["Frihet", "Dyd"], [90, 135], "Hierapolis, Roma og Nikopolis", `
+    f("Epiktet", [null, null], "mann", ["Etikk"], ["Stoisismen"], ["Frihet", "Dyd"], [90, 135], "Hierapolis, Roma og Nikopolis", `
       Gresk stoiker, født som slave i Frygia, senere frigitt, og forvist fra Roma av Domitian. Han drev en skole i Nikopolis i dagens Hellas. Han skrev ingenting. Eleven Arrian nedtegnet «Samtaler» og den korte «Håndbok». Noe står i vår makt, våre vurderinger og valg, og noe gjør det ikke. Frihet ligger i å skille mellom dem. Moderne kognitiv atferdsterapi viser direkte til ham.
     `, [["Samtaler"], ["Håndbok"]], [sep("https://plato.stanford.edu/entries/epictetus/")]),
-    f("Markus Aurelius", [121, 180], "mann", ["Etikk"], ["Romersk stoisisme"], ["Dyd", "Logos"], [161, 180], "Roma og Donau-fronten", `
+    f("Markus Aurelius", [121, 180], "mann", ["Etikk"], ["Stoisismen"], ["Dyd", "Logos"], [161, 180], "Roma og Donau-fronten", `
       Romersk keiser fra 161 og stoisk filosof. «Selvbetraktninger» er notater til ham selv, skrevet på gresk under felttog mot germanske stammer, og aldri ment for utgivelse. Han minner seg selv om at livet er kort, at andre gjør galt av uvitenhet, og at alt henger sammen. Som keiser tillot han likevel forfølgelse av kristne. Boken er blitt en av de mest leste filosofiske tekster i vår tid.
     `, [["Selvbetraktninger"]], [sep("https://plato.stanford.edu/entries/marcus-aurelius/")]),
 
-    // --- Renessansehumanismen ---
-    f("Petrarca", [1304, 1374], "mann", ["Etikk", "Estetikk"], ["Renessansehumanismen"], [], [1337, 1374], "Arezzo, Avignon og Vaucluse", `
+    // --- Renessansehumanismen (nå i Renessansen) ---
+    f("Petrarca", [1304, 1374], "mann", ["Etikk", "Estetikk"], ["Renessansen"], [], [1337, 1374], "Arezzo, Avignon og Vaucluse", `
       Italiensk dikter og lærd, ofte kalt humanismens far. Han lette i klosterbiblioteker etter Cicero og skrev brev direkte til de døde forfatterne. Han hevdet at det viktige ikke er å vite hva dyd er, men å få menneskene til å ønske den, og angrep aristotelikerne ved universitetene. Sonettene til Laura gjorde ham til en av Europas store dikternavn. Brevet om oppstigningen til Mont Ventoux i 1336 blir ofte lest som et bilde på renessansens nye blikk på verden.
     `, [["Secretum", 1347], ["De sui ipsius et multorum ignorantia", 1367], ["Canzoniere", 1374]], [snl("https://snl.no/Francesco_Petrarca")]),
-    f("Lorenzo Valla", [null, 1457], "mann", ["Logikk og språk", "Etikk"], ["Renessansehumanismen"], [], [1431, 1457], "Roma og Napoli", `
+    f("Lorenzo Valla", [null, 1457], "mann", ["Logikk og språk", "Etikk"], ["Renessansen"], [], [1431, 1457], "Roma og Napoli", `
       Italiensk humanist og språkgransker. Ved språklige bevis viste han i 1440 at Konstantins gavebrev, som paven støttet sin verdslige makt på, var et falsum. Slik ble filologien et skarpt våpen. «De voluptate» lar en epikureer komme sterkt til orde, og han ville rense filosofien for skolastikkens tekniske latin. Kommentarene hans til Det nye testamente inspirerte Erasmus.
     `, [["De voluptate", 1431], ["De falso credita et ementita Constantini donatione", 1440], ["Elegantiae linguae latinae", 1471]], [sep("https://plato.stanford.edu/entries/lorenzo-valla/")]),
-    f("Erasmus", [1466, 1536], "mann", ["Religionsfilosofi", "Etikk"], ["Renessansehumanismen", "Reformasjonen"], ["Fri vilje"], [1500, 1536], "Rotterdam, Cambridge og Basel", `
+    f("Erasmus", [1466, 1536], "mann", ["Religionsfilosofi", "Etikk"], ["Renessansen"], ["Fri vilje"], [1500, 1536], "Rotterdam, Cambridge og Basel", `
       Nederlandsk humanist og prest, sin tids mest berømte lærde. «Dårskapens pris» gjør narr av kirke og lærde, og hans greske utgave av Det nye testamente (1516) ble grunnlag for Luthers oversettelse. Han ville reformere kirken med dannelse, ikke splitte den. Striden med Luther om den frie viljen i 1524 og 1525 viser skillet mellom humanisme og reformasjon. Fødselsåret er usikkert.
     `, [["Moriae encomium", 1511], ["Novum Instrumentum", 1516], ["De libero arbitrio", 1524]], [sep("https://plato.stanford.edu/entries/erasmus/")]),
-    f("Montaigne", [1533, 1592], "mann", ["Etikk", "Erkjennelsesteori"], ["Renessansehumanismen"], ["Tvil"], [1572, 1592], "Bordeaux", `
+    f("Montaigne", [1533, 1592], "mann", ["Etikk", "Erkjennelsesteori"], ["Renessansen", "Skeptisismen"], ["Tvil"], [1572, 1592], "Bordeaux", `
       Fransk adelsmann, ordfører i Bordeaux og oppfinner av essayet som form. Han trakk seg tilbake til tårnet på slottet sitt og skrev om vennskap, kannibaler, døden, nyrestein og seg selv. Mottoet er *Que sais-je?* I «Apologie de Raimond Sebond» bruker han Sextus Empiricus til å vise fornuftens grenser. Han forsvarte toleranse under religionskrigene, og leses i dag som en av de første moderne, selvransakende stemmene.
     `, [["Essais", 1580]], [sep("https://plato.stanford.edu/entries/montaigne/")]),
 
-    // --- Moralsansfilosofien ---
-    f("Shaftesbury", [1671, 1713], "mann", ["Etikk", "Estetikk"], ["Moralsansfilosofien"], ["Moralsk sans", "Det skjønne og det sublime"], [1699, 1713], "England og Napoli", `
+    // --- Moralsansfilosofien (nå i Opplysningsfilosofien) ---
+    f("Shaftesbury", [1671, 1713], "mann", ["Etikk", "Estetikk"], ["Opplysningsfilosofien"], ["Moralsk sans", "Det skjønne og det sublime"], [1699, 1713], "England og Napoli", `
       Engelsk adelsmann og filosof, Anthony Ashley Cooper, tredje jarl av Shaftesbury, oppdratt under John Lockes tilsyn. Mot Hobbes og sin gamle lærer hevdet han at mennesket av natur har sans for det gode og det skjønne, og at dyd og harmoni henger sammen. «Characteristicks» var et av de mest leste verkene på 1700-tallet og påvirket både Kant, Hutcheson og tysk estetikk. Dårlig helse fikk ham til å flytte til Italia, der han døde.
     `, [["Characteristicks of Men, Manners, Opinions, Times", 1711]], [sep("https://plato.stanford.edu/entries/shaftesbury/")]),
-    f("Francis Hutcheson", [1694, 1746], "mann", ["Etikk", "Estetikk"], ["Moralsansfilosofien"], ["Moralsk sans", "Nytteprinsippet", "Det skjønne og det sublime"], [1725, 1746], "Ulster, Dublin og Glasgow", `
+    f("Francis Hutcheson", [1694, 1746], "mann", ["Etikk", "Estetikk"], ["Opplysningsfilosofien"], ["Moralsk sans", "Nytteprinsippet", "Det skjønne og det sublime"], [1725, 1746], "Ulster, Dublin og Glasgow", `
       Irskfødt filosof, professor i Glasgow fra 1729 og en av den skotske opplysningens fedre. Han utviklet moralsansen: vi oppfatter det gode umiddelbart, slik vi oppfatter det skjønne. Han formulerte tidlig tanken om «størst mulig lykke for flest», og var mot slaveriet. Som forelesende lærer var han kjent for å være uvanlig varm, og Adam Smith var blant studentene hans.
     `, [["An Inquiry into the Original of Our Ideas of Beauty and Virtue", 1725], ["A System of Moral Philosophy", 1755]], [sep("https://plato.stanford.edu/entries/hutcheson/")]),
-    f("Adam Smith", [1723, 1790], "mann", ["Etikk", "Politisk filosofi"], ["Moralsansfilosofien"], ["Moralsk sans"], [1752, 1790], "Kirkcaldy, Glasgow og Edinburgh", `
+    f("Adam Smith", [1723, 1790], "mann", ["Etikk", "Politisk filosofi"], ["Opplysningsfilosofien"], ["Moralsk sans"], [1752, 1790], "Kirkcaldy, Glasgow og Edinburgh", `
       Skotsk filosof og økonom, professor i moralfilosofi i Glasgow. Han er mest kjent for «The Wealth of Nations», men regnet selv «The Theory of Moral Sentiments» som sitt beste verk. Moralen springer ut av sympati, og vi lærer å dømme oss selv gjennom en tenkt upartisk tilskuer. Bildet av ham som talsmann for bare egeninteresse er misvisende. Han er kritisk til handelsmenn og forsvarer arbeidere i flere sammenhenger.
     `, [["The Theory of Moral Sentiments", 1759], ["The Wealth of Nations", 1776]], [sep("https://plato.stanford.edu/entries/smith-moral-political/")]),
 

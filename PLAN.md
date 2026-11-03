@@ -59,24 +59,46 @@ Fra oppskriften. Hakene settes etter hvert som de er gjort.
 - [x] **Steg 3: Ordene.** Gjort 2026-11-02. `tools/ordbytte.py` bytter nå både musikkord og pedagogikkord rett til filosofiord (med unntak for «reformasjon», «reformator», «Reformpedagogikk» og «den pedagogiske rekkefølgen»), og kjørt på HTML-sidene og `js/` (ikke `genealogy-data.js`, som er testfrø). `tools/finn-musikkord.js` leter nå etter pedagogikkord (`--musikk` tar også musikkordene), og lista er tom for alt unntatt det som hører til steg 4 og 6: `STORY_ORDER` og `SPALTER` (retningsnavn, når skjelettet er bestemt) og kategoriene «Læreplan» m.fl. (`TECH_CATEGORIES` og fanene i `teacher.html`, steg 4). «Den pedagogiske rekkefølgen» i tre-editoren står igjen med vilje: den betyr undervisningsrekkefølgen.
 - [x] **Steg 4: Fagkonstanter og tester.** Gjort 2026-11-02: disiplinene (`INSTRUMENT_GROUPS`, `INSTRUMENT_TITLE` og visningsrekkefølgen i `js/felles/limits.js`), milepælkategoriene (`TECH_CATEGORIES` i `js/ui/ui-tech.js` og fanene i `teacher.html`), eksempeltekstene i skjemaene (Kant, Königsberg, «Fri vilje, Universalier»), ordgrensene og skjelettstien i innholdsverktøyene (`json files/filosofi-skjelett.json`), og testene som låste det gamle faget (disiplinverdiene i testdata, kategoriene og dokumenteksemplene). **Venter på skjelettet (steg 6):** `STORY_ORDER` (`js/felles/story-format.js`) og `SPALTER` (`js/utforsk/explore-sjanger.js`) må få de nye retningsnavnene, og `tools/pedagogikk-skjelett.js`, `tools/lag-pedagogikk-skjelett.js`, `tests/unit/pedagogikk-skjelett.test.js`, `tests/helpers/skjelett-tre.js` og treeksemplene i `tests/unit/sjekk-innholdsfil.test.js` (Dewey, Progressivismen) skrives om samtidig. Musikktreet i `js/sjangre/genealogy-data.js` står som testfrø.
 - [x] **Steg 5: Publisering.** Gjort 2026-11-02: DNS (CNAME til `eiriksorbo.github.io`, sjekket mot alle tre navneserverne), Pages fra `main` og `/ (root)`, sertifikat fra Let's Encrypt, Firebase-domenet og `firestore.rules` publisert (offentlig lesing av `artists`, `content` og `genreDescriptions` gir 200 og tomme samlinger). Klassekodeskjermen står på `https://filosofi.historieappen.no` uten konsollfeil. Ikke testet av meg: studentsiden bak klassekoden og lærerinnloggingen (Eirik tester). Gjenstår: nettlesertestene i `tests/e2e/` (jobben «nettleser» under Actions) sjekker musikkord og må rettes ut fra de faktiske feilene.
-- [x] **Steg 6: Skjelettet (Opus), foreløpig.** Forslaget står i `tools/filosofi-skjelett.js`: 8 retninger, 78 epoker, 17 tidsrom, 122 påvirkninger og 22 motreaksjoner. `node tools/lag-filosofi-skjelett.js` kjører det gjennom appens validator og skriver `json files/filosofi-skjelett.json`. **Eirik har ikke godkjent det ennå** (se «Valg tatt uten Eirik» under). Node-ID-ene låses først når treet er importert, så alt kan endres fram til da.
-- [x] **Steg 7: Innholdet (Opus), førsteutkast natt til 2026-11-03.** I `innhold/runde-1` til `runde-5`: 277 filosofer, 78 epoker, 8 retninger med fortelling, 144 påvirkninger, 45 begreper (13+ med utdrag i «Se og les»), 68 milepæler og de fire sidene. Alle bygger med 0 feil og 29 myke ordgrense-advarsler. Lenkene er sjekket, og fødsels- og dødsår er sjekket mot Wikidata. **Ikke uavhengig faktasjekket:** `teacherChecked` er false overalt, og hovedverkenes årstall og tekstene er bare lest av forfatteren.
+- [x] **Steg 6: Skjelettet (Opus), slanket 2026-11-03.** `tools/filosofi-skjelett.js` har 8 retninger, 52 epoker, 16 tidsrom, 86 påvirkninger og 17 motreaksjoner. `node tools/lag-filosofi-skjelett.js` kjører det gjennom appens validator og skriver `json files/filosofi-skjelett.json`. Forslaget hadde 78 epoker. Da Eirik så treet i appen, ba han om et oversiktsbilde med rundt 50, så de mindre vestlige epokene er slått inn i naboene, mens de grå i «Andre tradisjoner» står. Tidsrommet «2000–i dag» ble tomt og er slått sammen med «1970–2000» til «1970–i dag». Filosofene, epoketekstene og påvirkningene er flyttet med:
+
+  | Borte | Nå i |
+  |---|---|
+  | Atomistene | Naturfilosofene |
+  | Pytagoreerne, Eleatene | Pytagoreerne og eleatene (id `eleatene`) |
+  | Kynikerne | Sofistene og Sokrates |
+  | Romersk stoisisme | Stoisismen |
+  | Romersk republikanisme | Stoisismen (Cicero) og Aristotelismen (Polybios) |
+  | Tidlig skolastikk, Høyskolastikken, Senskolastikken, Annen skolastikk | Skolastikken |
+  | Renessansehumanismen, Renessanseplatonismen, Reformasjonen, Politisk realisme | Renessansen |
+  | Deismen, Moralsansfilosofien | Opplysningsfilosofien |
+  | Nykantianismen | Kantianismen |
+  | Britisk idealisme | Tysk idealisme |
+  | Nypragmatismen, Pittsburgh-skolen | Pragmatismen |
+  | Naturalismen | Vitenskapsfilosofien (Quine) og Sinnsfilosofien (Churchland) |
+  | Viljesfilosofien | Eksistenstenkningen |
+  | Eksistensfilosofien | Fenomenologien (Heidegger, Arendt) og Eksistensialismen (Jaspers) |
+  | Filosofisk hermeneutikk | Hermeneutikken |
+  | Spekulativ realisme | Poststrukturalismen |
+  | Nythomismen, Dialogfilosofien | Ny religionsfilosofi |
+  | Dagligspråksfilosofien, Analytisk metafysikk | Språkfilosofien |
+  | KI-filosofien | Sinnsfilosofien |
+- [x] **Steg 7: Innholdet (Opus), førsteutkast natt til 2026-11-03, tilpasset det slankere treet samme dag.** I `innhold/runde-1` til `runde-5`: 277 filosofer, 52 epoker, 8 retninger med fortelling, 103 påvirkninger, 45 begreper (13+ med utdrag i «Se og les»), 68 milepæler og de fire sidene. Alle bygger med 0 feil og 16 myke ordgrense-advarsler. Lenkene er sjekket, og fødsels- og dødsår er sjekket mot Wikidata. De sammenslåtte epoketekstene er skrevet av Claude fra de gamle tekstene. **Ikke uavhengig faktasjekket:** `teacherChecked` er false overalt, og hovedverkenes årstall og tekstene er bare lest av forfatteren.
 - [x] **Steg 8: Dokumentene.** `README.md`, `JSON-OPPSKRIFT.md` og modulkartet er på filosofi. `KART-OPPSKRIFT.md` er slettet.
 
 ## Valg tatt uten Eirik (natt til 2026-11-03)
 
 Eirik la seg og ba om at det ikke skulle spørres. Disse valgene er derfor Claudes, og han kan overstyre dem. Widgeten med forslaget står i samtalen.
 
-- **Skjelettet er tatt som foreslått:** de åtte retningene, 78 epoker, start i 800 f.Kr. (for å få med Upanishadene) og Aristoteles under Natur og erfaring.
+- **Skjelettet ble først tatt som foreslått:** de åtte retningene, start i 800 f.Kr. (for å få med Upanishadene) og Aristoteles under Natur og erfaring. Hvilke epoker som er slått sammen (78 til 52, etter Eiriks ønske 2026-11-03), og hvor filosofene havnet, står i steg 6.
 - **Tradisjoner Eirik ikke nevnte:** Jødisk filosofi, Kyoto-skolen og Afrikansk filosofi er med i «Andre tradisjoner». De er enkle å fjerne før import.
 - **Kilderekkefølge:** SEP, IEP, SNL, Britannica, med bøker der nettkilde mangler.
-- **Ikke pushet:** alt ligger lokalt på `main`. Eirik pusher når han har sett det.
+- **Pushet:** Eirik pushet v0.03 (`48b945e3`) selv 2026-11-03.
 
 ## Neste steg for Eirik
 
-1. Se gjennom skjelettet i widgeten i samtalen (eller `tools/filosofi-skjelett.js`). Endringer er gratis før import, for node-ID-ene låses først da.
-2. Push `main` (v0.03). Ingenting er pushet siden `24705a00`.
-3. Importer på lærersiden, Innstillinger, Importer, i denne rekkefølgen: `json files/filosofi-skjelett.json`, så `runde-1.json` til `runde-5.json`. Velg «Slå sammen» for alt etter runde 1.
+1. Importer på lærersiden, Innstillinger, Importer, i denne rekkefølgen: `json files/filosofi-skjelett.json` (treet erstattes helt), så `runde-1.json` med «Erstatt alle» hvis filosofer fra det gamle treet allerede ligger inne (ellers «Slå sammen»), og `runde-2.json` til `runde-5.json` med «Slå sammen».
+2. Åpne epokeredigeringen og trykk «Sjekk koblingsbeskrivelsene for foreldreløse». Tekstene til strekene som ikke finnes lenger, vises ikke noe sted, men ligger i databasen til de slettes der.
+3. Se treet i appen igjen og si fra om flere epoker skal slås sammen eller deles.
 4. Bestem om en uavhengig kontrollrunde skal kjøres (subagenter startes bare når Eirik ber om det).
 5. Slå på det som skal være synlig under «Synlig for studentene», og sett viktighetsgrad. Ingen kort har grad nå.
 

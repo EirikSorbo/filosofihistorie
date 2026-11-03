@@ -46,26 +46,6 @@ export default {
       },
     },
     main: {
-      "Romersk republikanisme": epoke("ca. 150–43 f.Kr.", -150, -43, `
-        Da Polybios, en gresk gissel i Roma, skulle forklare hvorfor romerne hadde erobret den kjente verden på 53 år, viste han til forfatningen. Konsuler, senat og folk holder hverandre i sjakk, og den blandede styreformen hindrer det forfallet som rammer alle rene former. Tanken var hentet fra Platon og Aristoteles, men ble nå brukt på en faktisk stat.
-
-        Cicero, statsmann i republikkens siste krise, ga tradisjonen dens latinske språk. I «Om staten» er republikken folkets sak, og et folk er ikke bare en mengde, men et fellesskap bundet av rett. Over alle lover står en naturlig lov, tilgjengelig for fornuften. Han betalte for forsvaret av republikken med livet i 43 f.Kr., og ble lest av middelalderens rettslærde, av Machiavelli og av den amerikanske revolusjonens menn.
-      `, `
-        Roma vant over Kartago og Hellas, og rikdom og slaver strømmet inn. Republikken gikk i oppløsning gjennom borgerkriger, med Sulla, Pompeius og Caesar, som ble drept i 44 f.Kr. Etter Cicero kom keiserdømmet.
-      `, `
-        Gresk filosofi og retorikk kom til Roma gjennom lærere og krigsbytte. Cicero laget et latinsk filosofisk ordforråd, og romerretten utviklet seg til et system som fikk varig betydning.
-      `, [REP, sep("https://plato.stanford.edu/entries/cicero/")]),
-
-      "Politisk realisme": epoke("1513–1576", 1513, 1576, `
-        Niccolò Machiavelli skrev «Fyrsten» i eksil i 1513. Der bryter han med fyrstespeilene som ville lære herskere dyder: han vil se på verden slik den er, ikke slik den burde være. Fyrsten må være både rev og løve og noen ganger handle ondt for å holde staten sammen. I «Discorsi» forsvarer han på samme tid en republikk etter romersk mønster, der konflikten mellom folk og elite skaper frihet.
-
-        Francesco Guicciardini delte blikket, men med mer tvil om lærdommene fra historien. Jean Bodin fant i de franske religionskrigene et nytt begrep: suverenitet, den høyeste makten som ikke lar seg dele. Spørsmålet om politikkens egne lover, atskilt fra moralen, har blitt stående.
-      `, `
-        Italia var delt mellom bystater og invadert av Frankrike og Spania fra 1494. Medici ble drevet ut og kom tilbake i Firenze. I Frankrike fulgte Bartolomeusnatten (1572) og religionskrigene etter reformasjonen.
-      `, `
-        Humanistenes historieskriving og lesningen av Livius og Tacitus ga modeller. Boktrykket spredte politisk teori, og diplomatiet ble eget yrke. Bodin brukte sammenlignende rettsstudier.
-      `, [sep("https://plato.stanford.edu/entries/machiavelli/"), sep("https://plato.stanford.edu/entries/realism-intl-relations/")]),
-
       "Kontraktsteoriene": epoke("1625–1762", 1625, 1762, `
         Hvis ingen lenger kan vise til Gud eller tradisjon, må statens makt begrunnes i det folk selv kan gå med på. Hugo Grotius og Samuel Pufendorf bygde en naturrett som alle fornuftige mennesker kan godta. Thomas Hobbes tok sterkest konsekvens: uten stat er livet ensomt, fattig, ekkelt, brutalt og kort, og vi bør overlate all makt til en suveren.
 
@@ -80,11 +60,13 @@ export default {
         Sapere aude: våg å bruke din egen forstand, skrev Kant i 1784 om opplysningstiden. I Frankrike var *philosophes* en ny type intellektuelle som skrev for offentligheten. Montesquieu ga maktfordelingen sin klassiske form. Voltaire førte kampen mot religiøs fanatisme, tortur og justismord, og Denis Diderot og d'Alembert samlet tidens kunnskap i «Encyclopédie». Émilie du Châtelet gjorde Newton tilgjengelig på fransk.
 
         Opplysningen er ingen enkelt lære: Diderot var materialist, Voltaire deist, og Rousseau var kritisk til hele prosjektet. Mary Wollstonecraft og Condorcet utvidet rettighetene til kvinner. Adorno og Horkheimer har senere sett fornuftens herredømme som kimen til nye former for undertrykking, og postkoloniale kritikere har vist at universalismen hadde sine blinde flekker.
+
+        Opplysningen hadde også en britisk side. Deister som John Toland og Matthew Tindal hevdet at fornuften alene gir oss det vi trenger å vite om Gud, og at åpenbaringer og mirakler er overflødige. Shaftesbury og Francis Hutcheson hevdet at mennesket har en naturlig sans for det rette. I den skotske opplysningen bygde David Hume moralen på følelse og sympati, mens Adam Smith gjorde den upartiske tilskueren til moralens kjerne.
       `, `
-        Enevelde og sensur i Frankrike, handel og fremvekst av en borgerstand. Den amerikanske revolusjonen (1776) og den franske (1789) tok ideene i bruk. Slaveopprøret på Haiti fra 1791 prøvde dem mot en virkelighet de færreste hadde tenkt på.
+        Enevelde og sensur i Frankrike, handel og fremvekst av en borgerstand. Den amerikanske revolusjonen (1776) og den franske (1789) tok ideene i bruk. Slaveopprøret på Haiti fra 1791 prøvde dem mot en virkelighet de færreste hadde tenkt på. Den skotske opplysningen vokste fram i Edinburgh og Glasgow etter unionen med England i 1707.
       `, `
         Salonger, ofte ledet av kvinner, kaffehus, tidsskrifter og lesesirkler skapte en ny offentlighet. «Encyclopédie» (1751–1772) ble forbudt, men utkom likevel. Newtons fysikk var opplysningens store forbilde.
-      `, [OPPL, sep("https://plato.stanford.edu/entries/voltaire/"), sep("https://plato.stanford.edu/entries/diderot/"), sep("https://plato.stanford.edu/entries/wollstonecraft/")]),
+      `, [OPPL, sep("https://plato.stanford.edu/entries/voltaire/"), sep("https://plato.stanford.edu/entries/diderot/"), sep("https://plato.stanford.edu/entries/wollstonecraft/"), sep("https://plato.stanford.edu/entries/moral-sentimentalism/")]),
 
       "Konservatismen": epoke("1790–1830", 1790, 1830, `
         Edmund Burke så i 1790 det som andre ennå ikke så, nemlig at den franske revolusjonen ville ende i vold. Samfunnet er en kontrakt mellom de levende, de døde og de ufødte, og fornuften er for svak til å bygge alt på nytt. Institusjoner bærer erfaringer ingen enkeltperson kan overskue. Selv var han liberal i andre spørsmål, og støttet de amerikanske koloniene og angrep den britiske framferden i India.
@@ -159,11 +141,8 @@ export default {
   },
 
   edgeDescriptions: {
-    aristotelismen__romerskrepublikk: strek(`Lære om blandet forfatning kommer fra Aristoteles' «Politikken». Polybios brukte den til å forklare Roma.`),
-    platonismen__romerskrepublikk: strek(`Cicero skrev bevisst sine «Om staten» og «Om lovene» etter Platons mønster, men snudde prosjektet: han ville beskrive den beste staten slik den faktisk hadde vært i Roma.`),
-    romerskrepublikk__politiskrealisme: strek(`Machiavelli kommenterte Livius og var mer romersk enn kristen. Dyden, *virtù*, hos Fyrsten er ikke kristen dyd, men romersk handlekraft.`),
-    politiskrealisme__kontraktsteori: strek(`Hobbes delte Machiavellis nøkterne syn på mennesker, og Bodins begrep om suverenitet ble et hovedtema i kontraktsteoriene.`),
-    annenskolastikk__kontraktsteori: strek(`Grotius bygde på Vitoria og Salamanca-skolens naturrett. Også Suárez' tanke om at makten kommer fra folket, peker fram.`),
+    renessansen__kontraktsteori: strek(`Hobbes delte Machiavellis nøkterne syn på mennesker, og Bodins begrep om suverenitet ble et hovedtema i kontraktsteoriene.`),
+    skolastikken__kontraktsteori: strek(`Grotius bygde på Vitoria og Salamanca-skolens naturrett. Også Suárez' tanke om at makten kommer fra folket, peker fram.`),
     kontraktsteori__opplysningen: strek(`Lockes og Grotius' rettighetsspråk gikk inn i opplysningstiden. Rousseau selv tilhører begge, og Voltaire førte Locke til Frankrike i «Lettres philosophiques».`),
     empirismen__opplysningen: strek(`Voltaire gjorde Locke og Newton berømte på kontinentet, og Condillac og andre utviklet sansebasert psykologi. Reform av oppdragelse og samfunn hvilte på dette.`),
     rasjonalismen__opplysningen: strek(`Spinozas bibelkritikk og frie tenkning var en understrøm i radikal opplysning, slik Jonathan Israel har vist. Voltaire hånte Leibniz, men hele prosjektet hviler på tillit til fornuften.`),
@@ -186,22 +165,22 @@ export default {
   },
 
   artists: [
-    // --- Romersk republikanisme ---
-    f("Polybios", [null, null], "mann", ["Politisk filosofi"], ["Romersk republikanisme"], ["Makt"], [-167, -118], "Megalopolis og Roma", `
+    // --- Romersk republikanisme (nå i Stoisismen og Aristotelismen) ---
+    f("Polybios", [null, null], "mann", ["Politisk filosofi"], ["Aristotelismen"], ["Makt"], [-167, -118], "Megalopolis og Roma", `
       Gresk historiker fra Akaia, ført til Roma som gissel i 167 f.Kr., der han ble venn av Scipio. Hans «Historiene» forklarer hvordan Roma vant verdensherredømmet på litt over femti år. Svaret er en blandet forfatning, der kongemakt, adelsmakt og folkemakt balanserer hverandre og bremser det kretsløpet av forfall som rammer andre stater. Tanken gikk videre til Machiavelli, Montesquieu og den amerikanske grunnloven.
-    `, [["Historiene"]], [sep("https://plato.stanford.edu/entries/republicanism/"), sep("https://plato.stanford.edu/entries/republicanism/")]),
-    f("Cicero", [-106, -43], "mann", ["Politisk filosofi", "Etikk"], ["Romersk republikanisme"], ["Naturrett", "Frihet", "Plikt", "Dyd"], [-63, -43], "Arpinum og Roma", `
+    `, [["Historiene"]], [REP]),
+    f("Cicero", [-106, -43], "mann", ["Politisk filosofi", "Etikk"], ["Stoisismen", "Skeptisismen"], ["Naturrett", "Frihet", "Plikt", "Dyd"], [-63, -43], "Arpinum og Roma", `
       Romersk statsmann, taler og filosof, konsul i 63 f.Kr. Han ga filosofien et latinsk språk og formidlet de greske skolene til Vesten. «Om staten», «Om lovene» og «Om pliktene» hevder at en sann lov er rett fornuft i samsvar med naturen. Han fulgte en moderat skeptisk linje i kunnskapsspørsmål og kritiserte Caesar. Etter å ha angrepet Marcus Antonius ble han drept i 43 f.Kr., og hodet og hendene ble satt på talerstolen.
     `, [["Om staten", -51], ["Om lovene"], ["Om gudenes natur", -45], ["Om pliktene", -44]], [sep("https://plato.stanford.edu/entries/cicero/")]),
 
-    // --- Politisk realisme ---
-    f("Niccolò Machiavelli", [1469, 1527], "mann", ["Politisk filosofi"], ["Politisk realisme"], ["Makt", "Frihet"], [1513, 1527], "Firenze", `
+    // --- Politisk realisme (nå i Renessansen) ---
+    f("Niccolò Machiavelli", [1469, 1527], "mann", ["Politisk filosofi"], ["Renessansen"], ["Makt", "Frihet"], [1513, 1527], "Firenze", `
       Italiensk diplomat og forfatter, i Firenzes tjeneste til Medici kom tilbake i 1512. Han ble torturert og skrev i eksil «Fyrsten», som lærer herskere hva de faktisk må gjøre, ikke hva de bør. Boken ble satt på pavens indeks og gjorde navnet hans til et skjellsord. «Discorsi» viser en annen side, nemlig en republikaner som tror på konflikt som kilde til frihet. Lesere strides om det første er ironisk.
     `, [["Il principe", 1532], ["Discorsi sopra la prima deca di Tito Livio", 1531]], [sep("https://plato.stanford.edu/entries/machiavelli/")]),
-    f("Francesco Guicciardini", [1483, 1540], "mann", ["Politisk filosofi"], ["Politisk realisme"], [], [1525, 1540], "Firenze og Roma", `
+    f("Francesco Guicciardini", [1483, 1540], "mann", ["Politisk filosofi"], ["Renessansen"], [], [1525, 1540], "Firenze og Roma", `
       Italiensk historiker og diplomat, venn og samtidig med Machiavelli, som han kritiserte for å bruke historien for bastant. Hver sak krever skjønn, sa han i «Ricordi», og historien gir ingen sikre regler. «Storia d'Italia» regnes som den første moderne historien om et større område. Han tjente pavene som guvernør, og hans skepsis overfor politiske systemer står som et alternativ til Machiavellis tro på modeller.
     `, [["Ricordi", 1530], ["Storia d'Italia", 1561]], [snl("https://snl.no/Francesco_Guicciardini")]),
-    f("Jean Bodin", [1530, 1596], "mann", ["Politisk filosofi"], ["Politisk realisme"], ["Makt"], [1566, 1596], "Angers og Paris", `
+    f("Jean Bodin", [1530, 1596], "mann", ["Politisk filosofi"], ["Renessansen", "Kontraktsteoriene"], ["Makt"], [1566, 1596], "Angers og Paris", `
       Fransk jurist, sentral blant dem som ville ha fred under religionskrigene. «Les six livres de la République» (1576) gir den første systematiske læren om *suverenitet*: den høyeste, udelelige makten i en stat. Han argumenterte også for religiøs toleranse og skrev om pengeteori. Samme mann skrev en håndbok for jakt på hekser, «De la démonomanie» (1580), noe som viser hvor sammensatt tiden var.
     `, [["Les six livres de la République", 1576], ["De la démonomanie des sorciers", 1580]], [sep("https://plato.stanford.edu/entries/bodin/")]),
 
@@ -223,7 +202,7 @@ export default {
     f("Montesquieu", [1689, 1755], "mann", ["Politisk filosofi"], ["Opplysningsfilosofien"], ["Makt", "Frihet"], [1721, 1755], "Bordeaux og Paris", `
       Fransk jurist og adelsmann, en av de første moderne samfunnsforskerne. «Lettres persanes» gjør narr av Frankrike gjennom to persiske reisendes blikk. I «De l'esprit des lois» viser han at lover må forstås ut fra klima, skikker og styreform, og at friheten krever maktfordeling mellom lovgivende, utøvende og dømmende makt. Tanken gikk rett inn i den amerikanske grunnloven. Boken ble satt på Vatikanets indeks.
     `, [["Lettres persanes", 1721], ["De l'esprit des lois", 1748]], [sep("https://plato.stanford.edu/entries/montesquieu/")]),
-    f("Voltaire", [1694, 1778], "mann", ["Politisk filosofi", "Religionsfilosofi"], ["Opplysningsfilosofien", "Deismen"], ["Frihet", "Det ondes problem"], [1718, 1778], "Paris, England og Ferney", `
+    f("Voltaire", [1694, 1778], "mann", ["Politisk filosofi", "Religionsfilosofi"], ["Opplysningsfilosofien"], ["Frihet", "Det ondes problem"], [1718, 1778], "Paris, England og Ferney", `
       Fransk forfatter og filosof, født François-Marie Arouet, og opplysningstidens mest berømte stemme. Fengslet i Bastillen og forvist til England brakte han Newton og Locke tilbake til Frankrike. «Candide» hånet Leibniz' optimisme etter jordskjelvet i Lisboa. Han engasjerte seg i Calas-saken mot religiøs forfølgelse. Han var deist, men fiende av kirken, og hans skrifter om jøder og andre folk viser opplysningens grenser.
     `, [["Lettres philosophiques", 1734], ["Candide", 1759], ["Traité sur la tolérance", 1763], ["Dictionnaire philosophique", 1764]], [sep("https://plato.stanford.edu/entries/voltaire/")]),
     f("Denis Diderot", [1713, 1784], "mann", ["Metafysikk", "Estetikk"], ["Opplysningsfilosofien"], [], [1746, 1784], "Langres og Paris", `
@@ -292,8 +271,8 @@ export default {
       Tysk filosof, den viktigste i Frankfurterskolens annen generasjon og en av de ledende offentlige intellektuelle i Europa etter krigen. «Strukturwandel der Öffentlichkeit» beskriver borgerlig offentlighet og dens forfall. «Theorie des kommunikativen Handelns» hevder at fornuften også er kommunikativ: i samtale forutsetter vi at det bedre argumentet skal vinne. Han diskuterte med Gadamer, Rawls, Derrida og den senere pave Benedikt 16.
     `, [["Strukturwandel der Öffentlichkeit", 1962], ["Theorie des kommunikativen Handelns", 1981], ["Faktizität und Geltung", 1992]], [sep("https://plato.stanford.edu/entries/habermas/")]),
 
-    // --- Arendt, ved Eksistensfilosofien ---
-    f("Hannah Arendt", [1906, 1975], "kvinne", ["Politisk filosofi"], ["Eksistensfilosofien"], ["Makt", "Frihet", "Anerkjennelse"], [1951, 1975], "Königsberg, Paris og New York", `
+    // --- Arendt, ved Fenomenologien ---
+    f("Hannah Arendt", [1906, 1975], "kvinne", ["Politisk filosofi"], ["Fenomenologien"], ["Makt", "Frihet", "Anerkjennelse"], [1951, 1975], "Königsberg, Paris og New York", `
       Tysk-amerikansk politisk tenker, elev av Heidegger og Jaspers, som flyktet i 1933 og kom til USA i 1941. «The Origins of Totalitarianism» forklarer nazisme og stalinisme som noe nytt. «The Human Condition» skiller arbeid, framstilling og handling, og hevder at politikk er å opptre blant likemenn. I rapporten om Eichmann-saken skrev hun om ondskapens banalitet, noe som utløste sterke reaksjoner. Hun avviste selv betegnelsen filosof.
     `, [["The Origins of Totalitarianism", 1951], ["The Human Condition", 1958], ["Eichmann in Jerusalem", 1963]], [sep("https://plato.stanford.edu/entries/arendt/")]),
 

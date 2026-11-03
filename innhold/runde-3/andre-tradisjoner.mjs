@@ -85,7 +85,7 @@ export default {
       "Jødisk filosofi": epoke("ca. 900–1200", 900, 1200, `
         Jødiske tenkere levde og skrev i den islamske verden, ofte på arabisk. Saadia Gaon i Bagdad forsøkte på 900-tallet å vise at åpenbaring og fornuft fører til samme sannhet. Ibn Gabirol skrev i Spania en nyplatonsk bok som kristne leste uten å vite at forfatteren var jøde.
 
-        Tradisjonens høydepunkt er Moses Maimonides, hvis «Villedes veileder» forener Aristoteles og Torah. Gud er så ulik alt annet at vi bare kan si hva Gud ikke er. Boken ble oversatt til latin og lest av Thomas Aquinas, og fra jødisk tenkning går linjer helt fram til Spinoza. Den moderne fortsettelsen står under Dialogfilosofien.
+        Tradisjonens høydepunkt er Moses Maimonides, hvis «Villedes veileder» forener Aristoteles og Torah. Gud er så ulik alt annet at vi bare kan si hva Gud ikke er. Boken ble oversatt til latin og lest av Thomas Aquinas, og fra jødisk tenkning går linjer helt fram til Spinoza. Den moderne fortsettelsen står under Ny religionsfilosofi.
       `, `
         Den jødiske diaspora under islamsk styre, med relativt gode kår i Bagdad og Córdoba. Almohadene forfulgte jødene i Spania på 1100-tallet, og familien til Maimonides måtte flykte.
       `, `
@@ -240,10 +240,10 @@ export default {
     filosof("Natur og erfaring")("Margaret Cavendish", [1623, 1673], "kvinne", ["Vitenskapsfilosofi", "Metafysikk"], ["Den nye vitenskapen"], ["Kropp og sjel"], [1653, 1673], "Colchester, Antwerpen og Welbeck", `
       Engelsk forfatter og filosof, hertuginne av Newcastle. Hun utviklet en vitalistisk materialisme, der all materie er sansende og tenkende, og kritiserte Hobbes, Descartes og Boyle. Hun var den første kvinnen som fikk besøke et møte i Royal Society, i 1667. «The Blazing World» er en tidlig science fiction-tekst. Hun ga ut en lang rekke bøker i eget navn, noe som var svært uvanlig for kvinner.
     `, [["Philosophical and Physical Opinions", 1655], ["Observations upon Experimental Philosophy", 1666], ["The Blazing World", 1666]], [sep("https://plato.stanford.edu/entries/margaret-cavendish/")]),
-    filosof("Tro og fornuft")("Hildegard av Bingen", [1098, 1179], "kvinne", ["Religionsfilosofi"], ["Høyskolastikken"], [], [1141, 1179], "Rupertsberg", `
+    filosof("Tro og fornuft")("Hildegard av Bingen", [1098, 1179], "kvinne", ["Religionsfilosofi"], ["Skolastikken"], [], [1141, 1179], "Rupertsberg", `
       Tysk abbedisse, visjonær, komponist og naturkyndig. «Scivias» beskriver hennes visjoner av verdens orden, og kirkens øverste, med paven i spissen, godkjente dem. Hun skrev også om planter og legekunst, og komponerte musikk som er bevart. Hun korresponderte med Bernhard av Clairvaux og keiser Fredrik Barbarossa, og reiste på preikereiser, som var svært sjeldent for kvinner.
     `, [["Scivias", 1151], ["Liber divinorum operum", 1173]], [bok("Newman, Barbara. Sister of Wisdom: St. Hildegard's Theology of the Feminine. University of California Press, 1987.")]),
-    filosof("Det gode liv")("Christine de Pizan", [null, null], "kvinne", ["Etikk", "Politisk filosofi"], ["Renessansehumanismen"], ["Kjønn", "Dyd"], [1399, 1429], "Venezia og Paris", `
+    filosof("Det gode liv")("Christine de Pizan", [null, null], "kvinne", ["Etikk", "Politisk filosofi"], ["Renessansen"], ["Kjønn", "Dyd"], [1399, 1429], "Venezia og Paris", `
       Fransk-italiensk forfatter, regnet som den første yrkesforfatteren som var kvinne i Europa. Hun ble enke som 25-åring og levde av å skrive. «Le Livre de la Cité des Dames» (1405) bygger en by av kvinner fra historien for å vise at kvinner er like dyktige, og tar et oppgjør med hvordan menn skriver om dem. Hun skrev også om krig, styre og Jeanne d'Arc. Hun er en tidlig stemme i den såkalte kvinnedebatten.
     `, [["Le Livre de la Cité des Dames", 1405], ["Le Livre des trois vertus", 1405]], [snl("https://snl.no/Christine_de_Pisan")]),
     filosof("Det gode liv")("Iris Murdoch", [1919, 1999], "kvinne", ["Etikk"], ["Dydsetikken"], ["Dyd", "Det skjønne og det sublime"], [1953, 1999], "Dublin og Oxford", `

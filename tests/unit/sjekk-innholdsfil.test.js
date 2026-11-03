@@ -96,13 +96,13 @@ test("Se og les: utdrag uten kilde, post uten tittel, lenke som ikke er http(s) 
 test("påvirkninger må finnes som strek i treet, med id-er", () => {
   const g = gyldig();
   g.edgeDescriptions = {
-    empirismen__naturalismen: { description: "x" },       // ingen strek
-    Pragmatismen__Naturalismen: { description: "x" }, // etiketter, ikke id-er
+    empirismen__sinnsfilosofien: { description: "x" },       // ingen strek
+    Pragmatismen__Vitenskapsfilosofien: { description: "x" }, // etiketter, ikke id-er
     bare_en: { description: "x" },
   };
   const feil = feilFor(g);
-  assert.ok(feil.some((m) => /empirismen__naturalismen.*ingen strek/.test(m)));
-  assert.ok(feil.some((m) => /Pragmatismen__Naturalismen.*ukjent epoke-id/.test(m)));
+  assert.ok(feil.some((m) => /empirismen__sinnsfilosofien.*ingen strek/.test(m)));
+  assert.ok(feil.some((m) => /Pragmatismen__Vitenskapsfilosofien.*ukjent epoke-id/.test(m)));
   assert.ok(feil.some((m) => /bare_en.*fra__til/.test(m)));
   // Motreaksjoner (rx) er også streker.
   assert.deepEqual(feilFor({ ...gyldig(), edgeDescriptions: { rasjonalismen__empirismen: { description: "x" } } }), []);
