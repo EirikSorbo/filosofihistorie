@@ -172,6 +172,22 @@ læreren, for studentene når «Viktighetsgraden» er på under «Synlig for
 studentene». Fargene: viktigst i dagens farge, viktig i blekk, mindre viktig i
 grått.
 
+## Utvalgene
+
+Et utvalg er et navngitt utsnitt av innholdet, som «Sofies verden»
+(`js/felles/utvalg.js`, v0.05). Viktighetsgraden er en stige, der hvert nivå tar
+med nivåene over, mens et utvalg går på tvers av den. Derfor er utvalget et eget
+filter, og de to kan kombineres. Utvalgene ligger i `content/utvalg` som lister
+med navn på filosofer, epoker og milepæler, og importeres fra
+`innhold/runde-6/utvalg.mjs`. Knappene står ved viktighetsknappene i
+Filosofer-vinduet og lærerlista, og i hodet på slektstreet. Som viktighetsnivået
+er det ett aktivt utvalg for appen, lagret i localStorage, med et merke i
+toppfeltet som slår det av. Filosoflistene, spillelistene og Milepæler-vinduet
+viser bare det som er i utvalget, og i slektstreet blir epokene utenfor grå
+(`gx-utenfor` i `js/sjangre/genealogy-bundled.js`). Læreren ser alltid
+utvalgene. Studentene ser dem når «Utvalgene» er på under «Synlig for
+studentene».
+
 ## Design
 
 Utseendet styres fra `:root`-blokka øverst i `css/styles.css` (samlet v6.59):

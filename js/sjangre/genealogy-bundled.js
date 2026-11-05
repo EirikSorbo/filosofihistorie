@@ -21,6 +21,7 @@
 import { showSjangerInfo, showEdgeInfo } from "./genealogy.js";
 import { SKJUL_I_STUDENTVISNING } from "../felles/feature-flags.js";
 import { koblingSjekketOk } from "../felles/sjekket.js";
+import { epokeIUtvalg } from "../felles/utvalg.js";
 import { GENEALOGY, TIDSROM, RAD_ANTALL, nodeColor, layoutX, edgeKey } from "./genre-model.js";
 import { attachCamera } from "./gx-camera.js";
 import { LAYOUT_WIDTH } from "./genre-layout.js";
@@ -502,6 +503,21 @@ export function renderGenealogyBundled({ root = document, getOpts }) {
     camera.centerOn(n._x, n._y, 1.05);   // _x og _y er pillens sentrum
     return true;
   }
+
+  // Utvalget (js/felles/utvalg.js): epokene utenfor blir grå, og det blir også
+  // strekene som ikke går mellom to epoker i utvalget. Epoken treffes på
+  // etiketten eller det fulle navnet. Ett lytteranker per kamera, så en ny
+  // tegning ikke legger lyttere oppå hverandre.
+  function tegnUtvalg() {
+    const inne = Object.fromEntries(nodes.map((n) => [n.id, epokeIUtvalg(n.l) || (!!n.f && epokeIUtvalg(n.f))]));
+    nodes.forEach((n) => gnodes[n.id].g.classList.toggle("gx-utenfor", !inne[n.id]));
+    edges.forEach((e) => e.classList.toggle("gx-utenfor", !(inne[e.dataset.p] && inne[e.dataset.c])));
+    stubs.forEach(({ cid, els }) => els.forEach((e) => e.classList.toggle("gx-utenfor", !inne[cid])));
+  }
+  tegnUtvalg();
+  if (cam._utvalgLytter) document.removeEventListener("pensum:utvalg", cam._utvalgLytter);
+  cam._utvalgLytter = tegnUtvalg;
+  document.addEventListener("pensum:utvalg", tegnUtvalg);
 
   return { fit: camera.fit, destroy: camera.destroy, fokuser };
 }

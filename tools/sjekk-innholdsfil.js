@@ -39,21 +39,21 @@ export const ORDGRENSER = {
 };
 
 // Visningsnavn på tellingene (nøklene i `tall` er interne og stemmer med testene).
-const TALLNAVN = { teoretikere: "filosofer", prinsipper: "begreper", pavirkninger: "påvirkninger", reformer: "milepæler" };
+const TALLNAVN = { teoretikere: "filosofer", prinsipper: "begreper", pavirkninger: "påvirkninger", reformer: "milepæler", utvalg: "utvalg" };
 const ord = (t) => String(t || "").trim().split(/\s+/).filter(Boolean).length;
 const erHttp = (u) => /^https?:\/\/\S+$/i.test(String(u || ""));
 // Innholdssidene appen viser (JSON-OPPSKRIFT, «pages»).
 export const SIDER = ["omHistorie", "appGuide", "skriveveiledning", "laererHandbok"];
 
 const KJENTE_NOKLER = new Set(["formatVersion", "artists", "genreDescriptions", "edgeDescriptions", "tech", "pages",
-  "teacherChecks", "referanser", "presentasjoner", "notater", "genealogy"]);
+  "teacherChecks", "referanser", "presentasjoner", "notater", "genealogy", "utvalg"]);
 
 export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrinsipper = [] } = {}) {
   const feil = [];
   const advarsler = [];
   const F = (m) => feil.push(m);
   const A = (m) => advarsler.push(m);
-  const tall = { teoretikere: 0, epoker: 0, retninger: 0, prinsipper: 0, pavirkninger: 0, reformer: 0, sider: 0 };
+  const tall = { teoretikere: 0, epoker: 0, retninger: 0, prinsipper: 0, pavirkninger: 0, reformer: 0, sider: 0, utvalg: 0 };
 
   const d = normalizeImportFile(fil);
   if (!d) { F("Fila kjennes ikke igjen som en importfil (ingen filosofer og ingen innholdsdeler)."); return { feil, advarsler, tall }; }
@@ -212,6 +212,23 @@ export function sjekkInnholdsfil(fil, tre, { ordgrenser = ORDGRENSER, kjentePrin
     if (!SIDER.includes(id)) F(`${hva}: ukjent side; appen har ${SIDER.join(", ")}.`);
     if (!String(side?.body || "").trim()) F(`${hva}: mangler body.`);
     if (side?.kilder != null) sjekkKilder(side.kilder, hva);
+  }
+
+  // --- Utvalgene (js/felles/utvalg.js) --------------------------------------
+  //  Epokene sjekkes mot treet her. Filosofene og milepælene kan stå i andre
+  //  runder, så de sjekkes samlet i tests/unit/utvalg-innhold.test.js.
+  for (const [id, u] of Object.entries(d.utvalg || {})) {
+    const hva = `Utvalget «${id}»`;
+    tall.utvalg++;
+    if (!/^[a-z0-9-]+$/.test(id)) F(`${hva}: id-en kan bare ha små bokstaver, tall og bindestrek.`);
+    if (!u || typeof u !== "object") { F(`${hva}: er ikke et objekt.`); continue; }
+    if (!String(u.navn || "").trim()) F(`${hva}: mangler navn.`);
+    for (const k of ["filosofer", "epoker", "milepaeler"]) {
+      if (u[k] != null && (!Array.isArray(u[k]) || u[k].some((x) => typeof x !== "string" || !x.trim()))) F(`${hva}: ${k} må være en liste med navn.`);
+    }
+    for (const e of Array.isArray(u.epoker) ? u.epoker : []) if (!epoker.has(e)) F(`${hva}: epoken «${e}» finnes ikke i treet (bruk etiketten).`);
+    const alle = ["filosofer", "epoker", "milepaeler"].flatMap((k) => (Array.isArray(u[k]) ? u[k] : []));
+    if (!alle.length) A(`${hva}: er tomt.`);
   }
 
   return { feil, advarsler, tall };

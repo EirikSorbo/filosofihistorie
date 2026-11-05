@@ -5,7 +5,7 @@ Kartet lages av `tools/modulkart.js` og skal ikke redigeres for hånd: endre inn
 i fila og kjør `./bump.sh` (eller `node tools/modulkart.js`). Pre-push-kroken og GitHub
 stopper et kart som ikke stemmer med filene.
 
-114 filer i 11 mapper.
+115 filer i 11 mapper.
 
 | Mappe | Innhold | Filer |
 |---|---|---|
@@ -18,7 +18,7 @@ stopper et kart som ikke stemmer med filene.
 | `js/utskrift/` | Utskrift | 2 |
 | `js/ui/` | Byggeklosser for skjermen | 15 |
 | `js/data/` | Data | 10 |
-| `js/felles/` | Felles hjelpere | 16 |
+| `js/felles/` | Felles hjelpere | 17 |
 | `js/vendor/` | Tredjepart | 1 |
 
 ## Reglene koden holder seg til
@@ -213,6 +213,7 @@ Små hjelpere og vokabular som flere deler av appen bruker: tekst og lenker, kil
 | `tidsakse.js` | TIDSAKSEN — tidsrommene som akse for tidslinjer, striper og filtre (fase 2) |
 | `timeline-lanes.js` | TIDSLINJE-BANER — ren logikk for artist-aktivitets-tidslinjen |
 | `util.js` | SMÅ DELTE HJELPERE |
+| `utvalg.js` | UTVALGENE — et navngitt utsnitt av innholdet, som «Sofies verden» |
 | `vis-lenke.js` | VIS-LENKER — dype lenker til alt søket kan åpne (v5.22) |
 
 ## `js/vendor/` Tredjepart

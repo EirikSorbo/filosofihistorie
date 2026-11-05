@@ -116,7 +116,7 @@ test("toppnivået i oppskriften bruker bare nøkler importen kjenner", () => {
   assert.ok(blokk, "fant ikke toppnivåblokken");
   const nokler = [...blokk.matchAll(/^  "(\w+)":/gm)].map((m) => m[1]);
   const kjente = new Set(["formatVersion", "artists", "genreDescriptions", "edgeDescriptions", "tech", "pages",
-    "teacherChecks", "referanser", "presentasjoner", "notater", "genealogy"]);
+    "teacherChecks", "referanser", "presentasjoner", "notater", "genealogy", "utvalg"]);
   assert.ok(nokler.length >= 10, "leste for få nøkler");
   for (const k of nokler) assert.ok(kjente.has(k), `«${k}» er ikke en kjent importnøkkel`);
 });

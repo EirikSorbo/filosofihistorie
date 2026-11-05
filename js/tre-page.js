@@ -27,6 +27,7 @@ import { initYtSpiller } from "./ui/yt-spiller.js";
 import { initVisning, visningTikk } from "./visning/visning.js";
 import { initUtskriftValg } from "./utskrift/utskrift-utvalg.js";
 import { initViktighetsMerke } from "./ui/viktighet.js";
+import { initUtvalgKnapper, initUtvalgMerke } from "./felles/utvalg.js";
 import { lesVisFraUrl, provVisMaal } from "./utforsk/explore-apne.js";
 import { fetchPendingEdits } from "./data/store.js";
 import { melding, setupModal, modalCloseTop, modalOpen } from "./ui/ui-modal.js";
@@ -101,6 +102,10 @@ export function initTrePage({ render }) {
   initUtskriftValg({ hentData: () => state });
   // Merket for viktighetsnivået i toppfeltet (v6.85).
   initViktighetsMerke();
+  // Utvalgene: knappene i sidehodet og merket i toppfeltet. Treet gråer selv ut
+  // epokene utenfor utvalget (js/sjangre/genealogy-bundled.js).
+  initUtvalgMerke();
+  initUtvalgKnapper(document.getElementById("gx-utvalg-bar"));
 
   // Rendereren får sidens FELLES sjangerOpts. Den bygger ikke lenger sin egen,
   // så node-klikk i kartet og sjanger-chip på et artistkort åpner identisk kort.

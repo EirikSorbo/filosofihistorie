@@ -37,7 +37,7 @@ const harFeil = (fil, mønster) => feilFor(fil).some((m) => mønster.test(m));
 test("en gyldig fil har ingen feil, og tallene stemmer", () => {
   const r = sjekkInnholdsfil(gyldig(), tre);
   assert.deepEqual(r.feil, []);
-  assert.deepEqual(r.tall, { teoretikere: 1, epoker: 1, retninger: 0, prinsipper: 1, pavirkninger: 1, reformer: 1, sider: 0 });
+  assert.deepEqual(r.tall, { teoretikere: 1, epoker: 1, retninger: 0, prinsipper: 1, pavirkninger: 1, reformer: 1, sider: 0, utvalg: 0 });
 });
 
 test("en fil uten innhold kjennes ikke igjen", () => {

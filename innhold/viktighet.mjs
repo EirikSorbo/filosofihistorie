@@ -39,7 +39,7 @@ const VIKTIGST = [
 
 const VIKTIG = [
   // Antikken
-  "Thales", "Anaximander", "Pytagoras", "Zenon fra Elea", "Demokrit", "Protagoras",
+  "Thales", "Anaximander", "Pytagoras", "Zenon fra Elea", "Empedokles", "Anaxagoras", "Demokrit", "Protagoras",
   "Diogenes fra Sinope", "Pyrrhon", "Zenon fra Kition", "Krysippos", "Cicero", "Lukrets",
   "Seneca", "Epiktet", "Markus Aurelius", "Sextus Empiricus", "Plotin",
   // Middelalderen
@@ -49,6 +49,7 @@ const VIKTIG = [
   "Nishida Kitaro", "Paulin Hountondji",
   // Renessansen og den nye vitenskapen
   "Petrarca", "Marsilio Ficino", "Pico della Mirandola", "Erasmus", "Martin Luther", "Jean Bodin",
+  "Giordano Bruno",
   "Montaigne", "Nikolaus Kopernikus", "Francis Bacon", "Galileo Galilei", "Isaac Newton",
   // 1600- og 1700-tallet
   "Hugo Grotius", "Blaise Pascal", "Elisabeth av Böhmen", "George Berkeley", "Montesquieu",
@@ -73,7 +74,7 @@ const VIKTIG = [
 
 const MINDRE_VIKTIG = [
   // Antikken
-  "Anaximenes", "Filolaos", "Arkytas", "Melissos", "Leukipp", "Gorgias", "Antisthenes",
+  "Anaximenes", "Xenofanes", "Filolaos", "Arkytas", "Melissos", "Leukipp", "Gorgias", "Antisthenes",
   "Krates fra Theben", "Hipparkia fra Maroneia", "Spevsippos", "Xenokrates", "Theofrast",
   "Kleanthes", "Arkesilaos", "Karneades", "Polybios", "Alexander av Afrodisias",
   "Porfyr", "Iamblikhos", "Proklos", "Hypatia",
@@ -89,9 +90,9 @@ const MINDRE_VIKTIG = [
   "Philipp Melanchthon", "Jean Calvin", "Francisco de Vitoria", "Luis de Molina",
   "Francisco Suárez",
   // 1600- og 1700-tallet
-  "Herbert av Cherbury", "Margaret Cavendish", "Anne Conway", "Robert Boyle", "Samuel Pufendorf",
+  "Johannes Kepler", "Herbert av Cherbury", "Margaret Cavendish", "Anne Conway", "Robert Boyle", "Samuel Pufendorf",
   "Nicolas Malebranche", "John Toland", "Matthew Tindal", "Shaftesbury", "Francis Hutcheson",
-  "Émilie du Châtelet", "Condorcet", "Joseph de Maistre", "Benjamin Constant",
+  "Émilie du Châtelet", "Condorcet", "Olympe de Gouges", "Joseph de Maistre", "Benjamin Constant",
   // 1800-tallet
   "Novalis", "Friedrich Schlegel", "J.G. Droysen", "Harriet Taylor Mill", "Henry Sidgwick",
   "Ernst Mach", "Hermann Cohen", "Wilhelm Windelband", "Heinrich Rickert", "T.H. Green",

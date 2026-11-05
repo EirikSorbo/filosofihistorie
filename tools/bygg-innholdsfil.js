@@ -12,7 +12,7 @@
 //         … --lenker   (sjekker i tillegg hver lenke på nettet, med sidetittel)
 //
 //  Hver del eksporterer `default` med noen av nøklene artists,
-//  genreDescriptions ({ meta, main, sub }), edgeDescriptions og tech. Navn som står i
+//  genreDescriptions ({ meta, main, sub }), edgeDescriptions, tech, pages og utvalg. Navn som står i
 //  to deler, er en feil: hver teoretiker, epoke og påvirkning skrives ett sted.
 //  Tekstene trimmes, og innrykk i malstrengene fjernes (se ryddTekst).
 //  Viktighetsgraden (`priority`) står samlet i innhold/viktighet.mjs for alle
@@ -43,7 +43,7 @@ export const STANDARD = { status: "active", teacherChecked: false, priority: 0, 
 
 export function slaaSammen(deler, { aar = new Date().getFullYear(), foreslaattAv = "", viktighet = null } = {}) {
   const feil = [];
-  const ut = { formatVersion: 1, artists: [], genreDescriptions: { meta: {}, main: {}, sub: {} }, edgeDescriptions: {}, tech: [], pages: {} };
+  const ut = { formatVersion: 1, artists: [], genreDescriptions: { meta: {}, main: {}, sub: {} }, edgeDescriptions: {}, tech: [], pages: {}, utvalg: {} };
   const hvor = new Map();
   for (const [navn, del] of deler) {
     for (const a of del.artists || []) {
@@ -74,6 +74,12 @@ export function slaaSammen(deler, { aar = new Date().getFullYear(), foreslaattAv
       hvor.set(k, navn);
       ut.pages[id] = ryddDypt(side);
     }
+    for (const [id, u] of Object.entries(del.utvalg || {})) {
+      const k = `utvalg:${id}`;
+      if (hvor.has(k)) feil.push(`Utvalget «${id}» står i både ${hvor.get(k)} og ${navn}.`);
+      hvor.set(k, navn);
+      ut.utvalg[id] = ryddDypt(u);
+    }
     for (const [n, e] of Object.entries(del.edgeDescriptions || {})) {
       const k = `kobling:${n}`;
       if (hvor.has(k)) feil.push(`Påvirkningen «${n}» står i både ${hvor.get(k)} og ${navn}.`);
@@ -85,6 +91,7 @@ export function slaaSammen(deler, { aar = new Date().getFullYear(), foreslaattAv
   ut.tech.sort((a, b) => (a.adoptedYear ?? a.inventedYear ?? 0) - (b.adoptedYear ?? b.inventedYear ?? 0) || a.name.localeCompare(b.name, "no"));
   if (!ut.tech.length) delete ut.tech;
   if (!Object.keys(ut.pages).length) delete ut.pages;
+  if (!Object.keys(ut.utvalg).length) delete ut.utvalg;
   return { fil: ut, feil };
 }
 

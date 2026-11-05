@@ -36,6 +36,9 @@
 //                          er ikke i bruk nå, og uten knappen får
 //                          utskriftsknappen plass på samme linje som «Vis i
 //                          tidslinje» / «Foreslå endring». Læreren ser den.
+//    utvalg                knappene for utvalgene, som «Sofies verden», og
+//                          merket i toppfeltet (js/felles/utvalg.js). Skjult
+//                          til læreren slår det på (brukervalg 2026-11-05).
 //    usjekket              alt innhold læreren ikke har sjekket (v6.89,
 //                          js/felles/sjekket.js). Standarden er false, altså
 //                          vises det usjekkede til læreren slår på «Bare
@@ -63,6 +66,8 @@ export const SKJUL_I_STUDENTVISNING = {
   fraTimene:            true,
   // «Bare sjekket innhold» (v6.89): true = det usjekkede er skjult.
   usjekket:             false,
+  // Utvalgene (js/felles/utvalg.js, 2026-11-05).
+  utvalg:               true,
 };
 
 // Kortene INNE i «Det store bildet» (js/utforsk/explore.js). Huben ble åpnet for

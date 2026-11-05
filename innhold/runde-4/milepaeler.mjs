@@ -123,6 +123,14 @@ export default {
     m("Kapitalen", "Verk", 1867, `
       Karl Marx' store analyse av kapitalismen kom med første bind i 1867. De neste ble utgitt av Friedrich Engels etter hans død. Han viser hvordan merverdi skapes av arbeidere, og hvordan varen skjuler sosiale forhold. Boken er både økonomi, filosofi og historie, med fotnoter om alt fra Aristoteles til fabrikkinspektører. Først leste få den, men den ble et av de mest innflytelsesrike verkene i moderne historie.
     `, [e("marx")]),
+    // Darwin og Freud er med i «Sofies verden» (innhold/runde-6/utvalg.mjs), men
+    // er ikke filosofer, så de står som verk (2026-11-05).
+    m("Om artenes opprinnelse", "Verk", 1859, `
+      Charles Darwin ga i 1859 ut boka om hvordan arter utvikler seg gjennom naturlig utvalg. Individene varierer, flere fødes enn som overlever, og de som passer best til omgivelsene, fører egenskapene videre. Alfred Russel Wallace hadde kommet til det samme, og de to la fram teorien sammen året før. Boka gjorde mennesket til en del av naturens historie og satte i gang en strid med kirken. Filosofer har siden spurt hva den betyr for etikken, for kunnskapen og for formålsforklaringene i naturen.
+    `, [e("darwinism"), snl("https://snl.no/Charles_Darwin")]),
+    m("Drømmetydning", "Verk", 1899, `
+      Sigmund Freud ga ut «Die Traumdeutung» i november 1899, men lot boka bære årstallet 1900. Drømmen er ifølge Freud et forkledd ønske, og tydningen går gjennom frie assosiasjoner fra drømmens innhold til tankene bak. Boka ble grunnlaget for psykoanalysen og for tanken om et ubevisst sjeleliv som styrer oss mer enn vi vet. Ricœur og Lacan leste den på nytt, og Popper brukte psykoanalysen som eksempel på en teori som ikke kan falsifiseres.
+    `, [iep("https://iep.utm.edu/freud/"), snl("https://snl.no/Sigmund_Freud")]),
     m("Tractatus Logico-Philosophicus", "Verk", 1921, `
       Den eneste filosofiske boken Ludwig Wittgenstein ga ut i levende live, er bare rundt 75 sider, med nummererte setninger. Språket avbilder verden, og det vi ikke kan tale om, må vi tie om. Han mente at han hadde løst alle filosofiens problemer, og ble landsbylærer. Wienerkretsen leste den setning for setning. Han vendte tilbake til filosofien i 1929 og tok et oppgjør med den.
     `, [e("wittgenstein"), e("wittgenstein-atomism")]),

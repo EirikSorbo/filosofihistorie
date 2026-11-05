@@ -70,8 +70,8 @@ test("settNivaa: 0 og ugyldige verdier slår av; lytterne får nivået", () => {
 test("spillelistene og artistkortet: nivået i byggerne, merket på kortet", () => {
   const ui = les("js/ui/ui.js");
   assert.match(ui, /const genreArtists = etterNivaa\(/, "sjangerens spilleliste");
-  assert.match(ui, /export function countArtistExamples\(list\) \{\n  return playlistRows\(\[\.\.\.etterNivaa\(list\)\]/);
-  assert.match(ui, /export function openArtistsPlaylistModal\(title, list\) \{\n  const \{ total, html, ider \} = playlistRows\(\[\.\.\.etterNivaa\(list\)\]/);
+  assert.match(ui, /export function countArtistExamples\(list\) \{\n  return playlistRows\(\[\.\.\.etterNivaa\(etterUtvalg\(list\)\)\]/);
+  assert.match(ui, /export function openArtistsPlaylistModal\(title, list\) \{\n  const \{ total, html, ider \} = playlistRows\(\[\.\.\.etterNivaa\(etterUtvalg\(list\)\)\]/);
   assert.match(ui, /\$\{sekt\("tags", `<div class="meta" style="margin-bottom:12px">\$\{prioMerkeHtml\(a\)\}\$\{metaRader\(a\)\}<\/div>`\)\}/);
 });
 

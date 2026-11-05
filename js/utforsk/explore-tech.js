@@ -8,6 +8,7 @@ import { renderTechDetail, renderTechList } from "../ui/ui-tech.js";
 import { modalOpen, modalClose } from "../ui/ui-modal.js";
 import { buildLinkCtx, injectTeacherRow } from "./explore-context.js";
 import { opts, getState } from "../data/app-state.js";
+import { milepaelIUtvalg, vedUtvalgEndring } from "../felles/utvalg.js";
 
 // Tegner innholdet i innovasjonskortet uten å åpne/heve modalen — delt av
 // openTechDetail og refreshTechDetail (som tegner kortet på nytt mens
@@ -82,7 +83,8 @@ export function openTeknologi(category = "") {
 export function renderTeknologiList(category) {
   const el = document.getElementById("tech-list");
   if (!el) return;
-  renderTechList(el, getState().techItems, category || "", buildLinkCtx());
+  // Et aktivt utvalg (js/felles/utvalg.js) viser bare milepælene i utvalget.
+  renderTechList(el, (getState().techItems || []).filter(milepaelIUtvalg), category || "", buildLinkCtx());
   // Valgt kategori hører med i lenka og i et stopp (audit v5.42 funn 16);
   // apneMaal forstår «teknologi:<kategori>».
   const modal = document.getElementById("modal-teknologi");
@@ -99,3 +101,4 @@ export function refreshTeknologi() {
   const aktiv = modal.querySelector(".tech-tab.active");
   renderTeknologiList(aktiv?.dataset.techCat || "");
 }
+vedUtvalgEndring(refreshTeknologi);

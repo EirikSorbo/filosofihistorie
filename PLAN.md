@@ -96,11 +96,12 @@ Eirik la seg og ba om at det ikke skulle spørres. Disse valgene er derfor Claud
 
 ## Neste steg for Eirik
 
-1. Importer på lærersiden, Innstillinger, Importer, i denne rekkefølgen: `json files/filosofi-skjelett.json` (treet erstattes helt), så `runde-1.json` med «Erstatt alle», og `runde-2.json` til `runde-5.json` med «Slå sammen». Bruk «Erstatt alle» på runde 1 også om noen filosofer allerede ligger inne: «Slå sammen» tar ikke med viktighetsgraden på kort som alt finnes.
+1. Importer på lærersiden, Innstillinger, Importer, i denne rekkefølgen: `json files/filosofi-skjelett.json` (treet erstattes helt), så `runde-1.json` med «Erstatt alle», og `runde-2.json` til `runde-6.json` med «Slå sammen». Bruk «Erstatt alle» på runde 1 også om noen filosofer allerede ligger inne: «Slå sammen» tar ikke med viktighetsgraden på kort som alt finnes.
 2. Åpne epokeredigeringen og trykk «Sjekk koblingsbeskrivelsene for foreldreløse». Tekstene til strekene som ikke finnes lenger, vises ikke noe sted, men ligger i databasen til de slettes der.
 3. Se treet i appen igjen og si fra om flere epoker skal slås sammen eller deles.
 4. Bestem om en uavhengig kontrollrunde skal kjøres (subagenter startes bare når Eirik ber om det).
-5. Slå på det som skal være synlig under «Synlig for studentene», og gå gjennom viktighetsgradene. Claude satte et forslag 2026-11-03 i `innhold/viktighet.mjs`, med kriteriene øverst i fila: 43 viktigst, 114 viktig og 120 mindre viktig. Rett i fila før import, eller med stjernene på lærersiden etterpå.
+5. Slå på det som skal være synlig under «Synlig for studentene», og gå gjennom viktighetsgradene. Claude satte et forslag 2026-11-03 i `innhold/viktighet.mjs`, med kriteriene øverst i fila: 43 viktigst, 117 viktig og 123 mindre viktig (med de seks som kom til 2026-11-05). Rett i fila før import, eller med stjernene på lærersiden etterpå.
+6. **Sofies verden (v0.05, 2026-11-05).** Utvalget ligger i `runde-6.json` og har 53 filosofer, 22 epoker og 14 milepæler. Lista er satt etter Claudes hukommelse av boka og bør sjekkes mot den, særlig Beauvoir, Cicero, Ficino, Encyclopédie og boktrykket. Rett i `innhold/runde-6/utvalg.mjs` og bygg på nytt. Seks filosofer fra boka hadde ikke kort og er skrevet: Empedokles, Anaxagoras, Xenofanes, Giordano Bruno, Johannes Kepler (runde 1) og Olympe de Gouges (runde 2). Darwin og Freud står som milepælene «Om artenes opprinnelse» og «Drømmetydning» (runde 4). Studentene ser utvalget når «Utvalgene» er slått på under «Synlig for studentene». Funksjonen er sett i en testside i nettleseren, men ikke i appen med ekte data.
 
 Åpent: nettlesertestene i `tests/e2e/` er fra musikkappen (plateselskaper, tiår, musikkord) og er ikke tilpasset, så jobben «nettleser» på GitHub blir rød til de er skrevet om.
 

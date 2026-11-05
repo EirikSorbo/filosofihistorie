@@ -475,6 +475,32 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; font-wei
 }
 /* Linja øverst i en spilleliste når et nivå er aktivt (ui.js, nivaaNotatHtml). */
 .pl-nivaa { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 0.9rem; color: var(--muted); }
+/* Utvalget (v0.05, js/felles/utvalg.js): navnet med en bok, rett til høyre for
+   viktighetsmerket midt i toppfeltet. Klikk slår utvalget av. På smale skjermer
+   står bare boka i rekka, som viktighetsmerket. */
+.utvalg-merke {
+  position: absolute; left: calc(50% + 28px); top: 50%; transform: translateY(-50%);
+  height: 40px; padding: 0 12px; gap: 6px; cursor: pointer;
+  display: inline-flex; align-items: center;
+  border: 2px solid var(--accent); border-radius: var(--radius-m);
+  background: var(--surface); color: var(--accent); font: inherit; font-weight: 600;
+}
+.utvalg-merke svg { width: 20px; height: 20px; flex: none; }
+@media (max-width: 560px) {
+  .utvalg-merke { position: static; transform: none; height: 34px; padding: 0 8px; }
+  .utvalg-merke span { display: none; }
+}
+/* Knappene for utvalgene ved viktighetsknappene (Filosofer, lærerlista, treet). */
+.utvalg-bar { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.utvalg-btn {
+  display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 10px;
+  border-radius: var(--radius-m); border: 1px solid var(--line); background: var(--surface);
+  color: var(--muted); cursor: pointer; font: inherit; font-size: 0.9rem;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.utvalg-btn:hover { background: var(--bg); border-color: var(--line-strong); color: var(--text); }
+.utvalg-btn.active { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 2px var(--prio-3-ring); }
+.utvalg-btn svg { pointer-events: none; flex: none; }
 
 /* ----- Oppsett-banner ----- */
 .banner {
@@ -2781,6 +2807,11 @@ body.is-teacher #gate { display: none; }
 .gxb-knot { opacity: 0.85; }
 .gxb-stub.gx-hl, .gxb-knot.gx-hl { opacity: 1; }
 .gxb-stub.gx-dim, .gxb-knot.gx-dim { opacity: 0.07; }
+/* Utenfor utvalget (js/felles/utvalg.js): grå, men fortsatt klikkbare. Står
+   etter gx-hl, så en strek ut av utvalget ikke lyser opp ved hover. */
+.gxb-node.gx-utenfor { opacity: 0.28; }
+.gxb-node.gx-utenfor.gx-dim { opacity: 0.1; }
+.gxb-edge.gx-utenfor, .gxb-stub.gx-utenfor, .gxb-knot.gx-utenfor { opacity: 0.1; }
 .gxb-node { cursor: pointer; }
 .gxb-pill { fill: var(--surface); transition: filter 0.15s; }
 /* Sjangernavnet er hovedsaken i kartet: stor nok til å leses før båndene.

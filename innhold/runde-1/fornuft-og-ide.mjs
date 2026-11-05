@@ -132,6 +132,10 @@ export default {
     `, [], [sep("https://plato.stanford.edu/entries/archytas/")]),
 
     // --- Eleatene (nå i Pytagoreerne og eleatene) ---
+    // Xenofanes kom til 2026-11-05: han er med i «Sofies verden» (innhold/runde-6/utvalg.mjs).
+    f("Xenofanes", [null, null], "mann", ["Religionsfilosofi", "Erkjennelsesteori"], ["Pytagoreerne og eleatene"], [], [-540, -475], "Kolofon, Sicilia og Sør-Italia", `
+      Gresk dikter og tenker fra Kolofon som reiste rundt i den greske verden i over seksti år. Han angrep Homer og Hesiod for å gi gudene menneskelige laster, og påpekte at etiopere og trakere lager guder som ligner dem selv. Mot dette satte han én gud, ulik menneskene både i kropp og tanke. Ingen mennesker vet det sikre, mente han, alle har bare sin mening. Antikke forfattere gjorde ham til grunnleggeren av den eleatiske skolen, men det er usikkert.
+    `, [], [sep("https://plato.stanford.edu/entries/xenophanes/"), snl("https://snl.no/Xenofanes")]),
     f("Parmenides", [null, null], "mann", ["Metafysikk"], ["Pytagoreerne og eleatene"], ["Væren"], [-500, -450], "Elea", `
       Gresk filosof fra Elea, kjent for et dikt der en gudinne viser ham to veier. Sannhetens vei sier at det som er, er, og at det verken kan oppstå eller forgå. Meningenes vei gjelder det dødelige tror. Diktet regnes som det første sammenhengende argumentet i vestlig filosofi. Platon lar den gamle Parmenides diskutere med den unge Sokrates i dialogen som bærer navnet hans.
     `, [["Om naturen"]], [sep("https://plato.stanford.edu/entries/parmenides/")]),

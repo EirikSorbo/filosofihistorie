@@ -35,11 +35,12 @@ Appen er kopiert fra pedagogikkappen, som igjen er kopiert fra musikkhistorie-ap
   "referanser":        { "kilder": [ ... ] },
   "presentasjoner":    { "planer": { ... } },
   "notater":           { /* lærerens private notater */ },
-  "genealogy":         { "version": 2, "nodes": [ ... ], "tidsrom": [ ... ], "metaGenres": [ ... ], "families": { ... }, "metaOrderHint": [ ... ] }
+  "genealogy":         { "version": 2, "nodes": [ ... ], "tidsrom": [ ... ], "metaGenres": [ ... ], "families": { ... }, "metaOrderHint": [ ... ] },
+  "utvalg":            { "sofies-verden": { "navn": "Sofies verden", "filosofer": [ ... ], "epoker": [ ... ], "milepaeler": [ ... ] } }
 }
 ```
 
-Alle nøkler er valgfrie, men fila må ha filosofer eller minst én innholdsdel (`genreDescriptions`, `edgeDescriptions`, `tech`, `pages`, `referanser`, `genealogy`, `presentasjoner`). En fil uten filosofer godtas som ren innholdsfil.
+Alle nøkler er valgfrie, men fila må ha filosofer eller minst én innholdsdel (`genreDescriptions`, `edgeDescriptions`, `tech`, `pages`, `referanser`, `genealogy`, `presentasjoner`, `utvalg`). En fil uten filosofer godtas som ren innholdsfil.
 
 | Nøkkel | Type | Beskrivelse |
 |---|---|---|
@@ -54,6 +55,7 @@ Alle nøkler er valgfrie, men fila må ha filosofer eller minst én innholdsdel 
 | `presentasjoner` | objekt | Kjøreplanene til Visning-vinduet. Importen legger til eller erstatter planen med samme id, og læreren får se lista først. |
 | `notater` | objekt | Lærerens private notater til kortene (ett dokument per kort). |
 | `genealogy` | objekt | HELE treet (`content/genealogy`): epoker, tidsrom, retninger og farger. Valideres og ERSTATTES i sin helhet ved import. Se seksjon 4. |
+| `utvalg` | objekt | Utvalgene, som «Sofies verden» (`content/utvalg`). Importen erstatter utvalget med samme id og lar de andre stå. Se under. |
 
 Tre nøkler fra musikkappen er tatt ut og leses ikke lenger: `decades` (tiårene, fase 2), `varmekart` (fase 2) og `podcasts` (fase 4). Står de i en gammel fil, ignoreres de, og importen advarer om ukjente nøkler før du bekrefter. En fil som bare har slike nøkler, kjennes ikke igjen som en importfil.
 
@@ -167,6 +169,22 @@ Kilder kan også skrives som rene strenger (`"Store norske leksikon"`); de tolke
 ```
 
 Frittstående kilder som ikke hører til noe kort (lagt inn med «Ny referanse» på lærersiden, lagret i `content/referanser`). Samme feltene som `kilder[]`. Ved import ERSTATTES hele lista, siden den er ett dokument.
+
+### `utvalg` (toppnøkkel)
+
+```json
+"utvalg": {
+  "sofies-verden": {
+    "navn": "Sofies verden",
+    "beskrivelse": "Filosofene, epokene og milepælene i Jostein Gaarders roman fra 1991.",
+    "filosofer": ["Thales", "Sokrates"],
+    "epoker": ["Naturfilosofene", "Sofistene og Sokrates"],
+    "milepaeler": ["Platons akademi"]
+  }
+}
+```
+
+Et utvalg er et navngitt utsnitt av innholdet. Når det er slått på, viser filosoflistene, spillelistene og Milepæler-vinduet bare det som står i utvalget, og epokene utenfor blir grå i slektstreet (`js/felles/utvalg.js`). Id-en har bare små bokstaver, tall og bindestrek. Alt står som navn: filosofene og milepælene som på kortene, epokene som etiketten i treet (`l`). Derfor overlever et utvalg «Erstatt alle». `sjekk-innholdsfil` sjekker epokene mot treet, og `tests/unit/utvalg-innhold.test.js` sjekker at filosofene og milepælene finnes i `innhold/`.
 
 ---
 

@@ -15,6 +15,7 @@ import {
   saveGenealogyTree,
   updateArtistFields,
   saveReferanser,
+  saveUtvalg,
   lagreNotat,
   setTeacherChecks,
   savePlaner,
@@ -194,6 +195,9 @@ function buildExportData() {
     teacherChecks: state.teacherChecks || null,
   };
   if (referanser) out.referanser = referanser;
+  // Utvalgene (content/utvalg): egen toppnøkkel, som referansene.
+  const utvalg = state.content?.utvalg?.lister;
+  if (utvalg && Object.keys(utvalg).length) out.utvalg = utvalg;
   // Kjøreplanene (content/presentasjoner, v5.25): egen toppnøkkel, som
   // referansene. Dokumentet har verken body eller kilder og falt ut av
   // pages-filteret, så planene var aldri med i en sikkerhetskopi, heller ikke
@@ -338,6 +342,8 @@ function importParts(data) {
   const pageCount = Object.keys(data.pages || {}).length;
   if (pageCount) parts.push(`${pageCount} innholdsside(r)`);
   if (Array.isArray(data.referanser?.kilder) && data.referanser.kilder.length) parts.push(`${data.referanser.kilder.length} frittstående referanser`);
+  const utvalgAntall = Object.keys(data.utvalg || {}).length;
+  if (utvalgAntall) parts.push(`${utvalgAntall} utvalg (erstatter utvalget med samme id)`);
   const planAntall = Object.keys(normaliserPlaner(data.presentasjoner?.planer)).length;
   if (planAntall) parts.push(`${planAntall} kjøreplan(er) (legges til eller erstatter planen med samme id, du får se lista først)`);
   const notatAntall = Object.keys(utenKopier(data.notater)).length;
@@ -496,7 +502,7 @@ export function flettSjekker(gjeldende, fraFil) {
   return ut;
 }
 
-async function importExtras({ pages, referanser, teacherChecks, genealogy, presentasjoner, notater }) {
+async function importExtras({ pages, referanser, teacherChecks, genealogy, presentasjoner, notater, utvalg }) {
   const done = [];
   const failed = [];
 
@@ -556,6 +562,16 @@ async function importExtras({ pages, referanser, teacherChecks, genealogy, prese
       await saveReferanser(referanser.kilder);
       done.push(`${referanser.kilder.length} frittstående referanse(r)`);
     } catch (e) { console.error("Referanse-import feilet:", e); failed.push("de frittstående referansene"); }
+  }
+
+  // Utvalgene ERSTATTES ett og ett: et utvalg i fila tar plassen til utvalget
+  // med samme id, og de andre blir stående.
+  const nyeUtvalg = Object.entries(utvalg || {}).filter(([id, u]) => id.trim() && u && typeof u === "object");
+  if (nyeUtvalg.length) {
+    try {
+      await saveUtvalg({ ...(state.content?.utvalg?.lister || {}), ...Object.fromEntries(nyeUtvalg) });
+      done.push(nyeUtvalg.map(([, u]) => `utvalget «${u.navn || "uten navn"}»`).join(", "));
+    } catch (e) { console.error("Utvalg-import feilet:", e); failed.push("utvalgene"); }
   }
 
   // Kjøreplanene FLETTES plan for plan (merge på planer.<id>, i én skriving):

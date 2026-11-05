@@ -282,6 +282,7 @@ const SYNLIGHET_RADER = [
   { id: "historier", navn: "Epokehistoriene", student: ["metasjangerhistorier"], hub: ["sb-historier"] },
   { id: "koblinger", navn: "Koblingstekstene (i slektstreet og på epokekortet)", student: ["koblingsbeskrivelser"] },
   { id: "viktighet", navn: "Viktighetsgraden", student: ["viktighetsgrad"] },
+  { id: "utvalg", navn: "Utvalgene (for eksempel Sofies verden)", student: ["utvalg"] },
   { id: "fraTimene", navn: "«Fra timene» (delte timer på forsiden)", student: ["fraTimene"] },
   { id: "omHistorie", navn: "Om historie", hub: ["sb-om-historie"] },
   { id: "himmel", navn: "Epokehimmelen", hub: ["sb-himmel"] },

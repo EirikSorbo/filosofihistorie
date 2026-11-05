@@ -147,6 +147,15 @@ export default {
       Gresk filosof fra Efesos, kjent i antikken som «den dunkle» for sine gåtefulle setninger. Verden er en stadig strid mellom motsetninger som holdes sammen av en felles orden, *logos*, og ilden er dens bilde. Den kjente formuleringen om at man ikke kan stige ned i samme elv to ganger, er en senere parafrase av Platon. Stoikerne og Hegel leste ham som en forløper.
     `, [], [sep("https://plato.stanford.edu/entries/heraclitus/")]),
 
+    // Empedokles og Anaxagoras kom til 2026-11-05: de er med i «Sofies verden»
+    // (innhold/runde-6/utvalg.mjs) og forener Parmenides og Heraklit.
+    f("Empedokles", [null, null], "mann", ["Metafysikk"], ["Naturfilosofene"], ["Arkhe"], [-460, -432], "Akragas på Sicilia", `
+      Gresk filosof fra Akragas på Sicilia. Alt består av fire *røtter*, jord, vann, luft og ild, som verken oppstår eller forgår, men blandes og skilles av to krefter, kjærlighet og strid. Slik forente han Parmenides' påstand om at det som er, ikke kan bli til av intet, med erfaringen av at ting forandrer seg. Han skrev på vers og opptrådte som lege og vismann, og legenden sier at han kastet seg i Etna. Læren om de fire elementene ble stående i to tusen år.
+    `, [["Om naturen"], ["Renselser"]], [sep("https://plato.stanford.edu/entries/empedocles/"), snl("https://snl.no/Empedokles")]),
+    f("Anaxagoras", [null, null], "mann", ["Metafysikk"], ["Naturfilosofene"], ["Arkhe"], [-460, -428], "Klazomenai, Athen og Lampsakos", `
+      Gresk filosof fra Klazomenai, den første som slo seg ned i Athen, der han var venn av Perikles. I alt er det noe av alt, og en ting får navn etter det det er mest av i den. Det som satte blandingen i bevegelse, er *nous*, en ånd eller fornuft. Han hevdet at solen er en glødende stein, ble anklaget for gudsbespottelse og måtte forlate byen. Ifølge Platons «Faidon» ble Sokrates skuffet over at han brukte fornuften så lite til å forklare hvorfor ting er som de er.
+    `, [["Om naturen"]], [sep("https://plato.stanford.edu/entries/anaxagoras/"), snl("https://snl.no/Anaxagoras")]),
+
     // --- Atomistene (nå i Naturfilosofene) ---
     f("Leukipp", [null, null], "mann", ["Metafysikk"], ["Naturfilosofene"], [], [-450, -420], "Milet og Abdera", `
       Gresk filosof fra 400-tallet f.Kr., av Aristoteles regnet som atomismens grunnlegger. Nesten alt om livet hans er ukjent, og Epikur skal til og med ha tvilt på at han fantes. Det ene fragmentet vi har, sier at ingenting skjer tilfeldig, men alt av nødvendighet. Læren hans er ikke lett å skille fra Demokrits.
@@ -170,6 +179,13 @@ export default {
     f("Nikolaus Kopernikus", [1473, 1543], "mann", ["Vitenskapsfilosofi"], ["Den nye vitenskapen"], ["Paradigme"], [1510, 1543], "Frombork i Polen", `
       Polsk astronom og kannik som satte solen i sentrum av universet og lot jorden bevege seg. Boken kom ut samme år som han døde, med et forord av Andreas Osiander som framstilte teorien som et regneredskap. Det egentlige bruddet kom først med Galilei og Kepler. Thomas Kuhn brukte senere overgangen som et hovedeksempel på et paradigmeskifte.
     `, [["De revolutionibus orbium coelestium", 1543]], [sep("https://plato.stanford.edu/entries/copernicus/")]),
+    // Bruno og Kepler kom til 2026-11-05, som Empedokles og Anaxagoras.
+    f("Giordano Bruno", [1548, 1600], "mann", ["Metafysikk", "Religionsfilosofi"], ["Renessansen", "Den nye vitenskapen"], [], [1582, 1600], "Nola, London og Roma", `
+      Italiensk filosof og tidligere dominikanermunk som vandret mellom Genève, Paris, London og Tyskland. Han godtok Kopernikus og gikk lenger: universet er uendelig, uten sentrum, med utallige verdener. Gud er til stede i alt som verdens sjel, en tanke med preg av nyplatonismen. Inkvisisjonen holdt ham fanget i nesten åtte år og brente ham på Campo de' Fiori i Roma i 1600. Ettertiden gjorde ham til en martyr for den frie tanken.
+    `, [["De la causa, principio et uno", 1584], ["De l'infinito, universo e mondi", 1584]], [sep("https://plato.stanford.edu/entries/bruno/"), snl("https://snl.no/Giordano_Bruno")]),
+    f("Johannes Kepler", [1571, 1630], "mann", ["Vitenskapsfilosofi"], ["Den nye vitenskapen"], ["Kausalitet"], [1596, 1630], "Graz, Praha og Linz", `
+      Tysk astronom og matematiker. I Praha arbeidet han med Tycho Brahes målinger av Mars og fant at planetene går i ellipser, ikke i sirkler, og at de går raskere nær solen. Den tredje loven knytter omløpstiden til avstanden fra solen. Kepler søkte fysiske årsaker til bevegelsene, men så også en geometrisk harmoni i verden, i Platons ånd. Han forsvarte moren da hun ble anklaget for hekseri.
+    `, [["Mysterium cosmographicum", 1596], ["Astronomia nova", 1609], ["Harmonices mundi", 1619]], [sep("https://plato.stanford.edu/entries/kepler/"), snl("https://snl.no/Johannes_Kepler")]),
     f("Galileo Galilei", [1564, 1642], "mann", ["Vitenskapsfilosofi"], ["Den nye vitenskapen"], ["Paradigme"], [1590, 1642], "Pisa, Padova og Firenze", `
       Italiensk naturfilosof, matematiker og astronom. Med teleskopet så han Jupiters måner og Venus' faser, og med forsøk og matematikk la han grunnen for den moderne fysikken. Naturens bok er skrevet på matematikkens språk, hevdet han i «Il Saggiatore». Inkvisisjonen dømte ham i 1633 for å forsvare Kopernikus, og han levde resten av livet i husarrest.
     `, [["Sidereus Nuncius", 1610], ["Il Saggiatore", 1623], ["Dialog om de to store verdenssystemene", 1632], ["Samtaler om to nye vitenskaper", 1638]], [sep("https://plato.stanford.edu/entries/galileo/")]),

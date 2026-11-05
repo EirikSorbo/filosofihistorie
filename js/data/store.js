@@ -641,6 +641,13 @@ export async function saveReferanser(kilder) {
     { kilder, updatedAt: new Date().toISOString() });
 }
 
+// Utvalgene (content/utvalg, js/felles/utvalg.js): hele lista skrives uten
+// merge, så et utvalg som er tatt ut av lista, faktisk forsvinner.
+export async function saveUtvalg(lister) {
+  return setDoc(doc(db, "content", "utvalg"),
+    { lister, updatedAt: new Date().toISOString() });
+}
+
 
 // ----------------------------------------------------------------------------
 //  ENDRINGSFORSLAG (studentenes foreslåtte endringer på eksisterende kort)

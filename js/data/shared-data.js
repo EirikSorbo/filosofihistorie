@@ -38,6 +38,7 @@ import {
 } from "./store.js";
 import { applyGenealogyDoc } from "../sjangre/genre-model.js";
 import { brukSynlighet } from "../felles/feature-flags.js";
+import { brukUtvalg } from "../felles/utvalg.js";
 import { sjekketRegelAktiv, sjekkene, brukSjekker, settSjekketLaerer } from "../felles/sjekket.js";
 import { filtrerGenreDescs, filtrerEdgeDescs, filtrerTech, filtrerContent } from "./sjekket-filter.js";
 
@@ -137,6 +138,8 @@ export function subscribeSharedData(state, hooks = {}) {
     applyGenealogyDoc(raa.content.genealogy);
     // Bryterne for hva studentene ser (v6.10, U4): content/synlighet.
     brukSynlighet(raa.content.synlighet);
+    // Utvalgene, som «Sofies verden» (content/utvalg, js/felles/utvalg.js).
+    brukUtvalg(raa.content.utvalg);
     onContent?.(utled("content"));
   });
 

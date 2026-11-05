@@ -6,6 +6,7 @@
 // ============================================================================
 
 import { aktivtNivaa, settNivaa, vedNivaaEndring } from "../ui/viktighet.js";
+import { initUtvalgKnapper, vedUtvalgEndring } from "../felles/utvalg.js";
 import { state, ctx, openAdminModal, renderList, settTeacherView, guardTeacherAction, setContentCheck } from "./teacher-state.js";
 import { updateArtistFields, setTeacherChecks, addArtistAktiv } from "../data/store.js";
 import { renderArtistDetail, openArtistListModal, openArtistsPlaylistModal, countPlaylistExamples, countArtistExamples } from "../ui/ui.js";
@@ -162,6 +163,9 @@ export function setupFilters() {
     updatePrioButtons();
     renderList();
   });
+  // Utvalgene (js/felles/utvalg.js): knappene står i samme rad som graden.
+  initUtvalgKnapper($("#t-utvalg-bar"));
+  vedUtvalgEndring(() => renderList());
   const showRemoved = $("#f-show-removed");
   showRemoved.checked = state.filters.showRemoved;
   showRemoved.addEventListener("change", (e) => { state.filters.showRemoved = e.target.checked; renderList(); });

@@ -48,6 +48,7 @@ import { kortUtskriftHtml } from "../utskrift/utskrift-utvalg.js";
 import { ytMaal, ytSpillelisteUrl, ytSpillelisteIder } from "../visning/presentasjon-modell.js";
 import { wireProposeFoot } from "./ui-edit.js";
 import { etterNivaa, aktivtNivaa, NIVAA_TEKST, viktighetSynlig } from "./viktighet.js";
+import { etterUtvalg, aktivtUtvalgNavn, BOK_IKON } from "../felles/utvalg.js";
 
 // Memoisert på artist-array-referansen: subscribeArtists bytter referanse ved
 // hver oppdatering, så samme render-pass treffer cachen i stedet for å bygge
@@ -152,8 +153,9 @@ function prioMerkeHtml(a) {
 // er laget av artistene på nivået, og toppfeltets merke ligger under vinduet.
 function nivaaNotatHtml() {
   const n = aktivtNivaa();
-  if (!n) return "";
-  return `<p class="pl-nivaa"><span class="tag tag-prio prio-${n}" aria-hidden="true">${PRIO_ICONS[n]}</span> Viktighetsnivå: ${escapeHtml(NIVAA_TEKST[n].toLowerCase())}</p>`;
+  const utvalg = aktivtUtvalgNavn();
+  return (n ? `<p class="pl-nivaa"><span class="tag tag-prio prio-${n}" aria-hidden="true">${PRIO_ICONS[n]}</span> Viktighetsnivå: ${escapeHtml(NIVAA_TEKST[n].toLowerCase())}</p>` : "")
+    + (utvalg ? `<p class="pl-nivaa">${BOK_IKON} Utvalg: ${escapeHtml(utvalg)}</p>` : "");
 }
 
 // Innholdet i teoretikerkortet. Delt av kortet som åpnes (renderArtistDetail) og
@@ -293,7 +295,7 @@ export function renderArtists(el, state) {
   if (filters.hideChecked) list = list.filter((a) => !a.teacherChecked);
   // Delt innholdsfilter (sjanger/meta/instrument/undersjanger/prioritet/tiår/søk)
   // — samme funksjon som forsidens filterresultater bruker.
-  list = filterArtists(list, filters);
+  list = etterUtvalg(filterArtists(list, filters));
 
   const hasFilter = hasActiveFilters(filters);
   if (hasFilter) {
@@ -770,7 +772,7 @@ function buildPlaylistHtml(node, artists) {
       .some((s) => String(s).toLowerCase() === sj);
 
   // Bare artistene på det aktive viktighetsnivået (v6.85).
-  const genreArtists = etterNivaa((artists || []).filter((a) => isVisible(a) && matchesSj(a)))
+  const genreArtists = etterNivaa(etterUtvalg((artists || []).filter((a) => isVisible(a) && matchesSj(a))))
     .sort(byInfluenceThenName);
 
   return playlistRows(genreArtists, sj);
@@ -857,11 +859,11 @@ export function countPlaylistExamples(artists, label) {
 //  så tallet i oversikten og popupen aldri kan sprike.
 // ----------------------------------------------------------------------------
 export function countArtistExamples(list) {
-  return playlistRows([...etterNivaa(list)].sort(byInfluenceThenName)).total;
+  return playlistRows([...etterNivaa(etterUtvalg(list))].sort(byInfluenceThenName)).total;
 }
 
 export function openArtistsPlaylistModal(title, list) {
-  const { total, html, ider } = playlistRows([...etterNivaa(list)].sort(byInfluenceThenName));
+  const { total, html, ider } = playlistRows([...etterNivaa(etterUtvalg(list))].sort(byInfluenceThenName));
   document.getElementById("pl-title").textContent = `${title} (${total})`;
   document.getElementById("pl-body").innerHTML = nivaaNotatHtml() + spillAlleHtml(ider) + html;
   kobleSpillelisteRader();

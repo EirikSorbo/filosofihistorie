@@ -27,6 +27,7 @@ import { initVisning, visningTikk } from "./visning/visning.js";
 import { fraTimeneSynlig, delteTimerNaa, fraTimeneRaderHtml } from "./utforsk/explore-timer.js";
 import { initUtskriftValg, leggTil as leggTilUtskrift, TIL_UTSKRIFT_SVG, UTSKRIFT_HAKE_SVG } from "./utskrift/utskrift-utvalg.js";
 import { aktivtNivaa, settNivaa, vedNivaaEndring, initViktighetsMerke } from "./ui/viktighet.js";
+import { aktivtUtvalg, etterUtvalg, vedUtvalgEndring, initUtvalgKnapper, initUtvalgMerke } from "./felles/utvalg.js";
 import { askChoice, melding, modalOpen, modalCloseTop, setupModal } from "./ui/ui-modal.js";
 // Forslagsskjemaene lastes først når noen trenger dem (v7.14): proposals.js med
 // artistskjemaet, radeditoren og sjangervelgeren er rundt 100 kB, og de fleste
@@ -299,8 +300,10 @@ function setupDetailModal() {
 //  Spotlight / listevisning
 // ----------------------------------------------------------------------------
 
+// Et aktivt utvalg (js/felles/utvalg.js) teller som et filter: da står lista her,
+// ikke dagens filosof.
 function hasFilters() {
-  return hasActiveFilters(state.filters);
+  return hasActiveFilters(state.filters) || !!aktivtUtvalg();
 }
 
 // Dagens artist: én fast tilfeldig trukket artist per sidelast, vist BÅDE i
@@ -380,7 +383,7 @@ function renderFilterResults() {
 
   // isVisible-filteret (status/synlighet) først, deretter det delte
   // innholdsfilteret — samme funksjon som «Alle forslag»-lista bruker.
-  const pool = filterArtists(state.artists.filter(isVisible), state.filters);
+  const pool = etterUtvalg(filterArtists(state.artists.filter(isVisible), state.filters));
 
   // Kronologisk, som kortene (renderArtists sorterer filtrerte treff slik).
   pool.sort((a, b) => (a.influenceStart || 0) - (b.influenceStart || 0) || a.name.localeCompare(b.name, "no"));
@@ -508,6 +511,13 @@ function setupFilters() {
   vedNivaaEndring((n) => {
     state.filters.priority = n;
     updatePrioButtons();
+    renderFilterResults();
+    renderList();
+  });
+  // Utvalgene (js/felles/utvalg.js) har sine egne knapper ved siden av graden,
+  // og lista følger dem på samme måte.
+  initUtvalgKnapper(document.getElementById("sp-utvalg-bar"));
+  vedUtvalgEndring(() => {
     renderFilterResults();
     renderList();
   });
@@ -673,6 +683,7 @@ function setupReturPanel() {
 function init() {
   setupFilters();
   initViktighetsMerke();
+  initUtvalgMerke();
   setupProposeButtons();
   setupDetailModal();
   setupExplore();
@@ -699,7 +710,7 @@ function init() {
   const utskriftListe = document.getElementById("btn-utskrift-liste");
   if (utskriftListe) utskriftListe.innerHTML = TIL_UTSKRIFT_SVG;
   utskriftListe?.addEventListener("click", async () => {
-    const pool = filterArtists(state.artists.filter(isVisible), state.filters);
+    const pool = etterUtvalg(filterArtists(state.artists.filter(isVisible), state.filters));
     if (!pool.length) return;
     if (!hasFilters() && pool.length > 20) {
       const ok = await askChoice({
