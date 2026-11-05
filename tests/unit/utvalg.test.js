@@ -54,6 +54,7 @@ test("uten aktivt utvalg er alt med; med utvalg bare navnene i det", () => {
   } finally {
     settUtvalg("");
     settLaererside(false);
+    lager.delete("pensum-utvalg-laerer");
   }
 });
 
@@ -65,6 +66,10 @@ test("utvalget gjelder bare når det er synlig: læreren alltid, studentene når
     settLaererside(true);
     settUtvalg("sofies-verden");
     settLaererside(false);
+    assert.equal(lager.get("pensum-utvalg-laerer"), "1", "lærersiden merker nettleseren");
+    assert.equal(utvalgSynlig(), true, "lærerens nettleser ser utvalget også på forsiden og i treet");
+    assert.equal(aktivtUtvalg(), "sofies-verden");
+    lager.delete("pensum-utvalg-laerer");   // en students nettleser
     assert.equal(utvalgSynlig(), false);
     assert.equal(aktivtUtvalg(), "");
     assert.deepEqual(alleUtvalg(), []);
@@ -77,6 +82,7 @@ test("utvalget gjelder bare når det er synlig: læreren alltid, studentene når
     settLaererside(true);
     settUtvalg("");
     settLaererside(false);
+    lager.delete("pensum-utvalg-laerer");
   }
 });
 
@@ -91,6 +97,7 @@ test("lytterne får id-en ved hver endring, også når et nytt utvalg lander", (
   settUtvalg("");
   assert.deepEqual(fikk, ["", "", "sofies-verden", ""]);
   settLaererside(false);
+  lager.delete("pensum-utvalg-laerer");
 });
 
 test("utvalget er koblet inn der viktighetsnivået virker, og i treet og milepælene", () => {

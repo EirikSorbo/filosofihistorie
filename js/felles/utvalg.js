@@ -14,8 +14,9 @@
 //
 //  Som viktighetsnivået: ett aktivt utvalg for hele appen, lagret i
 //  localStorage, med et merke i toppfeltet som slår det av. Det gjelder bare når
-//  utvalgene er synlige: alltid for læreren, for studentene når bryteren
-//  «Utvalgene» (Skrivebordet, «Synlig for studentene») er på.
+//  utvalgene er synlige: alltid i nettleseren der læreren har logget inn (på
+//  alle sidene, se settLaererside), for studentene når bryteren «Utvalgene»
+//  (Skrivebordet, «Synlig for studentene») er på.
 //
 //  Hvor det virker: filosoflistene og spillelistene (som viktighetsnivået),
 //  Milepæler-vinduet, og slektstreet, der epokene utenfor utvalget blir grå i
@@ -58,11 +59,24 @@ let lister = {};
 let signatur = "";
 
 let laererside = false;
-// Lærersiden ser alltid utvalgene (teacher.js kaller denne ved oppstart).
-export function settLaererside(v = true) { laererside = !!v; }
+// Lærersiden ser alltid utvalgene (teacher.js kaller denne etter innloggingen).
+// Den merker også nettleseren: forsiden og slektstreet vet ikke hvem som er
+// logget inn, og uten merket ble et utvalg læreren slo på, borte i treet til det
+// var sluppet til studentene (Eirik 2026-11-05). Studentenes nettlesere har
+// ikke merket og følger bryteren.
+const LAERER_NOKKEL = "pensum-utvalg-laerer";
+export function settLaererside(v = true) {
+  laererside = !!v;
+  if (laererside) {
+    try { localStorage.setItem(LAERER_NOKKEL, "1"); } catch (e) { /* uten lagring gjelder bryteren */ }
+  }
+}
+function laererNettleser() {
+  try { return localStorage.getItem(LAERER_NOKKEL) === "1"; } catch (e) { return false; }
+}
 
 export function utvalgSynlig() {
-  return laererside || !!getState().isTeacher || !SKJUL_I_STUDENTVISNING.utvalg;
+  return laererside || !!getState().isTeacher || laererNettleser() || !SKJUL_I_STUDENTVISNING.utvalg;
 }
 
 // Kalles av datalaget (shared-data.js) ved hvert innholds-snapshot.

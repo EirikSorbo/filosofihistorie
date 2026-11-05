@@ -185,8 +185,10 @@ er det ett aktivt utvalg for appen, lagret i localStorage, med et merke i
 toppfeltet som slår det av. Filosoflistene, spillelistene og Milepæler-vinduet
 viser bare det som er i utvalget, og i slektstreet blir epokene utenfor grå
 (`gx-utenfor` i `js/sjangre/genealogy-bundled.js`). Læreren ser alltid
-utvalgene. Studentene ser dem når «Utvalgene» er på under «Synlig for
-studentene».
+utvalgene, også på forsiden og i slektstreet: lærersiden merker nettleseren
+etter innloggingen (`pensum-utvalg-laerer` i localStorage, v0.06), siden de
+sidene ikke vet hvem som er logget inn. Studentene ser utvalgene når
+«Utvalgene» er på under «Synlig for studentene».
 
 ## Design
 
