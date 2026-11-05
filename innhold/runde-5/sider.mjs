@@ -117,9 +117,10 @@ export default {
         3. Eksistens og tolkning, Logikk og analyse og Andre tradisjoner
         4. Milepæler
         5. Innholdssidene: Om historie, Slik bruker du appen, Skriveveiledning og denne håndboka
+        6. Utvalgene, som Sofies verden
 
         ### Import
-        Importer **treet** først (json files/filosofi-skjelett.json), deretter rundene i rekkefølgen over. Ta en **Eksporter** først, som sikkerhetskopi. Velg **«Slå sammen»** for alt etter runde 1: **«Erstatt alle»** sletter filosofene som ikke står i fila. Filosofer og milepæler matches på navn, så en runde kan importeres på nytt uten dubletter. Innholdssidene erstattes i sin helhet.
+        Importer **treet** først (json files/filosofi-skjelett.json), deretter rundene i rekkefølgen over. Ta en **Eksporter** først, som sikkerhetskopi. Velg **«Erstatt alle»** for runde 1 og **«Slå sammen»** for runde 2 og 3: **«Erstatt alle»** sletter filosofene som ikke står i fila. Rundene 4 til 6 har ingen filosofer, så der spør appen bare om du vil importere. Filosofer og milepæler matches på navn, så en runde kan importeres på nytt uten dubletter. Innholdssidene erstattes i sin helhet.
 
         ### Sjekk innholdet
         Alt som importeres, er usjekket. **Skrivebordet** viser det som venter på deg. Når **«Bare sjekket innhold»** står på under «Synlig for studentene», ser studentene bare det du har sjekket. Endrer en ny import teksten på noe du har sjekket, fjernes sjekken, så du ser det på nytt.

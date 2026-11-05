@@ -96,7 +96,7 @@ Eirik la seg og ba om at det ikke skulle spørres. Disse valgene er derfor Claud
 
 ## Neste steg for Eirik
 
-1. Importer på lærersiden, Innstillinger, Importer, i denne rekkefølgen: `json files/filosofi-skjelett.json` (treet erstattes helt), så `runde-1.json` med «Erstatt alle», og `runde-2.json` til `runde-6.json` med «Slå sammen». Bruk «Erstatt alle» på runde 1 også om noen filosofer allerede ligger inne: «Slå sammen» tar ikke med viktighetsgraden på kort som alt finnes.
+1. Importer på lærersiden, Innstillinger, Importer, i denne rekkefølgen: `json files/filosofi-skjelett.json` (treet erstattes helt), så `runde-1.json` med «Erstatt alle», så `runde-2.json` og `runde-3.json` med «Slå sammen», og til slutt `runde-4.json` til `runde-6.json`. De tre siste har ingen filosofer, så appen spør bare om du vil importere dem, ikke om du vil erstatte eller slå sammen. «Erstatt alle» sletter bare filosofkortene, men må komme før runde 2 og 3, ellers sletter den filosofene derfra. Bruk den på runde 1 også om noen filosofer allerede ligger inne: «Slå sammen» tar ikke med viktighetsgraden på kort som alt finnes.
 2. Åpne epokeredigeringen og trykk «Sjekk koblingsbeskrivelsene for foreldreløse». Tekstene til strekene som ikke finnes lenger, vises ikke noe sted, men ligger i databasen til de slettes der.
 3. Se treet i appen igjen og si fra om flere epoker skal slås sammen eller deles.
 4. Bestem om en uavhengig kontrollrunde skal kjøres (subagenter startes bare når Eirik ber om det).
